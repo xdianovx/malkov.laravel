@@ -1,0 +1,25 @@
+.map-section {
+    background: $bgAccent;
+    height: 480px;
+}
+
+@media screen and (max-width: 1440px) {
+    .map-section {
+        height: 348px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .map-section {
+        height: 348px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+}
+
+@media screen and (max-width: 550px) {
+}
+
+@media screen and (max-width: 320px) {
+}

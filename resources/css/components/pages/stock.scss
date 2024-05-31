@@ -1,0 +1,62 @@
+.section-news__text {
+    max-width: 590px;
+    width: 100%;
+    margin-top: 32px;
+}
+
+.section-stock {
+    .divider {
+        margin-top: 32px;
+    }
+}
+
+
+.stock-items-sections__items {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.stock-item {
+    border: 1px solid #D9D9D9;
+    padding: 24px 20px;
+}
+
+.stock-item__title {
+    font-family: 'Forum', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: $textAccent;
+    line-height: 100%;
+}
+
+.stock-item__text {
+    margin-top: 16px;
+}
+
+.stock-item__bottom {
+    margin-top: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media screen and (max-width: 1440px) {
+}
+
+@media screen and (max-width: 1200px) {
+    .stock-items-sections__items {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+}
+
+@media screen and (max-width: 550px) {
+}
+
+@media screen and (max-width: 320px) {
+}
+

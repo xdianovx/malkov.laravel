@@ -1,0 +1,59 @@
+.uppercase {
+    text-transform: uppercase;
+}
+
+.divider {
+    background: $bgAccent;
+
+    &.horizontal {
+        height: 1px;
+    }
+
+    &.gray {
+        background: #d9d9d9;
+    }
+}
+
+.ml-auto {
+    margin-left: auto;
+}
+
+.section {
+    margin-top: 240px;
+
+    &.hero {
+        margin-top: 120px;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .section {
+        margin-top: 160px;
+
+        &.hero {
+            margin-top: 60px;
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .section {
+        margin-top: 120px;
+
+        &.hero {
+            margin-top: 60px;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .section {
+        margin-top: 100px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .section {
+        margin-top: 80px;
+    }
+}

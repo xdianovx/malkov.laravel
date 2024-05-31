@@ -1,0 +1,75 @@
+.news-section__top {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.news-section__items {
+    margin-top: 32px;
+}
+
+// Item
+
+.news-item {
+    display: flex;
+    flex-direction: column;
+    &:hover {
+        .news-item__image {
+            img {
+                transform: scale(1.1);
+            }
+        }
+
+        .news-item__title {
+            color: $textAccent;
+        }
+    }
+}
+
+.news-item__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    line-height: 100%;
+    margin-top: 16px;
+}
+
+.news-item__image {
+    overflow: hidden;
+    border-radius: 4px;
+    img {
+        transition: transform 0.3s ease-in-out;
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+    }
+}
+
+.news-item__time {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.news-item__title {
+    transition: color 0.3s ease-in-out;
+
+    margin-top: 18px;
+    font-family: "Forum", serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+    color: $textBlue;
+}
+
+.news-item__descr {
+    margin-top: 16px;
+}
+
+.news-section__btn {
+    margin: 32px auto 0;
+    display: flex;
+    max-width: 200px;
+}

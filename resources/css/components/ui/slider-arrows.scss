@@ -1,0 +1,39 @@
+.slider-arrows {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.slider-arrows-black {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    .btn-arrow {
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 100%;
+        border: 1px solid $bgBlack;
+        cursor: pointer;
+    }
+}
+
+.btn-arrow {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    border: 1px solid $bgWhite;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .btn-arrow {
+        width: 40px;
+        height: 40px;
+    }
+}

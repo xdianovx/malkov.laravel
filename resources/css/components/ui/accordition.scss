@@ -1,0 +1,79 @@
+.accordion {
+    overflow: hidden;
+    border-bottom: 1px solid #d9d9d9;
+
+    &.active {
+        .accordion__intro {
+        }
+
+        .accordion__content {
+            opacity: 1;
+        }
+
+        .accordion__chevron {
+            transform: rotate(180deg);
+            stroke: $bgAccent;
+        }
+
+        .accordion__title {
+            color: $textAccent;
+        }
+    }
+}
+
+.accordion__chevron {
+    transition: all 0.25s ease-out;
+}
+
+.accordion__intro {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 0;
+}
+
+.accordion__content {
+    max-height: 0;
+    overflow: hidden;
+    will-change: max-height;
+    transition: all 0.25s ease-out;
+}
+
+.accordion__content-inner {
+    padding: 32px 0;
+}
+
+.accordion__title {
+    font-family: "Forum", sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    transition: all 0.25s ease-out;
+
+    line-height: 120%;
+}
+
+@media screen and (max-width: 1200px) {
+    .accordion__title {
+        font-size: 18px;
+    }
+
+    .accordion__intro {
+        padding: 12px 0;
+    }
+
+    .accordion__chevron {
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+
+        svg {
+            width: 100%;
+            display: block;
+            height: 100%;
+        }
+    }
+}

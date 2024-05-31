@@ -1,0 +1,125 @@
+.about-hero__wrap {
+    margin-top: 32px;
+    display: flex;
+    align-items: flex-start;
+    gap: 128px;
+}
+
+.about-numbers {
+    margin-top: 40px;
+}
+
+.section-director__wrap {
+    display: flex;
+    align-items: center;
+    gap: 138px;
+}
+
+.section-director__image {
+    max-width: 580px;
+    width: 100%;
+    flex-shrink: 0;
+    img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+}
+
+
+
+.section-director__name {
+    font-family: 'Forum', serif;
+    font-weight: 400;
+    color: $textBlue;
+    line-height: 100%;
+    font-size: 36px;
+    text-transform: uppercase;
+}
+
+.section-director__subtitle {
+    margin-top: 8px;
+    color: $textAccent;
+}
+
+.section-director__quote {
+    font-style: italic;
+    margin-top: 40px;
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 120%;
+}
+
+.section-director__nums {
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 16px;
+}
+
+.section-director__num {
+
+}
+
+.section-director__num-num {
+    font-family: 'Forum', serif;
+    color: $textBlue;
+    line-height: 100%;
+    font-size: 80px;
+}
+
+.section-director__num-text {
+    color: $textAccent;
+}
+
+@media screen and (max-width: 1440px) {
+    .section-director__wrap {
+        gap: 64px;
+    }
+    .section-director__image {
+        max-width: 480px;
+    }
+
+    .section-director__quote {
+        font-size: 18px;
+        margin-top: 24px;
+        max-width: 480px;
+    }
+
+    .section-director__num-num {
+        font-size: 64px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .about-hero__wrap {
+        gap: 32px;
+        margin-top: 16px;
+        font-size: 14px;
+        line-height: 130%;
+    }
+    .section-director__wrap {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .section-director__nums {
+        margin-top: 32px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .about-hero__wrap {
+        gap: 16px;
+        margin-top: 16px;
+        font-size: 14px;
+        line-height: 130%;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 550px) {
+}
+
+@media screen and (max-width: 320px) {
+}

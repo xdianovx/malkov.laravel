@@ -1,0 +1,23 @@
+.input {
+    background: transparent;
+    width: 100%;
+    border: none;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba($bgBlack, 0.7);
+}
+
+.form-policy {
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 120%;
+
+    a {
+        color: $textAccent;
+        transition: color 0.2s ease;
+
+        &:hover {
+            color: $textBlack;
+        }
+    }
+}

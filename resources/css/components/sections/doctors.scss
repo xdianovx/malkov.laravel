@@ -1,0 +1,43 @@
+.doctors-section__top {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.doctors-section__top-descr {
+    margin-top: 16px;
+}
+
+.doctors-section__items {
+    margin-top: 64px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px 16px;
+}
+
+
+@media screen and (max-width: 1200px) {
+    .doctors-section__items {
+        margin-top: 64px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px 16px;
+    }
+
+
+}
+
+@media screen and (max-width: 768px) {
+    .doctors-section__top-btn {
+        display: none;
+    }
+}
+@media screen and (max-width: 550px) {
+    .doctors-section__items {
+        margin-top: 64px;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 32px 16px;
+    }
+
+}

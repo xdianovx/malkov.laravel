@@ -1,0 +1,98 @@
+.btn {
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    border-radius: 100px;
+    border: 1px solid $bgAccent;
+    color: $textWhite;
+    background: transparent;
+    padding: 13px 32px 13px;
+    line-height: 100%;
+
+    &.--accent {
+        background: $bgAccent;
+
+        &:hover {
+            background: $bgAccentHover;
+        }
+    }
+
+    &:hover {
+        background: $bgAccent;
+    }
+}
+
+.button-arrow {
+    position: relative;
+    border-radius: 100px;
+    background: $bgBlack;
+    border: none;
+    padding: 4px 4px 4px 20px;
+    color: $textWhite;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+
+
+    &.accent {
+        color: $textWhite;
+        background: $bgAccent;
+
+        &:hover {
+            background: $bgBlack;
+
+        }
+    }
+
+    &:hover {
+        color: $textWhite;
+        background: $bgAccent;
+
+        .button-arrow-icon {
+            transform: rotate(45deg);
+        }
+    }
+
+}
+
+.button-arrow-icon {
+    width: 32px;
+    transition: all .2s ease-in-out;
+
+    height: 32px;
+    background: $bgWhite;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 1440px) {
+    .btn {
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .btn {
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .btn {
+        padding: 11px 32px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .btn {
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .btn {
+    }
+}
