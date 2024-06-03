@@ -1,0 +1,39 @@
+.service-single-hero {
+}
+
+.service-single-hero__wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .h1 {
+        text-align: center;
+    }
+
+    .divider {
+        margin-top: 32px;
+        width: 100%;
+    }
+}
+
+.service-single-hero__content {
+    margin-top: 32px;
+    text-align: center;
+    max-width: 710px;
+}
+
+.service-single-hero__btn {
+    margin-top: 32px;
+}
+
+.service-content__wrap {
+    display: grid;
+    grid-template-columns: 348px 1fr;
+    gap: 137px;
+}
+
+.price-section__item {
+    padding: 24px 32px;
+    border-radius: 8px;
+    border: 1px solid $textGray;
+}

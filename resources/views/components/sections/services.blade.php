@@ -56,12 +56,12 @@
         <div class="services-section__top">
             <h2 class="h2">Наши услуги</h2>
 
-            <button class="btn accent">Все услуги</button>
+            <x-ui.button-arrow text="Все новости" class="" href='/usligi' />
         </div>
 
         <div class="services-items">
             @foreach ($data as $item)
-                <a href="/" class="services-item">
+                <a href="/usligi/asdasd" class="services-item">
                     <h3 class="services-item__title">Протезирование</h3>
                     <p class="services-item__text">
                         Кратко и по делу описываем почему у нас. Можно в две строчки, но сохранив суть, даже можно в три

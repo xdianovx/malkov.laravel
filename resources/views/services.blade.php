@@ -12,7 +12,7 @@
                     Услуги клиники Доктора Малькова
                 </h1>
 
-                {{-- <div class="btn --accent ml-auto">Быстрая запись</div> --}}
+                <button data-micromodal-trigger="modal-callback" class="btn --accent ml-auto">Быстрая запись</button>
             </div>
 
             <div class="divider horizontal gray"></div>
@@ -47,7 +47,7 @@
 
             <div class="section-services__items">
                 @foreach ($data as $item)
-                    <a href="/" class="service-item">
+                    <a href="/usligi/asd" class="service-item">
                         <div class="service-item__img">
                             <img src="{{ asset('img/news/1.jpg') }}" alt="">
                         </div>
@@ -61,7 +61,8 @@
 
                         <div class="service-item__bottom">
                             <div class="service-item__price">14 800 руб.</div>
-                            <button class="service-item__btn">Быстрая запись</button>
+                            <button class="service-item__btn" data-micromodal-trigger="modal-callback">Быстрая
+                                запись</button>
                         </div>
 
                         <div class="divider horizontal gray"></div>

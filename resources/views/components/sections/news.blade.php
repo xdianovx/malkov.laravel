@@ -28,7 +28,7 @@
     <div class="container">
         <div class="news-section__top">
             <h2 class="h2">Статьи и новости</h2>
-            <x-ui.slider-arrows-black/>
+            <x-ui.slider-arrows-black />
         </div>
 
 
@@ -38,7 +38,7 @@
                 <div class="swiper-wrapper">
                     @foreach ($data as $item)
                         <div class="swiper-slide">
-                            <x-news-item/>
+                            <x-news-item />
                         </div>
                     @endforeach
 
@@ -46,6 +46,6 @@
 
             </div>
 
-            <x-ui.button-arrow text="Все новости" class="news-section__btn"/>
+            <x-ui.button-arrow text="Все новости" href='/novosti' class="news-section__btn" />
         </div>
 </section>

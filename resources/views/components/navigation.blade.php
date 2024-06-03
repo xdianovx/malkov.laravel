@@ -72,14 +72,14 @@
         <div class="navigation-wrap">
             <div class="navigation-left">
                 <nav class="nav-left">
-                    <a href="">Пациентам</a>
+                    <a href="/patsiientam">Пациентам</a>
                     <a href="/usligi">Услуги</a>
                     <a href="/akcii">Акции</a>
                     <a href="/vrachi">Врачи</a>
                     <a href="/novosti">Новости</a>
                     <a href="/kontakty">Контакты</a>
                     <a href="/o-klinike">О клинике</a>
-                    <a href="">Отзывы</a>
+                    <a href="/otzyvy">Отзывы</a>
                 </nav>
 
                 <div class="divider horizontal"></div>

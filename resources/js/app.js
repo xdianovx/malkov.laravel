@@ -1,11 +1,17 @@
 // import "./bootstrap";
 import "swiper/css/bundle";
-import Swiper from "swiper/bundle";
-import { accordition } from "./modules/accordition";
 import MicroModal from "micromodal";
+import Swiper from "swiper/bundle";
+
+import {accordition} from "./modules/accordition";
+import {mask} from "@/modules/mask";
 
 accordition();
-MicroModal.init({ disableScroll: true });
+mask()
+
+MicroModal.init({disableScroll: true});
+
+
 const burger = document.querySelector(".burger");
 const navigation = document.querySelector(".navigation");
 

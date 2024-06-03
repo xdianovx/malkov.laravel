@@ -29,11 +29,11 @@
     padding: 4px 4px 4px 20px;
     color: $textWhite;
     display: inline-flex;
+    justify-content: space-between;
     align-items: center;
     gap: 10px;
     cursor: pointer;
-    transition: all .2s ease-in-out;
-
+    transition: all 0.2s ease-in-out;
 
     &.accent {
         color: $textWhite;
@@ -41,7 +41,6 @@
 
         &:hover {
             background: $bgBlack;
-
         }
     }
 
@@ -53,13 +52,11 @@
             transform: rotate(45deg);
         }
     }
-
 }
 
 .button-arrow-icon {
     width: 32px;
-    transition: all .2s ease-in-out;
-
+    transition: all 0.2s ease-in-out;
     height: 32px;
     background: $bgWhite;
     -webkit-border-radius: 100%;

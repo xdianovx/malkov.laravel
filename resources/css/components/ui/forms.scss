@@ -4,6 +4,10 @@
     border: none;
     padding: 16px 0;
     border-bottom: 1px solid rgba($bgBlack, 0.7);
+
+    &::placeholder {
+        color: $textBlack;
+    }
 }
 
 .form-policy {

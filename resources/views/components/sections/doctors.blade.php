@@ -3,7 +3,7 @@
         [
             'name' => 'Дорошенко Владислава Сергеевна',
             'professions' => ['Стоматолог', 'Терапевт', 'Хирург', 'Ортодонт', 'Ортопед'],
-            'slug' => '/',
+            'slug' => '/vrachi/vrach',
             'image' => 'img/doctors/1.jpg',
             'expirience' => '7 лет',
             'rating' => 5,
@@ -11,7 +11,7 @@
         [
             'name' => 'Дорошенко Владислава Сергеевна',
             'professions' => ['Стоматолог', 'Терапевт', 'Хирург', 'Ортодонт', 'Ортопед'],
-            'slug' => '/',
+            'slug' => '/vrachi/vrach',
             'image' => 'img/doctors/1.jpg',
             'expirience' => '7 лет',
             'rating' => 5,
@@ -19,7 +19,7 @@
         [
             'name' => 'Дорошенко Владислава Сергеевна',
             'professions' => ['Стоматолог', 'Терапевт', 'Хирург', 'Ортодонт', 'Ортопед'],
-            'slug' => '/',
+            'slug' => '/vrachi/vrach',
             'image' => 'img/doctors/1.jpg',
             'expirience' => '7 лет',
             'rating' => 5,
@@ -27,7 +27,7 @@
         [
             'name' => 'Дорошенко Владислава Сергеевна',
             'professions' => ['Стоматолог', 'Терапевт', 'Хирург', 'Ортодонт', 'Ортопед'],
-            'slug' => '/',
+            'slug' => '/vrachi/vrach',
             'image' => 'img/doctors/1.jpg',
             'expirience' => '7 лет',
             'rating' => 5,
@@ -35,7 +35,7 @@
         [
             'name' => 'Дорошенко Владислава Сергеевна',
             'professions' => ['Стоматолог', 'Терапевт', 'Хирург', 'Ортодонт', 'Ортопед'],
-            'slug' => '/',
+            'slug' => '/vrachi/vrach',
             'image' => 'img/doctors/1.jpg',
             'expirience' => '7 лет',
             'rating' => 5,
@@ -43,7 +43,7 @@
         [
             'name' => 'Дорошенко Владислава Сергеевна',
             'professions' => ['Стоматолог', 'Терапевт', 'Хирург', 'Ортодонт', 'Ортопед'],
-            'slug' => '/',
+            'slug' => '/vrachi/vrach',
             'image' => 'img/doctors/1.jpg',
             'expirience' => '7 лет',
             'rating' => 5,
