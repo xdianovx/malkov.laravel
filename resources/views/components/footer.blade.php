@@ -19,8 +19,8 @@
             </div>
 
             <nav class="footer__nav">
-                <a href="/uslugi">Услуги</a>
-                <a href="/akcii">Акции</a>
+                <a href="{{ route('services') }}">Услуги</a>
+                <a href="{{ route('stocks') }}">Акции</a>
                 <a href="/pacientam">Пациентам</a>
                 <a href="/vrachi">Врачи</a>
                 <a href="/kontakty">Контакты</a>

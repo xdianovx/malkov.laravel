@@ -1,76 +1,22 @@
-@php
-    $data = [
-        [
-            'id' => '1',
-            'title' => '1',
-            'text' => '1',
-            'slug' => '1',
-        ],
-        [
-            'id' => '1',
-            'title' => '1',
-            'text' => '1',
-            'slug' => '1',
-        ],
-        [
-            'id' => '1',
-            'title' => '1',
-            'text' => '1',
-            'slug' => '1',
-        ],
-        [
-            'id' => '1',
-            'title' => '1',
-            'text' => '1',
-            'slug' => '1',
-        ],
-        [
-            'id' => '1',
-            'title' => '1',
-            'text' => '1',
-            'slug' => '1',
-        ],
-        [
-            'id' => '1',
-            'title' => '1',
-            'text' => '1',
-            'slug' => '1',
-        ],
-        [
-            'id' => '1',
-            'title' => '1',
-            'text' => '1',
-            'slug' => '1',
-        ],
-        [
-            'id' => '1',
-            'title' => '1',
-            'text' => '1',
-            'slug' => '1',
-        ],
-    ];
-@endphp
-
 <section class="services-section section">
     <div class="container">
         <div class="services-section__top">
             <h2 class="h2">Наши услуги</h2>
 
-            <x-ui.button-arrow text="Все новости" class="" href='/usligi' />
+            <x-ui.button-arrow text="Все услуги" class="" href="{{ route('services') }}" />
         </div>
 
         <div class="services-items">
-            @foreach ($data as $item)
-                <a href="/usligi/asdasd" class="services-item">
-                    <h3 class="services-item__title">Протезирование</h3>
-                    <p class="services-item__text">
-                        Кратко и по делу описываем почему у нас. Можно в две строчки, но сохранив суть, даже можно в три
-                        если очень надо
-                    </p>
+            @forelse ($data as $item)
+                <a href="{{ route('service-single', $item->slug) }}" class="services-item">
+                    <h3 class="services-item__title">{{ $item->title }}</h3>
+                    <p class="services-item__text">{{ $item->content }}</p>
 
-                    <div class="services-item__price">от 7 800 руб.</div>
+                    <div class="services-item__price">от {{ $item->prices->min('price') }}</div>
                 </a>
-            @endforeach
+            @empty
+                <p>{{ __('admin.notification_no_entries') }}</p>
+            @endforelse
         </div>
     </div>
 </section>

@@ -1,6 +1,7 @@
+@isset($data->file)
 <section class="section showreel-section">
     <div class="showreel">
-
-        <img src="{{ asset('img/video.png') }}" alt="">
+        <img src="{{ $data->file }}" alt="">
     </div>
 </section>
+@endisset

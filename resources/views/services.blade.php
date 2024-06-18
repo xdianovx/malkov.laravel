@@ -1,6 +1,4 @@
-@php
-    $data = [[''], [''], [''], [''], [''], [''], [''], [''], [''], [''], [''], ['']];
-@endphp
+
 
 @extends('layouts.main')
 
@@ -9,7 +7,7 @@
         <div class="container">
             <div class="hero-services__top">
                 <h1 class="h1 uppercase">
-                    Услуги клиники Доктора Малькова
+                    {!! $service_page->h1_title !!}
                 </h1>
 
                 <button data-micromodal-trigger="modal-callback" class="btn --accent ml-auto">Быстрая запись</button>
@@ -18,15 +16,7 @@
             <div class="divider horizontal gray"></div>
 
             <div class="hero-services__texts">
-                <p>
-                    Стоматологическая имплантация — это уникальный метод восстановления утраченных зубов. Только зубные
-                    имплантаты позволяют полностью восстановить функциональность зуба, включая корень зуба, и не затрагивая
-                    соседние зубы.
-                </p>
-
-                <p>Стоматологическая имплантация — это уникальный метод восстановления утраченных зубов. Только зубные
-                    имплантаты позволяют полностью восстановить функциональность зуба, включая корень зуба, и не затрагивая
-                    соседние зубы.</p>
+                {!! $service_page->description !!}
             </div>
         </div>
     </section>
@@ -46,29 +36,29 @@
             </div>
 
             <div class="section-services__items">
-                @foreach ($data as $item)
-                    <a href="/usligi/asd" class="service-item">
+                @forelse($services as $item)
+                    <a href="{{ route('service-single', $item->slug) }}" class="service-item">
                         <div class="service-item__img">
-                            <img src="{{ asset('img/news/1.jpg') }}" alt="">
+                            <img src="{{ $item->image }}" alt="">
                         </div>
 
-                        <h3 class="service-item__title">ЛЕЧЕНИЕ ПОВЕРХНОСТНОГО КАРИЕСА</h3>
+                        <h3 class="service-item__title">{{ $item->title }}</h3>
 
-                        <p class="service-item__text">
-                            При наличии изменений в структуре зуба, связанной с декальцинацией,
-                            нарушением распределения минеральных солей в эмали, наблюдается развитие поверхностного кариеса.
-                        </p>
+                        <p class="service-item__text">{!! $item->content !!}</p>
 
                         <div class="service-item__bottom">
-                            <div class="service-item__price">14 800 руб.</div>
+                            @if(!$item->prices->isEmpty())
+                            <div class="service-item__price">от {{$item->prices->min('price')}}</div>
+                            @endif
                             <button class="service-item__btn" data-micromodal-trigger="modal-callback">Быстрая
                                 запись</button>
                         </div>
 
                         <div class="divider horizontal gray"></div>
-
                     </a>
-                @endforeach
+                @empty
+                    <p>{{ __('admin.notification_no_entries') }}</p>
+                @endforelse
 
             </div>
         </div>

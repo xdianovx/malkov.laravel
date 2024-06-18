@@ -1,10 +1,10 @@
 @extends('layouts.main')
 
 @section('content')
-    <x-sections.index-hero />
-    <x-sections.stock-slider />
-    <x-sections.services />
-    <x-sections.showreel />
+    <x-sections.index-hero  :item="$home_page"/>
+    <x-sections.stock-slider :data="$stocks"/>
+    <x-sections.services :data="$services"/>
+    <x-sections.showreel :data="$show_reel"/>
     <x-sections.doctors />
     <x-sections.reviews-external />
     <x-sections.map />
