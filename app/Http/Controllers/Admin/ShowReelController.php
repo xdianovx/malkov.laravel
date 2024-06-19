@@ -71,8 +71,18 @@ class ShowReelController extends BaseController
         $user = Auth::user();
         $page = Page::whereSlug($page_slug)->firstOrFail();
         $item = ShowReel::whereId($show_reel_id)->firstOrFail();
-
-        return view('admin.page.show_reels.edit', compact('user', 'item', 'page'));
+        $files = [];
+        if ($this->format_file(pathinfo($item->file)['dirname'], 'view_file') == 'videos') :
+            $files['video'] = $item->file;
+        elseif ($this->format_file(pathinfo($item->file)['dirname'], 'view_file') == 'images') :
+            $files['image'] = $item->file;
+        endif;
+        if ($this->format_file(pathinfo($item->file_mob)['dirname'], 'view_file_mob') == 'videos') :
+            $files['video_mob'] = $item->file_mob;
+        elseif ($this->format_file(pathinfo($item->file_mob)['dirname'], 'view_file_mob') == 'images') :
+            $files['image_mob'] = $item->file_mob;
+        endif;
+        return view('admin.page.show_reels.edit', compact('user', 'item', 'page', 'files'));
     }
     public function update(UpdateRequest $request, $page_slug, $show_reel_id)
     {

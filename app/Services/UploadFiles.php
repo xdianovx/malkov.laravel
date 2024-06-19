@@ -17,9 +17,6 @@ class UploadFiles
         if ($request->is('*/services/*')) {
             $directory = 'uploads/services/' . $id_or_slug . '/images/';
         }
-        if ($request->is('*/categories_blog/*')) {
-            $directory = 'uploads/categories_blog/' . $id_or_slug . '/images/';
-        }
         if ($request->is('*/blogs/*')) {
             $directory = 'uploads/blogs/' . $id_or_slug . '/images/';
         }
@@ -28,6 +25,9 @@ class UploadFiles
         }
         if ($request->is('*/stocks/*')) {
             $directory = 'uploads/stocks/' . $id_or_slug . '/images/';
+        }
+        if ($request->is('*/specialists/*')) {
+            $directory = 'uploads/specialists/' . $id_or_slug . '/images/';
         }
         $defaultImage = Image::read($data);
         $filename = Str::ulid() . '.webp';

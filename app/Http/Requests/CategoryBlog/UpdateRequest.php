@@ -3,6 +3,7 @@
 namespace App\Http\Requests\CategoryBlog;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateRequest extends FormRequest
 {
@@ -22,9 +23,7 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required', 'max:70'],
-            'image' => 'nullable|image',
-            'image_mob' => 'nullable|image',
+            'title' => ['required', 'max:70', Rule::unique('categories_blog')->ignore($this->old_title, 'title')],
             'description'  => ['nullable'],
             'description_footer' => ['nullable'],
         ];

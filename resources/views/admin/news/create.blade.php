@@ -45,10 +45,7 @@
                                         <input type="text" value="{{ old('h1_title') }}" class="form-control"
                                             id="valueInput" name="h1_title" placeholder="{{__('admin.placeholder_text')}}">
                                     </div>
-
                                 </div>
-
-
                                 <div class="col-xxl-6 col-md-6">
                                     <div>
                                         <label for="formFile" class="form-label">{{__('admin.field_image_mob')}}</label>

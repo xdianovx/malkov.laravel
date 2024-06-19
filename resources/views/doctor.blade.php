@@ -1,17 +1,3 @@
-@php
-    $data = [
-        'name' => 'Дорошенко <br> Владислава Сергеевна',
-        'image' => 'img/doctors/1.jpg',
-        'expirience' => '7 лет',
-        'rating' => 4,
-        'info' => '<h4 class="h4">Образование:</h4><p>2015г. — Диплом по специальности «Стоматология», Первый Московский
-        государственный медицинский университет имени И.М. Сеченова</p><p>2016г. — Интернатура по специальности
-        «Стоматология общей практики», Первый Московский государственный медицинский университет имени И.М. Сеченова</p><h4 class="h4">Образование:</h4><p>2015г.  Диплом по специальности «Стоматология», Первый Московский
-        государственный медицинский университет имени И.М. Сеченова</p><p>2016г. — Интернатура по специальности
-        «Стоматология общей практики», Первый Московский государственный медицинский университет имени И.М. Сеченова</p>',
-        'expirience_info' => ''
-    ]
-@endphp
 
 @extends('layouts.main')
 
@@ -21,16 +7,16 @@
         <div class="container">
             <div class="section-doctor__wrap">
 
-                <img class="section-doctor__image" src="{{asset('img/doctors/1.jpg')}}" alt="">
+                <img class="section-doctor__image" src="{{$specialist->image}}" alt="">
                 <div class="section-doctor__info">
                     <h1 class="h1 uppercase">
-                        {!! $data['name'] !!}
+                        {!! $specialist->title !!}
                     </h1>
 
-                    <x-ui.rating :rating="$data['rating']" class="doctor-rating"/>
+                    <x-ui.rating :rating="1" class="doctor-rating"/>
 
                     <div class="section-doctor__info_content">
-                        {!! $data['info'] !!}
+                        {!! $specialist->education !!}
                     </div>
 
 
@@ -39,7 +25,7 @@
             </div>
 
             <div class="section-doctor__info_content-mob">
-                {!! $data['info'] !!}
+
             </div>
 
             <div class="divider horizontal gray"></div>
@@ -48,51 +34,7 @@
 
     <section class="section doctor-exp-section">
         <div class="container">
-            <h2 class="h2">Профессиональные навыки</h2>
-
-            <div class="doctor-exp-section__info content">
-                <h3>Заголовок для навыка</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias dolores et expedita fugiat harum
-                    ipsa, laboriosam, laborum molestias nostrum, praesentium quae quis sed tempora tenetur vitae
-                    voluptate voluptatibus. Accusantium aspernatur dignissimos doloribus esse ex qui sunt! Aliquid,
-                    maxime, omnis. Alias at cumque dicta dolore, dolorem eligendi enim error harum ipsa libero nisi non
-                    officia perspiciatis praesentium repellendus sed sequi similique ut vel veritatis!</p>
-
-                <h3>Заголовок для навыка</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias dolores et expedita fugiat harum
-                    ipsa, laboriosam, laborum molestias nostrum, praesentium quae quis sed tempora tenetur vitae
-                    voluptate voluptatibus. Accusantium aspernatur dignissimos doloribus esse ex qui sunt! Aliquid,
-                    maxime, omnis. Alias at cumque dicta dolore, dolorem eligendi enim error harum ipsa libero nisi non
-                    officia perspiciatis praesentium repellendus sed sequi similique ut vel veritatis!</p>
-
-                <ul>
-                    <li>Списочек 1</li>
-                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias dolores et expedita fugiat
-                        harum ipsa, laboriosam, laborum molestias nostrum, praesentium quae quis sed tempora tenetur
-                        vitae voluptate voluptatibus. Accusantium aspernatur dignissimos doloribus esse ex qui sunt!
-                        Aliquid, maxime, omnis. Alias at cumque dicta dolore, dolorem eligendi enim error harum ipsa
-                        libero nisi non officia perspiciatis praesentium repellendus sed sequi similique ut vel
-                        veritatis!
-                    </li>
-                    <li>Списочек 3</li>
-                    <li>Списочек 4</li>
-                </ul>
-
-
-                <ol>
-                    <li><h4>Естественный вид</h4>
-                        <p>asd</p></li>
-                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias dolores et expedita fugiat
-                        harum ipsa, laboriosam, laborum molestias nostrum, praesentium quae quis sed tempora tenetur
-                        vitae voluptate voluptatibus. Accusantium aspernatur dignissimos doloribus esse ex qui sunt!
-                        Aliquid, maxime, omnis. Alias at cumque dicta dolore, dolorem eligendi enim error harum ipsa
-                        libero nisi non officia perspiciatis praesentium repellendus sed sequi similique ut vel
-                        veritatis!
-                    </li>
-                    <li>Списочек 3</li>
-                    <li>Списочек 4</li>
-                </ol>
-            </div>
+            {!! $specialist->description !!}
         </div>
     </section>
 
@@ -114,7 +56,7 @@
     </section>
 
 
-    <x-sections.doctors />
+    <x-sections.doctors  :data="$specialists"/>
     <x-sections.callback />
     <x-sections.faq />
 

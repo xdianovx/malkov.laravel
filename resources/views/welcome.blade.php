@@ -5,7 +5,7 @@
     <x-sections.stock-slider :data="$stocks"/>
     <x-sections.services :data="$services"/>
     <x-sections.showreel :data="$show_reel"/>
-    <x-sections.doctors />
+    <x-sections.doctors :data="$specialists"/>
     <x-sections.reviews-external />
     <x-sections.map />
     <x-sections.news />

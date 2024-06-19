@@ -14,35 +14,27 @@ class CategoryBlogController extends BaseController
     public function index()
     {
         $user = Auth::user();
-        $categories_blog = CategoryBlog::orderBy('id', 'DESC')->paginate(10);
-        return view('admin.category_blog.index', compact('categories_blog', 'user'));
+        $categories = CategoryBlog::orderBy('id', 'DESC')->paginate(10);
+        return view('admin.categories_blog.index', compact('categories', 'user'));
     }
 
     public function show($category_slug)
     {
         $user = Auth::user();
         $item = CategoryBlog::whereSlug($category_slug)->firstOrFail();
-        return view('admin.category_blog.show', compact('item', 'user'));
+        return view('admin.categories_blog.show', compact('item', 'user'));
     }
 
     public function create()
     {
         $user = Auth::user();
-        return view('admin.category_blog.create', compact('user'));
+        return view('admin.categories_blog.create', compact('user'));
     }
 
     public function store(StoreRequest $request)
     {
         $data = $request->validated();
         $data['slug'] = Str::slug($data['title']);
-
-        if ($request->hasFile('image')) :
-            $data['image'] = $this->upload_service->imageConvertAndStore($request, $data['image'], $data['slug']);
-        endif;
-        if ($request->hasFile('image_mob')) :
-            $data['image_mob'] = $this->upload_service->imageConvertAndStore($request, $data['image_mob'], $data['slug']);
-        endif;
-
         $category = CategoryBlog::firstOrCreate($data);
 
         return redirect()->route('admin.categories_blog.index')->with('status', 'item-created');
@@ -51,7 +43,7 @@ class CategoryBlogController extends BaseController
     {
         $user = Auth::user();
         $item = CategoryBlog::whereSlug($category_slug)->firstOrFail();
-        return view('admin.category_blog.edit', compact('user', 'item'));
+        return view('admin.categories_blog.edit', compact('user', 'item'));
     }
 
     public function update(UpdateRequest $request, $category_slug)
@@ -59,14 +51,6 @@ class CategoryBlogController extends BaseController
         $category = CategoryBlog::whereSlug($category_slug)->firstOrFail();
         $data = $request->validated();
         $data['slug'] = Str::slug($data['title']);
-
-        if ($request->hasFile('image')) :
-            $data['image'] = $this->upload_service->imageConvertAndStore($request, $data['image'], $data['slug']);
-        endif;
-        if ($request->hasFile('image_mob')) :
-            $data['image_mob'] = $this->upload_service->imageConvertAndStore($request, $data['image_mob'], $data['slug']);
-        endif;
-
         $category->update($data);
 
         return redirect()->route('admin.categories_blog.index')->with('status', 'item-updated');
@@ -88,6 +72,6 @@ class CategoryBlogController extends BaseController
         else :
             $categories = CategoryBlog::filter()->paginate(10);
         endif;
-        return view('admin.category_blog.index', compact('categories', 'user'));
+        return view('admin.categories_blog.index', compact('categories', 'user'));
     }
 }

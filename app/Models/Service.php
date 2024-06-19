@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -35,7 +36,10 @@ class Service extends Model
     {
         return 'slug';
     }
-
+    public function specialists(): BelongsToMany
+    {
+        return $this->belongsToMany(Specialist::class);
+    }
     public function childrenServices()
     {
         return $this->hasMany(self::class, 'parent_id');

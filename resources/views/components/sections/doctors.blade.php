@@ -1,55 +1,3 @@
-@php
-    $data = [
-        [
-            'name' => 'Дорошенко Владислава Сергеевна',
-            'professions' => ['Стоматолог', 'Терапевт', 'Хирург', 'Ортодонт', 'Ортопед'],
-            'slug' => '/vrachi/vrach',
-            'image' => 'img/doctors/1.jpg',
-            'expirience' => '7 лет',
-            'rating' => 5,
-        ],
-        [
-            'name' => 'Дорошенко Владислава Сергеевна',
-            'professions' => ['Стоматолог', 'Терапевт', 'Хирург', 'Ортодонт', 'Ортопед'],
-            'slug' => '/vrachi/vrach',
-            'image' => 'img/doctors/1.jpg',
-            'expirience' => '7 лет',
-            'rating' => 5,
-        ],
-        [
-            'name' => 'Дорошенко Владислава Сергеевна',
-            'professions' => ['Стоматолог', 'Терапевт', 'Хирург', 'Ортодонт', 'Ортопед'],
-            'slug' => '/vrachi/vrach',
-            'image' => 'img/doctors/1.jpg',
-            'expirience' => '7 лет',
-            'rating' => 5,
-        ],
-        [
-            'name' => 'Дорошенко Владислава Сергеевна',
-            'professions' => ['Стоматолог', 'Терапевт', 'Хирург', 'Ортодонт', 'Ортопед'],
-            'slug' => '/vrachi/vrach',
-            'image' => 'img/doctors/1.jpg',
-            'expirience' => '7 лет',
-            'rating' => 5,
-        ],
-        [
-            'name' => 'Дорошенко Владислава Сергеевна',
-            'professions' => ['Стоматолог', 'Терапевт', 'Хирург', 'Ортодонт', 'Ортопед'],
-            'slug' => '/vrachi/vrach',
-            'image' => 'img/doctors/1.jpg',
-            'expirience' => '7 лет',
-            'rating' => 5,
-        ],
-        [
-            'name' => 'Дорошенко Владислава Сергеевна',
-            'professions' => ['Стоматолог', 'Терапевт', 'Хирург', 'Ортодонт', 'Ортопед'],
-            'slug' => '/vrachi/vrach',
-            'image' => 'img/doctors/1.jpg',
-            'expirience' => '7 лет',
-            'rating' => 5,
-        ],
-    ];
-@endphp
 
 <section class="section doctors-section">
     <div class="container">
@@ -60,14 +8,20 @@
                     и получите в подарок снимок и план лечения.</p>
             </div>
 
-            <a href="/" class="btn doctors-section__top-btn">Все специалисты</a>
+            <a href="{{ route('specialists') }}" class="btn doctors-section__top-btn">Все специалисты</a>
         </div>
 
         <div class="doctors-section__items">
             {{--  --}}
-            @foreach ($data as $item)
-                <x-doctor-card :slug="$item['slug']" :name="$item['name']" :image="$item['image']" :profs="$item['professions']"
-                    :expirience="$item['expirience']" />
+            @foreach ($data as $specialist)
+                <x-doctor-card
+                    :slug="$specialist->slug"
+                    :title="$specialist->title"
+                    :image="$specialist->image"
+                    :profs="$specialist->specializations"
+                    :expirience="$specialist->expirience"
+                    :operations="$specialist->operations"
+                    />
             @endforeach
 
         </div>

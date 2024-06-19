@@ -4,16 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 
 class CategoryBlog extends Model
 {
     use HasFactory;
     protected $fillable = [
         'title',
-        'image',
-        'image_mob',
         'description_footer',
         'slug',
         'description',
@@ -41,16 +37,5 @@ class CategoryBlog extends Model
             ->orWhere('title', 'ilike', '%' . request('search') . '%');
         }
         return $items;
-    }
-    public function delete_files($item)
-    {
-        if( $item->image):
-            $path_to_file = Str::remove(env('APP_URL') . '/storage', $item->image);
-            Storage::disk('public')->delete($path_to_file);
-        endif;
-        if( $item->image_mob):
-            $path_to_file = Str::remove(env('APP_URL') . '/storage', $item->image_mob);
-            Storage::disk('public')->delete($path_to_file);
-        endif;
     }
 }

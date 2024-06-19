@@ -216,7 +216,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ( $item->prices as $price)
+                                @foreach ( $item->prices as $price)
                                     <tr>
                                         <td>{{ $price->id }}</td>
                                         <td><a href="{{ route('admin.services.prices.show', [$item->slug, $price->id]) }}">{{ $price->title }}</a></td>
@@ -285,11 +285,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                @empty
-                                    <tr>
-                                        <td class="text-danger">{{ __('admin.notification_no_entries') }}</td>
-                                    </tr>
-                                @endforelse
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

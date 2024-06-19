@@ -25,7 +25,7 @@ return [
     'edit_category_blog_card_title' => 'Изменить категория блога',
     'category_blog_card_title' => 'Категория блога',
     'category_blog_card_info' => 'Информация о категории блога',
-    'aside_title_category_blog' => 'Категории блога',
+    'aside_title_categories_blog_record' => 'Категории блога',
 
     //Titles blog
     'new_blog_card_title' => 'Новая запись блога',
@@ -33,7 +33,23 @@ return [
     'blog_card_title' => 'Запись блога',
     'blog_card_info' => 'Информация о записи блога',
     'aside_title_blog' => 'Блог',
-    'aside_title_blog_record' => 'Записи блога',
+    'aside_title_blogs_record' => 'Записи блога',
+
+    //Titles specialists
+    'new_specialist_card_title' => 'Новая запись специалиста',
+    'edit_specialist_card_title' => 'Изменить запись специалиста',
+    'specialist_card_title' => 'Запись специалист',
+    'specialist_card_info' => 'Информация о записи специалиста',
+    'aside_title_specialist' => 'Специалист',
+    'aside_title_specialists_record' => 'Специалисты',
+
+    //Titles specializations
+    'new_specialization_card_title' => 'Новая запись специализации',
+    'edit_specialization_card_title' => 'Изменить запись специализации',
+    'specialization_card_title' => 'Запись специализации',
+    'specialization_card_info' => 'Информация о записи специализации',
+    'aside_title_specialization' => 'Специализация',
+    'aside_title_specializations_record' => 'Специализации',
 
     //Titles price
     'new_price_card_title' => 'Новая запись цены',
@@ -106,6 +122,12 @@ return [
     'field_file' => 'Видео, изображение',
     'field_current_video' => 'Текущее видео',
     'field_current_video_mob' => 'Текущее видео(Мобильная версия)',
+    'field_services' => 'Услуги',
+    'field_specializations' => 'Специализации',
+    'field_experience' => 'Стаж',
+    'field_operations' => 'Операций(Количество)',
+    'field_education' => 'Образование',
+    'field_additional_education' => 'Дополнительное образование',
     //Btns
     'btn_save' => 'Сохранить',
     'btn_search' => 'Поиск',
@@ -131,7 +153,10 @@ return [
     //Notifications
     'notification_delete' => 'После удаления записи все ее ресурсы и данные будут удалены безвозвратно!!!',
     'notification_no_entries' => 'Нет записей...',
-    'notification_no_entries_categories_blog' => 'Записей не существует, создайте запись в Категориях.',
+    'notification_no_entries_categories_blog' => 'Записей не существует, создайте запись Категории блога.',
+    'notification_no_entries_service' => 'Записей не существует, создайте запись Услуги.',
+    'notification_no_entries_specialization' => 'Записей не существует, создайте запись Специализации.',
     //Questions
     'question_delete' => 'Вы уверены что хотите удалить запись?',
 ];
+

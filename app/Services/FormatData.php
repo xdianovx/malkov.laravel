@@ -28,48 +28,18 @@ class FormatData
                         ->first()->id;
                     $entityIds[$key] = $entity_id;
                 endforeach;
-                if ($keyIds == 'colors') :
-                    $item->colors()->sync($entityIds);
+                if ($keyIds == 'specializations') :
+                    $item->specializations()->sync($entityIds);
                 endif;
-                if ($keyIds == 'clasps') :
-                    $item->clasps()->sync($entityIds);
-                endif;
-                if ($keyIds == 'linings') :
-                    $item->linings()->sync($entityIds);
-                endif;
-                if ($keyIds == 'materials') :
-                    $item->materials()->sync($entityIds);
-                endif;
-                if ($keyIds == 'shoulder_straps') :
-                    $item->shoulder_straps()->sync($entityIds);
-                endif;
-                if ($keyIds == 'stocks') :
-                    $item->stocks()->sync($entityIds);
-                endif;
-                if ($keyIds == 'product') :
-                    $item->products()->sync($entityIds);
+                if ($keyIds == 'services') :
+                    $item->services()->sync($entityIds);
                 endif;
             else :
-                if ($keyIds == 'colors') :
-                    $item->colors()->sync($entityIds);
+                if ($keyIds == 'specializations') :
+                    $item->specializations()->sync($entityIds);
                 endif;
-                if ($keyIds == 'clasps') :
-                    $item->clasps()->sync($entityIds);
-                endif;
-                if ($keyIds == 'linings') :
-                    $item->linings()->sync($entityIds);
-                endif;
-                if ($keyIds == 'materials') :
-                    $item->materials()->sync($entityIds);
-                endif;
-                if ($keyIds == 'shoulder_straps') :
-                    $item->shoulder_straps()->sync($entityIds);
-                endif;
-                if ($keyIds == 'stocks') :
-                    $item->stocks()->sync($entityIds);
-                endif;
-                if ($keyIds == 'products') :
-                    $item->products()->sync($entityIds);
+                if ($keyIds == 'services') :
+                    $item->services()->sync($entityIds);
                 endif;
             endif;
         endforeach;

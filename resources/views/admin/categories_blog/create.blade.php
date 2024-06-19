@@ -37,20 +37,6 @@
                                         <input type="text" value="{{ old('title') }}" class="form-control"
                                             id="valueInput" name="title" placeholder="{{__('admin.placeholder_text')}}">
                                     </div>
-
-                                </div>
-
-                                <div class="col-xxl-6 col-md-6">
-                                    <div>
-                                        <label for="formFile" class="form-label">{{__('admin.field_image_mob')}}</label>
-                                        <input class="form-control" type="file" id="formFile" name="image_mob">
-                                    </div>
-                                </div>
-                                <div class="col-xxl-6 col-md-6">
-                                    <div>
-                                        <label for="formFile" class="form-label">{{__('admin.field_image')}}</label>
-                                        <input class="form-control" type="file" id="formFile" name="image">
-                                    </div>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">{{ __('admin.field_description_header') }}</label>

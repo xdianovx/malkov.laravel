@@ -136,10 +136,6 @@
                                     <td class="text-muted">{{ $item->h1_title }}</td>
                                 </tr>
                                 <tr>
-                                    <th class="ps-0" scope="row">{{ __('admin.field_h1_title') }}:</th>
-                                    <td class="text-muted">{{ $item->h1_title }}</td>
-                                </tr>
-                                <tr>
                                     <th class="ps-0" scope="row">{{ __('admin.field_slug') }}:</th>
                                     <td class="text-muted">{{ $item->slug }}</td>
                                 </tr>

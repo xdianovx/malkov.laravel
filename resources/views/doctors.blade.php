@@ -1,67 +1,14 @@
-@php
-    $data = [
-        [
-            'name' => 'Дорошенко Владислава Сергеевна',
-            'professions' => ['Стоматолог', 'Терапевт', 'Хирург', 'Ортодонт', 'Ортопед'],
-            'slug' => '/',
-            'image' => 'img/doctors/1.jpg',
-            'expirience' => '7 лет',
-            'rating' => 5,
-        ],
-        [
-            'name' => 'Дорошенко Владислава Сергеевна',
-            'professions' => ['Стоматолог', 'Терапевт', 'Хирург', 'Ортодонт', 'Ортопед'],
-            'slug' => '/',
-            'image' => 'img/doctors/1.jpg',
-            'expirience' => '7 лет',
-            'rating' => 5,
-        ],
-        [
-            'name' => 'Дорошенко Владислава Сергеевна',
-            'professions' => ['Стоматолог', 'Терапевт', 'Хирург', 'Ортодонт', 'Ортопед'],
-            'slug' => '/',
-            'image' => 'img/doctors/1.jpg',
-            'expirience' => '7 лет',
-            'rating' => 5,
-        ],
-        [
-            'name' => 'Дорошенко Владислава Сергеевна',
-            'professions' => ['Стоматолог', 'Терапевт', 'Хирург', 'Ортодонт', 'Ортопед'],
-            'slug' => '/',
-            'image' => 'img/doctors/1.jpg',
-            'expirience' => '7 лет',
-            'rating' => 5,
-        ],
-        [
-            'name' => 'Дорошенко Владислава Сергеевна',
-            'professions' => ['Стоматолог', 'Терапевт', 'Хирург', 'Ортодонт', 'Ортопед'],
-            'slug' => '/',
-            'image' => 'img/doctors/1.jpg',
-            'expirience' => '7 лет',
-            'rating' => 5,
-        ],
-        [
-            'name' => 'Дорошенко Владислава Сергеевна',
-            'professions' => ['Стоматолог', 'Терапевт', 'Хирург', 'Ортодонт', 'Ортопед'],
-            'slug' => '/',
-            'image' => 'img/doctors/1.jpg',
-            'expirience' => '7 лет',
-            'rating' => 5,
-        ],
-    ];
-@endphp
 
 @extends('layouts.main')
 
 @section('content')
     <section class="section hero doctors-hero">
         <div class="container">
-            <div class="h1 uppercase dectors-hero__title">Врачи клиники <br> доктора малькова</div>
+            <div class="h1 uppercase dectors-hero__title">{{ $specialists_page->h1_title }}</div>
 
             <div class="doctors-hero__top">
                 <p class="doctors-hero__text">
-                    Текст о том какие у нас классные специалисты и врачи. Какие сложные и уникальные проблемы
-                    они решают, что на каждый запрос найдем решение, а отзывчивая администрация поможет с любым вопросом
+                    {{ $specialists_page->description }}
                 </p>
 
                 <x-ui.button-arrow
@@ -88,53 +35,26 @@
                 Тут сделать теги
             </div>
 
-
+            @forelse ($specializations as $specialization)
             <div class="team-section__items">
-                <h3 class="team-section__items__title">Врачи</h3>
+                <h3 class="team-section__items__title">{{$specialization->title}}</h3>
                 <div class="doctors-section__items">
-                    @foreach ($data as $item)
+                    @foreach ($specialization->specialists as $specialist)
                         <x-doctor-card
-                            :slug="$item['slug']"
-                            :name="$item['name']"
-                            :image="$item['image']"
-                            :profs="$item['professions']"
-                            :expirience="$item['expirience']"
+                            :slug="$specialist->slug"
+                            :title="$specialist->title"
+                            :image="$specialist->image"
+                            :profs="$specialist->specializations"
+                            :expirience="$specialist->expirience"
+                            :operations="$specialist->operations"
                         />
                     @endforeach
                 </div>
             </div>
+            @empty
 
-            <div class="team-section__items">
-                <h3 class="team-section__items__title">Врачи</h3>
+            @endforelse
 
-                <div class="doctors-section__items">
-                    @foreach ($data as $item)
-                        <x-doctor-card
-                            :slug="$item['slug']"
-                            :name="$item['name']"
-                            :image="$item['image']"
-                            :profs="$item['professions']"
-                            :expirience="$item['expirience']"
-                        />
-                    @endforeach
-                </div>
-            </div>
-
-            <div class="team-section__items">
-                <h3 class="team-section__items__title">Врачи</h3>
-
-                <div class="doctors-section__items">
-                    @foreach ($data as $item)
-                        <x-doctor-card
-                            :slug="$item['slug']"
-                            :name="$item['name']"
-                            :image="$item['image']"
-                            :profs="$item['professions']"
-                            :expirience="$item['expirience']"
-                        />
-                    @endforeach
-                </div>
-            </div>
         </div>
     </section>
 

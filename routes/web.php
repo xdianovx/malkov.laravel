@@ -10,8 +10,11 @@ use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\EditorImageUploadController;
 use App\Http\Controllers\Admin\HomePageNumController;
 use App\Http\Controllers\Admin\ShowReelController;
+use App\Http\Controllers\Admin\SpecialistController;
+use App\Http\Controllers\Admin\SpecializationController;
 use App\Http\Controllers\Admin\StockController;
 use App\Http\Controllers\Client\ServicePageController;
+use App\Http\Controllers\Client\SpecialistPageController;
 use App\Http\Controllers\Client\StockPageController;
 use App\Http\Controllers\Client\WelcomePageController;
 use Illuminate\Support\Facades\Route;
@@ -28,13 +31,13 @@ Route::get('/usligi/{service_slug}',[ServicePageController::class, 'show'], func
     return view('service-single');
 })->name('service-single');
 
-Route::get('/vrachi', function () {
+Route::get('/vrachi', [SpecialistPageController::class, 'index'], function () {
     return view('doctors');
-});
+  })->name('specialists');
 
-Route::get('/vrachi/vrach', function () {
+Route::get('/vrachi/{specialist_slug}',[SpecialistPageController::class, 'show'], function () {
     return view('doctor');
-});
+})->name('specialist');
 
 Route::get('/kontakty', function () {
     return view('contacts');
@@ -158,5 +161,25 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
         Route::get('/{stock_slug}/edit', [StockController::class, 'edit'])->name('edit');
         Route::patch('/{stock_slug}', [StockController::class, 'update'])->name('update');
         Route::delete('/{stock_slug}', [StockController::class, 'destroy'])->name('destroy');
+    });
+    Route::name('specialists.')->prefix('specialists')->group(function () {
+        Route::get('/', [SpecialistController::class, 'index'])->name('index');
+        Route::get('/search',  [SpecialistController::class, 'search'])->name('search');
+        Route::get('/create', [SpecialistController::class, 'create'])->name('create');
+        Route::post('/store', [SpecialistController::class, 'store'])->name('store');
+        Route::get('/{specialist_slug}', [SpecialistController::class, 'show'])->name('show');
+        Route::get('/{specialist_slug}/edit', [SpecialistController::class, 'edit'])->name('edit');
+        Route::patch('/{specialist_slug}', [SpecialistController::class, 'update'])->name('update');
+        Route::delete('/{specialist_slug}', [SpecialistController::class, 'destroy'])->name('destroy');
+    });
+    Route::name('specializations.')->prefix('specializations')->group(function () {
+        Route::get('/', [SpecializationController::class, 'index'])->name('index');
+        Route::get('/search',  [SpecializationController::class, 'search'])->name('search');
+        Route::get('/create', [SpecializationController::class, 'create'])->name('create');
+        Route::post('/store', [SpecializationController::class, 'store'])->name('store');
+        Route::get('/{specialization_slug}', [SpecializationController::class, 'show'])->name('show');
+        Route::get('/{specialization_slug}/edit', [SpecializationController::class, 'edit'])->name('edit');
+        Route::patch('/{specialization_slug}', [SpecializationController::class, 'update'])->name('update');
+        Route::delete('/{specialization_slug}', [SpecializationController::class, 'destroy'])->name('destroy');
     });
 });

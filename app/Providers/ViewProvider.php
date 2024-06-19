@@ -5,7 +5,6 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use App\Models\Blog;
-use App\Models\Category;
 use App\Models\CategoryBlog;
 use App\Models\HomePageNum;
 use App\Models\News;
@@ -13,6 +12,8 @@ use App\Models\Page;
 use App\Models\Price;
 use App\Models\Service;
 use App\Models\ShowReel;
+use App\Models\Specialist;
+use App\Models\Specialization;
 use App\Models\Stock;
 
 class ViewProvider extends ServiceProvider
@@ -40,5 +41,7 @@ class ViewProvider extends ServiceProvider
         View::share('show_reels', ShowReel::$show_reels);
         View::share('home_page_nums', HomePageNum::$home_page_nums);
         View::share('show_reels', ShowReel::$show_reels);
+        View::share('specializations_routes', Specialization::$specializations_routes);
+        View::share('specialist_routes', Specialist::$specialist_routes);
     }
 }

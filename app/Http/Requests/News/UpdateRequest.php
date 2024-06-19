@@ -3,6 +3,7 @@
 namespace App\Http\Requests\News;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateRequest extends FormRequest
 {
@@ -22,7 +23,7 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required', 'max:70'],
+            'title' => ['required', 'max:70', Rule::unique('news')->ignore($this->old_title, 'title')],
             'h1_title'=> ['required', 'max:70'],
             'image' => 'nullable|image',
             'image_mob' => 'nullable|image',

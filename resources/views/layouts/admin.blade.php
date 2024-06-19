@@ -18,8 +18,6 @@
     <link href="{{ URL::asset('assets/admin/libs/quill/quill.core.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ URL::asset('assets/admin/libs/quill/quill.bubble.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ URL::asset('assets/admin/libs/quill/quill.snow.css') }}" rel="stylesheet" type="text/css" />
-
-
 </head>
 
 <body>
@@ -35,17 +33,16 @@
             <div class="page-content">
                 <div class="container-fluid">
 
-                    <div class="row">
+                    {{-- <div class="row">
                         <div class="col-12">
-                            {{-- <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                            <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                                 <h4 class="mb-sm-0">{{preg_replace('#admin/|_|-#', ' ', Request::path())}}</h4>
                                 <div class="page-title-right">
                                   {{ Breadcrumbs::render() }}
                                 </div>
-
-                            </div> --}}
+                            </div>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <!-- ============================================================== -->
                     <!-- Start right Content here -->
@@ -70,7 +67,6 @@
     {{-- <script src="{{ asset('assets/admin/js/pages/particles.app.js') }}"></script> --}}
     <!-- password-addon init -->
     <script src="{{ asset('assets/admin/js/pages/password-addon.init.js') }}"></script>
-    <script src="{{ URL::asset('assets/admin/libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js') }}"></script>
     <script src="{{ URL::asset('assets/admin/libs/quill/quill.min.js') }}"></script>
     <script src="{{ URL::asset('assets/admin/js/pages/form-editor.init.js') }}"></script>
     <script src="{{ URL::asset('assets/admin/libs/particles.js/particles.js') }}"></script>

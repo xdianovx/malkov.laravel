@@ -1,28 +1,29 @@
-@props(['name', 'slug', 'image', 'profs', 'expirience', 'signup'])
+@props(['title', 'slug', 'image', 'profs', 'expirience', 'operations'])
 
-<a href="{{ $slug }}" class="doctor-item">
-    <img src="{{ asset($image) }}" alt="Имя и фамилия доктора">
+<a href="{{ route('specialist', $slug) }}" class="doctor-item">
+    <img src="{{ $image }}" alt="Имя и фамилия доктора">
 
     <div class="doctor-item__info">
-        <h3 class="doctor-item__name">Дорошенко Владислава Сергеевна</h3>
+        <h3 class="doctor-item__name">{{$title}}</h3>
 
         <div class="doctor-item__prof">
             @foreach ($profs as $item)
-                <p>{{ $item }}</p>
+                <p>{{ $item->title }}</p>
             @endforeach
         </div>
 
         <div class="doctor-item__list">
+            @isset($expirience)
             <div class="doctor-item__list-item">
                 <p>Стаж</p>
                 <div class="spacer"></div>
                 <p>{{ $expirience }}</p>
             </div>
-
+            @endisset
             <div class="doctor-item__list-item">
-                <p>Стаж</p>
+                <p>Операций</p>
                 <div class="spacer"></div>
-                <p>7 лет</p>
+                <p>{{ $operations }}</p>
             </div>
         </div>
 

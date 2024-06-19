@@ -68,6 +68,7 @@
                                         <input type="text" value="{{ $item->title }}" class="form-control"
                                             id="valueInput" name="title"
                                             placeholder="{{ __('admin.placeholder_text') }}">
+                                            <input type="hidden"name="old_title" value="{{ $item->title }}">
                                     </div>
 
                                 </div>
