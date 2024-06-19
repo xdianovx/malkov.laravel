@@ -1,11 +1,10 @@
-
 <section class="index-hero">
     <div class="container">
         <span class="index-hero__suptitle uppercase">с заботой о вашем здоровье</span>
 
         <div class="index-hero__wrap">
-            <h1 class="h1-index  uppercase">{!!$item->h1_title!!}</h1>
-            <p class="index-hero__description">{!!$item->description!!}</p>
+            <h1 class="h1-index  uppercase">{!! $item->h1_title !!}</h1>
+            <p class="index-hero__description">{!! $item->description !!}</p>
         </div>
     </div>
 </section>

@@ -24,11 +24,14 @@ class ShowReelController extends BaseController
         elseif ($this->format_file(pathinfo($item->file)['dirname'], 'view_file') == 'images') :
             $files['image'] = $item->file;
         endif;
-        if ($this->format_file(pathinfo($item->file_mob)['dirname'], 'view_file_mob') == 'videos') :
-            $files['video_mob'] = $item->file_mob;
-        elseif ($this->format_file(pathinfo($item->file_mob)['dirname'], 'view_file_mob') == 'images') :
-            $files['image_mob'] = $item->file_mob;
+        if ($item->file_mob) :
+            if ($this->format_file(pathinfo($item->file_mob)['dirname'], 'view_file_mob') == 'videos') :
+                $files['video_mob'] = $item->file_mob;
+            elseif ($this->format_file(pathinfo($item->file_mob)['dirname'], 'view_file_mob') == 'images') :
+                $files['image_mob'] = $item->file_mob;
+            endif;
         endif;
+
         return view('admin.page.show_reels.show', compact('item', 'user', 'files'));
     }
 
@@ -58,14 +61,15 @@ class ShowReelController extends BaseController
                 $data['file_mob'] = $this->upload_service->imageConvertAndStore($request, $data['file_mob'], $page->slug . '/show_reels');
             endif;
         endif;
-        if($data['is_cover'] == 'TRUE'):
-            ShowReel::where('is_cover','TRUE')->update([
+        if ($data['is_cover'] == 'TRUE') :
+            ShowReel::where('is_cover', 'TRUE')->update([
                 'is_cover' => 'FALSE'
             ]);
         endif;
         $page->show_reels()->create($data);
         return redirect()->route('admin.pages.show', $page_slug)->with('status', 'show_reel-created');
     }
+
     public function edit($page_slug, $show_reel_id)
     {
         $user = Auth::user();
@@ -77,13 +81,17 @@ class ShowReelController extends BaseController
         elseif ($this->format_file(pathinfo($item->file)['dirname'], 'view_file') == 'images') :
             $files['image'] = $item->file;
         endif;
-        if ($this->format_file(pathinfo($item->file_mob)['dirname'], 'view_file_mob') == 'videos') :
-            $files['video_mob'] = $item->file_mob;
-        elseif ($this->format_file(pathinfo($item->file_mob)['dirname'], 'view_file_mob') == 'images') :
-            $files['image_mob'] = $item->file_mob;
+        if ($item->file_mob) :
+            if ($this->format_file(pathinfo($item->file_mob)['dirname'], 'view_file_mob') == 'videos') :
+                $files['video_mob'] = $item->file_mob;
+            elseif ($this->format_file(pathinfo($item->file_mob)['dirname'], 'view_file_mob') == 'images') :
+                $files['image_mob'] = $item->file_mob;
+            endif;
         endif;
+
         return view('admin.page.show_reels.edit', compact('user', 'item', 'page', 'files'));
     }
+
     public function update(UpdateRequest $request, $page_slug, $show_reel_id)
     {
 
@@ -107,8 +115,8 @@ class ShowReelController extends BaseController
                 $data['file_mob'] = $this->upload_service->imageConvertAndStore($request, $data['file_mob'], $page->slug . '/show_reels');
             endif;
         endif;
-        if($data['is_cover'] == 'TRUE' && $show_reel->is_cover !== 'TRUE'):
-            ShowReel::where('is_cover','TRUE')->update([
+        if ($data['is_cover'] == 'TRUE' && $show_reel->is_cover !== 'TRUE') :
+            ShowReel::where('is_cover', 'TRUE')->update([
                 'is_cover' => 'FALSE'
             ]);
         endif;

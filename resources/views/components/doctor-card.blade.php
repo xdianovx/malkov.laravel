@@ -4,7 +4,7 @@
     <img src="{{ $image }}" alt="Имя и фамилия доктора">
 
     <div class="doctor-item__info">
-        <h3 class="doctor-item__name">{{$title}}</h3>
+        <h3 class="doctor-item__name">{{ $title }}</h3>
 
         <div class="doctor-item__prof">
             @foreach ($profs as $item)
@@ -14,11 +14,11 @@
 
         <div class="doctor-item__list">
             @isset($expirience)
-            <div class="doctor-item__list-item">
-                <p>Стаж</p>
-                <div class="spacer"></div>
-                <p>{{ $expirience }}</p>
-            </div>
+                <div class="doctor-item__list-item">
+                    <p>Стаж</p>
+                    <div class="spacer"></div>
+                    <p>{{ $expirience }}</p>
+                </div>
             @endisset
             <div class="doctor-item__list-item">
                 <p>Операций</p>

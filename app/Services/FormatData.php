@@ -24,7 +24,7 @@ class FormatData
             if (isset($entityIds)) :
                 foreach ($entityIds as $key => $value) :
                     $entity_id = DB::table($keyIds)
-                        ->where('slug', $value)
+                        ->where('title', $value)
                         ->first()->id;
                     $entityIds[$key] = $entity_id;
                 endforeach;
