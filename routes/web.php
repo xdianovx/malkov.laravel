@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\CategoryBlogController;
+use App\Http\Controllers\Admin\DocumentController;
 use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\PageController;
@@ -13,6 +14,7 @@ use App\Http\Controllers\Admin\ShowReelController;
 use App\Http\Controllers\Admin\SpecialistController;
 use App\Http\Controllers\Admin\SpecializationController;
 use App\Http\Controllers\Admin\StockController;
+use App\Http\Controllers\Client\NewsPageController;
 use App\Http\Controllers\Client\ServicePageController;
 use App\Http\Controllers\Client\SpecialistPageController;
 use App\Http\Controllers\Client\StockPageController;
@@ -47,13 +49,13 @@ Route::get('/o-klinike', function () {
     return view('about');
 });
 
-Route::get('/blog', function () {
+Route::get('/novosti', [NewsPageController::class, 'index'], function () {
     return view('news');
-});
+})->name('news');
 
-Route::get('/blog/{slug}', function () {
+Route::get('/novosti/{news_slug}', [NewsPageController::class, 'show'], function () {
     return view('news-single');
-});
+})->name('news-single');
 
 Route::get('/akcii', [StockPageController::class, 'index'], function () {
     return view('stocks');
@@ -171,6 +173,15 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
         Route::get('/{specialist_slug}/edit', [SpecialistController::class, 'edit'])->name('edit');
         Route::patch('/{specialist_slug}', [SpecialistController::class, 'update'])->name('update');
         Route::delete('/{specialist_slug}', [SpecialistController::class, 'destroy'])->name('destroy');
+
+        Route::name('documents.')->prefix('{specialist_slug}/documents')->group(function () {
+            Route::get('/create', [DocumentController::class, 'create'])->name('create');
+            Route::post('/store', [DocumentController::class, 'store'])->name('store');
+            Route::get('/{document_id}', [DocumentController::class, 'show'])->name('show');
+            Route::get('/{document_id}/edit', [DocumentController::class, 'edit'])->name('edit');
+            Route::patch('/{document_id}', [DocumentController::class, 'update'])->name('update');
+            Route::delete('/{document_id}', [DocumentController::class, 'destroy'])->name('destroy');
+        });
     });
     Route::name('specializations.')->prefix('specializations')->group(function () {
         Route::get('/', [SpecializationController::class, 'index'])->name('index');

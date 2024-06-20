@@ -6,7 +6,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header align-items-center d-flex">
-                    <h4 class="card-title mb-0 flex-grow-1">{{__('admin.new_specialization_card_title')}}</h4>
+                    <h4 class="card-title mb-0 flex-grow-1">{{__('admin.new_number_card_title')}}</h4>
                 </div>
             </div>
 
@@ -27,7 +27,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="live-preview">
-                        <form action="{{ route('admin.specializations.store') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('admin.specialists.documents.store', $specialist->slug ) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row gy-4">
 
@@ -38,20 +38,20 @@
                                             id="valueInput" name="title" placeholder="{{__('admin.placeholder_text')}}">
                                     </div>
                                 </div>
-                                <div class="mb-3">
-                                    <label class="form-label">{{ __('admin.field_description_header') }}</label>
-                                    <textarea id="editor" class="form-control" name="description_header"
-                                        placeholder="{{ __('admin.placeholder_text') }}" style="height: 234px;">{{ old('description_header') }}</textarea>
+
+                                <div class="col-xxl-6 col-md-6">
+                                    <div>
+                                        <label for="formFile" class="form-label">{{ __('admin.field_image') }}</label>
+                                        <input class="form-control" type="file" id="formFile" name="image">
+                                    </div>
                                 </div>
+
                                 <div class="mb-3">
-                                    <label class="form-label">{{__('admin.field_description')}}</label>
-                                    <textarea id="editor" class="form-control" name="description" placeholder="{{__('admin.placeholder_text')}}" style="height: 234px;">{{ old('description') }}</textarea>
+                                    <label class="form-label">{{ __('admin.field_description') }}</label>
+                                    <textarea id="editor" class="form-control" name="description" placeholder="{{ __('admin.placeholder_text') }}"
+                                        style="height: 234px;">{{ old('description') }}</textarea>
                                 </div>
-                                <div class="mb-3">
-                                    <label class="form-label">{{__('admin.field_description_footer')}}</label>
-                                    <textarea id="editor" class="form-control" name="description_footer" placeholder="{{__('admin.placeholder_text')}}"
-                                        style="height: 234px;">{{ old('description_footer') }}</textarea>
-                                </div>
+
                             </div>
                             <button type="submit" class="btn btn-success waves-effect waves-light mt-5">{{__('admin.btn_save')}}</button>
 
@@ -63,5 +63,5 @@
         </div>
     </div>
 
-@include('admin.upload_script')
 @endsection
+

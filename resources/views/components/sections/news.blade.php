@@ -1,29 +1,3 @@
-@php
-    $data = [
-        [
-            'id' => '1',
-        ],
-        [
-            'id' => '1',
-        ],
-        [
-            'id' => '1',
-        ],
-        [
-            'id' => '1',
-        ],
-        [
-            'id' => '1',
-        ],
-        [
-            'id' => '1',
-        ],
-        [
-            'id' => '1',
-        ],
-    ];
-@endphp
-
 <section class="section news-section">
     <div class="container">
         <div class="news-section__top">
@@ -38,7 +12,7 @@
                 <div class="swiper-wrapper">
                     @foreach ($data as $item)
                         <div class="swiper-slide">
-                            <x-news-item />
+                            <x-news-item :data="$item"/>
                         </div>
                     @endforeach
 

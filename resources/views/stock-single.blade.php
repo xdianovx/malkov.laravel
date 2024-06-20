@@ -34,7 +34,7 @@
 
 
     <x-sections.callback/>
-    <x-sections.news/>
+    <x-sections.news  :data="$news"/>
 
     <section class="section"></section>
 @endsection()

@@ -1,7 +1,7 @@
 @props(['title', 'slug', 'image', 'profs', 'expirience', 'operations'])
 
 <a href="{{ route('specialist', $slug) }}" class="doctor-item">
-    <img src="{{ $image }}" alt="Имя и фамилия доктора">
+    <img src="{{ asset('storage') . '/' . $image }}" alt="Имя и фамилия доктора">
 
     <div class="doctor-item__info">
         <h3 class="doctor-item__name">{{ $title }}</h3>

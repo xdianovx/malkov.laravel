@@ -39,7 +39,7 @@
                 @forelse($services as $item)
                     <a href="{{ route('service-single', $item->slug) }}" class="service-item">
                         <div class="service-item__img">
-                            <img src="{{ $item->image }}" alt="">
+                            <img src="{{ asset('storage') . '/' . $item->image }}" alt="">
                         </div>
 
                         <h3 class="service-item__title">{{ $item->title }}</h3>

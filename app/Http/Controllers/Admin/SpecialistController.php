@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\Specialist\StoreRequest;
 use App\Http\Requests\Specialist\UpdateRequest;
+use App\Models\Document;
 use App\Models\Service;
 use App\Models\Specialist;
 use App\Models\Specialization;
@@ -24,8 +25,8 @@ class SpecialistController extends BaseController
     {
         $user = Auth::user();
         $item = Specialist::whereSlug($specialist_slug)->firstOrFail();
-
-        return view('admin.specialists.show', compact('item', 'user'));
+        $documents = Document::where('specialist_id', $item->id)->paginate(10);
+        return view('admin.specialists.show', compact('item', 'user', 'documents'));
     }
 
     public function create()

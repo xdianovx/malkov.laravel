@@ -7,7 +7,7 @@
         <div class="container">
             <div class="section-doctor__wrap">
 
-                <img class="section-doctor__image" src="{{$specialist->image}}" alt="">
+                <img class="section-doctor__image" src="{{ asset('storage') . '/' . $specialist->image }}" alt="">
                 <div class="section-doctor__info">
                     <h1 class="h1 uppercase">
                         {!! $specialist->title !!}
@@ -42,15 +42,15 @@
         <div class="container">
             <h2 class="h2">Дипломы и сертификаты</h2>
             <div class="diplomas-items">
-                @for($i = 0; $i < 8; $i++)
+                @foreach ($specialist->documents as $document)
                     <div class="diplom-item">
                         <div class="diplom-item__image">
-                            <img src="" alt="">
+                            <img src="{{ asset('storage') . '/' . $document->image }}" alt="">
                         </div>
-                        <h3 class="diplom-item__title">Диплом 1</h3>
-                        <p class="diplom-item__text">Описание документа</p>
+                        <h3 class="diplom-item__title">{!! $document->title !!}</h3>
+                        <p class="diplom-item__text">{!! $document->description !!}</p>
                     </div>
-                @endfor
+                @endforeach
             </div>
         </div>
     </section>

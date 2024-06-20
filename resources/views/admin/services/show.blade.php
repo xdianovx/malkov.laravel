@@ -52,6 +52,19 @@
                             </div>
                         </div>
                     </div>
+                    @if ($item->content)
+                        <h5 class="text-muted">{{ __('admin.field_content') }}:</h5>
+                        <div class="table-responsive">
+                            <table class="table table-borderless mb-0">
+                                <tbody>
+                                    <tr>
+                                        <td class="text-muted">{!! $item->content !!}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    @else
+                    @endif
                     @if ($item->description)
                         <h5 class="text-muted">{{ __('admin.field_description') }}:</h5>
                         <div class="table-responsive">
@@ -88,7 +101,8 @@
                             <p class="card-title-desc text-muted">{{ __('admin.field_current_image_mob') }}</p>
                             <div class="live-preview">
                                 <div>
-                                    <img src="{{ $item->image_mob }}" class="img-fluid" alt="Responsive image">
+                                    <img src="{{ asset('storage') . '/' . $item->image_mob }}" class="img-fluid"
+                                        alt="Responsive image">
                                 </div>
                             </div>
                         </div>
@@ -103,7 +117,8 @@
                             <p class="card-title-desc text-muted">{{ __('admin.field_current_image') }}</p>
                             <div class="live-preview">
                                 <div>
-                                    <img src="{{ $item->image }}" class="img-fluid" alt="Responsive image">
+                                    <img src="{{ asset('storage') . '/' . $item->image }}" class="img-fluid"
+                                        alt="Responsive image">
                                 </div>
                             </div>
                         </div>
@@ -180,125 +195,127 @@
         </div>
     </div>
     @if ($prices->count() > 0)
-    <div class="card">
-        <h5 class="card-header">{{ __('admin.list_prices') }}</h5>
-        <div class="card-body">
-            <div class="demo-inline-spacing">
-                @if (session('status') === 'price-updated')
-                    <div class="alert alert-primary alert-dismissible" role="alert">
-                        {{ __('admin.alert_updated') }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert"
-                            aria-label="Close"></button>
-                    </div>
-                @endif
-                @if (session('status') === 'price-created')
-                    <div class="alert alert-success alert-dismissible" role="alert">
-                        {{ __('admin.alert_created') }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert"
-                            aria-label="Close"></button>
-                    </div>
-                @endif
-                @if (session('status') === 'price-deleted')
-                    <div class="alert alert-danger alert-dismissible" role="alert">
-                        {{ __('admin.alert_deleted') }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert"
-                            aria-label="Close"></button>
-                    </div>
-                @endif
-            </div>
+        <div class="card">
+            <h5 class="card-header">{{ __('admin.list_prices') }}</h5>
             <div class="card-body">
-                <div class="live-preview">
-                    <div class="table-responsive table-card">
-                        <table class="table align-middle table-nowrap mb-0">
-                            <thead class="table-light">
-                                <tr>
-                                    <th scope="col" style="width: 80px;">ID</th>
-                                    <th scope="col">{{ __('admin.field_title') }}</th>
-                                    <th scope="col">{{ __('admin.field_price') }}</th>
-                                    <th scope="col">{{ __('admin.field_discounted_price') }}</th>
-                                    <th scope="col" style="width: 150px;">{{ __('admin.field_updated') }}</th>
-                                    <th scope="col" style="width: 150px;">{{ __('admin.field_action') }}</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ( $item->prices as $price)
+                <div class="demo-inline-spacing">
+                    @if (session('status') === 'price-updated')
+                        <div class="alert alert-primary alert-dismissible" role="alert">
+                            {{ __('admin.alert_updated') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                aria-label="Close"></button>
+                        </div>
+                    @endif
+                    @if (session('status') === 'price-created')
+                        <div class="alert alert-success alert-dismissible" role="alert">
+                            {{ __('admin.alert_created') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                aria-label="Close"></button>
+                        </div>
+                    @endif
+                    @if (session('status') === 'price-deleted')
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            {{ __('admin.alert_deleted') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                aria-label="Close"></button>
+                        </div>
+                    @endif
+                </div>
+                <div class="card-body">
+                    <div class="live-preview">
+                        <div class="table-responsive table-card">
+                            <table class="table align-middle table-nowrap mb-0">
+                                <thead class="table-light">
                                     <tr>
-                                        <td>{{ $price->id }}</td>
-                                        <td><a href="{{ route('admin.services.prices.show', [$item->slug, $price->id]) }}">{{ $price->title }}</a></td>
-                                        <td>{{ $price->price }}</td>
-                                        <td>{{ $price->discounted_price }}</td>
-                                        <td>{{ $price->updated_at->diffForHumans() }}</td>
-                                        <td>
-
-                                            <div class="dropdown d-inline-block">
-                                                <button class="btn btn-soft-secondary btn-sm dropdown" type="button"
-                                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <i class="ri-more-fill align-middle"></i>
-                                                </button>
-                                                <ul class="dropdown-menu dropdown-menu-end" style="">
-                                                    <li><a href="{{ route('admin.services.prices.show', [$item->slug, $price->id]) }}"
-                                                        class="dropdown-item"><i
-                                                            class="ri-eye-fill align-bottom me-2 text-muted"></i>
-                                                            {{__('admin.btn_show')}}</a></li>
-                                                    <li><a href="{{ route('admin.services.prices.edit', [$item->slug, $price->id]) }}"
-                                                            class="dropdown-item edit-item-btn"><i
-                                                                class="ri-pencil-fill align-bottom me-2 text-muted"></i>
-                                                            {{ __('admin.btn_edit') }}</a></li>
-                                                    <li>
-                                                        <button type="submit" class="dropdown-item text-danger"
-                                                            data-bs-toggle="modal"
-                                                            data-bs-target="#modalScrollable{{ $price->id }}"><i
-                                                                class="bx bx-trash me-1 text-danger"
-                                                                role="button"></i>
-                                                            {{ __('admin.btn_delete') }}</button>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </td>
+                                        <th scope="col" style="width: 80px;">ID</th>
+                                        <th scope="col">{{ __('admin.field_title') }}</th>
+                                        <th scope="col">{{ __('admin.field_price') }}</th>
+                                        <th scope="col">{{ __('admin.field_discounted_price') }}</th>
+                                        <th scope="col" style="width: 150px;">{{ __('admin.field_updated') }}</th>
+                                        <th scope="col" style="width: 150px;">{{ __('admin.field_action') }}</th>
                                     </tr>
-                                    <div class="modal fade" id="modalScrollable{{ $price->id }}"
-                                        tabindex="-1" style="display: none;" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-scrollable" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="modalScrollableTitle">
-                                                        {{ __('admin.question_delete') }}</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <p
-                                                        class="mt-1 text-sm text-gray-600 dark:text-gray-400  alert alert-warning text-wrap">
-                                                        {{ __('admin.notification_delete') }}
-                                                    </p>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-outline-secondary"
-                                                        data-bs-dismiss="modal">
-                                                        {{ __('admin.btn_close') }}
+                                </thead>
+                                <tbody>
+                                    @foreach ($item->prices as $price)
+                                        <tr>
+                                            <td>{{ $price->id }}</td>
+                                            <td><a
+                                                    href="{{ route('admin.services.prices.show', [$item->slug, $price->id]) }}">{{ $price->title }}</a>
+                                            </td>
+                                            <td>{{ $price->price }}</td>
+                                            <td>{{ $price->discounted_price }}</td>
+                                            <td>{{ $price->updated_at->diffForHumans() }}</td>
+                                            <td>
+
+                                                <div class="dropdown d-inline-block">
+                                                    <button class="btn btn-soft-secondary btn-sm dropdown" type="button"
+                                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <i class="ri-more-fill align-middle"></i>
                                                     </button>
-                                                    <form
-                                                        action="{{ route('admin.services.prices.destroy', [$item->slug, $price->id]) }}"
-                                                        method="POST">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger"
-                                                            data-bs-toggle="modal"
-                                                            data-bs-target="#modalScrollableConfirm">{{ __('admin.btn_confirm') }}</button>
-                                                    </form>
+                                                    <ul class="dropdown-menu dropdown-menu-end" style="">
+                                                        <li><a href="{{ route('admin.services.prices.show', [$item->slug, $price->id]) }}"
+                                                                class="dropdown-item"><i
+                                                                    class="ri-eye-fill align-bottom me-2 text-muted"></i>
+                                                                {{ __('admin.btn_show') }}</a></li>
+                                                        <li><a href="{{ route('admin.services.prices.edit', [$item->slug, $price->id]) }}"
+                                                                class="dropdown-item edit-item-btn"><i
+                                                                    class="ri-pencil-fill align-bottom me-2 text-muted"></i>
+                                                                {{ __('admin.btn_edit') }}</a></li>
+                                                        <li>
+                                                            <button type="submit" class="dropdown-item text-danger"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#modalScrollable{{ $price->id }}"><i
+                                                                    class="bx bx-trash me-1 text-danger"
+                                                                    role="button"></i>
+                                                                {{ __('admin.btn_delete') }}</button>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <div class="modal fade" id="modalScrollable{{ $price->id }}" tabindex="-1"
+                                            style="display: none;" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="modalScrollableTitle">
+                                                            {{ __('admin.question_delete') }}</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p
+                                                            class="mt-1 text-sm text-gray-600 dark:text-gray-400  alert alert-warning text-wrap">
+                                                            {{ __('admin.notification_delete') }}
+                                                        </p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-outline-secondary"
+                                                            data-bs-dismiss="modal">
+                                                            {{ __('admin.btn_close') }}
+                                                        </button>
+                                                        <form
+                                                            action="{{ route('admin.services.prices.destroy', [$item->slug, $price->id]) }}"
+                                                            method="POST">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" class="btn btn-danger"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#modalScrollableConfirm">{{ __('admin.btn_confirm') }}</button>
+                                                        </form>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                @endforeach
-                            </tbody>
-                        </table>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-@endif
+    @endif
     @if ($child_items->count() > 0)
         <div class="card">
             <h5 class="card-header">{{ __('admin.list_child_services') }}</h5>

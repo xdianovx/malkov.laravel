@@ -42,7 +42,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">{{ __('admin.field_description_header') }}</label>
-                                    <textarea class="form-control" name="description_header"
+                                    <textarea id="editor" class="form-control" name="description_header"
                                         placeholder="{{ __('admin.placeholder_text') }}" style="height: 234px;">{!! $item->description_header !!}</textarea>
                                 </div>
                                 <div class="mb-3">
@@ -51,7 +51,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">{{__('admin.field_description_footer')}}</label>
-                                    <textarea class="form-control ckeditor-classic" name="description_footer" placeholder="{{__('admin.placeholder_text')}}"
+                                    <textarea id="editor" class="form-control ckeditor-classic" name="description_footer" placeholder="{{__('admin.placeholder_text')}}"
                                         style="height: 234px;">{!! $item->description_footer !!}</textarea>
                                 </div>
                             </div>

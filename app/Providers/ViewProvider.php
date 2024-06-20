@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use App\Models\Blog;
 use App\Models\CategoryBlog;
+use App\Models\Document;
 use App\Models\HomePageNum;
 use App\Models\News;
 use App\Models\Page;
@@ -43,5 +44,6 @@ class ViewProvider extends ServiceProvider
         View::share('show_reels', ShowReel::$show_reels);
         View::share('specializations_routes', Specialization::$specializations_routes);
         View::share('specialist_routes', Specialist::$specialist_routes);
+        View::share('document_routes', Document::$document_routes);
     }
 }

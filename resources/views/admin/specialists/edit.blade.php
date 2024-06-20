@@ -30,7 +30,7 @@
                             <p class="card-title-desc text-muted">{{ __('admin.field_current_image_mob') }}</p>
                             <div class="live-preview">
                                 <div>
-                                    <img src="{{ $item->image_mob }}" class="img-fluid" alt="Responsive image">
+                                    <img src="{{ asset('storage') . '/' . $item->image_mob }}" class="img-fluid" alt="Responsive image">
                                 </div>
                             </div>
                         </div>
@@ -45,7 +45,7 @@
                             <p class="card-title-desc text-muted">{{ __('admin.field_current_image') }}</p>
                             <div class="live-preview">
                                 <div>
-                                    <img src="{{ $item->image }}" class="img-fluid" alt="Responsive image">
+                                    <img src="{{ asset('storage') . '/' . $item->image }}" class="img-fluid" alt="Responsive image">
                                 </div>
                             </div>
                         </div>
@@ -108,7 +108,6 @@
                                     </div>
                                 </div>
                                 <div class="col-xxl-6 col-md-6">
-
                                     <div>
                                         <label for="formFile" class="form-label">{{ __('admin.field_image') }}</label>
                                         <input class="form-control" type="file" id="formFile" name="image">
@@ -157,12 +156,12 @@
 
                                 <div class="mb-3">
                                     <label class="form-label">{{ __('admin.field_education') }}</label>
-                                    <textarea class="form-control" name="education" placeholder="{{ __('admin.placeholder_text') }}"
+                                    <textarea id="editor" class="form-control" name="education" placeholder="{{ __('admin.placeholder_text') }}"
                                         style="height: 234px;">{!! $item->education !!}</textarea>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">{{ __('admin.field_additional_education') }}</label>
-                                    <textarea class="form-control" name="additional_education" placeholder="{{ __('admin.placeholder_text') }}"
+                                    <textarea id="editor" class="form-control" name="additional_education" placeholder="{{ __('admin.placeholder_text') }}"
                                         style="height: 234px;">{!! $item->additional_education !!}</textarea>
                                 </div>
                                 <div class="mb-3">

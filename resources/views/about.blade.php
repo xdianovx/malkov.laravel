@@ -65,7 +65,7 @@
         </div>
     </section>
 
-    <x-sections.stock-slider/>
+    {{-- <x-sections.stock-slider/> --}}
     <section class="section section-interrior">
         <div class="container">
             <h2 class="h2">Современные кабинеты</h2>
@@ -117,7 +117,7 @@
         </div>
     </section>
 
-    <x-sections.services/>
+    {{-- <x-sections.services :data="$services"/> --}}
 
     <x-sections.map/>
     <x-sections.faq/>

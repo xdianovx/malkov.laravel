@@ -73,7 +73,7 @@
             <div class="navigation-left">
                 <nav class="nav-left">
                     <a href="/patsiientam">Пациентам</a>
-                    <a href="/usligi">Услуги</a>
+                    <a href="/uslugi">Услуги</a>
                     <a href="/akcii">Акции</a>
                     <a href="/vrachi">Врачи</a>
                     <a href="/blog">Блог</a>

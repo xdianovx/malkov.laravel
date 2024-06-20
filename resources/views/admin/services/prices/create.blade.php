@@ -65,7 +65,7 @@
 
                                 <div class="mb-3">
                                     <label class="form-label">{{__('admin.field_description')}}</label>
-                                    <textarea class="form-control" name="description" placeholder="{{__('admin.placeholder_text')}}" style="height: 234px;">{{ old('description') }}</textarea>
+                                    <textarea id="editor" class="form-control" name="description" placeholder="{{__('admin.placeholder_text')}}" style="height: 234px;">{{ old('description') }}</textarea>
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-success waves-effect waves-light mt-5">{{__('admin.btn_save')}}</button>

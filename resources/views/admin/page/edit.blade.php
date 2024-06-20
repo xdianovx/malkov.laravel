@@ -29,7 +29,7 @@
                             <p class="card-title-desc text-muted">{{ __('admin.field_current_image_mob') }}</p>
                             <div class="live-preview">
                                 <div>
-                                    <img src="{{ $item->image_mob }}" class="img-fluid"
+                                    <img src="{{ asset('storage') . '/' . $item->image_mob }}" class="img-fluid"
                                         alt="Responsive image">
                                 </div>
                             </div>
@@ -45,7 +45,7 @@
                             <p class="card-title-desc text-muted">{{ __('admin.field_current_image') }}</p>
                             <div class="live-preview">
                                 <div>
-                                    <img src="{{ $item->image }}" class="img-fluid" alt="Responsive image">
+                                    <img src="{{ asset('storage') . '/' . $item->image }}" class="img-fluid" alt="Responsive image">
                                 </div>
                             </div>
                         </div>
@@ -109,7 +109,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">{{__('admin.field_description_footer')}}</label>
-                                    <textarea class="form-control" name="description" placeholder="{{__('admin.placeholder_text')}}"
+                                    <textarea id="editor" class="form-control" name="description" placeholder="{{__('admin.placeholder_text')}}"
                                         style="height: 234px;">{!! $item->description !!}</textarea>
                                 </div>
                             </div>

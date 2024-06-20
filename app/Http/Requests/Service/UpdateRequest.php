@@ -27,6 +27,7 @@ class UpdateRequest extends FormRequest
             'image' => 'nullable|image',
             'image_mob' => 'nullable|image',
             'description'  => ['nullable'],
+            'content' => ['nullable'],
             'description_footer' => ['nullable'],
             'description_header' => ['nullable'],
         ];

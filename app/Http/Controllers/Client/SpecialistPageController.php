@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
+use App\Models\News;
 use App\Models\Page;
 use App\Models\Specialist;
 use App\Models\Specialization;
@@ -15,10 +16,12 @@ class SpecialistPageController extends Controller
 
     $specialists_page = Page::whereSlug('vrachi')->firstOrFail();
     $specializations = Specialization::all();
+    $news = News::orderBy('id', 'DESC')->take(8)->get();
 
     return view('doctors', compact(
       'specializations',
       'specialists_page',
+      'news'
     ));
   }
   public function show($specialist_slug)

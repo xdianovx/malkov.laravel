@@ -17,7 +17,13 @@ class FormatData
             'arreyIds' => $arreyIds
         ];
     }
-
+    public function changeTitleToId($data, $model, $key)
+    {
+        if (isset($data[$key])) :
+            $data[$key] = $model::where('title', $data[$key])->first()->id;
+        endif;
+        return $data;
+    }
     public function writeDataToTable($item, $arreyIds)
     {
         foreach ($arreyIds as $keyIds => $entityIds) :

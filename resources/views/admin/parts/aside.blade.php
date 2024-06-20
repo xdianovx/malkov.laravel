@@ -86,19 +86,22 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link menu-link @if (in_array(Route::current()->getName(), $specialist_routes)
-                        || in_array(Route::current()->getName(), $specializations_routes))
+                        || in_array(Route::current()->getName(), $specializations_routes)
+                        || in_array(Route::current()->getName(), $document_routes))
                             active @endif" href="#sidebarSpecialist" data-bs-toggle="collapse" role="button"
                         aria-expanded="@if (in_array(Route::current()->getName(), $specialist_routes)
-                        || in_array(Route::current()->getName(), $specializations_routes))
+                        || in_array(Route::current()->getName(), $specializations_routes)
+                        || in_array(Route::current()->getName(), $document_routes))
                         true @else false @endif" aria-controls="sidebarSpecialist">
                         <i class="mdi mdi-tooltip-edit-outline"></i> <span data-key="t-dashboards">{{__('admin.aside_title_specialists_record')}}</span>
                     </a>
                     <div class="collapse menu-dropdown @if (in_array(Route::current()->getName(), $specialist_routes)
-                        || in_array(Route::current()->getName(), $specializations_routes)) show @endif" id="sidebarSpecialist">
+                        || in_array(Route::current()->getName(), $specializations_routes)
+                        || in_array(Route::current()->getName(), $document_routes)) show @endif" id="sidebarSpecialist">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a href="{{ route('admin.specialists.index') }}"
-                                     class="nav-link @if (in_array(Route::current()->getName(), $specialist_routes)) active @endif" data-key="t-analytics">
+                                     class="nav-link @if (in_array(Route::current()->getName(), $specialist_routes)|| in_array(Route::current()->getName(), $document_routes)) active @endif" data-key="t-analytics">
                                      {{__('admin.aside_title_specialists_record')}}</a>
                             </li>
                             <li class="nav-item">

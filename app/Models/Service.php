@@ -21,7 +21,8 @@ class Service extends Model
         'slug',
         'parent_id',
         'description',
-        'description_header'
+        'description_header',
+        'content'
     ];
     public static $services_routes = [
         'admin.services.index',

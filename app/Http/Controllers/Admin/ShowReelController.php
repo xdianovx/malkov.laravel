@@ -20,15 +20,15 @@ class ShowReelController extends BaseController
         $item = ShowReel::whereId($show_reel_id)->firstOrFail();
         $files = [];
         if ($this->format_file(pathinfo($item->file)['dirname'], 'view_file') == 'videos') :
-            $files['video'] = $item->file;
+            $files['video'] = asset('storage') . '/' . $item->file;
         elseif ($this->format_file(pathinfo($item->file)['dirname'], 'view_file') == 'images') :
-            $files['image'] = $item->file;
+            $files['image'] = asset('storage') . '/' . $item->file;
         endif;
         if ($item->file_mob) :
             if ($this->format_file(pathinfo($item->file_mob)['dirname'], 'view_file_mob') == 'videos') :
-                $files['video_mob'] = $item->file_mob;
+                $files['video_mob'] = asset('storage') . '/' . $item->file_mob;
             elseif ($this->format_file(pathinfo($item->file_mob)['dirname'], 'view_file_mob') == 'images') :
-                $files['image_mob'] = $item->file_mob;
+                $files['image_mob'] = asset('storage') . '/' . $item->file_mob;
             endif;
         endif;
 
@@ -48,7 +48,6 @@ class ShowReelController extends BaseController
         if ($request->hasFile('file')) :
             if ($this->format_file($request, 'file') == 'video') :
                 $data['file'] = $this->upload_service->videoStore($request, $data['file'], $page->slug . '/show_reels');
-                $data['file'] = env('APP_URL') . '/storage' . Str::remove('public', $data['file']);
             elseif ($this->format_file($request, 'file') == 'image') :
                 $data['file'] = $this->upload_service->imageConvertAndStore($request, $data['file'], $page->slug . '/show_reels');
             endif;
@@ -56,7 +55,6 @@ class ShowReelController extends BaseController
         if ($request->hasFile('file_mob')) :
             if ($this->format_file($request, 'file_mob') == 'video') :
                 $data['file_mob'] = $this->upload_service->videoStore($request, $data['file_mob'], $page->slug . '/show_reels');
-                $data['file_mob'] = env('APP_URL') . '/storage' . Str::remove('public', $data['file_mob']);
             elseif ($this->format_file($request, 'file_mob') == 'image') :
                 $data['file_mob'] = $this->upload_service->imageConvertAndStore($request, $data['file_mob'], $page->slug . '/show_reels');
             endif;
@@ -77,15 +75,15 @@ class ShowReelController extends BaseController
         $item = ShowReel::whereId($show_reel_id)->firstOrFail();
         $files = [];
         if ($this->format_file(pathinfo($item->file)['dirname'], 'view_file') == 'videos') :
-            $files['video'] = $item->file;
+            $files['video'] = asset('storage') . '/' . $item->file;
         elseif ($this->format_file(pathinfo($item->file)['dirname'], 'view_file') == 'images') :
-            $files['image'] = $item->file;
+            $files['image'] = asset('storage') . '/' . $item->file;
         endif;
         if ($item->file_mob) :
             if ($this->format_file(pathinfo($item->file_mob)['dirname'], 'view_file_mob') == 'videos') :
-                $files['video_mob'] = $item->file_mob;
+                $files['video_mob'] = asset('storage') . '/' . $item->file_mob;
             elseif ($this->format_file(pathinfo($item->file_mob)['dirname'], 'view_file_mob') == 'images') :
-                $files['image_mob'] = $item->file_mob;
+                $files['image_mob'] = asset('storage') . '/' . $item->file_mob;
             endif;
         endif;
 
@@ -102,7 +100,6 @@ class ShowReelController extends BaseController
         if ($request->hasFile('file')) :
             if ($this->format_file($request, 'file') == 'video') :
                 $data['file'] = $this->upload_service->videoStore($request, $data['file'], $page->slug . '/show_reels');
-                $data['file'] = env('APP_URL') . '/storage' . Str::remove('public', $data['file']);
             elseif ($this->format_file($request, 'file') == 'image') :
                 $data['file'] = $this->upload_service->imageConvertAndStore($request, $data['file'], $page->slug . '/show_reels');
             endif;
@@ -110,7 +107,6 @@ class ShowReelController extends BaseController
         if ($request->hasFile('file_mob')) :
             if ($this->format_file($request, 'file_mob') == 'video') :
                 $data['file_mob'] = $this->upload_service->videoStore($request, $data['file_mob'], $page->slug . '/show_reels');
-                $data['file_mob'] = env('APP_URL') . '/storage' . Str::remove('public', $data['file_mob']);
             elseif ($this->format_file($request, 'file_mob') == 'image') :
                 $data['file_mob'] = $this->upload_service->imageConvertAndStore($request, $data['file_mob'], $page->slug . '/show_reels');
             endif;

@@ -8,7 +8,7 @@
                 <div class="card-body">
                     <div class="d-flex align-items-center mb-4">
                         <div class="flex-grow-1">
-                            <h3 class="card-header align-items-center d-flex">{{ __('admin.news_card_title') }}:
+                            <h3 class="card-header align-items-center d-flex">{{ __('admin.document_card_title') }}:
                                 {{ $item->title }}</h3>
                         </div>
                         <div class="flex-shrink-0">
@@ -21,18 +21,19 @@
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink1"
                                     style="">
                                     <li>
-                                        <a type="button" class="dropdown-item" href="{{ route('admin.news.index') }}">
+                                        <a type="button" class="dropdown-item"
+                                            href="{{ route('admin.specialists.show', $item->specialist->slug) }}">
                                             <i class="ri-arrow-left-line align-bottom me-2 text-muted"></i>
                                             {{ __('admin.btn_back') }}</a>
                                     </li>
 
-                                    <li><a href="{{ route('admin.news.edit', $item->slug) }}"
+                                    <li><a href="{{ route('admin.specialists.documents.edit', [$item->specialist->slug, $item->id]) }}"
                                             class="dropdown-item edit-item-btn"><i
                                                 class="ri-pencil-fill align-bottom me-2 text-muted"></i>
                                             {{ __('admin.btn_edit') }}</a></li>
                                     <li>
                                         <button type="submit" class="dropdown-item text-danger" data-bs-toggle="modal"
-                                            data-bs-target="#modalScrollable{{ $item->slug }}"><i
+                                            data-bs-target="#modalScrollable{{ $item->id }}"><i
                                                 class="bx bx-trash me-1 text-danger" role="button"></i>
                                             {{ __('admin.btn_delete') }}</button>
                                     </li>
@@ -40,19 +41,6 @@
                             </div>
                         </div>
                     </div>
-                    @if ($item->description_header)
-                        <h5 class="text-muted">{{ __('admin.field_description_header') }}:</h5>
-                        <div class="table-responsive">
-                            <table class="table table-borderless mb-0">
-                                <tbody>
-                                    <tr>
-                                        <td class="text-muted">{!! $item->description_header !!}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    @else
-                    @endif
                     @if ($item->description)
                         <h5 class="text-muted">{{ __('admin.field_description') }}:</h5>
                         <div class="table-responsive">
@@ -66,37 +54,9 @@
                         </div>
                     @else
                     @endif
-                    @if ($item->content)
-                        <h5 class="text-muted">{{ __('admin.field_content') }}:</h5>
-                        <div class="table-responsive">
-                            <table class="table table-borderless mb-0">
-                                <tbody>
-                                    <tr>
-                                        <td class="text-muted">{!! $item->content !!}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    @else
-                    @endif
                 </div>
                 <!--end card-body-->
             </div>
-            @if (!empty($item->image_mob))
-                <div class="col-xxl-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <p class="card-title-desc text-muted">{{ __('admin.field_current_image_mob') }}</p>
-                            <div class="live-preview">
-                                <div>
-                                    <img src="{{ asset('storage') . '/' . $item->image_mob }}" class="img-fluid" alt="Responsive image">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @else
-            @endif
             @if (!empty($item->image))
                 <div class="col-xxl-6">
                     <div class="card">
@@ -104,7 +64,8 @@
                             <p class="card-title-desc text-muted">{{ __('admin.field_current_image') }}</p>
                             <div class="live-preview">
                                 <div>
-                                    <img src="{{ asset('storage') . '/' . $item->image }}" class="img-fluid" alt="Responsive image">
+                                    <img src="{{ asset('storage') . '/' . $item->image }}" class="img-fluid"
+                                        alt="Responsive image">
                                 </div>
                             </div>
                         </div>
@@ -112,10 +73,9 @@
                 </div>
             @else
             @endif
-
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-header align-items-center d-flex">{{ __('admin.news_card_info') }}</h5>
+                    <h5 class="card-header align-items-center d-flex">{{ __('admin.document_card_info') }}</h5>
                     <div class="table-responsive">
                         <table class="table table-borderless mb-0">
                             <tbody>
@@ -128,14 +88,6 @@
                                     <td class="text-muted">{{ $item->title }}</td>
                                 </tr>
                                 <tr>
-                                    <th class="ps-0" scope="row">{{ __('admin.field_h1_title') }}:</th>
-                                    <td class="text-muted">{{ $item->h1_title }}</td>
-                                </tr>
-                                <tr>
-                                    <th class="ps-0" scope="row">{{ __('admin.field_slug') }}:</th>
-                                    <td class="text-muted">{{ $item->slug }}</td>
-                                </tr>
-                                <tr>
                                     <th class="ps-0" scope="row">{{ __('admin.field_created') }}:</th>
                                     <td class="text-muted">{{ $item->created_at }}</td>
                                 </tr>
@@ -144,7 +96,7 @@
                                     <td class="text-muted">{{ $item->updated_at }}</td>
                                 </tr>
 
-                                <div class="modal fade" id="modalScrollable{{ $item->slug }}" tabindex="-1"
+                                <div class="modal fade" id="modalScrollable{{ $item->id }}" tabindex="-1"
                                     style="display: none;" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-scrollable" role="document">
                                         <div class="modal-content">
@@ -165,7 +117,8 @@
                                                     data-bs-dismiss="modal">
                                                     {{ __('admin.btn_close') }}
                                                 </button>
-                                                <form action="{{ route('admin.news.destroy', $item->slug) }}"
+                                                <form
+                                                    action="{{ route('admin.specialists.documents.destroy', [$item->specialist->slug, $item->id]) }}"
                                                     method="POST">
                                                     @csrf
                                                     @method('DELETE')
@@ -179,7 +132,6 @@
 
                             </tbody>
                         </table>
-
                     </div>
                 </div><!-- end card body -->
             </div>

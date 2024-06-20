@@ -6,7 +6,7 @@
                     <div class="swiper-slide">
 
                         <div class="stock-slide">
-                            <img src="{{ $item->image }}" alt="Обязательер">
+                            <img src="{{ asset('storage') . '/' . $item->image }}" alt="Обязателье">
 
 
 
@@ -18,7 +18,7 @@
                                 <p class="stock-slide__descr">{{ $item->content }}</p>
 
                                 <div class="stock-slide__info_btns">
-                                    <a href="/akcii/{{ $item->slug }}" class="btn">Подробнее</a>
+                                    <a href="{{ route('stock-single', $item->slug) }}" class="btn">Подробнее</a>
                                     <x-ui.slider-arrows class="ml-auto" />
                                 </div>
                             </div>

@@ -80,12 +80,12 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label" >{{__('admin.field_content')}}</label>
-                                    <textarea class="form-control" name="content" placeholder="{{__('admin.placeholder_text')}}"
+                                    <textarea id="editor" class="form-control" name="content" placeholder="{{__('admin.placeholder_text')}}"
                                         style="height: 234px;">{{ old('content') }}</textarea>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">{{ __('admin.field_description_header') }}</label>
-                                    <textarea class="form-control" name="description_header"
+                                    <textarea id="editor" class="form-control" name="description_header"
                                         placeholder="{{ __('admin.placeholder_text') }}" style="height: 234px;">{{ old('description_header') }}</textarea>
                                 </div>
                                 <div class="mb-3">

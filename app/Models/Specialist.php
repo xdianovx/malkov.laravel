@@ -36,7 +36,10 @@ class Specialist extends Model
     {
         return 'slug';
     }
-
+    public function documents()
+    {
+      return $this->hasMany(Document::class);
+    }
     public function specializations(): BelongsToMany
     {
         return $this->belongsToMany(Specialization::class, 'specialist_specialization', 'specialist_id', 'specialization_id');

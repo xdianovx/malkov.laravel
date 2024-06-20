@@ -59,7 +59,7 @@
     </section>
 
 
-    <x-sections.news/>
+    <x-sections.news  :data="$news"/>
     <x-sections.callback/>
     <x-sections.faq/>
     <section class="section"></section>

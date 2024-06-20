@@ -36,7 +36,7 @@ class BlogController extends BaseController
     public function store(StoreRequest $request)
     {
         $data = $request->validated();
-        $data = $this->changeTitleToId($data);
+        $data = $this->format_data_service->changeTitleToId($data, CategoryBlog::class, 'category_id');
         $data['slug'] = Str::slug($data['title']);
 
         if ($request->hasFile('image')) :
@@ -61,7 +61,7 @@ class BlogController extends BaseController
     {
         $blog = Blog::whereSlug($blog_slug)->firstOrFail();
         $data = $request->validated();
-        $data = $this->changeTitleToId($data);
+        $data = $this->format_data_service->changeTitleToId($data, CategoryBlog::class, 'category_id');
         $data['slug'] = Str::slug($data['title']);
 
         if ($request->hasFile('image')) :
@@ -93,12 +93,5 @@ class BlogController extends BaseController
             $blogs = Blog::filter()->paginate(10);
         endif;
         return view('admin.blogs.index', compact('blogs', 'user'));
-    }
-    protected function changeTitleToId($data)
-    {
-        if (isset($data['category_id'])) :
-            $data['category_id'] = CategoryBlog::where('title', $data['category_id'])->first()->id;
-        endif;
-        return $data;
     }
 }

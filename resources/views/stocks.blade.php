@@ -35,7 +35,7 @@
 
 
     <x-sections.callback/>
-    <x-sections.services/>
+    <x-sections.services :data="$services"/>
     <x-sections.faq/>
 
 

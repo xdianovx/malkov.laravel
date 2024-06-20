@@ -60,6 +60,15 @@ return [
     'aside_title_price_record' => 'Записи цен',
     'list_prices' => 'Цены на услуги',
 
+    //Titles document
+    'new_document_card_title' => 'Новая запись документ',
+    'edit_document_card_title' => 'Изменить запись документа',
+    'document_card_title' => 'Запись документ',
+    'document_card_info' => 'Информация о записи документа',
+    'aside_title_document' => 'Документ',
+    'aside_title_document_record' => 'Записи документов',
+    'list_documents' => 'Документы',
+
     //Titles news
     'new_news_card_title' => 'Новая запись новости',
     'edit_news_card_title' => 'Изменить запись новости',
@@ -142,6 +151,7 @@ return [
     'btn_create_price' => 'Добавить цену(Пункт)',
     'btn_create_home_page_num' => 'Добавить число',
     'btn_create_show_reel' => 'Добавить Show Reel',
+    'btn_add_document' => 'Добавить документ,сертификат',
     //Placeholders
     'placeholder_text' => 'Введите текст',
     'placeholder_search' => 'ID,Название,Слаг',

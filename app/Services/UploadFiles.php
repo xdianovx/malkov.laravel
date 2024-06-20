@@ -29,14 +29,15 @@ class UploadFiles
         if ($request->is('*/specialists/*')) {
             $directory = 'uploads/specialists/' . $id_or_slug . '/images/';
         }
+        if ($request->is('*/documents/*')) {
+            $directory = 'uploads/specialists/' . $id_or_slug . '/images/';
+        }
         $defaultImage = Image::read($data);
         $filename = Str::ulid() . '.webp';
         $path = $directory . $filename;
         $defaultImage = $defaultImage->toWebp(80);
         Storage::disk('public')->put($path, (string)$defaultImage);
-        $data = Storage::disk('public')->url($path);
-
-        return $data;
+        return $path;
     }
 
     public function videoStore($request, $data, $id_or_slug)
@@ -59,6 +60,6 @@ class UploadFiles
         $extention = $data->getClientOriginalExtension();
         $fileNameToStore = $directory . $filename . "_" . time() . "." . $extention;
         $data = $data->storeAs('public', $fileNameToStore);
-        return $data;
+        return $fileNameToStore;
     }
 }
