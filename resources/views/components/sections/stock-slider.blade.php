@@ -4,8 +4,11 @@
             <div class="swiper-wrapper">
                 @forelse ($data as $item)
                     <div class="swiper-slide">
+
                         <div class="stock-slide">
                             <img src="{{ $item->image }}" alt="Обязательер">
+
+
 
                             <div class="stock-slide__info">
                                 <h3 class="stock-slide__title">{{ $item->h1_title }}</h3>
@@ -15,7 +18,7 @@
                                 <p class="stock-slide__descr">{{ $item->content }}</p>
 
                                 <div class="stock-slide__info_btns">
-                                    <a href="/" class="btn">Подробнее</a>
+                                    <a href="/akcii/{{ $item->slug }}" class="btn">Подробнее</a>
                                     <x-ui.slider-arrows class="ml-auto" />
                                 </div>
                             </div>

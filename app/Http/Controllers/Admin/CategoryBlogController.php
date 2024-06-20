@@ -37,8 +37,11 @@ class CategoryBlogController extends BaseController
         $data['slug'] = Str::slug($data['title']);
         $category = CategoryBlog::firstOrCreate($data);
 
+
+
         return redirect()->route('admin.categories_blog.index')->with('status', 'item-created');
     }
+
     public function edit($category_slug)
     {
         $user = Auth::user();

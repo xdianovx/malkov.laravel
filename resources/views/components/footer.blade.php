@@ -31,7 +31,7 @@
             <div class="footer__bot">
                 <a href="">Политика конфиденциальности</a>
                 <a href="">Правила предоставления услуг мед.организации</a>
-                <a href="" class="footer__kometa" target="_blank">
+                <a href="http://kometa.team" class="footer__kometa" target="_blank">
                     <img src="{{ asset('img/icon/kometa.svg') }}" alt="" />
                 </a>
             </div>

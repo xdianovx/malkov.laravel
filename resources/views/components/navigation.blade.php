@@ -76,10 +76,11 @@
                     <a href="/usligi">Услуги</a>
                     <a href="/akcii">Акции</a>
                     <a href="/vrachi">Врачи</a>
-                    <a href="/novosti">Новости</a>
+                    <a href="/blog">Блог</a>
                     <a href="/kontakty">Контакты</a>
                     <a href="/o-klinike">О клинике</a>
                     <a href="/otzyvy">Отзывы</a>
+
                 </nav>
 
                 <div class="divider horizontal"></div>

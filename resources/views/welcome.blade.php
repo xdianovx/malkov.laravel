@@ -7,7 +7,7 @@
     <x-sections.showreel :data="$show_reel" />
     <x-sections.doctors :data="$specialists" />
     <x-sections.reviews-external />
-    <x-sections.map />
+    {{-- <x-sections.map /> --}}
     <x-sections.news />
     <x-sections.callback />
     <x-sections.faq />

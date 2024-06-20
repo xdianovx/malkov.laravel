@@ -22,7 +22,7 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required', 'max:70', 'unique:categories_blog,title'],
+            'title' => ['required', 'max:70', 'unique:category_blogs,title'],
             'description'  => ['nullable'],
             'description_footer' => ['nullable'],
         ];

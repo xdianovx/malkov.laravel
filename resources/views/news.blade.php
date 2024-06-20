@@ -20,11 +20,14 @@
         ],
         [
             'id' => '1',
-        ],      [
+        ],
+        [
             'id' => '1',
-        ],      [
+        ],
+        [
             'id' => '1',
-        ],      [
+        ],
+        [
             'id' => '1',
         ],
     ];
@@ -33,7 +36,6 @@
 @extends('layouts.main')
 
 @section('content')
-
     <section class="section hero section-news">
         <div class="container">
             <h1 class="h1 uppercase">новости клиники</h1>
@@ -55,18 +57,18 @@
         <div class="container">
             <div class="news-page-section__items">
                 @foreach ($data as $item)
-                    <x-news-item/>
+                    <x-news-item />
                 @endforeach
             </div>
 
-            <x-ui.breadcrumbs class="news-section__breadcrumbs"/>
+            {{-- <x-ui.breadcrumbs class="news-section__breadcrumbs"/> --}}
         </div>
     </section>
 
 
-    {{--    <x-sections.doctors />--}}
-    <x-sections.callback/>
-    <x-sections.faq/>
+    {{--    <x-sections.doctors /> --}}
+    <x-sections.callback />
+    <x-sections.faq />
 
 
 

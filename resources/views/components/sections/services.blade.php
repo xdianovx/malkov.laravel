@@ -10,9 +10,9 @@
             @forelse ($data as $item)
                 <a href="{{ route('service-single', $item->slug) }}" class="services-item">
                     <h3 class="services-item__title">{{ $item->title }}</h3>
-                    <p class="services-item__text">{{ $item->content }}</p>
+                    <p class="services-item__text">{!! $item->description_header !!}</p>
 
-                    <div class="services-item__price">от {{ $item->prices->min('price') }}</div>
+                    <div class="services-item__price">от {{ $item->prices->min('price') }} руб.</div>
                 </a>
             @empty
                 <p>{{ __('admin.notification_no_entries') }}</p>

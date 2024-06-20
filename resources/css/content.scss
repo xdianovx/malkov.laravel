@@ -1,8 +1,14 @@
 .content {
     margin-top: 80px;
 
-    .callout {
+    a {
+        color: $textAccent;
+        text-decoration: underline;
+    }
+
+    blockquote {
         font-style: italic;
+        margin: 0;
         font-weight: 500;
         position: relative;
         padding-left: 24px;
@@ -51,9 +57,13 @@
 
     img {
         display: inline-block;
-        width: 100%;
+        // width: 100%;
+        // object-fit: conta;
     }
 
+    figure {
+        margin: 0;
+    }
     ul {
         margin-top: 32px;
         display: flex;
@@ -80,7 +90,7 @@
     }
 
     ol {
-        margin-top: 44px;
+        margin-top: 32px;
         display: flex;
         flex-direction: column;
         gap: 40px;

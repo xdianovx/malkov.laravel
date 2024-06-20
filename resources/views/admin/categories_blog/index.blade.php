@@ -8,9 +8,9 @@
                     <div class="search-box">
                         <form class="d-flex" action="{{ route('admin.categories_blog.search') }}" method="get">
                             @csrf
-                            <input class="form-control me-2" type="search" name="search" placeholder="{{__('admin.placeholder_search')}}"
-                                aria-label="Search">
-                            <button class="btn btn-outline-primary" type="submit">{{__('admin.btn_search')}}</button>
+                            <input class="form-control me-2" type="search" name="search"
+                                placeholder="{{ __('admin.placeholder_search') }}" aria-label="Search">
+                            <button class="btn btn-outline-primary" type="submit">{{ __('admin.btn_search') }}</button>
                         </form>
                     </div>
                 </div>
@@ -22,7 +22,7 @@
 
                         <a href="{{ route('admin.categories_blog.create') }}" class="btn btn-success addMembers-modal">
                             <i class="ri-add-fill me-1 align-bottom"></i>
-                            {{__('admin.btn_add')}}
+                            {{ __('admin.btn_add') }}
                         </a>
                     </div>
                 </div>
@@ -59,18 +59,20 @@
                                 <thead class="table-light">
                                     <tr>
                                         <th scope="col" style="width: 80px;">ID</th>
-                                        <th scope="col">{{__('admin.field_title')}}</th>
-                                        <th scope="col">{{__('admin.field_slug')}}</th>
-                                        <th scope="col" style="width: 150px;">{{__('admin.field_updated')}}</th>
-                                        <th scope="col" style="width: 150px;">{{__('admin.field_action')}}</th>
+                                        <th scope="col">{{ __('admin.field_title') }}</th>
+                                        <th scope="col">{{ __('admin.field_slug') }}</th>
+                                        <th scope="col" style="width: 150px;">{{ __('admin.field_updated') }}</th>
+                                        <th scope="col" style="width: 150px;">{{ __('admin.field_action') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse ($categories_blog as $item)
+                                    @forelse ($categories as $item)
                                         <tr>
                                             <td>{{ $item->id }}</td>
 
-                                            <td><a href="{{ route('admin.categories_blog.show', $item->slug) }}">{{ $item->title }}</a></td>
+                                            <td><a
+                                                    href="{{ route('admin.categories_blog.show', $item->slug) }}">{{ $item->title }}</a>
+                                            </td>
                                             <td>{{ $item->slug }}</td>
                                             <td>{{ $item->updated_at->diffForHumans() }}</td>
                                             <td>
@@ -84,17 +86,17 @@
                                                         <li><a href="{{ route('admin.categories_blog.show', $item->slug) }}"
                                                                 class="dropdown-item"><i
                                                                     class="ri-eye-fill align-bottom me-2 text-muted"></i>
-                                                                    {{__('admin.btn_show')}}</a></li>
+                                                                {{ __('admin.btn_show') }}</a></li>
                                                         <li><a href="{{ route('admin.categories_blog.edit', $item->slug) }}"
                                                                 class="dropdown-item edit-item-btn"><i
                                                                     class="ri-pencil-fill align-bottom me-2 text-muted"></i>
-                                                                    {{__('admin.btn_edit')}}</a></li>
+                                                                {{ __('admin.btn_edit') }}</a></li>
                                                         <li>
                                                             <button type="submit" class="dropdown-item text-danger"
                                                                 data-bs-toggle="modal"
                                                                 data-bs-target="#modalScrollable{{ $item->slug }}"><i
                                                                     class="bx bx-trash me-1 text-danger" role="button"></i>
-                                                                    {{__('admin.btn_delete')}}</button>
+                                                                {{ __('admin.btn_delete') }}</button>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -105,20 +107,21 @@
                                             <div class="modal-dialog modal-dialog-scrollable" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="modalScrollableTitle"> {{__('admin.question_delete')}}</h5>
+                                                        <h5 class="modal-title" id="modalScrollableTitle">
+                                                            {{ __('admin.question_delete') }}</h5>
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                             aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
                                                         <p
                                                             class="mt-1 text-sm text-gray-600 dark:text-gray-400  alert alert-warning text-wrap">
-                                                            {{__('admin.notification_delete')}}
+                                                            {{ __('admin.notification_delete') }}
                                                         </p>
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-outline-secondary"
                                                             data-bs-dismiss="modal">
-                                                            {{__('admin.btn_close')}}
+                                                            {{ __('admin.btn_close') }}
                                                         </button>
                                                         <form
                                                             action="{{ route('admin.categories_blog.destroy', $item->slug) }}"
@@ -127,7 +130,7 @@
                                                             @method('DELETE')
                                                             <button type="submit" class="btn btn-danger"
                                                                 data-bs-toggle="modal"
-                                                                data-bs-target="#modalScrollableConfirm">{{__('admin.btn_confirm')}}</button>
+                                                                data-bs-target="#modalScrollableConfirm">{{ __('admin.btn_confirm') }}</button>
                                                         </form>
                                                     </div>
                                                 </div>
@@ -135,14 +138,14 @@
                                         </div>
                                     @empty
                                         <tr>
-                                            <td class="text-danger">{{__('admin.notification_no_entries')}}</td>
+                                            <td class="text-danger">{{ __('admin.notification_no_entries') }}</td>
                                         </tr>
                                     @endforelse
                                 </tbody>
                             </table>
                         </div>
-                        @if ($categories_blog->links()->paginator->hasPages())
-                            {{ $categories_blog->links() }}
+                        @if ($categories->links()->paginator->hasPages())
+                            {{ $categories->links() }}
                         @endif
                     </div>
                 </div>

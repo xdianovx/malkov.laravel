@@ -31,9 +31,9 @@
                     уникальные проблемы они
                     решают, что на каждый запрос найдем решение, а отзывчивая администрация поможет с любым вопросом</p>
             </div>
-            <div class="team-section__tags">
+            {{-- <div class="team-section__tags">
                 Тут сделать теги
-            </div>
+            </div> --}}
 
             @forelse ($specializations as $specialization)
             <div class="team-section__items">

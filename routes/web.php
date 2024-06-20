@@ -23,11 +23,11 @@ Route::get('/', [WelcomePageController::class, 'index'], function () {
     return view('welcome');
 })->name('home');
 
-Route::get('/usligi', [ServicePageController::class, 'index'], function () {
+Route::get('/uslugi', [ServicePageController::class, 'index'], function () {
     return view('services');
 })->name('services');
 
-Route::get('/usligi/{service_slug}', [ServicePageController::class, 'show'], function () {
+Route::get('/uslugi/{service_slug}', [ServicePageController::class, 'show'], function () {
     return view('service-single');
 })->name('service-single');
 
@@ -47,11 +47,11 @@ Route::get('/o-klinike', function () {
     return view('about');
 });
 
-Route::get('/novosti', function () {
+Route::get('/blog', function () {
     return view('news');
 });
 
-Route::get('/novosti/{slug}', function () {
+Route::get('/blog/{slug}', function () {
     return view('news-single');
 });
 
