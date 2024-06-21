@@ -1,5 +1,3 @@
-
-
 @extends('layouts.main')
 
 @section('content')
@@ -47,8 +45,8 @@
                         <p class="service-item__text">{!! $item->content !!}</p>
 
                         <div class="service-item__bottom">
-                            @if(!$item->prices->isEmpty())
-                            <div class="service-item__price">от {{$item->prices->min('price')}}</div>
+                            @if (!$item->prices->isEmpty())
+                                <div class="service-item__price">от {{ $item->prices->min('price') }} руб</div>
                             @endif
                             <button class="service-item__btn" data-micromodal-trigger="modal-callback">Быстрая
                                 запись</button>

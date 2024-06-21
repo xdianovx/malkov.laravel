@@ -60,7 +60,8 @@
                     </p>
                 </div>
 
-                <button class="btn faq-section__btn uppercase --accent">Задать вопрос</button>
+                <button class="btn faq-section__btn uppercase --accent" data-micromodal-trigger="modal-callback">Задать
+                    вопрос</button>
             </div>
 
             <div class="faq-section__right">

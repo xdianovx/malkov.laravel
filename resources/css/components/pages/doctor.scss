@@ -53,11 +53,17 @@
 }
 
 .diplom-item__image {
-    aspect-ratio: 3/4;
-    background: rgba($bgBlack, .2);
+    // aspect-ratio: 3/4;
+    width: 100%;
+    background: rgba($bgBlack, 0.2);
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
+
+    img {
+        display: block;
+        width: 100%;
+    }
 }
 
 .diplom-item__title {
@@ -99,7 +105,6 @@
 
         .h1 {
             font-size: 40px;
-
         }
     }
 
@@ -157,7 +162,6 @@
     .section-doctor__info {
         .h1 {
             font-size: 28px;
-
         }
     }
     .diplomas-items {
@@ -169,7 +173,6 @@
 }
 
 @media screen and (max-width: 550px) {
-
     .section-doctor__wrap {
         flex-direction: column;
     }

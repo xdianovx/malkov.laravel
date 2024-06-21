@@ -8,7 +8,8 @@
     <x-sections.doctors :data="$specialists" />
     <x-sections.reviews-external />
     {{-- <x-sections.map /> --}}
-    <x-sections.news :data="$news"/>
+    <x-sections.news :data="$news" />
+    <x-sections.map />
     <x-sections.callback />
     <x-sections.faq />
 
