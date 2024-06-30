@@ -54,8 +54,9 @@
     </section>
 
 
-    <x-sections.services :data="$services"/>
-    <x-sections.callback />
-    <x-sections.faq />
+    <x-sections.services :block="$block_services" :data="$services" />
+    <x-sections.callback  :block="$block_callback_form" />
+    <x-sections.faq :block="$block_questions"/>
+
     <section class="section"></section>
 @endsection()

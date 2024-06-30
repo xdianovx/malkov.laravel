@@ -32,6 +32,9 @@ class UploadFiles
         if ($request->is('*/documents/*')) {
             $directory = 'uploads/specialists/' . $id_or_slug . '/images/';
         }
+        if ($request->is('*/blocks/*')) {
+            $directory = 'uploads/blocks/' . $id_or_slug . '/images/';
+        }
         $defaultImage = Image::read($data);
         $filename = Str::ulid() . '.webp';
         $path = $directory . $filename;
@@ -53,6 +56,9 @@ class UploadFiles
         }
         if ($request->is('*/stocks/*')) {
             $directory = 'uploads/stocks/' . $id_or_slug . '/videos/';
+        }
+        if ($request->is('*/blocks/*')) {
+            $directory = 'uploads/blocks/' . $id_or_slug . '/videos/';
         }
         $filenameWithExt = $data->getClientOriginalName();
         $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);

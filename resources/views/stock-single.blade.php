@@ -30,11 +30,8 @@
         </div>
     </section>
 
-
-
-
-    <x-sections.callback/>
-    <x-sections.news  :data="$news"/>
+    <x-sections.callback  :block="$block_callback_form" />
+    <x-sections.news :block="$block_articles_news" :data="$news" />
 
     <section class="section"></section>
 @endsection()

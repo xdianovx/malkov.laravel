@@ -4,7 +4,7 @@
 
         <div class="index-hero__wrap">
             <h1 class="h1-index  uppercase">{!! $item->h1_title !!}</h1>
-            <p class="index-hero__description">{!! $item->description !!}</p>
+            <p class="index-hero__description">{!! $item->description_header !!}</p>
         </div>
     </div>
 </section>

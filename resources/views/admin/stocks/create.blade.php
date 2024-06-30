@@ -70,7 +70,7 @@
                                     </div>
                                 </div>
 
-                                <div>
+                                <div class="col-xxl-6 col-md-6">
                                     <label for="exampleInputdate" class="form-label">{{ __('admin.due_time') }}</label>
                                     <input type="date" class="form-control" name="due_time"
                                         value="{{ old('due_time') }}" id="exampleInputdate">
@@ -91,14 +91,14 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    {{-- <label class="form-label">{{ __('admin.field_content') }}</label> --}}
                                     <label class="form-label">{{ __('admin.field_content') }}</label>
-                                    <textarea id="editor" class="form-control" name="content" placeholder="{{ __('admin.placeholder_text') }}" style="height: 234px;">{{ old('content') }}</textarea>
+                                    <textarea class="form-control" name="content" placeholder="{{ __('admin.placeholder_text') }}" \
+                                    style="height: 234px;">{{ old('content') }}</textarea>
                                 </div>
 
                                 <div class="mb-3">
                                     <label class="form-label">{{ __('admin.field_description_header') }}</label>
-                                    <textarea id="editor" class="form-control" name="description_header" placeholder="{{ __('admin.placeholder_text') }}"
+                                    <textarea class="form-control" name="description_header" placeholder="{{ __('admin.placeholder_text') }}"
                                         style="height: 234px;">{{ old('description_header') }}</textarea>
                                 </div>
 

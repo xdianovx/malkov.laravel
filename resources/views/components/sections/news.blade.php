@@ -1,7 +1,7 @@
 <section class="section news-section">
     <div class="container">
         <div class="news-section__top">
-            <h2 class="h2">Статьи и новости</h2>
+            <h2 class="h2">{{ $block->h1_title }}</h2>
             <x-ui.slider-arrows-black />
         </div>
 

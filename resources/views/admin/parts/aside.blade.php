@@ -29,15 +29,25 @@
                         || in_array(Route::current()->getName(), $show_reels)
                         || in_array(Route::current()->getName(), $home_page_nums)) active @endif"
                         href="{{ route('admin.pages.index') }}" aria-expanded="false" aria-controls="sidebarLayouts">
-                        <i class="mdi mdi-book-open-page-variant"></i> <span data-key="t-layouts">{{__('admin.aside_title_page')}}</span>
+                        <i class="mdi mdi-book-open-page-variant"></i> <span data-key="t-layouts">{{__('admin.aside_title_pages')}}</span>
                     </a>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link  @if (in_array(Route::current()->getName(), $blocks_routes)
+                        || in_array(Route::current()->getName(), $questions_routes)
+                        || in_array(Route::current()->getName(), $modern_office_routes)) active @endif"
+                        href="{{ route('admin.blocks.index') }}" aria-expanded="false" aria-controls="sidebarLayouts">
+                        <i class="mdi mdi-view-agenda-outline"></i> <span data-key="t-layouts">{{__('admin.aside_title_blocks')}}</span>
+                    </a>
+                </li>
+
                 <li class="nav-item">
                     <a class="nav-link menu-link  @if (in_array(Route::current()->getName(), $services_routes)
                         || in_array(Route::current()->getName(), $prices_routes)) active @endif"
                         href="{{ route('admin.services.index') }}" aria-expanded="false"
                         aria-controls="sidebarLayouts">
-                        <i class="mdi mdi-border-all"></i> <span data-key="t-layouts">{{__('admin.aside_title_service')}}</span>
+                        <i class="mdi mdi-offer"></i> <span data-key="t-layouts">{{__('admin.aside_title_service')}}</span>
                     </a>
                 </li>
 
@@ -53,7 +63,7 @@
                     <a class="nav-link menu-link  @if (in_array(Route::current()->getName(), $stocks_routes)) active @endif"
                         href="{{ route('admin.stocks.index') }}" aria-expanded="false"
                         aria-controls="sidebarLayouts">
-                        <i class="mdi mdi-newspaper-variant-outline"></i> <span data-key="t-layouts">{{__('admin.aside_title_stocks')}}</span>
+                        <i class="mdi mdi-sale"></i> <span data-key="t-layouts">{{__('admin.aside_title_stocks')}}</span>
                     </a>
                 </li>
 
@@ -93,7 +103,7 @@
                         || in_array(Route::current()->getName(), $specializations_routes)
                         || in_array(Route::current()->getName(), $document_routes))
                         true @else false @endif" aria-controls="sidebarSpecialist">
-                        <i class="mdi mdi-tooltip-edit-outline"></i> <span data-key="t-dashboards">{{__('admin.aside_title_specialists_record')}}</span>
+                        <i class="mdi mdi-human-male-male"></i> <span data-key="t-dashboards">{{__('admin.aside_title_specialists_record')}}</span>
                     </a>
                     <div class="collapse menu-dropdown @if (in_array(Route::current()->getName(), $specialist_routes)
                         || in_array(Route::current()->getName(), $specializations_routes)
@@ -113,6 +123,13 @@
                             </li>
                         </ul>
                     </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link  @if (in_array(Route::current()->getName(), $reviews_routes)) active @endif"
+                        href="{{ route('admin.reviews.index') }}" aria-expanded="false"
+                        aria-controls="sidebarLayouts">
+                        <i class="mdi mdi-offer"></i> <span data-key="t-layouts">{{__('admin.aside_title_reviews')}}</span>
+                    </a>
                 </li>
             </ul>
         </div>

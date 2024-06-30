@@ -8,7 +8,7 @@
 
             <div class="doctors-hero__top">
                 <p class="doctors-hero__text">
-                    {{ $specialists_page->description }}
+                    {!! $specialists_page->description_header !!}
                 </p>
 
                 <x-ui.button-arrow
@@ -58,9 +58,8 @@
         </div>
     </section>
 
-
-    <x-sections.news  :data="$news"/>
-    <x-sections.callback/>
-    <x-sections.faq/>
+    <x-sections.news :block="$block_articles_news" :data="$news"/>
+    <x-sections.callback :block="$block_callback_form"/>
+    <x-sections.faq :block="$block_questions"/>
     <section class="section"></section>
 @endsection()

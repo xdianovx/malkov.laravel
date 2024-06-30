@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\BlockController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\CategoryBlogController;
 use App\Http\Controllers\Admin\DocumentController;
@@ -10,10 +11,16 @@ use App\Http\Controllers\Admin\PriceController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\EditorImageUploadController;
 use App\Http\Controllers\Admin\HomePageNumController;
+use App\Http\Controllers\Admin\ModernOfficeController;
+use App\Http\Controllers\Admin\QuestionController;
+use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\ShowReelController;
 use App\Http\Controllers\Admin\SpecialistController;
 use App\Http\Controllers\Admin\SpecializationController;
 use App\Http\Controllers\Admin\StockController;
+use App\Http\Controllers\Client\AboutPageController;
+use App\Http\Controllers\Client\BlogPageController;
+use App\Http\Controllers\Client\ContactPageController;
 use App\Http\Controllers\Client\NewsPageController;
 use App\Http\Controllers\Client\ServicePageController;
 use App\Http\Controllers\Client\SpecialistPageController;
@@ -41,13 +48,13 @@ Route::get('/vrachi/{specialist_slug}', [SpecialistPageController::class, 'show'
     return view('doctor');
 })->name('specialist');
 
-Route::get('/kontakty', function () {
+Route::get('/kontakty', [ContactPageController::class, 'index'], function () {
     return view('contacts');
-});
+})->name('contacts');
 
-Route::get('/o-klinike', function () {
+Route::get('/o-klinike', [AboutPageController::class, 'index'], function () {
     return view('about');
-});
+})->name('about');
 
 Route::get('/novosti', [NewsPageController::class, 'index'], function () {
     return view('news');
@@ -56,6 +63,14 @@ Route::get('/novosti', [NewsPageController::class, 'index'], function () {
 Route::get('/novosti/{news_slug}', [NewsPageController::class, 'show'], function () {
     return view('news-single');
 })->name('news-single');
+
+Route::get('/blog/{blog_slug}', [BlogPageController::class, 'show'], function () {
+    return view('blogs-single');
+})->name('blogs-single');
+
+Route::get('/blog', [BlogPageController::class, 'index'], function () {
+    return view('blogs');
+})->name('blogs');
 
 Route::get('/akcii', [StockPageController::class, 'index'], function () {
     return view('stocks');
@@ -99,7 +114,6 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
     });
     Route::name('pages.')->prefix('pages')->group(function () {
         Route::get('/', [PageController::class, 'index'])->name('index');
-        Route::get('/search',  [PageController::class, 'search'])->name('search');
         Route::get('/create', [PageController::class, 'create'])->name('create');
         Route::post('/store', [PageController::class, 'store'])->name('store');
         Route::get('/{page_slug}', [PageController::class, 'show'])->name('show');
@@ -164,6 +178,16 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
         Route::patch('/{stock_slug}', [StockController::class, 'update'])->name('update');
         Route::delete('/{stock_slug}', [StockController::class, 'destroy'])->name('destroy');
     });
+    Route::name('reviews.')->prefix('reviews')->group(function () {
+        Route::get('/', [ReviewController::class, 'index'])->name('index');
+        Route::get('/search',  [ReviewController::class, 'search'])->name('search');
+        Route::get('/create', [ReviewController::class, 'create'])->name('create');
+        Route::post('/store', [ReviewController::class, 'store'])->name('store');
+        Route::get('/{review_id}', [ReviewController::class, 'show'])->name('show');
+        Route::get('/{review_id}/edit', [ReviewController::class, 'edit'])->name('edit');
+        Route::patch('/{review_id}', [ReviewController::class, 'update'])->name('update');
+        Route::delete('/{review_id}', [ReviewController::class, 'destroy'])->name('destroy');
+    });
     Route::name('specialists.')->prefix('specialists')->group(function () {
         Route::get('/', [SpecialistController::class, 'index'])->name('index');
         Route::get('/search',  [SpecialistController::class, 'search'])->name('search');
@@ -192,5 +216,30 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
         Route::get('/{specialization_slug}/edit', [SpecializationController::class, 'edit'])->name('edit');
         Route::patch('/{specialization_slug}', [SpecializationController::class, 'update'])->name('update');
         Route::delete('/{specialization_slug}', [SpecializationController::class, 'destroy'])->name('destroy');
+    });
+
+    Route::name('blocks.')->prefix('blocks')->group(function () {
+        Route::get('/', [BlockController::class, 'index'])->name('index');
+        Route::get('/{block_id}', [BlockController::class, 'show'])->name('show');
+        Route::get('/{block_id}/edit', [BlockController::class, 'edit'])->name('edit');
+        Route::patch('/{block_id}', [BlockController::class, 'update'])->name('update');
+        Route::delete('/{block_id}', [BlockController::class, 'destroy'])->name('destroy');
+
+        Route::name('questions.')->prefix('{block_id}/questions')->group(function () {
+            Route::get('/create', [QuestionController::class, 'create'])->name('create');
+            Route::post('/store', [QuestionController::class, 'store'])->name('store');
+            Route::get('/{question_id}', [QuestionController::class, 'show'])->name('show');
+            Route::get('/{question_id}/edit', [QuestionController::class, 'edit'])->name('edit');
+            Route::patch('/{question_id}', [QuestionController::class, 'update'])->name('update');
+            Route::delete('/{question_id}', [QuestionController::class, 'destroy'])->name('destroy');
+        });
+        Route::name('modern_offices.')->prefix('{block_id}/modern_offices')->group(function () {
+            Route::get('/create', [ModernOfficeController::class, 'create'])->name('create');
+            Route::post('/store', [ModernOfficeController::class, 'store'])->name('store');
+            Route::get('/{modern_office_id}', [ModernOfficeController::class, 'show'])->name('show');
+            Route::get('/{modern_office_id}/edit', [ModernOfficeController::class, 'edit'])->name('edit');
+            Route::patch('/{modern_office_id}', [ModernOfficeController::class, 'update'])->name('update');
+            Route::delete('/{modern_office_id}', [ModernOfficeController::class, 'destroy'])->name('destroy');
+        });
     });
 });

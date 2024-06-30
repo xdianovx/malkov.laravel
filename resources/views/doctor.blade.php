@@ -56,11 +56,9 @@
     </section>
 
 
-    <x-sections.doctors  :data="$specialists"/>
-    <x-sections.callback />
-    <x-sections.faq />
-
-
+    <x-sections.doctors :block="$block_specialists" :data="$specialists"/>
+    <x-sections.callback :block="$block_callback_form"/>
+    <x-sections.faq :block="$block_questions"/>
 
     <section class="section"></section>
 @endsection()

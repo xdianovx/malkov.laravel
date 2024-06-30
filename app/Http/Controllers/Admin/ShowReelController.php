@@ -7,9 +7,6 @@ use App\Http\Requests\ShowReel\UpdateRequest;
 use App\Models\Page;
 use App\Models\ShowReel;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 
 class ShowReelController extends BaseController
 {

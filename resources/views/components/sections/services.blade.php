@@ -1,7 +1,7 @@
 <section class="services-section section">
     <div class="container">
         <div class="services-section__top">
-            <h2 class="h2">Наши услуги</h2>
+            <h2 class="h2">{{ $block->h1_title }}</h2>
 
             <x-ui.button-arrow text="Все услуги" class="" href="{{ route('services') }}" />
         </div>

@@ -9,7 +9,14 @@ class Price extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title','price','discounted_price','link_service','description','service_id'];
+    protected $fillable = [
+        'title',
+        'price',
+        'discounted_price',
+        'link_service',
+        'description',
+        'service_id'
+    ];
     public static $prices_routes = [
         'admin.services.prices.show',
         'admin.services.prices.edit',

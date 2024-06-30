@@ -2,9 +2,8 @@
     <div class="container">
         <div class="doctors-section__top">
             <div class="">
-                <h2 class="h2">Наши врачи <br>и специалисты</h2>
-                <p class="doctors-section__top-descr"><a href="/">Познакомьтесь с врачом бесплатно</a><br>
-                    и получите в подарок снимок и план лечения.</p>
+                <h2 class="h2">{{ $block->h1_title }}</h2>
+                {!! $block->description !!}
             </div>
 
             <a href="{{ route('specialists') }}" class="btn doctors-section__top-btn --accent">Все специалисты</a>

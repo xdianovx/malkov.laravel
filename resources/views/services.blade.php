@@ -14,7 +14,7 @@
             <div class="divider horizontal gray"></div>
 
             <div class="hero-services__texts">
-                {!! $service_page->description !!}
+                {!! $service_page->description_header !!}
             </div>
         </div>
     </section>
@@ -62,8 +62,8 @@
         </div>
     </section>
 
-    <x-sections.callback />
-    <x-sections.faq />
+    <x-sections.callback  :block="$block_callback_form" />
+    <x-sections.faq :block="$block_questions"/>
 
     <section class="section">
 

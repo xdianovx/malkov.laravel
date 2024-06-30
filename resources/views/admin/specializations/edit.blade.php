@@ -42,18 +42,18 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">{{ __('admin.field_description_header') }}</label>
-                                    <textarea id="editor" class="form-control" name="description_header"
+                                    <textarea class="form-control" name="description_header"
                                         placeholder="{{ __('admin.placeholder_text') }}" style="height: 234px;">{!! $item->description_header !!}</textarea>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">{{__('admin.field_description')}}</label>
                                     <textarea id="editor" class="form-control" name="description" placeholder="{{__('admin.placeholder_text')}}" style="height: 234px;">{!! $item->description !!}</textarea>
                                 </div>
-                                <div class="mb-3">
+                                {{-- <div class="mb-3">
                                     <label class="form-label">{{__('admin.field_description_footer')}}</label>
-                                    <textarea id="editor" class="form-control ckeditor-classic" name="description_footer" placeholder="{{__('admin.placeholder_text')}}"
+                                    <textarea class="form-control ckeditor-classic" name="description_footer" placeholder="{{__('admin.placeholder_text')}}"
                                         style="height: 234px;">{!! $item->description_footer !!}</textarea>
-                                </div>
+                                </div> --}}
                             </div>
                             <button type="submit" class="btn btn-success waves-effect waves-light mt-5">{{__('admin.btn_save')}}</button>
                         </form>

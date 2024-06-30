@@ -45,16 +45,4 @@ class PageController extends BaseController
         $page->update($data);
         return redirect()->route('admin.pages.index')->with('status', 'item-updated');
     }
-
-    public function search(Request $request)
-    {
-        $user = Auth::user();
-        if (request('search') == null) :
-            $pages = Page::orderBy('id', 'DESC')->paginate(10);
-        else :
-            $pages = Page::filter()->paginate(10);
-        endif;
-        return view('admin.page.index', compact('pages', 'user'));
-    }
-
 }

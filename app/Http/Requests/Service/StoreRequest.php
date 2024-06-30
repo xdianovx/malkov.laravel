@@ -23,8 +23,8 @@ class StoreRequest extends FormRequest
     {
         return [
             'title' => ['required', 'max:70', 'unique:services,title'],
-            'image' => 'nullable|image',
-            'image_mob' => 'nullable|image',
+            'image' => 'nullable|image|max:200000|mimes:jpeg,png,jpg,gif,svg',
+            'image_mob' => 'nullable|image|max:200000|mimes:jpeg,png,jpg,gif,svg',
             'description'  => ['nullable'],
             'content' => ['nullable'],
             'description_footer' => ['nullable'],

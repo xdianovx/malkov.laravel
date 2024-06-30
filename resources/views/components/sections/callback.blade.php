@@ -3,13 +3,12 @@
         <div class="callback-wrap">
             <div class="callback__left">
                 <h2 class="h2">
-                    Запишитесь <br>
-                    на первое посещение <br>
-                    бесплатно
+                    {{ $block->h1_title }}
                 </h2>
 
-                <p class="callback-text">Составим план лечения и сделаем снимок,
-                    надо придумать более длинный текст, с более понятными преимуществами.</p>
+                <p class="callback-text">
+                    {!! $block->description !!}
+                </p>
             </div>
             <div class="callback__right">
                 <form class="callback-form">

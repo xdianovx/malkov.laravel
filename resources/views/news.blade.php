@@ -6,7 +6,7 @@
         <div class="container">
             <h1 class="h1 uppercase">{{ $news_page->h1_title }}</h1>
             <div class="section-news__description">
-                {{ $news_page->description }}
+                {!! $news_page->description_header !!}
             </div>
             <div class="divider horizontal gray"></div>
         </div>
@@ -26,10 +26,8 @@
 
 
     {{--    <x-sections.doctors /> --}}
-    <x-sections.callback />
-    <x-sections.faq />
-
-
+    <x-sections.callback  :block="$block_callback_form" />
+    <x-sections.faq :block="$block_questions"/>
 
     <section class="section"></section>
 @endsection()

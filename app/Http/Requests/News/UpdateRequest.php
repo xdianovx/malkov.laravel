@@ -25,8 +25,8 @@ class UpdateRequest extends FormRequest
         return [
             'title' => ['required', 'max:70', Rule::unique('news')->ignore($this->old_title, 'title')],
             'h1_title'=> ['required', 'max:70'],
-            'image' => 'nullable|image',
-            'image_mob' => 'nullable|image',
+            'image' => 'nullable|image|max:200000|mimes:jpeg,png,jpg,gif,svg',
+            'image_mob' => 'nullable|image|max:200000|mimes:jpeg,png,jpg,gif,svg',
             'description_header'  => ['nullable'],
             'description'  => ['nullable'],
             'content' => ['nullable'],

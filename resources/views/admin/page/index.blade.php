@@ -1,22 +1,6 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="card">
-        <div class="card-body">
-            <div class="row g-2">
-                <div class="col-sm-4">
-                    <div class="search-box">
-                        <form class="d-flex" action="{{ route('admin.pages.search') }}" method="get">
-                            @csrf
-                            <input class="form-control me-2" type="search" name="search" placeholder="{{__('admin.placeholder_search')}}"
-                                aria-label="Search">
-                            <button class="btn btn-outline-primary" type="submit">{{__('admin.btn_search')}}</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="row">
         <div class="col-lg-12">
             <div class="card">

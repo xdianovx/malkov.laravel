@@ -8,7 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Page extends Model
 {
     use HasFactory;
-    protected $fillable = ['title','h1_title','slug','description','dashboard_title','image','image_mob','description_footer'];
+
+    protected $fillable = [
+        'title',
+        'h1_title',
+        'slug',
+        'description',
+        'dashboard_title',
+        'image','image_mob',
+        'description_header',
+        'description_footer'
+    ];
     public static $pages_routes = [
         'admin.pages.index',
         'admin.pages.search',
@@ -27,15 +37,7 @@ class Page extends Model
     {
       return $this->hasMany(ShowReel::class);
     }
-    public function scopeFilter($items)
-    {
-        if (request('search') !== null) {
-            $items->where('id', 'ilike', '%' . request('search') . '%')
-            ->orWhere('slug', 'ilike', '%' . request('search') . '%')
-            ->orWhere('dashboard_title', 'ilike', '%' . request('search') . '%');
-        }
-        return $items;
-    }
+
 }
 
 

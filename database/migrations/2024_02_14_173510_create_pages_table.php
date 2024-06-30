@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('image_mob')->nullable();
             $table->string('slug');
+            $table->text('description_header')->nullable();
             $table->text('description')->nullable();
             $table->text('description_footer')->nullable();
             $table->timestamps();

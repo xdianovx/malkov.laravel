@@ -20,7 +20,12 @@ class DatabaseSeeder extends Seeder
         $this->call([
             HomePageNumSeeder::class,
         ]);
-
+        $this->call([
+            BlockSeeder::class,
+        ]);
+        $this->call([
+            QuestionSeeder::class,
+        ]);
         \App\Models\User::factory()->create([
             'name' => 'Test User',
             'password' => Hash::make('aspire5745g'),

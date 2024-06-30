@@ -18,7 +18,35 @@ return [
     'edit_page_card_title' => 'Изменить страницу',
     'page_card_title' => 'Страница',
     'page_card_info' => 'Информация о странице',
-    'aside_title_page' => 'Страницы',
+    'aside_title_pages' => 'Страницы',
+
+    //Titles blocks
+    'new_block_card_title' => 'Новая запись блок',
+    'edit_block_card_title' => 'Изменить запись блок',
+    'block_card_title' => 'Блок',
+    'block_card_info' => 'Информация о блоке',
+    'aside_title_blocks' => 'Блоки',
+
+    //Titles reviews
+    'new_review_card_title' => 'Новая запись отзыв клиента',
+    'edit_review_card_title' => 'Изменить запись отзыв клиента',
+    'review_card_title' => 'Отзыв клиента',
+    'review_card_info' => 'Информация о отзыве',
+    'aside_title_reviews' => 'Отзывы клиентов',
+
+    //Titles modern_offices
+    'new_modern_office_card_title' => 'Новая запись cовременные кабинеты',
+    'edit_modern_office_card_title' => 'Изменить запись cовременные кабинеты',
+    'modern_office_card_title' => 'Запись современные кабинеты',
+    'modern_office_card_info' => 'Информация о записи современные кабинеты',
+    'aside_title_modern_offices' => 'Современные кабинеты',
+
+    //Titles questions
+    'new_question_card_title' => 'Новая запись вопросы и ответы',
+    'edit_question_card_title' => 'Изменить запись вопросы и ответы',
+    'question_card_title' => 'Запись вопросы и ответы',
+    'question_card_info' => 'Информация о записи вопросы и ответы',
+    'aside_title_questions' => 'Записи вопросы и ответы',
 
     //Titles categories blog
     'new_category_blog_card_title' => 'Новая категория блога',
@@ -115,7 +143,7 @@ return [
     'field_created' => 'Создано',
     'field_updated' => 'Обновлено',
     'field_action' => 'Действие',
-    'field_content' => 'Содержание',
+    'field_content' => 'Краткое описание',
     'field_video' => 'Видео',
     'field_discounted_price' => 'Цена со скидкой',
     'field_price' => 'Цена',
@@ -137,6 +165,10 @@ return [
     'field_operations' => 'Операций(Количество)',
     'field_education' => 'Образование',
     'field_additional_education' => 'Дополнительное образование',
+    'field_question' => 'Вопрос',
+    'field_answer' => 'Ответ',
+    'field_rating' => 'Рейтинг',
+    'field_date' => 'Дата публикации',
     //Btns
     'btn_save' => 'Сохранить',
     'btn_search' => 'Поиск',
@@ -152,6 +184,8 @@ return [
     'btn_create_home_page_num' => 'Добавить число',
     'btn_create_show_reel' => 'Добавить Show Reel',
     'btn_add_document' => 'Добавить документ,сертификат',
+    'btn_go_to_website' => 'Перейти на сайт',
+    'btn_create_question' => 'Добавить новую запись вопрос ответ',
     //Placeholders
     'placeholder_text' => 'Введите текст',
     'placeholder_search' => 'ID,Название,Слаг',
@@ -169,4 +203,3 @@ return [
     //Questions
     'question_delete' => 'Вы уверены что хотите удалить запись?',
 ];
-

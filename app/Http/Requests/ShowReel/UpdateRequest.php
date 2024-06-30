@@ -23,8 +23,8 @@ class UpdateRequest extends FormRequest
     {
         return [
             'title' => ['required', 'max:70'],
-            'file' => 'nullable|file',
-            'file_mob' => 'nullable|file',
+            'file' => 'nullable|file|max:200000|mimes:jpeg,png,jpg,gif,svg,mp4,mov,ogg',
+            'file_mob' => 'nullable|file|max:200000|mimes:jpeg,png,jpg,gif,svg,mp4,mov,ogg',
             'is_cover' => 'required'
         ];
     }

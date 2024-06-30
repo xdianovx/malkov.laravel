@@ -22,7 +22,7 @@
                 <a href="{{ route('services') }}">Услуги</a>
                 <a href="{{ route('stocks') }}">Акции</a>
                 <a href="/pacientam">Пациентам</a>
-                <a href="/vrachi">Врачи</a>
+                <a href="{{ route('specialists') }}">Врачи</a>
                 <a href="/kontakty">Контакты</a>
                 <a href="/o-klinike">О клинике</a>
                 <a href="/otzyvi">Отзывы</a>

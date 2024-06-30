@@ -1,84 +1,15 @@
-@php
-    $data = [
-        [
-            'title' => '',
-            'slug' => '',
-            'links' => [
-                'title' => '',
-                'slug' => '',
-            ],
-        ],
-        [
-            'title' => '',
-            'slug' => '',
-            'links' => [
-                'title' => '',
-                'slug' => '',
-            ],
-        ],
-        [
-            'title' => '',
-            'slug' => '',
-            'links' => [
-                'title' => '',
-                'slug' => '',
-            ],
-        ],
-        [
-            'title' => '',
-            'slug' => '',
-            'links' => [
-                'title' => '',
-                'slug' => '',
-            ],
-        ],
-        [
-            'title' => '',
-            'slug' => '',
-            'links' => [
-                'title' => '',
-                'slug' => '',
-            ],
-        ],
-        [
-            'title' => '',
-            'slug' => '',
-            'links' => [
-                'title' => '',
-                'slug' => '',
-            ],
-        ],
-        [
-            'title' => '',
-            'slug' => '',
-            'links' => [
-                'title' => '',
-                'slug' => '',
-            ],
-        ],
-        [
-            'title' => '',
-            'slug' => '',
-            'links' => [
-                'title' => '',
-                'slug' => '',
-            ],
-        ],
-    ];
-@endphp
-
 <section class="navigation">
     <div class="container">
         <div class="navigation-wrap">
             <div class="navigation-left">
                 <nav class="nav-left">
                     <a href="/patsiientam">Пациентам</a>
-                    <a href="/uslugi">Услуги</a>
-                    <a href="/akcii">Акции</a>
-                    <a href="/vrachi">Врачи</a>
-                    <a href="/blog">Блог</a>
-                    <a href="/kontakty">Контакты</a>
-                    <a href="/o-klinike">О клинике</a>
+                    <a href="{{ route('services') }}">Услуги</a>
+                    <a href="{{ route('stocks') }}">Акции</a>
+                    <a href="{{ route('specialists') }}">Врачи</a>
+                    <a href="{{ route('blogs') }}">Блог</a>
+                    <a href="{{ route('contacts') }}">Контакты</a>
+                    <a href="{{ route('about') }}">О клинике</a>
                     <a href="/otzyvy">Отзывы</a>
 
                 </nav>
@@ -105,27 +36,20 @@
             </div>
             <nav class="navigation-right">
                 {{-- Item --}}
-                @foreach ($data as $item)
+                @foreach ($parent_services as $parent_service)
                     <div class="nav-group">
                         <div class="nav-group__top">
-                            <a href="/">Пародонтология</a>
+                            <a href="{{ route('service-single', $parent_service->slug) }}">{{$parent_service->title}}</a>
                         </div>
 
                         <div class="divider horizontal"></div>
 
                         <ul class="nav-group__links">
+                            @foreach ($parent_service->children as $children_service)
                             <li>
-                                <a href="/">Дочерняя услуга</a>
+                                <a href="{{ route('service-single', $children_service->slug) }}">{{$children_service->title}}</a>
                             </li>
-                            <li>
-                                <a href="/">Дочерняя услуга</a>
-                            </li>
-                            <li>
-                                <a href="/">Дочерняя услуга</a>
-                            </li>
-                            <li>
-                                <a href="/">Дочерняя услуга</a>
-                            </li>
+                            @endforeach
                         </ul>
                     </div>
                 @endforeach

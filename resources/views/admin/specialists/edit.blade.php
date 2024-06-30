@@ -156,12 +156,12 @@
 
                                 <div class="mb-3">
                                     <label class="form-label">{{ __('admin.field_education') }}</label>
-                                    <textarea id="editor" class="form-control" name="education" placeholder="{{ __('admin.placeholder_text') }}"
+                                    <textarea class="form-control" name="education" placeholder="{{ __('admin.placeholder_text') }}"
                                         style="height: 234px;">{!! $item->education !!}</textarea>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">{{ __('admin.field_additional_education') }}</label>
-                                    <textarea id="editor" class="form-control" name="additional_education" placeholder="{{ __('admin.placeholder_text') }}"
+                                    <textarea class="form-control" name="additional_education" placeholder="{{ __('admin.placeholder_text') }}"
                                         style="height: 234px;">{!! $item->additional_education !!}</textarea>
                                 </div>
                                 <div class="mb-3">

@@ -25,10 +25,11 @@ class StoreRequest extends FormRequest
             'title' => ['required', 'max:70'],
             'h1_title'=> ['required', 'max:70'],
             'dashboard_title'=> ['required', 'max:70'],
+            'description_header'  => ['nullable'],
             'description'  => ['nullable'],
             'description_footer'  => ['nullable'],
-            'image' => 'nullable|image',
-            'image_mob' => 'nullable|image',
+            'image' => 'nullable|image|max:200000|mimes:jpeg,png,jpg,gif,svg',
+            'image_mob' => 'nullable|image|max:200000|mimes:jpeg,png,jpg,gif,svg',
         ];
     }
 }

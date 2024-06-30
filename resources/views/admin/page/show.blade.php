@@ -38,6 +38,13 @@
                                                 <i class="ri-share-line align-bottom me-2 text-muted"></i>
                                                 {{ __('admin.btn_create_show_reel') }}</a>
                                         </li>
+                                    @elseif($item->slug == 'o-klinike')
+                                        <li>
+                                            <a type="button" class="dropdown-item"
+                                                href="{{ route('admin.pages.home_page_nums.create', $item->slug) }}">
+                                                <i class="ri-share-line align-bottom me-2 text-muted"></i>
+                                                {{ __('admin.btn_create_home_page_num') }}</a>
+                                        </li>
                                     @endif
                                     <li><a href="{{ route('admin.pages.edit', $item->slug) }}"
                                             class="dropdown-item edit-item-btn"><i
@@ -47,6 +54,19 @@
                             </div>
                         </div>
                     </div>
+                    @if ($item->description_header)
+                        <h5 class="text-muted">{{ __('admin.field_description_header') }}:</h5>
+                        <div class="table-responsive">
+                            <table class="table table-borderless mb-0">
+                                <tbody>
+                                    <tr>
+                                        <td class="text-muted">{!! $item->description_header !!}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    @else
+                    @endif
                     @if ($item->description)
                         <h5 class="text-muted">{{ __('admin.field_description') }}:</h5>
                         <div class="table-responsive">
@@ -83,7 +103,8 @@
                             <p class="card-title-desc text-muted">{{ __('admin.field_current_image_mob') }}</p>
                             <div class="live-preview">
                                 <div>
-                                    <img src="{{ asset('storage') . '/' . $item->image_mob }}" class="img-fluid" alt="Responsive image">
+                                    <img src="{{ asset('storage') . '/' . $item->image_mob }}" class="img-fluid"
+                                        alt="Responsive image">
                                 </div>
                             </div>
                         </div>
@@ -98,7 +119,8 @@
                             <p class="card-title-desc text-muted">{{ __('admin.field_current_image') }}</p>
                             <div class="live-preview">
                                 <div>
-                                    <img src="{{ asset('storage') . '/' . $item->image }}" class="img-fluid" alt="Responsive image">
+                                    <img src="{{ asset('storage') . '/' . $item->image }}" class="img-fluid"
+                                        alt="Responsive image">
                                 </div>
                             </div>
                         </div>
@@ -136,8 +158,9 @@
             </div>
         </div>
     </div>
-
-    @if ($item->home_page_nums->count() > 0 && $item->slug == 'glavnaia')
+    @if (
+        ($item->home_page_nums->count() > 0 && $item->slug == 'glavnaya') ||
+            ($item->home_page_nums->count() > 0 && $item->slug == 'o-klinike'))
         <div class="card">
             <h5 class="card-header">{{ __('admin.list_numbers') }}</h5>
             <div class="card-body">
@@ -157,7 +180,8 @@
                     @if (session('status') === 'home_page_num-deleted')
                         <div class="alert alert-danger alert-dismissible" role="alert">
                             {{ __('admin.alert_deleted') }}
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                aria-label="Close"></button>
                         </div>
                     @endif
                 </div>
@@ -298,7 +322,11 @@
                                         <tr>
                                             <td>{{ $show_reel->id }}</td>
                                             <td>{{ $show_reel->title }}</td>
-                                            <th>@if ($show_reel->is_cover == "TRUE")<span class="badge bg-warning">Активно</span>@endif</th>
+                                            <th>
+                                                @if ($show_reel->is_cover == 'TRUE')
+                                                    <span class="badge bg-warning">Активно</span>
+                                                @endif
+                                            </th>
                                             <td>{{ $show_reel->updated_at->diffForHumans() }}</td>
                                             <td>
 
@@ -328,8 +356,8 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                        <div class="modal fade" id="modalScrollableShowReel{{ $show_reel->id }}" tabindex="-1"
-                                            style="display: none;" aria-hidden="true">
+                                        <div class="modal fade" id="modalScrollableShowReel{{ $show_reel->id }}"
+                                            tabindex="-1" style="display: none;" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-scrollable" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">

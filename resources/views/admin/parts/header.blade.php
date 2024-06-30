@@ -34,6 +34,7 @@
             </div>
 
             <div class="d-flex align-items-center">
+                <a type="button" class="btn btn-outline-primary" href="{{ route('home') }}">{{ __('admin.btn_go_to_website') }}</a>
                 <div class="dropdown ms-sm-3 header-item topbar-user">
                     <button type="button" class="btn" id="page-header-user-dropdown" data-bs-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
