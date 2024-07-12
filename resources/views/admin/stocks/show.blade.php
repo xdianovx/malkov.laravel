@@ -46,12 +46,12 @@
                     @else
                     @endif
                     @if ($item->description)
-                        <h5 class="mt-2">{{ __('admin.field_description') }}:</h5>
+                        <h5 class="mt-4">{{ __('admin.field_description') }}:</h5>
                         <td class="">{!! $item->description !!}</td>
                     @else
                     @endif
                     @if ($item->content)
-                        <h5 class="mt-2">{{ __('admin.field_content') }}:</h5>
+                        <h5 class="mt-4">{{ __('admin.field_content') }}:</h5>
                         <div class="">{!! $item->content !!}</div>
                     @else
                     @endif
