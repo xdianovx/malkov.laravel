@@ -42,41 +42,17 @@
                     </div>
                     @if ($item->description_header)
                         <h5 class="">{{ __('admin.field_description_header') }}:</h5>
-                        <div class="table-responsive">
-                            <table class="table table-borderless mb-0">
-                                <tbody>
-                                    <tr>
-                                        <td class="text">{!! $item->description_header !!}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                        <div class="text">{!! $item->description_header !!}</div>
                     @else
                     @endif
                     @if ($item->description)
-                        <h5 class="">{{ __('admin.field_description') }}:</h5>
-                        <div class="table-responsive">
-                            <table class="table table-borderless mb-0">
-                                <tbody>
-                                    <tr>
-                                        <td class="">{!! $item->description !!}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                        <h5 class="mt-2">{{ __('admin.field_description') }}:</h5>
+                        <td class="">{!! $item->description !!}</td>
                     @else
                     @endif
                     @if ($item->content)
-                        <h5 class="">{{ __('admin.field_content') }}:</h5>
-                        <div class="table-responsive">
-                            <table class="table table-borderless mb-0">
-                                <tbody>
-                                    <tr>
-                                        <td class="">{!! $item->content !!}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                        <h5 class="mt-2">{{ __('admin.field_content') }}:</h5>
+                        <div class="">{!! $item->content !!}</div>
                     @else
                     @endif
                 </div>
