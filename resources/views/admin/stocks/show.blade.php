@@ -22,13 +22,13 @@
                                     style="">
                                     <li>
                                         <a type="button" class="dropdown-item" href="{{ route('admin.stocks.index') }}">
-                                            <i class="ri-arrow-left-line align-bottom me-2 text-muted"></i>
+                                            <i class="ri-arrow-left-line align-bottom me-2 "></i>
                                             {{ __('admin.btn_back') }}</a>
                                     </li>
 
                                     <li><a href="{{ route('admin.stocks.edit', $item->slug) }}"
                                             class="dropdown-item edit-item-btn"><i
-                                                class="ri-pencil-fill align-bottom me-2 text-muted"></i>
+                                                class="ri-pencil-fill align-bottom me-2 "></i>
                                             {{ __('admin.btn_edit') }}</a></li>
                                     <li>
                                         <button type="submit" class="dropdown-item text-danger" data-bs-toggle="modal"
@@ -41,12 +41,12 @@
                         </div>
                     </div>
                     @if ($item->description_header)
-                        <h5 class="text-muted">{{ __('admin.field_description_header') }}:</h5>
+                        <h5 class="">{{ __('admin.field_description_header') }}:</h5>
                         <div class="table-responsive">
                             <table class="table table-borderless mb-0">
                                 <tbody>
                                     <tr>
-                                        <td class="text-muted">{!! $item->description_header !!}</td>
+                                        <td class="text">{!! $item->description_header !!}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -54,12 +54,12 @@
                     @else
                     @endif
                     @if ($item->description)
-                        <h5 class="text-muted">{{ __('admin.field_description') }}:</h5>
+                        <h5 class="">{{ __('admin.field_description') }}:</h5>
                         <div class="table-responsive">
                             <table class="table table-borderless mb-0">
                                 <tbody>
                                     <tr>
-                                        <td class="text-muted">{!! $item->description !!}</td>
+                                        <td class="">{!! $item->description !!}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -67,12 +67,12 @@
                     @else
                     @endif
                     @if ($item->content)
-                        <h5 class="text-muted">{{ __('admin.field_content') }}:</h5>
+                        <h5 class="">{{ __('admin.field_content') }}:</h5>
                         <div class="table-responsive">
                             <table class="table table-borderless mb-0">
                                 <tbody>
                                     <tr>
-                                        <td class="text-muted">{!! $item->content !!}</td>
+                                        <td class="">{!! $item->content !!}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -87,7 +87,7 @@
                     <div class="col-xxl-6">
                         <div class="card">
                             <div class="card-body">
-                                <p class="card-title-desc text-muted">{{ __('admin.field_current_image_mob') }}</p>
+                                <p class="card-title-desc ">{{ __('admin.field_current_image_mob') }}</p>
                                 <div class="live-preview">
                                     <div>
                                         <img src="{{ asset('storage') . '/' . $item->image_mob }}" class="img-fluid"
@@ -103,7 +103,7 @@
                     <div class="col-xxl-6">
                         <div class="card">
                             <div class="card-body">
-                                <p class="card-title-desc text-muted">{{ __('admin.field_current_image') }}</p>
+                                <p class="card-title-desc ">{{ __('admin.field_current_image') }}</p>
                                 <div class="live-preview">
                                     <div>
                                         <img src="{{ asset('storage') . '/' . $item->image }}" class="img-fluid"
@@ -129,31 +129,31 @@
                                 @endif
                                 <tr>
                                     <th class="ps-0" scope="row">Id:</th>
-                                    <td class="text-muted">{{ $item->id }}</td>
+                                    <td class="">{{ $item->id }}</td>
                                 </tr>
                                 <tr>
                                     <th class="ps-0" scope="row">{{ __('admin.field_title') }}:</th>
-                                    <td class="text-muted">{{ $item->title }}</td>
+                                    <td class="">{{ $item->title }}</td>
                                 </tr>
                                 <tr>
                                     <th class="ps-0" scope="row">{{ __('admin.field_h1_title') }}:</th>
-                                    <td class="text-muted">{{ $item->h1_title }}</td>
+                                    <td class="">{{ $item->h1_title }}</td>
                                 </tr>
                                 <tr>
                                     <th class="ps-0" scope="row">{{ __('admin.field_slug') }}:</th>
-                                    <td class="text-muted">{{ $item->slug }}</td>
+                                    <td class="">{{ $item->slug }}</td>
                                 </tr>
                                 <tr>
                                     <th class="ps-0" scope="row">{{ __('admin.due_time') }}:</th>
-                                    <td class="text-muted">{{ $item->due_time }}</td>
+                                    <td class="">{{ $item->due_time }}</td>
                                 </tr>
                                 <tr>
                                     <th class="ps-0" scope="row">{{ __('admin.field_created') }}:</th>
-                                    <td class="text-muted">{{ $item->created_at }}</td>
+                                    <td class="">{{ $item->created_at }}</td>
                                 </tr>
                                 <tr>
                                     <th class="ps-0" scope="row">{{ __('admin.field_updated') }}:</th>
-                                    <td class="text-muted">{{ $item->updated_at }}</td>
+                                    <td class="">{{ $item->updated_at }}</td>
                                 </tr>
 
                                 <div class="modal fade" id="modalScrollable{{ $item->slug }}" tabindex="-1"
