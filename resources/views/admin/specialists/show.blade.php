@@ -8,7 +8,8 @@
                 <div class="card-body">
                     <div class="d-flex align-items-center mb-4">
                         <div class="flex-grow-1">
-                            <h3 class="card-header align-items-center d-flex">{{ __('admin.specialist_card_title') }}:
+                            <h3 class="card-header align-items-center d-flex">
+                                {{-- {{ __('admin.specialist_card_title') }}: --}}
                                 {{ $item->title }}</h3>
                         </div>
                         <div class="flex-shrink-0">
@@ -23,18 +24,18 @@
                                     <li>
                                         <a type="button" class="dropdown-item"
                                             href="{{ route('admin.specialists.index') }}">
-                                            <i class="ri-arrow-left-line align-bottom me-2 text-muted"></i>
+                                            <i class="ri-arrow-left-line align-bottom me-2 "></i>
                                             {{ __('admin.btn_back') }}</a>
                                     </li>
                                     <li>
                                         <a type="button" class="dropdown-item"
                                             href="{{ route('admin.specialists.documents.create', $item->slug) }}">
-                                            <i class="ri-arrow-left-line align-bottom me-2 text-muted"></i>
+                                            <i class="ri-arrow-left-line align-bottom me-2 "></i>
                                             {{ __('admin.btn_add_document') }}</a>
                                     </li>
                                     <li><a href="{{ route('admin.specialists.edit', $item->slug) }}"
                                             class="dropdown-item edit-item-btn"><i
-                                                class="ri-pencil-fill align-bottom me-2 text-muted"></i>
+                                                class="ri-pencil-fill align-bottom me-2 "></i>
                                             {{ __('admin.btn_edit') }}</a></li>
                                     <li>
                                         <button type="submit" class="dropdown-item text-danger" data-bs-toggle="modal"
@@ -47,25 +48,19 @@
                         </div>
                     </div>
                     @if ($item->field_education)
-                        <h5 class="text-muted">{{ __('admin.field_field_education') }}:</h5>
+                        <h5 class="">{{ __('admin.field_field_education') }}:</h5>
                         <div class="table-responsive">
-                            <table class="table table-borderless mb-0">
-                                <tbody>
-                                    <tr>
-                                        <td class="text-muted">{!! $item->field_education !!}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <div class="">{!! $item->field_education !!}</div>
                         </div>
                     @else
                     @endif
                     @if ($item->additional_education)
-                        <h5 class="text-muted">{{ __('admin.field_additional_education') }}:</h5>
+                        <h5 class="">{{ __('admin.field_additional_education') }}:</h5>
                         <div class="table-responsive">
                             <table class="table table-borderless mb-0">
                                 <tbody>
                                     <tr>
-                                        <td class="text-muted">{!! $item->additional_education !!}</td>
+                                        <td class="">{!! $item->additional_education !!}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -73,12 +68,12 @@
                     @else
                     @endif
                     @if ($item->description)
-                        <h5 class="text-muted">{{ __('admin.field_description') }}:</h5>
+                        <h5 class="">{{ __('admin.field_description') }}:</h5>
                         <div class="table-responsive">
                             <table class="table table-borderless mb-0">
                                 <tbody>
                                     <tr>
-                                        <td class="text-muted">{!! $item->description !!}</td>
+                                        <td class="">{!! $item->description !!}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -88,38 +83,42 @@
                 </div>
                 <!--end card-body-->
             </div>
-            @if (!empty($item->image_mob))
-                <div class="col-xxl-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <p class="card-title-desc text-muted">{{ __('admin.field_current_image_mob') }}</p>
-                            <div class="live-preview">
-                                <div>
-                                    <img src="{{ asset('storage') . '/' . $item->image_mob }}" class="img-fluid"
-                                        alt="Responsive image">
+            <div class="row">
+
+                @if (!empty($item->image_mob))
+                    <div class="col-xxl-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="card-title-desc ">{{ __('admin.field_current_image_mob') }}</p>
+                                <div class="live-preview">
+                                    <div>
+                                        <img src="{{ asset('storage') . '/' . $item->image_mob }}" class="img-fluid"
+                                            alt="Responsive image">
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            @else
-            @endif
-            @if (!empty($item->image))
-                <div class="col-xxl-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <p class="card-title-desc text-muted">{{ __('admin.field_current_image') }}</p>
-                            <div class="live-preview">
-                                <div>
-                                    <img src="{{ asset('storage') . '/' . $item->image }}" class="img-fluid"
-                                        alt="Responsive image">
+                @else
+                @endif
+                @if (!empty($item->image))
+                    <div class="col-xxl-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="card-title-desc ">{{ __('admin.field_current_image') }}</p>
+                                <div class="live-preview">
+                                    <div>
+                                        <img src="{{ asset('storage') . '/' . $item->image }}" class="img-fluid"
+                                            alt="Responsive image">
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            @else
-            @endif
+                @else
+                @endif
+            </div>
+
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-header align-items-center d-flex">{{ __('admin.specialist_card_info') }}</h5>
@@ -133,35 +132,35 @@
                                 @endif
                                 <tr>
                                     <th class="ps-0" scope="row">Id:</th>
-                                    <td class="text-muted">{{ $item->id }}</td>
+                                    <td class="">{{ $item->id }}</td>
                                 </tr>
                                 <tr>
                                     <th class="ps-0" scope="row">{{ __('admin.field_title') }}:</th>
-                                    <td class="text-muted">{{ $item->title }}</td>
+                                    <td class="">{{ $item->title }}</td>
                                 </tr>
                                 <tr>
                                     <th class="ps-0" scope="row">{{ __('admin.field_h1_title') }}:</th>
-                                    <td class="text-muted">{{ $item->h1_title }}</td>
+                                    <td class="">{{ $item->h1_title }}</td>
                                 </tr>
                                 <tr>
                                     <th class="ps-0" scope="row">{{ __('admin.field_slug') }}:</th>
-                                    <td class="text-muted">{{ $item->slug }}</td>
+                                    <td class="">{{ $item->slug }}</td>
                                 </tr>
                                 <tr>
                                     <th class="ps-0" scope="row">{{ __('admin.field_operations') }}:</th>
-                                    <td class="text-muted">{{ $item->operations }}</td>
+                                    <td class="">{{ $item->operations }}</td>
                                 </tr>
                                 <tr>
                                     <th class="ps-0" scope="row">{{ __('admin.field_experience') }}:</th>
-                                    <td class="text-muted">{{ $item->experience }}</td>
+                                    <td class="">{{ $item->experience }}</td>
                                 </tr>
                                 <tr>
                                     <th class="ps-0" scope="row">{{ __('admin.field_created') }}:</th>
-                                    <td class="text-muted">{{ $item->created_at }}</td>
+                                    <td class="">{{ $item->created_at }}</td>
                                 </tr>
                                 <tr>
                                     <th class="ps-0" scope="row">{{ __('admin.field_updated') }}:</th>
-                                    <td class="text-muted">{{ $item->updated_at }}</td>
+                                    <td class="">{{ $item->updated_at }}</td>
                                 </tr>
 
                                 <div class="modal fade" id="modalScrollable{{ $item->slug }}" tabindex="-1"
@@ -287,11 +286,11 @@
                                                     <ul class="dropdown-menu dropdown-menu-end" style="">
                                                         <li><a href="{{ route('admin.specialists.documents.show', [$item->slug, $document->id]) }}"
                                                                 class="dropdown-item"><i
-                                                                    class="ri-eye-fill align-bottom me-2 text-muted"></i>
+                                                                    class="ri-eye-fill align-bottom me-2 "></i>
                                                                 {{ __('admin.btn_show') }}</a></li>
                                                         <li><a href="{{ route('admin.specialists.documents.edit', [$item->slug, $document->id]) }}"
                                                                 class="dropdown-item edit-item-btn"><i
-                                                                    class="ri-pencil-fill align-bottom me-2 text-muted"></i>
+                                                                    class="ri-pencil-fill align-bottom me-2 "></i>
                                                                 {{ __('admin.btn_edit') }}</a></li>
                                                         <li>
                                                             <button type="submit" class="dropdown-item text-danger"
@@ -305,8 +304,8 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                        <div class="modal fade" id="modalScrollable{{ $document->id }}"
-                                            tabindex="-1" style="display: none;" aria-hidden="true">
+                                        <div class="modal fade" id="modalScrollable{{ $document->id }}" tabindex="-1"
+                                            style="display: none;" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-scrollable" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -343,7 +342,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        @if ( $documents->links()->paginator->hasPages() )
+                        @if ($documents->links()->paginator->hasPages())
                             {{ $documents->links() }}
                         @endif
                     </div>
