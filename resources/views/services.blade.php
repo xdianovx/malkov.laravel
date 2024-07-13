@@ -20,17 +20,20 @@
     </section>
 
 
-    <section class="section">
+    <section class="section section-services">
         <div class="container">
             <h2 class="h2">Услуги</h2>
 
 
             <div class="section-services__filters">
-                Поиск и тд
+                <input type="text" class="search-input" placeholder="Поиск услуги">
             </div>
 
             <div class="section-services__tags">
-                тут теги
+                <h3 class="section-services__tags_title">Категории</h3>
+                <div class="section-services__tags_wrap">
+
+                </div>
             </div>
 
             <div class="section-services__items">
@@ -62,8 +65,8 @@
         </div>
     </section>
 
-    <x-sections.callback  :block="$block_callback_form" />
-    <x-sections.faq :block="$block_questions"/>
+    <x-sections.callback :block="$block_callback_form" />
+    <x-sections.faq :block="$block_questions" />
 
     <section class="section">
 

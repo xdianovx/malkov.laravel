@@ -4,7 +4,7 @@
     <img src="{{ asset('storage') . '/' . $image }}" alt="Имя и фамилия доктора">
 
     <div class="doctor-item__info">
-        <h3 class="doctor-item__name">{{ $title }}</h3>
+        <h3 class="doctor-item__name">{!! $title !!}</h3>
 
         <div class="doctor-item__prof">
             @foreach ($profs as $item)

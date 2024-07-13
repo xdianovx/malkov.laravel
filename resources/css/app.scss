@@ -90,6 +90,13 @@ video::-webkit-media-controls-current-time-display {
 @import "./components/pages/stock";
 @import "./components/pages/service-single.scss";
 
+.search-input {
+    border: 1px solid $bgAccent;
+    line-height: 100%;
+    padding: 12px 20px;
+    border-radius: 4px;
+}
+
 @media (max-width: 1440px) {
     .container {
         max-width: 1240px;

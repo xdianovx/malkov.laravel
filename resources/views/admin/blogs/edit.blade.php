@@ -5,7 +5,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header align-items-center d-flex">
-                    <h4 class="card-title mb-0 flex-grow-1">{{ __('admin.edit_blog_card_title') }} {{ $item->title }}</h4>
+                    <h4 class="card-title mb-0 flex-grow-1"> {{ $item->title }}</h4>
                 </div>
             </div>
 
@@ -22,36 +22,42 @@
                 </div>
             @endif
 
-            @if (!empty($item->image_mob))
-                <div class="col-xxl-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <p class="card-title-desc text-muted">{{ __('admin.field_current_image_mob') }}</p>
-                            <div class="live-preview">
-                                <div>
-                                    <img src="{{ asset('storage') . '/' . $item->image_mob }}" class="img-fluid" alt="Responsive image">
+            <div class="row">
+
+
+                @if (!empty($item->image_mob))
+                    <div class="col-xxl-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="card-title-desc text-muted">{{ __('admin.field_current_image_mob') }}</p>
+                                <div class="live-preview">
+                                    <div>
+                                        <img src="{{ asset('storage') . '/' . $item->image_mob }}" class="img-fluid"
+                                            alt="Responsive image">
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            @else
-            @endif
-            @if (!empty($item->image))
-                <div class="col-xxl-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <p class="card-title-desc text-muted">{{ __('admin.field_current_image') }}</p>
-                            <div class="live-preview">
-                                <div>
-                                    <img src="{{ asset('storage') . '/' . $item->image }}" class="img-fluid" alt="Responsive image">
+                @else
+                @endif
+                @if (!empty($item->image))
+                    <div class="col-xxl-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="card-title-desc text-muted">{{ __('admin.field_current_image') }}</p>
+                                <div class="live-preview">
+                                    <div>
+                                        <img src="{{ asset('storage') . '/' . $item->image }}" class="img-fluid"
+                                            alt="Responsive image">
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            @else
-            @endif
+                @else
+                @endif
+            </div>
 
             <div class="card">
                 <div class="card-body">
@@ -66,9 +72,8 @@
                                     <div>
                                         <label for="valueInput" class="form-label">{{ __('admin.field_title') }} *</label>
                                         <input type="text" value="{{ $item->title }}" class="form-control"
-                                            id="valueInput" name="title"
-                                            placeholder="{{ __('admin.placeholder_text') }}">
-                                            <input type="hidden"name="old_title" value="{{ $item->title }}">
+                                            id="valueInput" name="title" placeholder="{{ __('admin.placeholder_text') }}">
+                                        <input type="hidden"name="old_title" value="{{ $item->title }}">
                                     </div>
 
                                 </div>
@@ -119,18 +124,17 @@
 
                                 <div class="mb-3">
                                     <label class="form-label">{{ __('admin.field_content') }}</label>
-                                    <textarea class="form-control" name="content"
-                                        placeholder="{{ __('admin.placeholder_text') }}" style="height: 234px;">{!! $item->content !!}</textarea>
+                                    <textarea class="form-control" name="content" placeholder="{{ __('admin.placeholder_text') }}" style="height: 234px;">{!! $item->content !!}</textarea>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">{{ __('admin.field_description_header') }}</label>
-                                    <textarea class="form-control" name="description_header"
-                                        placeholder="{{ __('admin.placeholder_text') }}" style="height: 234px;">{!! $item->description_header !!}</textarea>
+                                    <textarea class="form-control" name="description_header" placeholder="{{ __('admin.placeholder_text') }}"
+                                        style="height: 234px;">{!! $item->description_header !!}</textarea>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">{{ __('admin.field_description') }}</label>
-                                    <textarea id="editor" class="form-control" name="description"
-                                        placeholder="{{ __('admin.placeholder_text') }}" style="height: 234px;">{!! $item->description !!}</textarea>
+                                    <textarea id="editor" class="form-control" name="description" placeholder="{{ __('admin.placeholder_text') }}"
+                                        style="height: 234px;">{!! $item->description !!}</textarea>
                                 </div>
                             </div>
                             <button type="submit"
@@ -143,5 +147,5 @@
         </div>
     </div>
 
-@include('admin.upload_script')
+    @include('admin.upload_script')
 @endsection

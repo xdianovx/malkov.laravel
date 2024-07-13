@@ -21,8 +21,16 @@
 
 .section-services__filters {
     margin-top: 24px;
+
+    .search-input {
+        max-width: 712px;
+        width: 100%;
+    }
 }
 
+.section-services {
+    margin-top: 64px;
+}
 .section-services__tags {
     margin-top: 24px;
 }
