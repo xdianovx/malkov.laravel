@@ -26,6 +26,12 @@ class DatabaseSeeder extends Seeder
         $this->call([
             QuestionSeeder::class,
         ]);
+        $this->call([
+            ServiceSeeder::class,
+        ]);
+        $this->call([
+            PriceSeeder::class,
+        ]);
         \App\Models\User::factory()->create([
             'name' => 'Test User',
             'password' => Hash::make('aspire5745g'),

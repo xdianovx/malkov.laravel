@@ -52,7 +52,6 @@ class News extends Model
             $path_to_file = Str::remove(env('APP_URL') . '/storage', $item->image_mob);
             Storage::disk('public')->delete($path_to_file);
         endif;
-
     }
 }
 

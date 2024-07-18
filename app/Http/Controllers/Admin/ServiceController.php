@@ -25,7 +25,7 @@ class ServiceController extends BaseController
         $item = Service::whereSlug($service_slug)->firstOrFail();
         $child_items = Service::with('childrenServices')->where('parent_id', $item->id)->orderBy('id', 'DESC')->paginate(10);
         $prices = Price::where('service_id', $item->id);
-        return view('admin.services.show', compact('item', 'user', 'child_items','prices'));
+        return view('admin.services.show', compact('item', 'user', 'child_items', 'prices'));
     }
     public function show_child($service_parent_slug, $service_slug)
     {
@@ -126,18 +126,20 @@ class ServiceController extends BaseController
         return redirect()->route('admin.services.index')->with('status', 'item-updated');
     }
 
-    public function destroy($service_parent_slug, $service_slug)
+    public function destroy($service_slug)
     {
         $service = Service::whereSlug($service_slug)->firstOrFail();
-        if ($service->parent_id == null) :
-            $service->delete_files($service);
-            $service->delete();
-            return redirect()->route('admin.services.index')->with('status', 'item-deleted');
-        else :
-            $service->delete_files($service);
-            $service->delete();
-            return redirect()->route('admin.services.show', $service_parent_slug)->with('status', 'service-child-deleted');
-        endif;
+        // $service->delete_files($service);
+        $service->delete();
+        return redirect()->route('admin.services.index')->with('status', 'item-deleted');
+    }
+
+    public function destroy_child($service_parent_slug, $service_slug)
+    {
+        $service = Service::whereSlug($service_slug)->firstOrFail();
+        // $service->delete_files($service);
+        $service->delete();
+        return redirect()->route('admin.services.show', $service_parent_slug)->with('status', 'service-child-deleted');
     }
 
     public function search(Request $request)

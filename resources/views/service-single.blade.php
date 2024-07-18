@@ -1,5 +1,3 @@
-
-
 @extends('layouts.main')
 
 @section('content')
@@ -24,39 +22,52 @@
         </div>
     </section>
 
+        <section class="section price-section">
+            <div class="container">
+                <div class="price-section__wrap">
+                    {{-- Item --}}
+                        @foreach($service->childrenServices as $item)
+                            <div class="price-section__item">
 
+                                <div class="price-section__item_top">
+                                    <h3>{!! $item->title !!}</h3>
+                                    <div>{{ $item->price }}</div>
+                                </div>
 
-    <section class="section price-section">
-        <div class="container">
-            <div class="price-section__wrap">
-                {{-- Item --}}
-                @forelse($service->prices as $item)
-                <div class="price-section__item">
+                                <div class="price-section__item_bottom">
+                                    <p>{!! $item->description !!}</p>
+                                        <a href="{{ route('service-single', $item->slug) }}">Подробнее</a>
+                                </div>
+                            </div>
+                        @endforeach
+                        @forelse($service->prices as $item)
+                        <div class="price-section__item">
 
-                    <div class="price-section__item_top">
-                        <h3>{!! $item->title !!}</h3>
-                        <div>{!! $item->price !!}</div>
-                    </div>
+                            <div class="price-section__item_top">
+                                <h3>{!! $item->title !!}</h3>
+                                <div>{!! $item->price !!}</div>
+                            </div>
 
-                    <div class="price-section__item_bottom">
-                        <p>{!! $item->description !!}</p>
+                            <div class="price-section__item_bottom">
+                                <p>{!! $item->description !!}</p>
 
-                        @isset($item->link_service)
-                        <a href="{{ $item->link_service }}">Подробнее</a>
-                        @endisset
-                    </div>
+                                @isset($item->link_service)
+                                    <a href="{{ $item->link_service }}">Подробнее</a>
+                                @endisset
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
-                @empty
-                    <p>{{ __('admin.notification_no_entries') }}</p>
-                @endforelse
             </div>
-        </div>
-    </section>
+        </section>
+
+
+
 
 
     <x-sections.services :block="$block_services" :data="$services" />
-    <x-sections.callback  :block="$block_callback_form" />
-    <x-sections.faq :block="$block_questions"/>
+    <x-sections.callback :block="$block_callback_form" />
+    <x-sections.faq :block="$block_questions" />
 
     <section class="section"></section>
 @endsection()

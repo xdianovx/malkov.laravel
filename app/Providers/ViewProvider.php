@@ -38,6 +38,7 @@ class ViewProvider extends ServiceProvider
     {
         //Admin
         View::share('pages_routes', Page::$pages_routes);
+        View::share('blocks_routes', Block::$blocks_routes);
         View::share('services_routes', Service::$services_routes);
         View::share('blogs_routes', Blog::$blogs_routes);
         View::share('categories_blog_routes', CategoryBlog::$categories_blog_routes);
@@ -51,7 +52,6 @@ class ViewProvider extends ServiceProvider
         View::share('specialist_routes', Specialist::$specialist_routes);
         View::share('document_routes', Document::$document_routes);
         View::share('questions_routes', Question::$questions_routes);
-        View::share('blocks_routes', Block::$blocks_routes);
         View::share('modern_office_routes', ModernOffice::$modern_office_routes);
         View::share('reviews_routes', Review::$reviews_routes);
         //Client

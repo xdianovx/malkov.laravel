@@ -49,7 +49,7 @@
 
                         <div class="service-item__bottom">
                             @if (!$item->prices->isEmpty())
-                                <div class="service-item__price">от {{ $item->prices->min('price') }} руб</div>
+                                <div class="service-item__price">{{ $item->price }}</div>
                             @endif
                             <button class="service-item__btn" data-micromodal-trigger="modal-callback">Быстрая
                                 запись</button>
