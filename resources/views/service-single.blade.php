@@ -26,20 +26,6 @@
             <div class="container">
                 <div class="price-section__wrap">
                     {{-- Item --}}
-                        @foreach($service->childrenServices as $item)
-                            <div class="price-section__item">
-
-                                <div class="price-section__item_top">
-                                    <h3>{!! $item->title !!}</h3>
-                                    <div>{{ $item->price }}</div>
-                                </div>
-
-                                <div class="price-section__item_bottom">
-                                    <p>{!! $item->description !!}</p>
-                                        <a href="{{ route('service-single', $item->slug) }}">Подробнее</a>
-                                </div>
-                            </div>
-                        @endforeach
                         @forelse($service->prices as $item)
                         <div class="price-section__item">
 

@@ -68,4 +68,24 @@ class UploadFiles
         $data = $data->storeAs('public', $fileNameToStore);
         return $fileNameToStore;
     }
+    // Удаление файлов(Не используется)
+    public static function delete_files($item)
+    {
+        if( $item->image):
+            $path_to_file = Str::remove(env('APP_URL') . '/storage', $item->image);
+            Storage::disk('public')->delete($path_to_file);
+        endif;
+        if( $item->image_mob):
+            $path_to_file = Str::remove(env('APP_URL') . '/storage', $item->image_mob);
+            Storage::disk('public')->delete($path_to_file);
+        endif;
+
+    }
+    public static function delete_document_file($item)
+    {
+        if( $item->image):
+            $path_to_file = Str::remove(env('APP_URL') . '/storage', $item->image);
+            Storage::disk('public')->delete($path_to_file);
+        endif;
+    }
 }

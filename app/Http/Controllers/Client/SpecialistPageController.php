@@ -34,7 +34,7 @@ class SpecialistPageController extends Controller
   public function show($specialist_slug)
   {
     $specialist = Specialist::whereSlug($specialist_slug)->firstOrFail();
-    $specialists = Specialist::orderBy('id', 'DESC')->take(8)->get();
+    $specialists = Specialist::where('slug', '!=', $specialist_slug)->orderBy('id', 'DESC')->take(8)->get();
     $block_callback_form = Block::whereId(5)->firstOrFail();
     $block_questions = Block::whereId(1)->firstOrFail();
     $block_specialists = Block::whereId(3)->firstOrFail();

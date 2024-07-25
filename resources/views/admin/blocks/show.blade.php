@@ -247,7 +247,7 @@
                                 <thead class="table-light">
                                     <tr>
                                         <th scope="col" style="width: 80px;">ID</th>
-                                        <th scope="col">{{ __('admin.field_modern_office') }}</th>
+                                        <th scope="col">{{ __('admin.field_title') }}</th>
                                         <th scope="col" style="width: 150px;">{{ __('admin.field_updated') }}</th>
                                         <th scope="col" style="width: 150px;">{{ __('admin.field_action') }}</th>
                                     </tr>

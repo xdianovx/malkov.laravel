@@ -54,7 +54,6 @@ class DocumentController extends BaseController
 
     public function destroy( $specialist_slug, $document_id )
     {
-
         $document = Document::whereId($document_id)->firstOrFail();
         $document->delete();
         return redirect()->route('admin.specialists.show', $specialist_slug)->with('status', 'document-deleted');

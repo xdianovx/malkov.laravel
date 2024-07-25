@@ -4,7 +4,7 @@
     </div>
 
     <div class="news-item__top">
-        <p>{{ $data->created_at }}</p>
+        <p>{{ $data->created_at->format('d.m.Y') }}</p>
 
         <div class="news-item__time">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
@@ -13,7 +13,7 @@
                     d="M10 5.83333V10H14.1667M10 17.5C5.85786 17.5 2.5 14.1421 2.5 10C2.5 5.85786 5.85786 2.5 10 2.5C14.1421 2.5 17.5 5.85786 17.5 10C17.5 14.1421 14.1421 17.5 10 17.5Z"
                     stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            <p>{{ $data->updated_at->diffForHumans() }}</p>
+            <p>{{ $data->reading_time }}</p>
         </div>
     </div>
 

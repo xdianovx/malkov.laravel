@@ -76,7 +76,6 @@ class StockController extends BaseController
     {
 
         $stock = Stock::whereSlug($stock_slug)->firstOrFail();
-        $stock->delete_files($stock);
         $stock->delete();
         return redirect()->route('admin.stocks.index')->with('status', 'item-deleted');
     }

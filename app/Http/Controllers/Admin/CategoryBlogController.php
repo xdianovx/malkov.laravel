@@ -62,7 +62,6 @@ class CategoryBlogController extends BaseController
     public function destroy($category_slug)
     {
         $category = CategoryBlog::whereSlug($category_slug)->firstOrFail();
-        $category->delete_files($category);
         $category->delete();
         return redirect()->route('admin.categories_blog.index')->with('status', 'item-deleted');
     }

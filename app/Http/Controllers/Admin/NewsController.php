@@ -35,6 +35,7 @@ class NewsController extends BaseController
     {
         $data = $request->validated();
         $data['slug'] = Str::slug($data['title']);
+        $data['reading_time'] = $this->format_data_service->getReadingTime($data['description']);
 
         if ($request->hasFile('image')) :
             $data['image'] = $this->upload_service->imageConvertAndStore($request, $data['image'], $data['slug']);
@@ -58,6 +59,7 @@ class NewsController extends BaseController
         $news = News::whereSlug($news_slug)->firstOrFail();
         $data = $request->validated();
         $data['slug'] = Str::slug($data['title']);
+        $data['reading_time'] = $this->format_data_service->getReadingTime($data['description']);
 
         if ($request->hasFile('image')) :
             $data['image'] = $this->upload_service->imageConvertAndStore($request, $data['image'], $data['slug']);
@@ -74,7 +76,6 @@ class NewsController extends BaseController
     {
 
         $news = News::whereSlug($news_slug)->firstOrFail();
-        $news->delete_files($news);
         $news->delete();
         return redirect()->route('admin.news.index')->with('status', 'item-deleted');
     }

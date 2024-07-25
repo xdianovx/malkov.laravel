@@ -47,44 +47,32 @@
                             </div>
                         </div>
                     </div>
-                    @if ($item->field_education)
-                        <h5 class="">{{ __('admin.field_field_education') }}:</h5>
-                        <div class="table-responsive">
-                            <div class="">{!! $item->field_education !!}</div>
+                    @if ($item->education)
+                        <h5 class="">{{ __('admin.field_education') }}:</h5>
+                        <div class="text-muted">
+                            <p>{!! $item->education !!}</p>
                         </div>
                     @else
                     @endif
                     @if ($item->additional_education)
                         <h5 class="">{{ __('admin.field_additional_education') }}:</h5>
-                        <div class="table-responsive">
-                            <table class="table table-borderless mb-0">
-                                <tbody>
-                                    <tr>
-                                        <td class="">{!! $item->additional_education !!}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <div class="text-muted">
+                            <p>{!! $item->additional_education !!}</p>
                         </div>
                     @else
                     @endif
                     @if ($item->description)
                         <h5 class="">{{ __('admin.field_description') }}:</h5>
-                        <div class="table-responsive">
-                            <table class="table table-borderless mb-0">
-                                <tbody>
-                                    <tr>
-                                        <td class="">{!! $item->description !!}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <div class="text-muted">
+                            <p>{!! $item->description !!}</p>
                         </div>
                     @else
                     @endif
                 </div>
                 <!--end card-body-->
             </div>
-            <div class="row">
 
+            <div class="row">
                 @if (!empty($item->image_mob))
                     <div class="col-xxl-6">
                         <div class="card">

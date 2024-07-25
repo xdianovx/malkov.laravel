@@ -79,7 +79,6 @@ class BlogController extends BaseController
     {
 
         $blog = Blog::whereSlug($blog_slug)->firstOrFail();
-        $blog->delete_files($blog);
         $blog->delete();
         return redirect()->route('admin.blogs.index')->with('status', 'item-deleted');
     }

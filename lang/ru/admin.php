@@ -169,6 +169,8 @@ return [
     'field_answer' => 'Ответ',
     'field_rating' => 'Рейтинг',
     'field_date' => 'Дата публикации',
+    'field_reading_time' => 'Время прочтения статьи',
+    'list_modern_offices' => 'Cовременные кабинеты',
     //Btns
     'btn_save' => 'Сохранить',
     'btn_search' => 'Поиск',
@@ -186,6 +188,7 @@ return [
     'btn_add_document' => 'Добавить документ,сертификат',
     'btn_go_to_website' => 'Перейти на сайт',
     'btn_create_question' => 'Добавить новую запись вопрос ответ',
+    'btn_create_modern_office' => 'Добавить новую запись современные кабинеты',
     //Placeholders
     'placeholder_text' => 'Введите текст',
     'placeholder_search' => 'ID,Название,Слаг',

@@ -136,6 +136,10 @@
                                     <td class="text-muted">{{ $item->slug }}</td>
                                 </tr>
                                 <tr>
+                                    <th class="ps-0" scope="row">{{ __('admin.field_reading_time') }}:</th>
+                                    <td class="text-muted">{{ $item->reading_time }}</td>
+                                </tr>
+                                <tr>
                                     <th class="ps-0" scope="row">{{ __('admin.field_created') }}:</th>
                                     <td class="text-muted">{{ $item->created_at }}</td>
                                 </tr>

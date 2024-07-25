@@ -22,6 +22,7 @@ use App\Http\Controllers\Client\AboutPageController;
 use App\Http\Controllers\Client\BlogPageController;
 use App\Http\Controllers\Client\ContactPageController;
 use App\Http\Controllers\Client\NewsPageController;
+use App\Http\Controllers\Client\ReviewPageController;
 use App\Http\Controllers\Client\ServicePageController;
 use App\Http\Controllers\Client\SpecialistPageController;
 use App\Http\Controllers\Client\StockPageController;
@@ -80,11 +81,14 @@ Route::get('/akcii/{stock_slug}', [StockPageController::class, 'show'], function
     return view('stock-single');
 })->name('stock-single');
 
+Route::get('/otzyvy', [ReviewPageController::class, 'index'], function () {
+    return view('reviews');
+})->name('reviews');
 
 
 Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
 
-    Route::get('/dashboard', [MainController::class, 'index'])->name('index');
+    Route::get('/', [MainController::class, 'index'])->name('index');
     Route::post('/editor-uploads', EditorImageUploadController::class)->name('image_upload');
 
     Route::name('services.')->prefix('services')->group(function () {

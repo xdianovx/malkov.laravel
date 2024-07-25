@@ -57,7 +57,6 @@ class ReviewController extends BaseController
     public function destroy($review_id)
     {
         $review = Review::whereId($review_id)->firstOrFail();
-        $review->delete_files($review);
         $review->delete();
         return redirect()->route('admin.reviews.index')->with('status', 'item-deleted');
     }

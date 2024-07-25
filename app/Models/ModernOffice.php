@@ -2,10 +2,9 @@
 
 namespace App\Models;
 
+use App\Services\UploadFiles;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 
 class ModernOffice extends Model
 {
@@ -32,13 +31,6 @@ class ModernOffice extends Model
 
     public function delete_files($item)
     {
-        if ($item->file_mob) :
-            $path_to_file = Str::remove(env('APP_URL') . '/storage', $item->file_mob);
-            Storage::disk('public')->delete($path_to_file);
-        endif;
-        if ($item->file) :
-            $path_to_file = Str::remove(env('APP_URL') . '/storage', $item->file);
-            Storage::disk('public')->delete($path_to_file);
-        endif;
+        UploadFiles::delete_files($item);
     }
 }

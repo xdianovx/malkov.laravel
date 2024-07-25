@@ -23,9 +23,9 @@
                 <a href="{{ route('stocks') }}">Акции</a>
                 <a href="/pacientam">Пациентам</a>
                 <a href="{{ route('specialists') }}">Врачи</a>
-                <a href="/kontakty">Контакты</a>
-                <a href="/o-klinike">О клинике</a>
-                <a href="/otzyvi">Отзывы</a>
+                <a href="{{ route('contacts') }}">Контакты</a>
+                <a href="{{ route('about') }}">О клинике</a>
+                <a href="{{ route('reviews') }}">Отзывы</a>
             </nav>
 
             <div class="footer__bot">

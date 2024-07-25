@@ -120,7 +120,6 @@ class ShowReelController extends BaseController
     public function destroy($page_slug, $show_reel_id)
     {
         $show_reel = ShowReel::whereId($show_reel_id)->firstOrFail();
-        $show_reel->delete_files($show_reel);
         $show_reel->delete();
         return redirect()->route('admin.pages.show', $page_slug)->with('status', 'show_reel-deleted');
     }

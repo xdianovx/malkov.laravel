@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('modern_offices', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->string('file')->nullable();
             $table->string('file_mob')->nullable();
             $table->foreignId('block_id');

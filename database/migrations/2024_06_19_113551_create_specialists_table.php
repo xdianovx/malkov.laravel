@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('h1_title');
             $table->string('image')->nullable();
             $table->string('image_mob')->nullable();
-            $table->string('education')->nullable();
-            $table->string('additional_education')->nullable();
+            $table->text('education')->nullable();
+            $table->text('additional_education')->nullable();
             $table->string('operations')->nullable();
             $table->string('experience')->nullable();
             $table->text('description')->nullable();

@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
+use App\Services\UploadFiles;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
+
 
 class Document extends Model
 {
@@ -32,9 +32,6 @@ class Document extends Model
 
     public function delete_files($item)
     {
-        if( $item->image):
-            $path_to_file = Str::remove(env('APP_URL') . '/storage', $item->image);
-            Storage::disk('public')->delete($path_to_file);
-        endif;
+        UploadFiles::delete_document_file($item);
     }
 }

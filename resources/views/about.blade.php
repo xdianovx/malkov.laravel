@@ -37,10 +37,10 @@
                         <div class="service-item__img">
                             <img src="{{ asset('storage') . '/' . $item_modern_office->file }}" alt="">
                         </div>
-
+{{--
                         <h3 class="service-item__title">{{ $item_modern_office->title }}</h3>
 
-                        <p class="service-item__text">{!! $item_modern_office->description !!}</p>
+                        <p class="service-item__text">{!! $item_modern_office->description !!}</p> --}}
                  @empty
                     <p>{{ __('admin.notification_no_entries') }}</p>
                 @endforelse

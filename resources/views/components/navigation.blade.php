@@ -10,7 +10,7 @@
                     <a href="{{ route('blogs') }}">Блог</a>
                     <a href="{{ route('contacts') }}">Контакты</a>
                     <a href="{{ route('about') }}">О клинике</a>
-                    <a href="/otzyvy">Отзывы</a>
+                    <a href="{{ route('reviews') }}>Отзывы</a>
 
                 </nav>
 

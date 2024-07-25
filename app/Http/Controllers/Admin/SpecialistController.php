@@ -33,7 +33,7 @@ class SpecialistController extends BaseController
     {
         $user = Auth::user();
         $specializations = Specialization::all();
-        $services = Service::all();
+        $services = Service::where('parent_id', null)->get();
         return view('admin.specialists.create', compact('user','specializations','services'));
     }
     public function store(StoreRequest $request)
@@ -45,6 +45,7 @@ class SpecialistController extends BaseController
                 'specializations',
                 'services'
             ]);
+
         $data = $split_data['data'];
         $data['slug'] = Str::slug($data['title']);
         if ($request->hasFile('image')) :
@@ -63,7 +64,7 @@ class SpecialistController extends BaseController
         $user = Auth::user();
         $item = Specialist::whereSlug($specialist_slug)->firstOrFail();
         $specializations = Specialization::all();
-        $services = Service::all();
+        $services = Service::where('parent_id', null)->get();
         return view('admin.specialists.edit', compact('user', 'item','specializations','services'));
     }
     public function update(UpdateRequest $request, $specialist_slug)
@@ -75,6 +76,7 @@ class SpecialistController extends BaseController
                 'specializations',
                 'services'
             ]);
+
         $data = $split_data['data'];
         $data['slug'] = Str::slug($data['title']);
 
@@ -95,7 +97,6 @@ class SpecialistController extends BaseController
     {
 
         $specialist = Specialist::whereSlug($specialist_slug)->firstOrFail();
-        $specialist->delete_files($specialist);
         $specialist->delete();
         return redirect()->route('admin.specialists.index')->with('status', 'item-deleted');
     }

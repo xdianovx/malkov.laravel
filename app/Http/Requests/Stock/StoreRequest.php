@@ -30,7 +30,7 @@ class StoreRequest extends FormRequest
             'description'  => ['nullable'],
             'content' => ['nullable'],
             'slider_active' => 'required',
-            'due_time' => 'required|date',
+            'due_time' => 'nullable|date',
         ];
     }
 }

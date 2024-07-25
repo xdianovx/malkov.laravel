@@ -53,13 +53,12 @@ class SpecializationController extends BaseController
         $data['slug'] = Str::slug($data['title']);
         $specialization->update($data);
 
-        return redirect()->route('admin.specializations_blog.index')->with('status', 'item-updated');
+        return redirect()->route('admin.specializations.index')->with('status', 'item-updated');
     }
 
     public function destroy($specialization_slug)
     {
         $specialization = Specialization::whereSlug($specialization_slug)->firstOrFail();
-        $specialization->delete_files($specialization);
         $specialization->delete();
         return redirect()->route('admin.specializations.index')->with('status', 'item-deleted');
     }

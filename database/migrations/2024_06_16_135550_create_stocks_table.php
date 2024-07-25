@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('h1_title');
             $table->string('slug');
             $table->string('slider_active');
-            $table->date('due_time');
+            $table->date('due_time')->nullable();
             $table->string('image')->nullable();
             $table->string('image_mob')->nullable();
             $table->text('description_header')->nullable();

@@ -19,7 +19,7 @@
                         <p class="stock-item__text">{!! $item->content !!}</p>
 
                         <div class="stock-item__bottom">
-                            <p>Действует до: {{ $item->due_time }}</p>
+                            <p>Действует до: {{ date('d.m.Y', strtotime($item->due_time))}}</p>
                             <a href="{{ route('stock-single', $item->slug) }}">Подробнее</a>
                         </div>
                     </div>

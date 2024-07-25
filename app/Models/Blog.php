@@ -2,10 +2,9 @@
 
 namespace App\Models;
 
+use App\Services\UploadFiles;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 
 class Blog extends Model
 {
@@ -16,6 +15,7 @@ class Blog extends Model
         'h1_title',
         'image',
         'image_mob',
+        'reading_time',
         'content',
         'slug',
         'description',
@@ -49,13 +49,6 @@ class Blog extends Model
     }
     public function delete_files($item)
     {
-        if( $item->image):
-            $path_to_file = Str::remove(env('APP_URL') . '/storage', $item->image);
-            Storage::disk('public')->delete($path_to_file);
-        endif;
-        if( $item->image_mob):
-            $path_to_file = Str::remove(env('APP_URL') . '/storage', $item->image_mob);
-            Storage::disk('public')->delete($path_to_file);
-        endif;
+        UploadFiles::delete_files($item);
     }
 }
