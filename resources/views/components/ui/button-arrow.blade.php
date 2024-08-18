@@ -2,7 +2,7 @@
 
 
 @if ($href)
-    <a href="{{ $href }}" {{ $attributes->merge(['class' => 'button-arrow']) }}>
+    <a href="{{ $href }}" {{ $attributes->merge(['class' => 'button-arrow']) }} {{ $attributes }}>
         <span>{{ $text }}</span>
         <span class="button-arrow-icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 11 11" fill="none">
