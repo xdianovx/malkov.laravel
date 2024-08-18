@@ -66,6 +66,10 @@
 
 .news-item__descr {
     margin-top: 16px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .news-section__btn {
