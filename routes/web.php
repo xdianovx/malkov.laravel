@@ -31,57 +31,31 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [WelcomePageController::class, 'index'])->name('home');
 
-Route::get('/uslugi', [ServicePageController::class, 'index'], function () {
-    return view('services');
-})->name('services');
+Route::get('/uslugi', [ServicePageController::class, 'index'])->name('services');
 
-Route::get('/uslugi/{service_slug}', [ServicePageController::class, 'show'], function () {
-    return view('service-single');
-})->name('service-single');
+Route::get('/uslugi/{service_slug}', [ServicePageController::class, 'show'])->name('service-single');
 
-Route::get('/vrachi', [SpecialistPageController::class, 'index'], function () {
-    return view('doctors');
-})->name('specialists');
+Route::get('/vrachi', [SpecialistPageController::class, 'index'])->name('specialists');
 
-Route::get('/vrachi/{specialist_slug}', [SpecialistPageController::class, 'show'], function () {
-    return view('doctor');
-})->name('specialist');
+Route::get('/vrachi/{specialist_slug}', [SpecialistPageController::class, 'show'])->name('specialist');
 
-Route::get('/kontakty', [ContactPageController::class, 'index'], function () {
-    return view('contacts');
-})->name('contacts');
+Route::get('/kontakty', [ContactPageController::class, 'index'])->name('contacts');
 
-Route::get('/o-klinike', [AboutPageController::class, 'index'], function () {
-    return view('about');
-})->name('about');
+Route::get('/o-klinike', [AboutPageController::class, 'index'])->name('about');
 
-Route::get('/novosti', [NewsPageController::class, 'index'], function () {
-    return view('news');
-})->name('news');
+Route::get('/novosti', [NewsPageController::class, 'index'])->name('news');
 
-Route::get('/novosti/{news_slug}', [NewsPageController::class, 'show'], function () {
-    return view('news-single');
-})->name('news-single');
+Route::get('/novosti/{news_slug}', [NewsPageController::class, 'show'])->name('news-single');
 
-Route::get('/blog/{blog_slug}', [BlogPageController::class, 'show'], function () {
-    return view('blogs-single');
-})->name('blogs-single');
+Route::get('/blog/{blog_slug}', [BlogPageController::class, 'show'])->name('blogs-single');
 
-Route::get('/blog', [BlogPageController::class, 'index'], function () {
-    return view('blogs');
-})->name('blogs');
+Route::get('/blog', [BlogPageController::class, 'index'])->name('blogs');
 
-Route::get('/akcii', [StockPageController::class, 'index'], function () {
-    return view('stocks');
-})->name('stocks');
+Route::get('/akcii', [StockPageController::class, 'index'])->name('stocks');
 
-Route::get('/akcii/{stock_slug}', [StockPageController::class, 'show'], function () {
-    return view('stock-single');
-})->name('stock-single');
+Route::get('/akcii/{stock_slug}', [StockPageController::class, 'show'])->name('stock-single');
 
-Route::get('/otzyvy', [ReviewPageController::class, 'index'], function () {
-    return view('reviews');
-})->name('reviews');
+Route::get('/otzyvy', [ReviewPageController::class, 'index'])->name('reviews');
 
 
 Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
