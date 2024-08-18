@@ -50,17 +50,17 @@ RUN curl https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash 
 ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
 ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
 
-WORKDIR /var/www/dvaporoga
+WORKDIR /var/www/malkov.laravel
 
 # Add user for laravel application
 RUN groupadd -g 1000 www
 RUN useradd -u 1000 -ms /bin/bash -g www www
 
 # Copy existing application directory contents
-COPY . /var/www/dvaporoga
+COPY . /var/www/malkov.laravel
 
 # Copy existing application directory permissions
-COPY --chown=www:www . /var/www/dvaporoga
+COPY --chown=www:www . /var/www/malkov.laravel
 
 # Change current user to www
 USER www
