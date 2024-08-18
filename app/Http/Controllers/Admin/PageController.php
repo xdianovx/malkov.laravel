@@ -13,7 +13,7 @@ class PageController extends BaseController
     public function index()
     {
         $user = Auth::user();
-        $pages = Page::orderBy('id', 'DESC')->paginate(10);
+        $pages = Page::orderBy('id', 'DESC')->paginate(20);
         return view('admin.page.index', compact('pages', 'user'));
     }
 
