@@ -42,6 +42,5 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('aspire5745g'),
             'email' => 'test@example.com',
         ]);
-
     }
 }

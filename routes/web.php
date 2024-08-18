@@ -29,9 +29,7 @@ use App\Http\Controllers\Client\StockPageController;
 use App\Http\Controllers\Client\WelcomePageController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [WelcomePageController::class, 'index'], function () {
-    return view('welcome');
-})->name('home');
+Route::get('/', [WelcomePageController::class, 'index'])->name('home');
 
 Route::get('/uslugi', [ServicePageController::class, 'index'], function () {
     return view('services');
