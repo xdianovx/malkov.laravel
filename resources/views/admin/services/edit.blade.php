@@ -100,11 +100,41 @@
                                     <textarea class="form-control" name="content" placeholder="{{__('admin.placeholder_text')}}"
                                      style="height: 234px;">{{ $item->content }}</textarea>
                                 </div>
-                                {{-- <div class="mb-3">
-                                    <label class="form-label">{{__('admin.field_description_footer')}}</label>
-                                    <textarea class="form-control" name="description_footer" placeholder="{{__('admin.placeholder_text')}}"
-                                        style="height: 234px;">{!! $item->description_footer !!}</textarea>
-                                </div> --}}
+
+                                <div class="col-xxl-12 col-md-12">
+                                    <div>
+                                        <p class="card-title-desc text-muted">{{__('admin.field_seo')}}</p>
+                                        <div class="row gy-4">
+                                            <div class="col-xxl-6 col-md-6">
+                                                <label for="valueInput" class="form-label">{{__('admin.field_meta_title')}}</label>
+                                                <input type="text" value="{{ $item->meta_title }}" class="form-control"
+                                                    id="valueInput" name="meta_title" placeholder="{{__('admin.placeholder_text')}}">
+                                            </div>
+                                            <div class="col-xxl-6 col-md-6">
+                                                <label for="valueInput" class="form-label">{{__('admin.field_meta_description')}}</label>
+                                                <textarea class="form-control" name="meta_description" rows="3">{{ $item->meta_description }}</textarea>
+                                            </div>
+                                            <div class="col-xxl-6 col-md-6">
+                                                <label for="valueInput" class="form-label">{{__('admin.field_meta_keywords')}}</label>
+                                                <textarea class="form-control" name="meta_keywords" rows="3">{{ $item->meta_keywords }}</textarea>
+                                            </div>
+                                            <div class="col-xxl-6 col-md-6">
+                                                <label for="valueInput" class="form-label">{{__('admin.field_og_url')}}</label>
+                                                <input type="text" value="{{ $item->og_url }}" class="form-control"
+                                                    id="valueInput" name="og_url" placeholder="{{__('admin.placeholder_text')}}">
+                                            </div>
+                                            <div class="col-xxl-6 col-md-6">
+                                                <label for="valueInput" class="form-label">{{__('admin.field_og_title')}}</label>
+                                                <input type="text" value="{{ $item->og_title }}" class="form-control"
+                                                    id="valueInput" name="og_title" placeholder="{{__('admin.placeholder_text')}}">
+                                            </div>
+                                            <div class="col-xxl-6 col-md-6">
+                                                <label for="valueInput" class="form-label">{{__('admin.field_og_description')}}</label>
+                                                <textarea class="form-control" name="og_description" rows="3">{{ $item->og_description }}</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <button type="submit" class="btn btn-success waves-effect waves-light mt-5">{{__('admin.btn_save')}}</button>
                         </form>

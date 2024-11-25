@@ -9,6 +9,7 @@ use App\Models\CarMake;
 use App\Models\ClinicDocument;
 use App\Models\ClinicSertificate;
 use App\Models\Page;
+use App\Models\Service;
 use App\Models\Specialist;
 use App\Models\Stock;
 use Diglactic\Breadcrumbs\Breadcrumbs;
@@ -20,7 +21,30 @@ use Diglactic\Breadcrumbs\Generator as BreadcrumbTrail;
 Breadcrumbs::for('home', function (BreadcrumbTrail $trail) {
     $trail->push('Главная', route('home'));
 });
+Breadcrumbs::for('errors.404', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('Страница не найдена');
+});
+Breadcrumbs::for('specialists', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('Врачи', route('specialists'));
+});
 
+Breadcrumbs::for('specialist', function (BreadcrumbTrail $trail, $specialist_slug) {
+    $trail->parent('specialists');
+    $specialist = Specialist::whereSlug($specialist_slug)->firstOrFail();
+    $trail->push($specialist->h1_title, route('specialist', $specialist_slug));
+});
+Breadcrumbs::for('services', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('Услуги', route('services'));
+});
+
+Breadcrumbs::for('service-single', function (BreadcrumbTrail $trail, $service_slug) {
+    $trail->parent('services');
+    $service = Service::whereSlug($service_slug)->firstOrFail();
+    $trail->push($service->title, route('service-single', $service_slug));
+});
 Breadcrumbs::for('reviews', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
     $trail->push('Отзывы', route('reviews'));
@@ -363,12 +387,14 @@ Breadcrumbs::for('admin.services.create_child', function (BreadcrumbTrail $trail
 
 Breadcrumbs::for('admin.services.show', function (BreadcrumbTrail $trail, $service_slug) {
     $trail->parent('admin.services.index');
-    $trail->push('Просмотр услуги', route('admin.services.show', $service_slug));
+    $service = Service::whereSlug($service_slug)->firstOrFail();
+    $trail->push( $service->title, route('admin.services.show', $service_slug));
 });
 
 Breadcrumbs::for('admin.services.show_child', function (BreadcrumbTrail $trail, $service_parent_slug, $service_slug) {
     $trail->parent('admin.services.show', $service_parent_slug);
-    $trail->push('Просмотр дочерней услуги', route('admin.services.show_child', [$service_parent_slug, $service_slug]));
+    $service = Service::whereSlug($service_slug)->firstOrFail();
+    $trail->push($service->title, route('admin.services.show_child', [$service_parent_slug, $service_slug]));
 });
 
 Breadcrumbs::for('admin.services.edit', function (BreadcrumbTrail $trail, $service_slug) {
@@ -392,6 +418,6 @@ Breadcrumbs::for('admin.services.prices.show', function (BreadcrumbTrail $trail,
 });
 
 Breadcrumbs::for('admin.services.prices.edit', function (BreadcrumbTrail $trail, $service_slug, $price_id) {
-    $trail->parent('admin.services.prices.show', [$service_slug, $price_id]);
+    $trail->parent('admin.services.show', $service_slug);
     $trail->push('Редактировать цену', route('admin.services.prices.edit', [$service_slug, $price_id]));
 });
