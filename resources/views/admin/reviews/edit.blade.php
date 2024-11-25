@@ -45,14 +45,23 @@
                                     <div>
                                         <h5 class="fs-13 fw-medium text-muted">{{__('admin.field_rating')}}</h5>
                                         <div class="input-step">
-                                            <button type="button" class="minus">–</button>
+                                            <button type="button" class="minus" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">–</button>
                                             <input type="number"  name="rating" class="product-quantity"
-                                             value="{{ $item->rating }}" min="0" max="5" readonly="">
-                                            <button type="button" class="plus">+</button>
+                                             value="{{ $item->rating }}" min="0" max="5">
+                                            <button type="button" class="plus" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">+</button>
                                         </div>
                                     </div>
                                 </div>
-
+                                <div class="col-xxl-6 col-md-6">
+                                    <div>
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="is_active" name="is_active"
+                                                {{ $item->is_active == 'on' ? 'checked' : '' }} role="switch">
+                                            <label class="form-check-label"
+                                                for="is_active">{{ __('admin.field_is_active') }}</label>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="col-xxl-6 col-md-6">
                                     <label for="exampleInputdate" class="form-label">{{ __('admin.field_date') }}</label>
                                     <input type="date" class="form-control" name="date"

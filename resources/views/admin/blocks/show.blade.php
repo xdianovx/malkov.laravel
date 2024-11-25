@@ -73,6 +73,16 @@
                         <table class="table table-borderless mb-0">
                             <tbody>
                                 <tr>
+                                    <th class="ps-0" scope="row">{{ __('admin.field_status') }}:</th>
+                                    <td class="text-muted">
+                                        @if($item->is_active == 'on')
+                                            <span class="text-success">{{ __('admin.active') }}</span>
+                                        @else
+                                            <span class="text-danger">{{ __('admin.inactive') }}</span>
+                                        @endif
+                                    </td>
+                                </tr>
+                                <tr>
                                     <th class="ps-0" scope="row">Id:</th>
                                     <td class="text-muted">{{ $item->id }}</td>
                                 </tr>

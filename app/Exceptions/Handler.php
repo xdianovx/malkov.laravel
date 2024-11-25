@@ -31,7 +31,11 @@ class Handler extends ExceptionHandler
     {
         if ($this->isHttpException($exception)) {
             if ($exception->getStatusCode() == 404) {
-                return response()->view('admin.errors.404', [], 404);
+                if ($request->is('admin/*')) {
+                    return response()->view('admin.errors.404', [], 404);
+                } else {
+                    return response()->view('errors.404', [], 404);
+                }
             }
             if ($exception->getStatusCode() == 500) {
                 return response()->view('admin.errors.500', [], 500);

@@ -19,7 +19,6 @@ class Specialist extends Model
         'image',
         'image_mob',
         'education',
-        'additional_education',
         'experience',
         'description',
         'operations'
@@ -39,10 +38,6 @@ class Specialist extends Model
     public function documents()
     {
       return $this->hasMany(Document::class);
-    }
-    public function specializations(): BelongsToMany
-    {
-        return $this->belongsToMany(Specialization::class, 'specialist_specialization', 'specialist_id', 'specialization_id');
     }
     public function services(): BelongsToMany
     {

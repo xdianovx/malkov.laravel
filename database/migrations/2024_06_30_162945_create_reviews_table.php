@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('description');
             $table->integer('rating');
             $table->date('date');
+            $table->string('is_active');
             $table->timestamps();
         });
     }

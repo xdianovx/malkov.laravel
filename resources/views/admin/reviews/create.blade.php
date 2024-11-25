@@ -46,7 +46,16 @@
                                             id="valueInput" name="rating" placeholder="{{__('admin.placeholder_text')}}">
                                     </div>
                                 </div>
-
+                                <div class="col-xxl-6 col-md-6">
+                                    <div>
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="is_active" name="is_active"
+                                                {{ old('is_active') == 'on' ? 'checked' : '' }} role="switch">
+                                            <label class="form-check-label"
+                                                for="is_active">{{ __('admin.field_is_active') }}</label>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="col-xxl-6 col-md-6">
                                     <label for="exampleInputdate" class="form-label">{{ __('admin.field_date') }}</label>
                                     <input type="date" class="form-control" name="date"

@@ -12,7 +12,7 @@ class ContactPageController extends Controller
   {
 
     $contacts_page = Page::whereSlug('kontakty')->firstOrFail();
-    $block_questions = Block::whereId(1)->where('is_active','TRUE')->firstOrFail();
+    $block_questions = Block::whereId(1)->firstOrFail();
 
     return view('contacts', compact(
       'contacts_page',

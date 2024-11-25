@@ -3,7 +3,7 @@
         <div class="navigation-wrap">
             <div class="navigation-left">
                 <nav class="nav-left">
-                    <a href="/patsiientam">Пациентам</a>
+                    <a href="{{ route('pacientam') }}">Пациентам</a>
                     <a href="{{ route('services') }}">Услуги</a>
                     <a href="{{ route('stocks') }}">Акции</a>
                     <a href="{{ route('specialists') }}">Врачи</a>
@@ -18,19 +18,16 @@
 
                 <x-ui.socials />
 
-                <a href="tel:+7 (926) 076-78-18">+7 (926) 076-78-18</a>
+                <a href="tel:{{ $main_info->phone }}">{{ $main_info->phone }}</a>
 
-                <p>Москва, поселение Московский, Саларьевская улица, 16к3</p>
-                <div class="flex flex-col">
-                    <p>ПН–ВС:</p>
-                    <p>10:00 до 21:00</p>
-                </div>
+                <p>{{ $main_info->address }}</p>
+                <div class="flex flex-col">{!! $main_info->working_days !!}</div>
 
                 <button class="btn uppercase">Заказать звонок</button>
 
                 <div class="nav-left-policy">
-                    <a href="">Политика конфиденциальности</a>
-                    <a href="">Правила предоставления услуг мед.организации</a>
+                    <a href="{{ route('politika-konfidencialnosti') }}">Политика конфиденциальности</a>
+                    <a href="{{ route('pravila-predostavleniya-uslug') }}">Правила предоставления услуг мед.организации</a>
                 </div>
 
             </div>

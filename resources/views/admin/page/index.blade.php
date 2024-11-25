@@ -30,7 +30,7 @@
                                         <tr>
                                             <td>{{ $item->id }}</td>
 
-                                            <td><a href="{{ route('admin.pages.show', $item->slug) }}">{{ $item->dashboard_title }}</a></td>
+                                            <td><a href="{{ route('admin.pages.show', $item->slug) }}">{{ $item->title }}</a></td>
                                             <td>{{ $item->slug }}</td>
                                             <td>{{ $item->updated_at->diffForHumans() }}</td>
                                             <td>

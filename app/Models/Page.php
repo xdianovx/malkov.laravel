@@ -11,13 +11,15 @@ class Page extends Model
 
     protected $fillable = [
         'title',
-        'h1_title',
+        'title_h1',
         'slug',
         'description',
-        'dashboard_title',
-        'image','image_mob',
-        'description_header',
-        'description_footer'
+        'meta_title',
+        'meta_description',
+        'meta_keywords',
+        'og_url',
+        'og_title',
+        'og_description',
     ];
     public static $pages_routes = [
         'admin.pages.index',

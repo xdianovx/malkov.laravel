@@ -14,14 +14,18 @@ return new class extends Migration
         Schema::create('pages', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('dashboard_title');
-            $table->string('h1_title');
-            $table->string('image')->nullable();
-            $table->string('image_mob')->nullable();
+            $table->string('title_h1');
             $table->string('slug');
-            $table->text('description_header')->nullable();
             $table->text('description')->nullable();
-            $table->text('description_footer')->nullable();
+
+            $table->string('meta_title')->nullable();
+            $table->text('meta_description')->nullable();
+            $table->text('meta_keywords')->nullable();
+
+            $table->string('og_url')->nullable();
+            $table->string('og_title')->nullable();
+            $table->text('og_description')->nullable();
+
             $table->timestamps();
         });
     }

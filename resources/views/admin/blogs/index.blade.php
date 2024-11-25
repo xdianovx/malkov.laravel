@@ -61,7 +61,6 @@
                                         <th scope="col" style="width: 80px;">ID</th>
                                         <th scope="col">{{__('admin.field_title')}}</th>
                                         <th scope="col">{{__('admin.field_slug')}}</th>
-                                        <th scope="col">{{__('admin.category_blog_card_title')}}</th>
                                         <th scope="col" style="width: 150px;">{{__('admin.field_updated')}}</th>
                                         <th scope="col" style="width: 150px;">{{__('admin.field_action')}}</th>
                                     </tr>
@@ -73,7 +72,6 @@
 
                                             <td><a href="{{ route('admin.blogs.show', $item->slug) }}">{{ $item->title }}</a></td>
                                             <td>{{ $item->slug }}</td>
-                                            <td>{{ $item->category_blog->title }}</td>
                                             <td>{{ $item->updated_at->diffForHumans() }}</td>
                                             <td>
 

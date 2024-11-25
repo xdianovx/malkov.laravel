@@ -54,19 +54,7 @@
                             </div>
                         </div>
                     </div>
-                    @if ($item->description_header)
-                        <h5 class="text-muted">{{ __('admin.field_description_header') }}:</h5>
-                        <div class="table-responsive">
-                            <table class="table table-borderless mb-0">
-                                <tbody>
-                                    <tr>
-                                        <td class="text-muted">{!! $item->description_header !!}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    @else
-                    @endif
+
                     @if ($item->description)
                         <h5 class="text-muted">{{ __('admin.field_description') }}:</h5>
                         <div class="table-responsive">
@@ -80,54 +68,11 @@
                         </div>
                     @else
                     @endif
-                    @if ($item->description_footer)
-                        <h5 class="text-muted">{{ __('admin.field_description_footer') }}:</h5>
-                        <div class="table-responsive">
-                            <table class="table table-borderless mb-0">
-                                <tbody>
-                                    <tr>
-                                        <td class="text-muted">{!! $item->description_footer !!}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    @else
-                    @endif
+
                 </div>
                 <!--end card-body-->
             </div>
-            @if (!empty($item->image_mob))
-                <div class="col-xxl-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <p class="card-title-desc text-muted">{{ __('admin.field_current_image_mob') }}</p>
-                            <div class="live-preview">
-                                <div>
-                                    <img src="{{ asset('storage') . '/' . $item->image_mob }}" class="img-fluid"
-                                        alt="Responsive image">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @else
-            @endif
-            @if (!empty($item->image))
-                <div class="col-xxl-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <p class="card-title-desc text-muted">{{ __('admin.field_current_image') }}</p>
-                            <div class="live-preview">
-                                <div>
-                                    <img src="{{ asset('storage') . '/' . $item->image }}" class="img-fluid"
-                                        alt="Responsive image">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @else
-            @endif
+
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-header align-items-center d-flex">{{ __('admin.page_card_info') }}</h5>
@@ -140,7 +85,7 @@
                                 </tr>
                                 <tr>
                                     <th class="ps-0" scope="row">{{ __('admin.field_h1_title') }}:</th>
-                                    <td class="text-muted">{!! $item->h1_title !!}</td>
+                                    <td class="text-muted">{!! $item->title !!}</td>
                                 </tr>
                                 <tr>
                                     <th class="ps-0" scope="row">{{ __('admin.field_slug') }}:</th>
@@ -152,6 +97,42 @@
                                 </tr>
                             </tbody>
                         </table>
+                    </div>
+                </div><!-- end card body -->
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-header align-items-center d-flex">{{ __('admin.page_card_seo') }}</h5>
+                    <div class="table-responsive">
+                        <table class="table table-borderless mb-0">
+                            <tbody>
+                                <tr>
+                                    <th class="ps-0" scope="row">{{ __('admin.field_meta_title') }}:</th>
+                                    <td class="text-muted">{{ $item->meta_title }}</td>
+                                </tr>
+                                <tr>
+                                    <th class="ps-0" scope="row">{{ __('admin.field_meta_description') }}:</th>
+                                    <td class="text-muted">{{ $item->meta_description }}</td>
+                                </tr>
+                                <tr>
+                                    <th class="ps-0" scope="row">{{ __('admin.field_meta_keywords') }}:</th>
+                                    <td class="text-muted">{{ $item->meta_keywords }}</td>
+                                </tr>
+                                <tr>
+                                    <th class="ps-0" scope="row">{{ __('admin.field_og_url') }}:</th>
+                                    <td class="text-muted">{{ $item->og_url }}</td>
+                                </tr>
+                                <tr>
+                                    <th class="ps-0" scope="row">{{ __('admin.field_og_title') }}:</th>
+                                    <td class="text-muted">{{ $item->og_title }}</td>
+                                </tr>
+                                <tr>
+                                    <th class="ps-0" scope="row">{{ __('admin.field_og_description') }}:</th>
+                                    <td class="text-muted">{{ $item->og_description }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
 
                     </div>
                 </div><!-- end card body -->
@@ -160,7 +141,7 @@
     </div>
     @if (
         ($item->home_page_nums->count() > 0 && $item->slug == 'glavnaya') ||
-            ($item->home_page_nums->count() > 0 && $item->slug == 'o-klinike'))
+            ($item->home_page_nums->count() > 0 && $item->slug == 'o-nas'))
         <div class="card">
             <h5 class="card-header">{{ __('admin.list_numbers') }}</h5>
             <div class="card-body">

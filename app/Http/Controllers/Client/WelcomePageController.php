@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
 use App\Models\Block;
+use App\Models\Blog;
 use App\Models\News;
 use App\Models\Page;
 use App\Models\Review;
@@ -21,14 +22,14 @@ class WelcomePageController extends Controller
         $services = Service::orderBy('id', 'DESC')->take(8)->get();
         $show_reel = ShowReel::where('is_cover', 'TRUE')->first();
         $specialists = Specialist::orderBy('id', 'DESC')->take(8)->get();
-        $news = News::orderBy('id', 'DESC')->take(8)->get();
-        $block_questions = Block::whereId(1)->where('is_active', 'TRUE')->firstOrFail();
-        $block_articles_news = Block::whereId(2)->where('is_active', 'TRUE')->firstOrFail();
-        $block_specialists = Block::whereId(3)->where('is_active', 'TRUE')->firstOrFail();
-        $block_services = Block::whereId(4)->where('is_active', 'TRUE')->firstOrFail();
-        $block_callback_form = Block::whereId(5)->where('is_active', 'TRUE')->firstOrFail();
-        $block_reviews = Block::whereId(6)->where('is_active', 'TRUE')->firstOrFail();
-        $block_ratings = Block::whereId(7)->where('is_active', 'TRUE')->firstOrFail();
+        $blogs = Blog::orderBy('id', 'DESC')->take(8)->get();
+        $block_questions = Block::whereId(1)->firstOrFail();
+        $block_articles_blog = Block::whereId(2)->firstOrFail();
+        $block_specialists = Block::whereId(3)->firstOrFail();
+        $block_services = Block::whereId(4)->firstOrFail();
+        $block_callback_form = Block::whereId(5)->firstOrFail();
+        $block_reviews = Block::whereId(6)->firstOrFail();
+        $block_ratings = Block::whereId(7)->firstOrFail();
         $reviews = Review::orderBy('id', 'DESC')->take(8)->get();
 
         return view('welcome', compact(
@@ -37,10 +38,10 @@ class WelcomePageController extends Controller
             'home_page',
             'show_reel',
             'specialists',
-            'news',
+            'blogs',
             'reviews',
             'block_questions',
-            'block_articles_news',
+            'block_articles_blog',
             'block_specialists',
             'block_services',
             'block_callback_form',

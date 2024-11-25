@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('image_mob')->nullable();
             $table->text('education')->nullable();
-            $table->text('additional_education')->nullable();
             $table->string('operations')->nullable();
             $table->string('experience')->nullable();
             $table->text('description')->nullable();

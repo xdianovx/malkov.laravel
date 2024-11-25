@@ -27,4 +27,13 @@ class UpdateRequest extends FormRequest
             'description'  => ['nullable'],
         ];
     }
+    public function messages(): array
+    {
+        return [
+            'title.required' => 'Поле "Заголовок" обязательно для заполнения',
+            'title.max' => 'Заголовок не может быть длиннее 70 символов',
+            'image.max' => 'Размер изображения не может быть более 200кб',
+            'image.mimes' => 'Изображение должно быть в одном из следующих форматов: jpeg, png, jpg, gif, svg',
+        ];
+    }
 }

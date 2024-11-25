@@ -20,7 +20,12 @@ class Blog extends Model
         'slug',
         'description',
         'description_header',
-        'category_id',
+        'meta_title',
+        'meta_description',
+        'meta_keywords',
+        'og_url',
+        'og_title',
+        'og_description',
     ];
     public static $blogs_routes = [
         'admin.blogs.index',
@@ -33,11 +38,7 @@ class Blog extends Model
     {
         return 'slug';
     }
-    public function category_blog()
-    {
-        return $this->belongsTo(CategoryBlog::class, 'category_id');
 
-    }
     public function scopeFilter($items)
     {
         if (request('search') !== null) {

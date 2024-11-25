@@ -23,9 +23,8 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required', 'max:70', 'unique:blogs,title'],
             'h1_title'=> ['required', 'max:70'],
-            'is_active'=> ['required', 'max:70'],
+            'is_active'=> ['nullable'],
             'description'  => ['nullable'],
         ];
     }

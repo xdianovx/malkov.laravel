@@ -10,15 +10,13 @@
                 <img class="section-doctor__image" src="{{ asset('storage') . '/' . $specialist->image }}" alt="">
                 <div class="section-doctor__info">
                     <h1 class="h1 uppercase">
-                        {!! $specialist->title !!}
+                        {!! $specialist->h1_title !!}
                     </h1>
-
-                    <x-ui.rating :rating="1" class="doctor-rating"/>
-
                     <div class="section-doctor__info_content">
-                        {!! $specialist->education !!}
+                        @foreach (json_decode($specialist->education, true) as $education)
+                        <p>{{ $education }}</p>
+                         @endforeach
                     </div>
-
 
                     <x-ui.button-arrow class="accent section-doctor-btn" text="Записаться к врачу"/>
                 </div>

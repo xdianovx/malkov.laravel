@@ -35,7 +35,7 @@ class StockController extends BaseController
     {
 
         $data = $request->validated();
-        $data['slug'] = Str::slug($data['title']);
+        $data['slug'] = Str::slug($data['title'] . '-' . now()->format('d-m-Y'));
         if ($request->hasFile('image')) :
             $data['image'] = $this->upload_service->imageConvertAndStore($request, $data['image'], $data['slug']);
         endif;
@@ -58,7 +58,7 @@ class StockController extends BaseController
     {
         $stocks = Stock::whereSlug($stock_slug)->firstOrFail();
         $data = $request->validated();
-        $data['slug'] = Str::slug($data['title']);
+        $data['slug'] = Str::slug($data['title'] . '-' . now()->format('d-m-Y'));
 
         if ($request->hasFile('image')) :
             $data['image'] = $this->upload_service->imageConvertAndStore($request, $data['image'], $data['slug']);

@@ -12,7 +12,13 @@
 
     <x-navigation />
     <x-header />
-
+    @if (request()->is('404'))
+        <section class="section breadcrumbs">
+            <div class="container">
+                <x-ui.breadcrumbs class="breadcrumbs" />
+            </div>
+        </section>
+    @endunless
     <main>
         @yield('content')
     </main>

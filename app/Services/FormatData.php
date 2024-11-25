@@ -35,16 +35,12 @@ class FormatData
                         ->first()->id;
                     $entityIds[$key] = $entity_id;
                 endforeach;
-                if ($keyIds == 'specializations') :
-                    $item->specializations()->sync($entityIds);
-                endif;
+
                 if ($keyIds == 'services') :
                     $item->services()->sync($entityIds);
                 endif;
             else :
-                if ($keyIds == 'specializations') :
-                    $item->specializations()->sync($entityIds);
-                endif;
+
                 if ($keyIds == 'services') :
                     $item->services()->sync($entityIds);
                 endif;

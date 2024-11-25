@@ -1,12 +1,13 @@
 @extends('layouts.main')
 
 @section('content')
+
     <section class="section hero about-hero">
         <div class="container">
-            <h1 class="h1 uppercase">{!! $about_page->h1_title !!}</h1>
+            <h1 class="h1 uppercase">{!! $about_page->title_h1 !!}</h1>
 
             <div class="about-hero__wrap">
-                {!! $about_page->description_header !!}
+                {!! $about_page->description !!}
             </div>
         </div>
     </section>
@@ -25,7 +26,10 @@
         </div>
     </section>
 
-    {{-- <x-sections.stock-slider/> --}}
+    @if ($stocks->isNotEmpty())
+        <x-sections.stock-slider :data="$stocks" />
+    @endif
+
     <section class="section section-interrior">
         <div class="container">
             <h2 class="h2">{!! $block_modern_offices->title !!}</h2>
@@ -35,12 +39,10 @@
             <div class="section-services__items">
                 @forelse($block_modern_offices->modern_offices as $item_modern_office)
                         <div class="service-item__img">
-                            <img src="{{ asset('storage') . '/' . $item_modern_office->file }}" alt="">
+                            <a href="{{ asset('storage/' . $item_modern_office->file) }}" data-fancybox="gallery" data-caption="Caption #{{ $item_modern_office->id }}">
+                                <img src="{{ asset('storage/' . $item_modern_office->file) }}" alt="{{ $item_modern_office->description }}" class="modal-img">
+                            </a>
                         </div>
-{{--
-                        <h3 class="service-item__title">{{ $item_modern_office->title }}</h3>
-
-                        <p class="service-item__text">{!! $item_modern_office->description !!}</p> --}}
                  @empty
                     <p>{{ __('admin.notification_no_entries') }}</p>
                 @endforelse
@@ -52,8 +54,8 @@
     <section class="section section-director">
         <div class="container">
             <div class="section-director__wrap">
-                {!! $about_page->description !!}
-                {{-- <div class="section-director__image">
+
+                <div class="section-director__image">
                     <img src="{{asset('img/malkov.jpg')}}" alt="Мальков Сергей Николаевич фото"/>
                 </div>
 
@@ -86,7 +88,7 @@
                             <p class="section-director__num-text">пройдено курсов</p>
                         </div>
                     </div>
-                </div> --}}
+                </div>
             </div>
         </div>
     </section>
