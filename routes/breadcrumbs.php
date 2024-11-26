@@ -29,6 +29,10 @@ Breadcrumbs::for('specialists', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
     $trail->push('Врачи', route('specialists'));
 });
+Breadcrumbs::for('pacientam', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('Пациентам', route('pacientam'));
+});
 
 Breadcrumbs::for('specialist', function (BreadcrumbTrail $trail, $specialist_slug) {
     $trail->parent('specialists');

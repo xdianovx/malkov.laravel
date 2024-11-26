@@ -15,7 +15,7 @@
                     {!! $blog->description_header !!}
                 </div>
 
-                <x-ui.button-arrow class="accent" text="Бесплатная консультация"/>
+                <x-ui.button-arrow class="accent" data-micromodal-trigger="modal-callback" text="Бесплатная консультация"/>
 
                 <div class="divider horizontal gray"></div>
             </div>

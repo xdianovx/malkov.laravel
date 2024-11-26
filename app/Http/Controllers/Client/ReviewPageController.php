@@ -25,14 +25,32 @@ class ReviewPageController extends Controller
         ));
     }
 
-    public function store(StoreRequest $request)
+    public function store(Request $request)
     {
-        $data = $request->validated();
+
+        $validator = \Validator::make($request->all(), [
+            'title' => ['required', 'max:70'],
+            'description'=> ['required', 'max:1000'],
+            'rating'=> ['numeric', 'max:5']
+        ], [
+            'title.required' => 'Поле "Имя" обязательно для заполнения',
+            'title.max' => 'Поле "Имя" должно быть не более 70 символов',
+            'description.required' => 'Поле "Текст отзыва" обязательно для заполнения',
+            'description.max' => 'Поле "Текст отзыва" должно быть не более 1000 символов',
+            'rating.numeric' => 'Поле "Рейтинг" должно быть числом',
+            'rating.max' => 'Поле "Рейтинг" должно быть не более 5'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['status' => 'error', 'message' => $validator->messages()]);
+        }
+
+        $data = $request->all();
         $data['date'] = date('Y-m-d');
         $data['is_active'] = 'off';
-        Review::firstOrCreate($data);
+        $data = Review::create($data);
+        return response()->json(['status' => 'item-created']);
 
-        return redirect()->route('reviews')->with('status', 'item-created');
     }
     // public function show($news_slug)
     // {

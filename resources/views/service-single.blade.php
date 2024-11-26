@@ -6,7 +6,7 @@
             <div class="service-single-hero__wrap">
                 <h1 class="h1 uppercase">{!! $service->title !!}</h1>
                 <div class="service-single-hero__content">{!! $service->description_header !!}</div>
-                <x-ui.button-arrow text="Получить консультацию" href='/novosti' class="service-single-hero__btn --accent" />
+                <x-ui.button-arrow text="Получить консультацию" data-micromodal-trigger="modal-callback" class="service-single-hero__btn --accent" />
                 <div class="divider horizontal gray"></div>
             </div>
     </section>

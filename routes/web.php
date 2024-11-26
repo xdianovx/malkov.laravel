@@ -25,6 +25,7 @@ use App\Http\Controllers\Client\ContactPageController;
 use App\Http\Controllers\Client\PacientamPageController;
 use App\Http\Controllers\Client\PolitikaKonfidencialnostiPageController;
 use App\Http\Controllers\Client\PravilaPredostavleniyaUslugPageController;
+use App\Http\Controllers\Client\RequestsController;
 use App\Http\Controllers\Client\ReviewPageController;
 use App\Http\Controllers\Client\ServicePageController;
 use App\Http\Controllers\Client\SpecialistPageController;
@@ -60,6 +61,7 @@ Route::get('/politika-konfidencialnosti', [PolitikaKonfidencialnostiPageControll
 Route::get('/pravila-predostavleniya-uslug', [PravilaPredostavleniyaUslugPageController::class, 'index'])->name('pravila-predostavleniya-uslug');
 
 Route::get('/pacientam', [PacientamPageController::class, 'index'])->name('pacientam');
+Route::post('/request_modal_section', [RequestsController::class, 'request_modal_section'])->name('request_modal_section');
 
 Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
 

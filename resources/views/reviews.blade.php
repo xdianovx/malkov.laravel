@@ -45,22 +45,11 @@
                     <h2 class="h2">
                         Оставьте свой отзыв о нас
                     </h2>
-                    @if ($errors->any())
-                    @foreach ($errors->all() as $error)
-                        <div>
-                            <span style="color: red">{{ $error }}</span>
-                        </div>
-                    @endforeach
-                    @endif
-                    @if (session('status') === 'item-created')
-                        <div>
-                            <span style="color: green">Спасибо, ваш отзыв успешно отправлен на модернизацию!</span>
-                        </div>
-                    @endif
+                    <div id="callback_error_review" style="color: red;"></div>
                 </div>
 
                 <div class="callback__right">
-                    <form class="callback-form" action="{{ route('reviews.store') }}" method="post">
+                    <form class="callback-form" id="reviewForm" action="{{ route('reviews.store') }}" method="post">
                         @csrf
                         <input type="text" class="input" placeholder="Имя" name="title">
                         <select class="input" name="rating">
@@ -73,26 +62,60 @@
                         <textarea class="input" placeholder="Текст отзыва" name="description"></textarea>
                         <button class="callback-form-submit uppercase btn --accent" type="submit">Отправить</button>
                     </form>
-                    <script>
-                        document.addEventListener("DOMContentLoaded", function () {
-                            if ("{{ session('status') === 'item-created' }}" === "1" || "{{ $errors->any() }}" === "1") {
-                                window.scrollTo({
-                                    top: document.querySelector(".callback-section").offsetTop - 100,
-                                    behavior: 'smooth'
-                                });
-                            }
-                        });
-                    </script>
                 </div>
             </div>
         </div>
 
+        <script>
+            document.getElementById('reviewForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                let formData = new FormData(this);
+
+                fetch(this.action, {
+                    method: 'POST',
+                    body: formData,
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'item-created') {
+                        // handle success
+                        MicroModal.show('modal-thanks-review');
+                        this.reset();
+                    } else {
+                        // handle errors
+                        const errorList = document.createElement('ul');
+                        errorList.classList.add('errors-list');
+
+                        if (data.message) {
+                            Object.keys(data.message).forEach((key) => {
+                                data.message[key].forEach((error) => {
+                                    const errorItem = document.createElement('li');
+                                    errorItem.innerText = error;
+                                    errorList.appendChild(errorItem);
+                                });
+                            });
+                        }
+
+                        document.getElementById('callback_error_review').appendChild(errorList);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('callback_error_review').innerText = data.message;
+                });
+            });
+        </script>
+
         <div class="partical-l partical"></div>
         <div class="partical-r partical"></div>
+
+
     </section>
 
     <x-sections.faq :block="$block_questions" />
 
     <section class="section"></section>
+
 @endsection()
 

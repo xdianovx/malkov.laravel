@@ -15,7 +15,7 @@
                     {!! $stock->description_header !!}
                 </div>
 
-                <x-ui.button-arrow class="accent" text="Бесплатная консультация"/>
+                <x-ui.button-arrow class="accent" data-micromodal-trigger="modal-callback" text="Бесплатная консультация"/>
 
                 <div class="divider horizontal gray"></div>
             </div>
@@ -31,7 +31,7 @@
     </section>
 
     <x-sections.callback  :block="$block_callback_form" />
-    <x-sections.news :block="$block_articles_news" :data="$news" />
+    <x-sections.blogs :block="$block_articles_news" :data="$news" />
 
     <section class="section"></section>
 @endsection()
