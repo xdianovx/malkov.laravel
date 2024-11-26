@@ -13,13 +13,13 @@ class ReviewPageController extends Controller
 {
     public function index()
     {
-        $reviews_page = Page::whereSlug('otzyvy')->firstOrFail();
+        $page = Page::whereSlug('otzyvy')->firstOrFail();
         $reviews = Review::where('is_active', 'on')->orderBy('id', 'DESC')->paginate(8)->withQueryString();
         $block_callback_form = Block::whereId(5)->firstOrFail();
         $block_questions = Block::whereId(1)->firstOrFail();
         return view('reviews', compact(
             'reviews',
-            'reviews_page',
+            'page',
             'block_callback_form',
             'block_questions'
         ));

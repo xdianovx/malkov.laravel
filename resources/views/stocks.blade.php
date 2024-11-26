@@ -3,8 +3,8 @@
 @section('content')
     <section class="section hero section-stock">
         <div class="container">
-            <h1 class="h1 uppercase">{!! $stock_page->title_h1 !!}</h1>
-            <p class="section-news__text">{!! $stock_page->description !!}</p>
+            <h1 class="h1 uppercase">{!! $page->title_h1 !!}</h1>
+            <p class="section-news__text">{!! $page->description !!}</p>
             <div class="divider horizontal gray"></div>
         </div>
     </section>

@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->string('working_days')->nullable();
             $table->string('text_footer')->nullable();
+            $table->string('og_site_title')->nullable();
+            $table->string('og_site_image')->nullable();
             $table->timestamps();
         });
     }

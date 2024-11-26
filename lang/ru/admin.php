@@ -149,6 +149,8 @@ return [
     'list_numbers' => 'Список цифр на главной',
 
     //Fields
+    'field_og_site_image' => 'OG Изображение',
+    'field_og_site_title' => 'OG Название сайта',
     'field_meta_title' => 'Meta Заголовок',
     'field_meta_description' => 'Meta Описание',
     'field_meta_keywords' => 'Meta keywords',

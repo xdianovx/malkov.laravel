@@ -12,7 +12,7 @@ class BlogPageController extends Controller
 {
   public function index()
   {
-    $blog_page = Page::whereSlug('blog')->firstOrFail();
+    $page = Page::whereSlug('blog')->firstOrFail();
     $blogs = Blog::orderBy('id', 'DESC')->paginate(8);
     $block_callback_form = Block::whereId(5)->firstOrFail();
     $block_questions = Block::whereId(1)->firstOrFail();
@@ -20,7 +20,7 @@ class BlogPageController extends Controller
     $currentPage = $blogs->currentPage();
     return view('blogs', compact(
       'blogs',
-      'blog_page',
+      'page',
       'block_callback_form',
       'block_questions',
       'pageCount',
@@ -30,10 +30,12 @@ class BlogPageController extends Controller
   public function show($blog_slug)
   {
     $blog = Blog::whereSlug($blog_slug)->firstOrFail();
+    $page = $blog;
     $block_callback_form = Block::whereId(5)->firstOrFail();
     $block_articles_news = Block::whereId(2)->firstOrFail();
     $blogs = Blog::where('id', '!=', $blog->id)->orderBy('id', 'DESC')->take(8)->get();
     return view('blog-single', compact(
+      'page',
       'blog',
       'block_callback_form',
       'block_articles_news',

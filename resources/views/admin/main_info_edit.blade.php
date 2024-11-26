@@ -84,7 +84,22 @@
                                     <textarea class="form-control" name="text_footer" placeholder="{{ __('admin.placeholder_text') }}"
                                         style="height: 234px;">{{ $main_info->text_footer }}</textarea>
                                 </div>
-
+                                <div class="col-xxl-12 col-md-12">
+                                    <div>
+                                        <p class="card-title-desc text-muted">{{__('admin.field_seo')}}</p>
+                                        <div class="row gy-4">
+                                            <div class="col-xxl-6 col-md-6">
+                                                <label for="valueInput" class="form-label">{{__('admin.field_og_site_title')}}</label>
+                                                <input type="text" value="{{ $main_info->og_site_title }}" class="form-control"
+                                                    id="valueInput" name="og_site_title" placeholder="{{__('admin.placeholder_text')}}">
+                                            </div>
+                                            <div>
+                                                <label for="formFile" class="form-label">{{ __('admin.field_og_site_image') }}</label>
+                                                <input class="form-control" type="file" id="formFile" name="og_site_image">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <button type="submit"
                                 class="btn btn-success waves-effect waves-light mt-5">{{ __('admin.btn_save') }}</button>

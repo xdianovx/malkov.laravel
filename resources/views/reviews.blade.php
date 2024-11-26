@@ -3,9 +3,9 @@
 @section('content')
     <section class="section hero section-reviews">
         <div class="container">
-            <h1 class="h1 uppercase">{{ $reviews_page->title_h1 }}</h1>
+            <h1 class="h1 uppercase">{{ $page->title_h1 }}</h1>
             <div class="section-reviews__description">
-                {!! $reviews_page->description !!}
+                {!! $page->description !!}
             </div>
             <div class="divider horizontal gray"></div>
         </div>

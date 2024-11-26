@@ -15,7 +15,7 @@ class StockPageController extends Controller
   public function index()
   {
 
-    $stock_page = Page::whereSlug('akcii')->firstOrFail();
+    $page = Page::whereSlug('akcii')->firstOrFail();
     $stocks = Stock::orderBy('id', 'DESC')->paginate(8);
     $services = Service::orderBy('id', 'DESC')->take(8)->get();
     $block_services = Block::whereId(4)->firstOrFail();
@@ -25,7 +25,7 @@ class StockPageController extends Controller
     $currentPage = $stocks->currentPage();
     return view('stocks', compact(
       'stocks',
-      'stock_page',
+      'page',
       'services',
       'block_services',
       'block_callback_form',
@@ -37,11 +37,13 @@ class StockPageController extends Controller
   public function show($stock_slug)
   {
     $stock = Stock::whereSlug($stock_slug)->firstOrFail();
+    $page = $stock;
     $news = Blog::orderBy('id', 'DESC')->take(8)->get();
     $block_callback_form = Block::whereId(5)->firstOrFail();
     $block_articles_news = Block::whereId(2)->firstOrFail();
 
     return view('stock-single', compact(
+      'page',
       'stock',
       'news',
       'block_callback_form',

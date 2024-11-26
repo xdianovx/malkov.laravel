@@ -16,6 +16,8 @@ class MainInfo extends Model
         'phone',
         'address',
         'working_days',
+        'og_site_title',
+        'og_site_image'
     ];
     public static $main_info_routes = [
         'admin.main_infos.edit',

@@ -17,10 +17,10 @@ class PolitikaKonfidencialnostiPageController extends Controller
 {
     public function index()
     {
-        $politika_page = Page::whereSlug('politika-konfidencialnosti')->firstOrFail();
+        $page = Page::whereSlug('politika-konfidencialnosti')->firstOrFail();
 
         return view('politika', compact(
-            'politika_page'
+            'page'
         ));
     }
 }

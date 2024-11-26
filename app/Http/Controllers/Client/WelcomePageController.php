@@ -17,7 +17,7 @@ class WelcomePageController extends Controller
 {
     public function index()
     {
-        $home_page = Page::whereSlug('glavnaya')->firstOrFail();
+        $page = Page::whereSlug('glavnaya')->firstOrFail();
         $stocks = Stock::where('slider_active', 'TRUE')->orderBy('id', 'DESC')->get();
         $services = Service::orderBy('id', 'DESC')->take(8)->get();
         $show_reel = ShowReel::where('is_cover', 'TRUE')->first();
@@ -35,7 +35,7 @@ class WelcomePageController extends Controller
         return view('welcome', compact(
             'services',
             'stocks',
-            'home_page',
+            'page',
             'show_reel',
             'specialists',
             'blogs',

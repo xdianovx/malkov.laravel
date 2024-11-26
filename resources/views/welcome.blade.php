@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <x-sections.index-hero :item="$home_page" />
+    <x-sections.index-hero :item="$page" />
     @if ($stocks->isNotEmpty())
         <x-sections.stock-slider :data="$stocks" />
     @endif

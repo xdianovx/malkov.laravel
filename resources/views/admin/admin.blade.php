@@ -79,6 +79,31 @@
                     </div>
                 </div><!-- end card body -->
             </div>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-header align-items-center d-flex">{{ __('admin.page_card_seo') }}</h5>
+                    <div class="table-responsive">
+                        <table class="table table-borderless mb-0">
+                            <tbody>
+                                <tr>
+                                    <th class="ps-0" scope="row">{{ __('admin.field_og_site_title') }}:</th>
+                                    <td class="text-muted">{{ $main_info->og_site_title }}</td>
+                                </tr>
+                                <tr>
+                                    @if (!empty($main_info->og_site_image))
+
+                                     <img src="{{ asset('storage') . '/' . $main_info->og_site_image }}" class="img-fluid"
+                                         alt="Responsive image">
+
+                                    @else
+                                    @endif
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div><!-- end card body -->
+            </div>
         </div>
     </div>
 @endsection

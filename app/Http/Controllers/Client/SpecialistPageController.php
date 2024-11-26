@@ -16,7 +16,7 @@ class SpecialistPageController extends Controller
   public function index()
   {
 
-    $specialists_page = Page::whereSlug('vrachi')->firstOrFail();
+    $page = Page::whereSlug('vrachi')->firstOrFail();
     $specialists = Specialist::all();
     $blogs = Blog::orderBy('id', 'DESC')->take(8)->get();
     $block_callback_form = Block::whereId(5)->firstOrFail();
@@ -25,7 +25,7 @@ class SpecialistPageController extends Controller
 
     return view('doctors', compact(
       'specialists',
-      'specialists_page',
+      'page',
       'blogs',
       'block_callback_form',
       'block_questions',
@@ -35,12 +35,14 @@ class SpecialistPageController extends Controller
   public function show($specialist_slug)
   {
     $specialist = Specialist::whereSlug($specialist_slug)->firstOrFail();
+    $page = $specialist;
     $specialists = Specialist::where('slug', '!=', $specialist_slug)->orderBy('id', 'DESC')->take(8)->get();
     $block_callback_form = Block::whereId(5)->firstOrFail();
     $block_questions = Block::whereId(1)->firstOrFail();
     $block_specialists = Block::whereId(3)->firstOrFail();
 
         return view('doctor', compact(
+      'page',
       'specialist',
       'specialists',
       'block_callback_form',

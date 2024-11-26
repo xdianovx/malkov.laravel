@@ -21,7 +21,13 @@ class Specialist extends Model
         'education',
         'experience',
         'description',
-        'operations'
+        'operations',
+        'meta_title',
+        'meta_description',
+        'meta_keywords',
+        'og_url',
+        'og_title',
+        'og_description',
     ];
 
     public static $specialist_routes = [

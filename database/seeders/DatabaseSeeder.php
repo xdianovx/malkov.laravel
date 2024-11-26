@@ -63,6 +63,8 @@ class DatabaseSeeder extends Seeder
 
     $reviews = [
       [
+            'og_site_title' => 'Стоматологическая клиника доктора Малькова',
+            'og_site_image' => 'test',
             'telegram' => 'test',
             'whatsapp' => 'test',
             'vkontakte' => 'test',

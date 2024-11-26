@@ -41,6 +41,9 @@ class UploadFiles
         if ($request->is('*/clinic_certificates/*')) {
             $directory = 'uploads/clinic_certificates/' . $id_or_slug . '/images/';
         }
+        if ($request->is('*/main/*')) {
+            $directory = 'uploads/main/' . $id_or_slug . '/images/';
+        }
         $defaultImage = Image::read($data);
         $filename = Str::ulid() . '.webp';
         $path = $directory . $filename;

@@ -17,10 +17,10 @@ class PravilaPredostavleniyaUslugPageController extends Controller
 {
     public function index()
     {
-        $pravila_page = Page::whereSlug('pravila-predostavleniya-uslug')->firstOrFail();
+        $page = Page::whereSlug('pravila-predostavleniya-uslug')->firstOrFail();
 
         return view('pravila', compact(
-            'pravila_page'
+            'page'
         ));
     }
 }

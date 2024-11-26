@@ -5,7 +5,7 @@
         <div class="container">
             <div class="hero-services__top">
                 <h1 class="h1 uppercase">
-                    {!! $service_page->h1_title !!}
+                    {!! $page->h1_title !!}
                 </h1>
 
                 <button data-micromodal-trigger="modal-callback" class="btn --accent ml-auto">Быстрая запись</button>
@@ -14,7 +14,7 @@
             <div class="divider horizontal gray"></div>
 
             <div class="hero-services__texts">
-                {!! $service_page->description_header !!}
+                {!! $page->description_header !!}
             </div>
         </div>
     </section>

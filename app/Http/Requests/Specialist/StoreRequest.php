@@ -33,6 +33,13 @@ class StoreRequest extends FormRequest
             'description'  => ['nullable'],
             'services' => 'nullable|array',
             'services.*' => 'nullable|string|exists:services,title',
+
+            'meta_title'  => ['nullable'],
+            'meta_description'  => ['nullable'],
+            'meta_keywords'  => ['nullable'],
+            'og_url'  => ['nullable'],
+            'og_title'  => ['nullable'],
+            'og_description'  => ['nullable'],
         ];
     }
     public function messages(): array

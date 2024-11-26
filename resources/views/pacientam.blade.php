@@ -4,11 +4,11 @@
 @section('content')
     <section class="section hero doctors-hero">
         <div class="container">
-            <div class="h1 uppercase dectors-hero__title">{{ $pacientam_page->title_h1 }}</div>
+            <div class="h1 uppercase dectors-hero__title">{{ $page->title_h1 }}</div>
 
             <div class="doctors-hero__top">
                 <p class="doctors-hero__text">
-                    {!! $pacientam_page->description !!}
+                    {!! $page->description !!}
                 </p>
             </div>
 

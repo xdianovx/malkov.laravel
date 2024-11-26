@@ -4,10 +4,10 @@
 
     <section class="section hero about-hero">
         <div class="container">
-            <h1 class="h1 uppercase">{!! $about_page->title_h1 !!}</h1>
+            <h1 class="h1 uppercase">{!! $page->title_h1 !!}</h1>
 
             <div class="about-hero__wrap">
-                {!! $about_page->description !!}
+                {!! $page->description !!}
             </div>
         </div>
     </section>
@@ -16,7 +16,7 @@
     <section class="numbers about-numbers">
         <div class="container">
             <div class="numbers__wrap">
-                @foreach ($about_page->home_page_nums as $item_num)
+                @foreach ($page->home_page_nums as $item_num)
                     <div class="numbers__item">
                         <div class="numbers__item-num">{{ $item_num->num }}<span>{{ $item_num->label }}</span></div>
                         <p class="numbers__item-descr">{{ $item_num->title }}</p>
