@@ -13,9 +13,7 @@
 
     <section class="section">
         <div class="container">
-            <div class="service-content__wrap">
                     {!! $service->description !!}
-            </div>
         </div>
     </section>
 
