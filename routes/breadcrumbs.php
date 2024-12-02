@@ -407,8 +407,9 @@ Breadcrumbs::for('admin.services.edit', function (BreadcrumbTrail $trail, $servi
 });
 
 Breadcrumbs::for('admin.services.edit_child', function (BreadcrumbTrail $trail, $service_parent_slug, $service_slug) {
-    $trail->parent('admin.services.show_child', [$service_parent_slug, $service_slug]);
-    $trail->push('Редактировать дочернюю услугу', route('admin.services.edit_child', [$service_parent_slug, $service_slug]));
+    $trail->parent('admin.services.show', $service_parent_slug);
+    $service = Service::whereSlug($service_slug)->firstOrFail();
+    $trail->push('Редактировать дочернюю услугу ' . $service->title, route('admin.services.edit_child', [$service_parent_slug, $service_slug]));
 });
 
 Breadcrumbs::for('admin.services.prices.create', function (BreadcrumbTrail $trail, $service_slug) {

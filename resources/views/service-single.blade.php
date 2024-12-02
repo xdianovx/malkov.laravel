@@ -14,10 +14,7 @@
     <section class="section">
         <div class="container">
             <div class="service-content__wrap">
-                <div class="">Тут содержание</div>
-                <div class="content">
                     {!! $service->description !!}
-                </div>
             </div>
         </div>
     </section>
