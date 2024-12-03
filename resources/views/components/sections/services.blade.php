@@ -10,7 +10,7 @@
             @forelse ($data as $item)
                 <a href="{{ route('service-single', $item->slug) }}" class="services-item">
                     <h3 class="services-item__title">{{ $item->title }}</h3>
-                    <div class="services-item__text">{!! $item->description !!}</div>
+                    <div class="services-item__text">{!! $item->content !!}</div>
 
                     <div class="services-item__price">от
                         {{ $item->prices->min('price') }} руб.
