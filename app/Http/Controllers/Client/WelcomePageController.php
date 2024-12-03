@@ -19,7 +19,7 @@ class WelcomePageController extends Controller
     {
         $page = Page::whereSlug('glavnaya')->firstOrFail();
         $stocks = Stock::where('slider_active', 'TRUE')->orderBy('id', 'DESC')->get();
-        $services = Service::orderBy('id', 'DESC')->take(8)->get();
+        $services = Service::where('parent_id', null)->orderBy('id', 'DESC')->take(8)->get();
         $show_reel = ShowReel::where('is_cover', 'TRUE')->first();
         $specialists = Specialist::orderBy('id', 'DESC')->take(8)->get();
         $blogs = Blog::orderBy('id', 'DESC')->take(8)->get();

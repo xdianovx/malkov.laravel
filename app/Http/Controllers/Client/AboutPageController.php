@@ -17,7 +17,7 @@ class AboutPageController extends Controller
         $page = Page::whereSlug('o-nas')->firstOrFail();
         $block_services = Block::whereId(4)->firstOrFail();
         $block_questions = Block::whereId(1)->firstOrFail();
-        $services = Service::orderBy('id', 'DESC')->take(8)->get();
+        $services = Service::where('parent_id', null)->orderBy('id', 'DESC')->take(8)->get();
         $block_modern_offices = Block::whereId(8)->firstOrFail();
         $stocks = Stock::where('slider_active', 'TRUE')->orderBy('id', 'DESC')->get();
         return view('about', compact(

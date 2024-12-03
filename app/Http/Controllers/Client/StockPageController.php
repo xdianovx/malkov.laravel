@@ -17,7 +17,7 @@ class StockPageController extends Controller
 
     $page = Page::whereSlug('akcii')->firstOrFail();
     $stocks = Stock::orderBy('id', 'DESC')->paginate(8);
-    $services = Service::orderBy('id', 'DESC')->take(8)->get();
+    $services = Service::where('parent_id', null)->orderBy('id', 'DESC')->take(8)->get();
     $block_services = Block::whereId(4)->firstOrFail();
     $block_callback_form = Block::whereId(5)->firstOrFail();
     $block_questions = Block::whereId(1)->firstOrFail();

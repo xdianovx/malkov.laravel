@@ -28,7 +28,7 @@ class ServicePageController extends Controller
     {
         $service = Service::whereSlug($service_slug)->firstOrFail();
         $page = $service;
-        $services = Service::where('id', '<>', $service->id)->orderBy('id', 'DESC')->take(8)->get();
+        $services = Service::where('id', '<>', $service->id)->where('parent_id', null)->orderBy('id', 'DESC')->take(8)->get();
         $block_questions = Block::whereId(1)->firstOrFail();
         $block_services = Block::whereId(4)->firstOrFail();
         $block_callback_form = Block::whereId(5)->firstOrFail();
