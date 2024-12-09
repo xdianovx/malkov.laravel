@@ -9,34 +9,24 @@
                     <div class="d-flex align-items-center mb-4">
                         <div class="flex-grow-1">
                             <h3 class="card-header align-items-center d-flex">{{ __('admin.question_card_title') }}:
-                                {{ $item->title }}</h3>
+                                {{ $item->title }} </h3>
                         </div>
-                        <div class="flex-shrink-0">
-                            <div class="dropdown">
-                                <a href="#" role="button" id="dropdownMenuLink1" data-bs-toggle="dropdown"
-                                    aria-expanded="false" class="">
-                                    <i class="ri-more-2-fill fs-14"></i>
-                                </a>
+                        <div class="flex-shrink-0 d-flex gap-3 align-items-center">
+                            <a href="{{ route('admin.blocks.questions.edit', [$item->block->id, $item->id]) }}"
+                                class="btn  edit-item-btn"><i class="ri-pencil-fill align-bottom me-2 text-muted"></i>
+                                {{ __('admin.btn_edit') }}</a>
 
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink1"
-                                    style="">
-                                    <li>
-                                        <a type="button" class="dropdown-item"
-                                            href="{{ route('admin.blocks.show', $item->block->id) }}">
-                                            <i class="ri-arrow-left-line align-bottom me-2 text-muted"></i>
-                                            {{ __('admin.btn_back') }}</a>
-                                    </li>
 
-                                    <li><a href="{{ route('admin.blocks.questions.edit', [$item->block->id, $item->id]) }}"
-                                            class="dropdown-item edit-item-btn"><i
-                                                class="ri-pencil-fill align-bottom me-2 text-muted"></i>
-                                            {{ __('admin.btn_edit') }}</a></li>
-                                    <li><button type="submit" class="dropdown-item text-danger" data-bs-toggle="modal"
-                                            data-bs-target="#modalScrollablePageNum{{ $item->id }}"><i
-                                                class="bx bx-trash me-1 text-danger" role="button"></i>
-                                            {{ __('admin.btn_delete') }}</button></li>
-                                </ul>
-                            </div>
+                            <a type="button" class="btn" href="{{ route('admin.blocks.show', $item->block->id) }}">
+                                <i class="ri-arrow-left-line align-bottom me-2 text-muted"></i>
+                                {{ __('admin.btn_back') }}</a>
+
+                            <button type="submit" class="btn btn-danger " data-bs-toggle="modal"
+                                data-bs-target="#modalScrollablePageNum{{ $item->id }}"><i class="bx bx-trash me-1"
+                                    role="button"></i>
+                                {{ __('admin.btn_delete') }}</button>
+
+
                         </div>
                     </div>
                 </div>

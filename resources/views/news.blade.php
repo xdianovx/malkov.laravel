@@ -1,4 +1,3 @@
-
 @extends('layouts.main')
 
 @section('content')
@@ -17,7 +16,7 @@
         <div class="container">
             <div class="news-page-section__items">
                 @foreach ($news as $item)
-                    <x-news-item :data="$item"/>
+                    <x-news-item :data="$item" />
                 @endforeach
             </div>
             {{-- <x-ui.breadcrumbs class="news-section__breadcrumbs"/> --}}
@@ -26,8 +25,8 @@
 
 
     {{--    <x-sections.doctors /> --}}
-    <x-sections.callback  :block="$block_callback_form" />
-    <x-sections.faq :block="$block_questions"/>
+    <x-sections.callback :block="$block_callback_form" />
+    <x-sections.faq :block="$block_questions" />
 
     <section class="section"></section>
 @endsection()

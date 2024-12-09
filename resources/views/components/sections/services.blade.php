@@ -8,14 +8,17 @@
 
         <div class="services-items">
             @forelse ($data as $item)
-                <a href="{{ route('service-single', $item->slug) }}" class="services-item">
-                    <h3 class="services-item__title">{{ $item->title }}</h3>
-                    <div class="services-item__text">{!! $item->description !!}</div>
+                @if (!isset($item->parent_id))
+                    <a href="{{ route('service-single', $item->slug) }}" class="services-item">
+                        <h3 class="services-item__title h-12">{{ $item->title }}</h3>
+                        <div class="services-item__text">{!! $item->description !!}</div>
 
-                    <div class="services-item__price">от
-                        {{ $item->prices->min('price') }} руб.
-                    </div>
-                </a>
+                        <div class="services-item__price">
+                            {{ $item->prices->min('price') }}
+                        </div>
+                    </a>
+                @endif
+
             @empty
                 <p>{{ __('admin.notification_no_entries') }}</p>
             @endforelse

@@ -5,6 +5,7 @@
         <div class="container">
             <div class="single-news__wrap">
 
+                {{ Breadcrumbs::render('news-single', $item) }}
                 <h1 class="h1 uppercase">
                     {!! $item->h1_title !!}
                 </h1>
@@ -15,7 +16,7 @@
                 </div>
 
                 <div class="flex items-center gap-4">
-                    <p class="text-gray-600">
+                    <p class="text-gray-600 leading-[100%] mt-[1px]">
                         {{ (new DateTime($item->created_at))->format('d.m.Y') }}
                     </p>
 
@@ -27,7 +28,7 @@
                                 d="M10 5.83333V10H14.1667M10 17.5C5.85786 17.5 2.5 14.1421 2.5 10C2.5 5.85786 5.85786 2.5 10 2.5C14.1421 2.5 17.5 5.85786 17.5 10C17.5 14.1421 14.1421 17.5 10 17.5Z"
                                 stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
-                        <p class="mt-[2px]">{{ $item->reading_time }}</p>
+                        <p class="mt-[0px]">{{ $item->reading_time }}</p>
                     </div>
 
                 </div>
@@ -38,7 +39,7 @@
         </div>
     </section>
 
-    <section class="section">
+    <section class="section section-content">
         <div class="container">
             <div class="content">
                 {!! $item->description !!}

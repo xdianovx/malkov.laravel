@@ -1,7 +1,7 @@
 <section class="section news-section">
     <div class="container">
         <div class="news-section__top">
-            <h2 class="h2">{{ $block->h1_title }}</h2>
+            <h2 class="h2">Статьи</h2>
             <x-ui.slider-arrows-black />
         </div>
 
@@ -12,7 +12,7 @@
                 <div class="swiper-wrapper">
                     @foreach ($data as $item)
                         <div class="swiper-slide">
-                            <x-news-item :data="$item"/>
+                            <x-news-item :data="$item" />
                         </div>
                     @endforeach
 
@@ -20,6 +20,6 @@
 
             </div>
 
-            <x-ui.button-arrow text="Все новости" href='/novosti' class="news-section__btn" />
+            <x-ui.button-arrow text="Все статьи" href='/novosti' class="news-section__btn" />
         </div>
 </section>

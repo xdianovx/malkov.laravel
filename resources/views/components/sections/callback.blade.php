@@ -12,8 +12,8 @@
             </div>
             <div class="callback__right">
                 <form class="callback-form">
-                    <input type="text" class="input" placeholder="Имя">
-                    <input type="tel" class="input" placeholder="+7 (___) ___ - __ - __">
+                    <input type="text" class="input" required required placeholder="Имя">
+                    <input type="tel" class="input" required required placeholder="+7 (___) ___ - __ - __">
                     <button class="callback-form-submit uppercase btn --accent" type="submit">Отправить</button>
 
                     <p class="form-policy">

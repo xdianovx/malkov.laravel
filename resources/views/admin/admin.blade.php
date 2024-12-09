@@ -1,10 +1,9 @@
 @extends('layouts.admin')
 
 @section('content')
+    <div class="row">
 
-                <div class="row">
-                    111
-                    {{-- <div class="col-xxl-3 col-md-6">
+        {{-- <div class="col-xxl-3 col-md-6">
                         <div class="card card-animate">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between">
@@ -88,6 +87,5 @@
                         </div>
                         <!--end card-->
                     </div> --}}
-                </div>
-
+    </div>
 @endsection

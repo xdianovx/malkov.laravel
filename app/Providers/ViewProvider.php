@@ -36,7 +36,7 @@ class ViewProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //Admin
+        // Admin
         View::share('pages_routes', Page::$pages_routes);
         View::share('blocks_routes', Block::$blocks_routes);
         View::share('services_routes', Service::$services_routes);
