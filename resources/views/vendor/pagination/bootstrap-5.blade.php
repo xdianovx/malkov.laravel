@@ -5,7 +5,7 @@
                 {{-- Previous Page Link --}}
                 @if ($paginator->onFirstPage())
                     <li class="page-item disabled" aria-disabled="true">
-                        <span class="page-link">@lang('pagination.previous')</span>asdasd
+                        <span class="page-link">@lang('pagination.previous')</span>asdasdasdasds
                     </li>
                 @else
                     <li class="page-item">

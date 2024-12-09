@@ -5,5 +5,9 @@ export default {
     "./resources/views/vendor/pagination/*.blade.php",
   ],
 
-  plugins: [],
+  plugins: [
+    require("tailwindcss-plugins/pagination")({
+      /* ... */
+    }),
+  ],
 };
