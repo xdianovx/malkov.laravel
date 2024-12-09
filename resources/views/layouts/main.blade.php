@@ -26,7 +26,7 @@
 
     <x-navigation />
     <x-header />
-    <section>
+    <section class="mt-4">
         <div class="container">
             <x-ui.breadcrumbs class="breadcrumbs" />
         </div>
