@@ -3,12 +3,12 @@
 @section('content')
     <section class="section hero section-reviews">
         <div class="container">
-            <div class="flex flex-col gap-8">
+            <div class="flex flex-col gap-10">
                 <h1 class="h1 uppercase">{{ $page->title_h1 }}</h1>
-                <div class="mt-4 section-reviews__description">
+                <div class=" section-reviews__description">
                     {!! $page->description !!}
                 </div>
-                <div class="divider horizontal gray mt-4"></div>
+                <div class="divider horizontal gray "></div>
             </div>
         </div>
     </section>

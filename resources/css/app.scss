@@ -55,7 +55,12 @@ video::-webkit-media-controls-current-time-display {
 }
 
 // Components
-@import "./components/**/*.scss";
+@import "./components/header.scss";
+@import "./components/footer.scss";
+@import "./components/navigation.scss";
+@import "./components/modals.scss";
+@import "./components/doctor-card";
+@import "./content";
 
 // UI
 @import "./components/ui/button.scss";
