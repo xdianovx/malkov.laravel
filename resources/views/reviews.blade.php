@@ -23,7 +23,7 @@
 
                         <div class="stock-item__bottom">
                             <p> {{ $item->date }}</p>
-                            <div class="rating flex items-center gap-2">
+                            <div class="rating flex items-center gap-1">
                                 @for ($i = 1; $i <= $item->rating; $i++)
                                     <span class="star">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class=""
