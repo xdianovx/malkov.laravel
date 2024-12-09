@@ -3,7 +3,7 @@
 @section('content')
     <section class="section hero section-reviews">
         <div class="container">
-            <div class="flex flex-col gap-8">
+            <div class="flex flex-col gap-8 bg-black">
                 <h1 class="h1 uppercase">{{ $page->title_h1 }}</h1>
                 <div class="section-reviews__description">
                     {!! $page->description !!}
