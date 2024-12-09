@@ -1,13 +1,13 @@
+@use "./fonts.scss";
+@use "./reset.scss";
+@use "./vars.scss";
+@use "./helpers.scss";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import "normalize.css";
-
-@import "./fonts.scss";
-@import "./reset.scss";
-@import "./vars.scss";
-@import "./helpers.scss";
+// @import "normalize.css";
 
 * {
   box-sizing: border-box;
