@@ -10,4 +10,9 @@ export default defineConfig({
       refresh: true,
     }),
   ],
+  css: {
+    preprocessorOptions: {
+      scss: {},
+    },
+  },
 });
