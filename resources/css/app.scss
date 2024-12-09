@@ -1,13 +1,13 @@
-@use "./fonts.scss";
-@use "./reset.scss";
-@use "./vars.scss";
-@use "./helpers.scss";
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-// @import "normalize.css";
+@import "normalize.css";
+
+@import "./fonts.scss";
+@import "./reset.scss";
+@import "./vars.scss";
+@import "./helpers.scss";
 
 * {
   box-sizing: border-box;
@@ -55,12 +55,7 @@ video::-webkit-media-controls-current-time-display {
 }
 
 // Components
-@import "./components/header.scss";
-@import "./components/footer.scss";
-@import "./components/navigation.scss";
-@import "./components/modals.scss";
-@import "./components/doctor-card";
-@import "./content";
+@import "./components/**/*.scss";
 
 // UI
 @import "./components/ui/button.scss";
