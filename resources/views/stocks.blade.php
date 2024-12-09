@@ -10,7 +10,7 @@
     </section>
 
 
-    <section class="stock-items-sections section">
+    <section class="stock-items-sections mt-10">
         <div class="container">
             <div class="stock-items-sections__items" id="stockCatalog">
                 @forelse($stocks as $item)
@@ -19,7 +19,7 @@
                         <p class="stock-item__text">{!! $item->content !!}</p>
 
                         <div class="stock-item__bottom">
-                            <p>Действует до: {{ date('d.m.Y', strtotime($item->due_time))}}</p>
+                            <p>Действует до: {{ date('d.m.Y', strtotime($item->due_time)) }}</p>
                             <a href="{{ route('stock-single', $item->slug) }}">Подробнее</a>
                         </div>
                     </div>
@@ -29,7 +29,8 @@
             </div>
             <div class="text-center">
                 @if ($pageCount > 1)
-                <button class="btn doctors-section__top-btn --accent" id="show-more-stock">{{ __('admin.show_more') }}</button>
+                    <button class="btn doctors-section__top-btn --accent"
+                        id="show-more-stock">{{ __('admin.show_more') }}</button>
                 @endif
             </div>
         </div>
@@ -60,9 +61,9 @@
         </script>
     @endif
 
-    <x-sections.callback  :block="$block_callback_form" />
+    <x-sections.callback :block="$block_callback_form" />
     <x-sections.services :block="$block_services" :data="$services" />
-    <x-sections.faq :block="$block_questions"/>
+    <x-sections.faq :block="$block_questions" />
 
     <section class="section"></section>
 @endsection()
