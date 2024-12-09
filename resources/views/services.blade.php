@@ -9,7 +9,7 @@
 
             <div class="hero-services__top max-[1200px]:flex-col max-[1200px]:items-center max-[1200px]:gap-4">
                 <h1 class="h1 uppercase max-[1200px]:text-center">
-                    {!! $service_page->h1_title !!}
+                    {!! $page->title !!}
                 </h1>
 
                 <button data-micromodal-trigger="modal-callback" class="btn --accent ml-auto max-[1200px]:ml-0">Бесплатная
