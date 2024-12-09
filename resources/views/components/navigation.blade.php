@@ -3,7 +3,7 @@
         <div class="navigation-wrap">
             <div class="navigation-left">
                 <nav class="nav-left">
-                    <a href="{{ route('pacientam') }}">Пациентам</a>
+                    {{-- <a href="/patsiientam">Пациентам</a> --}}
                     <a href="{{ route('services') }}">Услуги</a>
                     <a href="{{ route('stocks') }}">Акции</a>
                     <a href="{{ route('specialists') }}">Врачи</a>
@@ -27,12 +27,12 @@
 
                 <div class="nav-left-policy">
                     <a href="{{ route('politika-konfidencialnosti') }}">Политика конфиденциальности</a>
-                    <a href="{{ route('pravila-predostavleniya-uslug') }}">Правила предоставления услуг мед.организации</a>
+                    <a href="{{ route('pravila-predostavleniya-uslug') }}">Правила предоставления услуг
+                        мед.организации</a>
                 </div>
 
             </div>
             <nav class="navigation-right">
-                {{-- Item --}}
                 @foreach ($parent_services as $parent_service)
                     <div class="nav-group">
                         <div class="nav-group__top">

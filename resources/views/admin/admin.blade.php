@@ -1,4 +1,3 @@
-
 @extends('layouts.admin')
 
 @section('content')
@@ -91,10 +90,8 @@
                                 </tr>
                                 <tr>
                                     @if (!empty($main_info->og_site_image))
-
-                                     <img src="{{ asset('storage') . '/' . $main_info->og_site_image }}" class="img-fluid"
-                                         alt="Responsive image">
-
+                                        <img src="{{ asset('storage') . '/' . $main_info->og_site_image }}"
+                                            class="img-fluid" alt="Responsive image">
                                     @else
                                     @endif
                                 </tr>
@@ -107,4 +104,3 @@
         </div>
     </div>
 @endsection
-

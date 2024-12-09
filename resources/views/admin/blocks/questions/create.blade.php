@@ -6,7 +6,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header align-items-center d-flex">
-                    <h4 class="card-title mb-0 flex-grow-1">{{__('admin.new_question_card_title')}}</h4>
+                    <h4 class="card-title mb-0 flex-grow-1">{{ __('admin.new_question_card_title') }}</h4>
                 </div>
             </div>
 
@@ -27,26 +27,29 @@
             <div class="card">
                 <div class="card-body">
                     <div class="live-preview">
-                        <form action="{{ route('admin.blocks.questions.store', $block->id ) }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('admin.blocks.questions.store', $block->id) }}" method="POST"
+                            enctype="multipart/form-data">
                             @csrf
-                            <div class="row gy-4">
+                            <div class="gy-4">
 
                                 <div class="col-xxl-6 col-md-6">
                                     <div>
-                                        <label for="valueInput" class="form-label">{{__('admin.field_question')}} *</label>
+                                        <label for="valueInput" class="form-label">{{ __('admin.field_question') }}
+                                            *</label>
                                         <input type="text" value="{{ old('title') }}" class="form-control"
-                                            id="valueInput" name="title" placeholder="{{__('admin.placeholder_text')}}">
+                                            id="valueInput" name="title" placeholder="{{ __('admin.placeholder_text') }}">
                                     </div>
                                 </div>
 
                                 <div class="mb-3">
-                                    <label class="form-label">{{__('admin.field_answer')}}</label>
-                                    <textarea id="editor" class="form-control" name="description" placeholder="{{__('admin.placeholder_text')}}"
+                                    <label class="form-label">{{ __('admin.field_answer') }}</label>
+                                    <textarea id="editor" class="form-control" name="description" placeholder="{{ __('admin.placeholder_text') }}"
                                         style="height: 234px;">{!! old('description') !!}</textarea>
                                 </div>
 
                             </div>
-                            <button type="submit" class="btn btn-success waves-effect waves-light mt-5">{{__('admin.btn_save')}}</button>
+                            <button type="submit"
+                                class="btn btn-success waves-effect waves-light mt-5">{{ __('admin.btn_save') }}</button>
 
                         </form>
                     </div>

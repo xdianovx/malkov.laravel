@@ -10,7 +10,7 @@
     transition: top 0.2s ease-in-out;
     padding-top: 156px;
     overflow-y: auto;
-
+    position: absolute;
     &.active {
         top: 0;
     }

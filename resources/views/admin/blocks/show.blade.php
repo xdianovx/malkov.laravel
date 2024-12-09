@@ -34,12 +34,12 @@
                                         </li>
                                     @endif
                                     @if ($item->id == 8)
-                                    <li>
-                                        <a type="button" class="dropdown-item"
-                                            href="{{ route('admin.blocks.modern_offices.create', $item->id) }}">
-                                            <i class="ri-share-line align-bottom me-2 text-muted"></i>
-                                            {{ __('admin.btn_create_modern_office') }}</a>
-                                    </li>
+                                        <li>
+                                            <a type="button" class="dropdown-item"
+                                                href="{{ route('admin.blocks.modern_offices.create', $item->id) }}">
+                                                <i class="ri-share-line align-bottom me-2 text-muted"></i>
+                                                {{ __('admin.btn_create_modern_office') }}</a>
+                                        </li>
                                     @endif
                                     <li><a href="{{ route('admin.blocks.edit', $item->id) }}"
                                             class="dropdown-item edit-item-btn"><i

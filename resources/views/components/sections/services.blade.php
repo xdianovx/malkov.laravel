@@ -12,13 +12,15 @@
                     <h3 class="services-item__title">{{ $item->title }}</h3>
                     <div class="services-item__text">{!! $item->content !!}</div>
 
-                    <div class="services-item__price">от
-                        {{ $item->prices->min('price') }} руб.
+                    <div class="services-item__price">
+                        {{ $item->prices->min('price') }}
                     </div>
                 </a>
+            @endif
+
             @empty
                 <p>{{ __('admin.notification_no_entries') }}</p>
-            @endforelse
+                @endforelse
+            </div>
         </div>
-    </div>
-</section>
+    </section>

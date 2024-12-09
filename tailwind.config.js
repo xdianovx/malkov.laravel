@@ -6,7 +6,15 @@ export default {
         "./resources/**/*.vue",
     ],
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+                serif: "Forum",
+            },
+            colors: {
+                gold: "#ae7d26",
+                blue: "#153252",
+            },
+        },
     },
     plugins: [],
 };

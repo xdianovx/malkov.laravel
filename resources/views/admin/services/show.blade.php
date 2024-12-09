@@ -6,13 +6,39 @@
             <div class="card">
 
                 <div class="card-body">
-                    <div class="d-flex align-items-center mb-4">
+                    <div class="d-flex align-items-center">
                         <div class="flex-grow-1">
-                            <h3 class="card-header align-items-center d-flex">{{ __('admin.service_card_title') }}:
+                            <h3 class=" align-items-center d-flex">{{ __('admin.service_card_title') }}:
                                 {{ $item->title }}</h3>
                         </div>
                         <div class="flex-shrink-0">
-                            <div class="dropdown">
+                            {{-- Buttons --}}
+                            <a type="button" class="btn btn-secondary" href="{{ route('admin.services.index') }}">
+                                <i class="ri-arrow-left-line align-bottom me-2 "></i>
+                                {{ __('admin.btn_back') }}
+                            </a>
+
+                            <a type="button" class="btn btn-secondary"
+                                href="{{ route('admin.services.create_child', $item->slug) }}">
+                                <i class="ri-share-line align-bottom me-2 "></i>
+                                {{ __('admin.btn_create_subservice') }}
+                            </a>
+
+                            <a type="button" class="btn btn-secondary"
+                                href="{{ route('admin.services.prices.create', $item->slug) }}">
+                                <i class="ri-share-line align-bottom me-2 "></i>
+                                {{ __('admin.btn_create_price') }}</a>
+
+                            <a href="{{ route('admin.services.edit', $item->slug) }}" class="btn btn-secondary"><i
+                                    class="ri-pencil-fill align-bottom me-2 "></i>
+                                {{ __('admin.btn_edit') }}</a>
+
+                            <button type="submit" class="btn btn-danger" data-bs-toggle="modal"
+                                data-bs-target="#modalScrollable{{ $item->slug }}"><i class="bx bx-trash me-1 "
+                                    role="button"></i>
+                                {{ __('admin.btn_delete') }}</button>
+
+                            {{-- <div class="dropdown">
                                 <a href="#" role="button" id="dropdownMenuLink1" data-bs-toggle="dropdown"
                                     aria-expanded="false" class="">
                                     <i class="ri-more-2-fill fs-14"></i>
@@ -49,7 +75,7 @@
                                             {{ __('admin.btn_delete') }}</button>
                                     </li>
                                 </ul>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                     @if ($item->content)
