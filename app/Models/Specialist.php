@@ -19,10 +19,15 @@ class Specialist extends Model
         'image',
         'image_mob',
         'education',
-        'additional_education',
         'experience',
         'description',
-        'operations'
+        'operations',
+        'meta_title',
+        'meta_description',
+        'meta_keywords',
+        'og_url',
+        'og_title',
+        'og_description',
     ];
 
     public static $specialist_routes = [
@@ -39,10 +44,6 @@ class Specialist extends Model
     public function documents()
     {
       return $this->hasMany(Document::class);
-    }
-    public function specializations(): BelongsToMany
-    {
-        return $this->belongsToMany(Specialization::class, 'specialist_specialization', 'specialist_id', 'specialization_id');
     }
     public function services(): BelongsToMany
     {

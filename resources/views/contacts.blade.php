@@ -7,11 +7,10 @@
         <div class="container">
             <div class="contacts-hero__top">
                 <h1 class="h1 uppercase">
-                    {!! $contacts_page->h1_title !!}
+                    {!! $page->title_h1 !!}
                 </h1>
                 <x-ui.socials class="contacts-hero__socials"/>
             </div>
-            {!! $contacts_page->description_header !!}
             <div class="divider horizontal gray"></div>
         </div>
     </section>
@@ -19,7 +18,7 @@
 
     <section class="section contacts-content-section">
         <div class="container">
-                {!! $contacts_page->description !!}
+                {!! $page->description !!}
         </div>
     </section>
     <x-sections.map/>

@@ -6,7 +6,7 @@
                     <div class="swiper-slide">
 
                         <div class="stock-slide">
-                            <img src="{{ asset('storage') . '/' . $item->image }}" alt="Обязателье">
+                            <img src="{{ asset('storage') . '/' . $item->image }}" alt="{{ $item->title }}">
 
 
 

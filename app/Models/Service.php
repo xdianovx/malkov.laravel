@@ -22,7 +22,13 @@ class Service extends Model
         'parent_id',
         'description',
         'description_header',
-        'content'
+        'content',
+        'meta_title',
+        'meta_description',
+        'meta_keywords',
+        'og_url',
+        'og_title',
+        'og_description',
     ];
     public static $services_routes = [
         'admin.services.index',

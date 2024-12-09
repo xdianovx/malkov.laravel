@@ -29,6 +29,25 @@ class StoreRequest extends FormRequest
             'content' => ['nullable'],
             'description_footer' => ['nullable'],
             'description_header' => ['nullable'],
+            'meta_title'  => ['nullable'],
+            'meta_description'  => ['nullable'],
+            'meta_keywords'  => ['nullable'],
+            'og_url'  => ['nullable'],
+            'og_title'  => ['nullable'],
+            'og_description'  => ['nullable'],
+        ];
+    }
+        /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array<string, string>
+     */
+    public function messages(): array
+    {
+        return [
+            'title.required' => 'Введите заголовок',
+            'title.max' => 'Заголовок должен быть не более 70 символов',
+            'title.unique' => 'Такой заголовок уже существует',
         ];
     }
 }

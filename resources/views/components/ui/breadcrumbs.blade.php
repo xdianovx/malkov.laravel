@@ -1,3 +1,3 @@
 <div {{ $attributes->merge(['class' => 'breadcrumbs']) }}>
-    breadcrumbs
+    {{ Breadcrumbs::render() }}
 </div>

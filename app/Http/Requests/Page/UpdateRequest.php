@@ -22,14 +22,28 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required', 'max:70'],
-            'h1_title'=> ['required', 'max:70'],
-            'dashboard_title'=> ['required', 'max:70'],
-            'description_header'  => ['nullable'],
+            'title_h1' => ['required', 'max:70'],
             'description'  => ['nullable'],
-            'description_footer'  => ['nullable'],
-            'image' => 'nullable|image|max:200000|mimes:jpeg,png,jpg,gif,svg',
-            'image_mob' => 'nullable|image|max:200000|mimes:jpeg,png,jpg,gif,svg',
+
+            'meta_title'  => ['nullable'],
+            'meta_description'  => ['nullable'],
+            'meta_keywords'  => ['nullable'],
+            'og_url'  => ['nullable'],
+            'og_title'  => ['nullable'],
+            'og_description'  => ['nullable'],
+        ];
+    }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array<string, string>
+     */
+    public function messages(): array
+    {
+        return [
+            'title_h1.required' => 'Поле "Заголовок" обязательно для заполнения',
+            'title_h1.max' => 'Заголовок не может быть длиннее 70 символов'
         ];
     }
 }

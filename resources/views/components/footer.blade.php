@@ -6,13 +6,10 @@
                     <img src="{{ asset('img/logo.png') }}" alt="Логотип Клиники Доктора Малькова">
                 </a>
 
-                <p class="footer__description">
-                    Являясь всего лишь частью общей картины, стремящиеся вытеснить традиционное
-                    производство,нанотехнологии набирают
-                </p>
+                <p class="footer__description">{{ $main_info->text_footer }}</p>
 
                 <div class="footer__contacts">
-                    <a class="footer__phone" href="tel:+7 (926) 076 78 17">+7 (926) 076 78 17</a>
+                    <a class="footer__phone" href="tel:{{ $main_info->phone }}">{{ $main_info->phone }}</a>
 
                     <x-ui.socials class="footer__socials" />
                 </div>
@@ -29,8 +26,8 @@
             </nav>
 
             <div class="footer__bot">
-                <a href="">Политика конфиденциальности</a>
-                <a href="">Правила предоставления услуг мед.организации</a>
+                <a href="{{ route('politika-konfidencialnosti') }}">Политика конфиденциальности</a>
+                <a href="{{ route('pravila-predostavleniya-uslug') }}">Правила предоставления услуг мед.организации</a>
                 <a href="http://kometa.team" class="footer__kometa" target="_blank">
                     <img src="{{ asset('img/icon/kometa.svg') }}" alt="" />
                 </a>

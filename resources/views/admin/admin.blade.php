@@ -2,90 +2,105 @@
 
 @section('content')
     <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
 
-        {{-- <div class="col-xxl-3 col-md-6">
-                        <div class="card card-animate">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between">
-                                    <div>
-                                        <p class="fw-medium text-muted mb-0">Bonuses</p>
-                                        <h2 class="mt-4 ff-secondary fw-semibold"><span class="counter-value"data-target="{{$bonuses_count}}">{{$bonuses_count}}</span>
-                                        </h2>
-                                    </div>
-                                    <div>
-                                        <div class="avatar-sm flex-shrink-0">
-                                            <a href="{{ route('admin.bonus_cards.index') }}" class="avatar-title bg-info-subtle rounded-circle fs-2">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link text-info"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="flex-grow-1">
+                            <h3 class="card-header align-items-center d-flex">{{ __('admin.main_info') }}</h3>
+                        </div>
+                        <div class="flex-shrink-0">
+                            <div class="dropdown">
+                                <a href="#" role="button" id="dropdownMenuLink1" data-bs-toggle="dropdown"
+                                    aria-expanded="false" class="">
+                                    <i class="ri-more-2-fill fs-14"></i>
+                                </a>
+
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink1"
+                                    style="">
+                                    <li><a href="{{ route('admin.main_infos.edit', $main_info->slug) }}"
+                                            class="dropdown-item edit-item-btn"><i
+                                                class="ri-pencil-fill align-bottom me-2 "></i>
+                                            {{ __('admin.btn_edit') }}</a></li>
+                                </ul>
                             </div>
                         </div>
-                        <!--end card-->
                     </div>
-                    <div class="col-xxl-3 col-md-6">
-                        <div class="card card-animate">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between">
-                                    <div>
-                                        <p class="fw-medium text-muted mb-0">Casinos</p>
-                                        <h2 class="mt-4 ff-secondary fw-semibold"><span class="counter-value"data-target="{{$casinos_count}}">{{$casinos_count}}</span>
-                                        </h2>
-                                    </div>
-                                    <div>
-                                        <div class="avatar-sm flex-shrink-0">
-                                            <a href="{{ route('admin.casinos.index') }}" class="avatar-title bg-info-subtle rounded-circle fs-2">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link text-info"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                </div>
+                <!--end card-body-->
+            </div>
+
+            <div class="card">
+                <div class="demo-inline-spacing">
+                    @if (session('status') === 'item-updated')
+                        <div class="alert alert-primary alert-dismissible" role="alert">
+                            {{ __('admin.alert_updated') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
-                        <!--end card-->
+                    @endif
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-borderless mb-0">
+                            <tbody>
+                                <tr>
+                                    <th class="ps-0" scope="row">{{ __('admin.field_telegram') }}:</th>
+                                    <td class="text-muted">{{ $main_info->telegram }}</td>
+                                </tr>
+                                <tr>
+                                    <th class="ps-0" scope="row">{{ __('admin.field_whatsapp') }}:</th>
+                                    <td class="text-muted">{{ $main_info->whatsapp }}</td>
+                                </tr>
+                                <tr>
+                                    <th class="ps-0" scope="row">{{ __('admin.field_vkontakte') }}:</th>
+                                    <td class="text-muted">{{ $main_info->vkontakte }}</td>
+                                </tr>
+                                <tr>
+                                    <th class="ps-0" scope="row">{{ __('admin.field_phone') }}:</th>
+                                    <td class="text-muted">{{ $main_info->phone }}</td>
+                                </tr>
+                                <tr>
+                                    <th class="ps-0" scope="row">{{ __('admin.field_address') }}:</th>
+                                    <td class="text-muted">{{ $main_info->address }}</td>
+                                </tr>
+                                <tr>
+                                    <th class="ps-0" scope="row">{{ __('admin.field_working_days') }}:</th>
+                                    <td class="text-muted">{{ $main_info->working_days }}</td>
+                                </tr>
+                                <tr>
+                                    <th class="ps-0" scope="row">{{ __('admin.field_text_footer') }}:</th>
+                                    <td class="text-muted">{{ $main_info->text_footer }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
                     </div>
-                    <div class="col-xxl-3 col-md-6">
-                        <div class="card card-animate">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between">
-                                    <div>
-                                        <p class="fw-medium text-muted mb-0">Categories</p>
-                                        <h2 class="mt-4 ff-secondary fw-semibold"><span class="counter-value"data-target="{{$categories_count}}">{{$categories_count}}</span>
-                                        </h2>
-                                    </div>
-                                    <div>
-                                        <div class="avatar-sm flex-shrink-0">
-                                            <a href="{{ route('admin.categories.index') }}" class="avatar-title bg-info-subtle rounded-circle fs-2">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link text-info"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--end card-->
+                </div><!-- end card body -->
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-header align-items-center d-flex">{{ __('admin.page_card_seo') }}</h5>
+                    <div class="table-responsive">
+                        <table class="table table-borderless mb-0">
+                            <tbody>
+                                <tr>
+                                    <th class="ps-0" scope="row">{{ __('admin.field_og_site_title') }}:</th>
+                                    <td class="text-muted">{{ $main_info->og_site_title }}</td>
+                                </tr>
+                                <tr>
+                                    @if (!empty($main_info->og_site_image))
+                                        <img src="{{ asset('storage') . '/' . $main_info->og_site_image }}"
+                                            class="img-fluid" alt="Responsive image">
+                                    @else
+                                    @endif
+                                </tr>
+                            </tbody>
+                        </table>
+
                     </div>
-                    <div class="col-xxl-3 col-md-6">
-                        <div class="card card-animate">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between">
-                                    <div>
-                                        <p class="fw-medium text-muted mb-0">Games</p>
-                                        <h2 class="mt-4 ff-secondary fw-semibold"><span class="counter-value"data-target="{{$games_count}}">{{$games_count}}</span>
-                                        </h2>
-                                    </div>
-                                    <div>
-                                        <div class="avatar-sm flex-shrink-0">
-                                            <a href="{{ route('admin.games.index') }}" class="avatar-title bg-info-subtle rounded-circle fs-2">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link text-info"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--end card-->
-                    </div> --}}
+                </div><!-- end card body -->
+            </div>
+        </div>
     </div>
 @endsection

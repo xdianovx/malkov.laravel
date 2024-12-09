@@ -3,9 +3,10 @@
 use App\Http\Controllers\Admin\BlockController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\CategoryBlogController;
+use App\Http\Controllers\Admin\ClinicDocumentController;
+use App\Http\Controllers\Admin\ClinicSertificateController;
 use App\Http\Controllers\Admin\DocumentController;
 use App\Http\Controllers\Admin\MainController;
-use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\PriceController;
 use App\Http\Controllers\Admin\ServiceController;
@@ -21,7 +22,10 @@ use App\Http\Controllers\Admin\StockController;
 use App\Http\Controllers\Client\AboutPageController;
 use App\Http\Controllers\Client\BlogPageController;
 use App\Http\Controllers\Client\ContactPageController;
-use App\Http\Controllers\Client\NewsPageController;
+use App\Http\Controllers\Client\PacientamPageController;
+use App\Http\Controllers\Client\PolitikaKonfidencialnostiPageController;
+use App\Http\Controllers\Client\PravilaPredostavleniyaUslugPageController;
+use App\Http\Controllers\Client\RequestsController;
 use App\Http\Controllers\Client\ReviewPageController;
 use App\Http\Controllers\Client\ServicePageController;
 use App\Http\Controllers\Client\SpecialistPageController;
@@ -41,26 +45,33 @@ Route::get('/vrachi/{specialist_slug}', [SpecialistPageController::class, 'show'
 
 Route::get('/kontakty', [ContactPageController::class, 'index'])->name('contacts');
 
-Route::get('/o-klinike', [AboutPageController::class, 'index'])->name('about');
-
-Route::get('/novosti', [NewsPageController::class, 'index'])->name('news');
-
-Route::get('/novosti/{news_slug}', [NewsPageController::class, 'show'])->name('news-single');
+Route::get('/o-nas', [AboutPageController::class, 'index'])->name('about');
 
 Route::get('/blog/{blog_slug}', [BlogPageController::class, 'show'])->name('blogs-single');
-
+Route::get('/news/load-more', [BlogPageController::class, 'loadMore'])->name('blogs-loadMore');
 Route::get('/blog', [BlogPageController::class, 'index'])->name('blogs');
 
 Route::get('/akcii', [StockPageController::class, 'index'])->name('stocks');
-
+Route::get('/akcii/load-more', [StockPageController::class, 'loadMore'])->name('stocks-loadMore');
 Route::get('/akcii/{stock_slug}', [StockPageController::class, 'show'])->name('stock-single');
 
 Route::get('/otzyvy', [ReviewPageController::class, 'index'])->name('reviews');
+Route::post('/otzyvy/store', [ReviewPageController::class, 'store'])->name('reviews.store');
+Route::get('/politika-konfidencialnosti', [PolitikaKonfidencialnostiPageController::class, 'index'])->name('politika-konfidencialnosti');
+Route::get('/pravila-predostavleniya-uslug', [PravilaPredostavleniyaUslugPageController::class, 'index'])->name('pravila-predostavleniya-uslug');
 
+Route::get('/pacientam', [PacientamPageController::class, 'index'])->name('pacientam');
+Route::post('/request_modal_section', [RequestsController::class, 'request_modal_section'])->name('request_modal_section');
 
 Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
 
     Route::get('/', [MainController::class, 'index'])->name('index');
+
+    Route::name('main_infos.')->prefix('main')->group(function () {
+        Route::get('/edit', [MainController::class, 'edit'])->name('edit');
+        Route::patch('/update', [MainController::class, 'update'])->name('update');
+    });
+
     Route::post('/editor-uploads', EditorImageUploadController::class)->name('image_upload');
 
     Route::name('services.')->prefix('services')->group(function () {
@@ -90,8 +101,6 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
     });
     Route::name('pages.')->prefix('pages')->group(function () {
         Route::get('/', [PageController::class, 'index'])->name('index');
-        Route::get('/create', [PageController::class, 'create'])->name('create');
-        Route::post('/store', [PageController::class, 'store'])->name('store');
         Route::get('/{page_slug}', [PageController::class, 'show'])->name('show');
         Route::get('/{page_slug}/edit', [PageController::class, 'edit'])->name('edit');
         Route::patch('/{page_slug}', [PageController::class, 'update'])->name('update');
@@ -114,16 +123,6 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
             Route::delete('/{show_reel_id}', [ShowReelController::class, 'destroy'])->name('destroy');
         });
     });
-    Route::name('categories_blog.')->prefix('categories_blog')->group(function () {
-        Route::get('/', [CategoryBlogController::class, 'index'])->name('index');
-        Route::get('/search',  [CategoryBlogController::class, 'search'])->name('search');
-        Route::get('/create', [CategoryBlogController::class, 'create'])->name('create');
-        Route::post('/store', [CategoryBlogController::class, 'store'])->name('store');
-        Route::get('/{category_blog_slug}', [CategoryBlogController::class, 'show'])->name('show');
-        Route::get('/{category_blog_slug}/edit', [CategoryBlogController::class, 'edit'])->name('edit');
-        Route::patch('/{category_blog_slug}', [CategoryBlogController::class, 'update'])->name('update');
-        Route::delete('/{category_blog_slug}', [CategoryBlogController::class, 'destroy'])->name('destroy');
-    });
     Route::name('blogs.')->prefix('blogs')->group(function () {
         Route::get('/', [BlogController::class, 'index'])->name('index');
         Route::get('/search',  [BlogController::class, 'search'])->name('search');
@@ -134,16 +133,7 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
         Route::patch('/{blog_slug}', [BlogController::class, 'update'])->name('update');
         Route::delete('/{blog_slug}', [BlogController::class, 'destroy'])->name('destroy');
     });
-    Route::name('news.')->prefix('news')->group(function () {
-        Route::get('/', [NewsController::class, 'index'])->name('index');
-        Route::get('/search',  [NewsController::class, 'search'])->name('search');
-        Route::get('/create', [NewsController::class, 'create'])->name('create');
-        Route::post('/store', [NewsController::class, 'store'])->name('store');
-        Route::get('/{news_slug}', [NewsController::class, 'show'])->name('show');
-        Route::get('/{news_slug}/edit', [NewsController::class, 'edit'])->name('edit');
-        Route::patch('/{news_slug}', [NewsController::class, 'update'])->name('update');
-        Route::delete('/{news_slug}', [NewsController::class, 'destroy'])->name('destroy');
-    });
+
     Route::name('stocks.')->prefix('stocks')->group(function () {
         Route::get('/', [StockController::class, 'index'])->name('index');
         Route::get('/search',  [StockController::class, 'search'])->name('search');
@@ -183,16 +173,6 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
             Route::delete('/{document_id}', [DocumentController::class, 'destroy'])->name('destroy');
         });
     });
-    Route::name('specializations.')->prefix('specializations')->group(function () {
-        Route::get('/', [SpecializationController::class, 'index'])->name('index');
-        Route::get('/search',  [SpecializationController::class, 'search'])->name('search');
-        Route::get('/create', [SpecializationController::class, 'create'])->name('create');
-        Route::post('/store', [SpecializationController::class, 'store'])->name('store');
-        Route::get('/{specialization_slug}', [SpecializationController::class, 'show'])->name('show');
-        Route::get('/{specialization_slug}/edit', [SpecializationController::class, 'edit'])->name('edit');
-        Route::patch('/{specialization_slug}', [SpecializationController::class, 'update'])->name('update');
-        Route::delete('/{specialization_slug}', [SpecializationController::class, 'destroy'])->name('destroy');
-    });
 
     Route::name('blocks.')->prefix('blocks')->group(function () {
         Route::get('/', [BlockController::class, 'index'])->name('index');
@@ -217,5 +197,25 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
             Route::patch('/{modern_office_id}', [ModernOfficeController::class, 'update'])->name('update');
             Route::delete('/{modern_office_id}', [ModernOfficeController::class, 'destroy'])->name('destroy');
         });
+    });
+    Route::name('clinic_documents.')->prefix('clinic_documents')->group(function () {
+        Route::get('/', [ClinicDocumentController::class, 'index'])->name('index');
+        Route::get('/search',  [ClinicDocumentController::class, 'search'])->name('search');
+        Route::get('/create', [ClinicDocumentController::class, 'create'])->name('create');
+        Route::post('/store', [ClinicDocumentController::class, 'store'])->name('store');
+        Route::get('/{clinic_document_id}', [ClinicDocumentController::class, 'show'])->name('show');
+        Route::get('/{clinic_document_id}/edit', [ClinicDocumentController::class, 'edit'])->name('edit');
+        Route::patch('/{clinic_document_id}', [ClinicDocumentController::class, 'update'])->name('update');
+        Route::delete('/{clinic_document_id}', [ClinicDocumentController::class, 'destroy'])->name('destroy');
+    });
+    Route::name('clinic_certificates.')->prefix('clinic_certificates')->group(function () {
+        Route::get('/', [ClinicSertificateController::class, 'index'])->name('index');
+        Route::get('/search',  [ClinicSertificateController::class, 'search'])->name('search');
+        Route::get('/create', [ClinicSertificateController::class, 'create'])->name('create');
+        Route::post('/store', [ClinicSertificateController::class, 'store'])->name('store');
+        Route::get('/{clinic_certificate_id}', [ClinicSertificateController::class, 'show'])->name('show');
+        Route::get('/{clinic_certificate_id}/edit', [ClinicSertificateController::class, 'edit'])->name('edit');
+        Route::patch('/{clinic_certificate_id}', [ClinicSertificateController::class, 'update'])->name('update');
+        Route::delete('/{clinic_certificate_id}', [ClinicSertificateController::class, 'destroy'])->name('destroy');
     });
 });

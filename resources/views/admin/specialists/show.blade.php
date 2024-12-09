@@ -47,20 +47,7 @@
                             </div>
                         </div>
                     </div>
-                    @if ($item->education)
-                        <h5 class="">{{ __('admin.field_education') }}:</h5>
-                        <div class="text-muted">
-                            <p>{!! $item->education !!}</p>
-                        </div>
-                    @else
-                    @endif
-                    @if ($item->additional_education)
-                        <h5 class="">{{ __('admin.field_additional_education') }}:</h5>
-                        <div class="text-muted">
-                            <p>{!! $item->additional_education !!}</p>
-                        </div>
-                    @else
-                    @endif
+
                     @if ($item->description)
                         <h5 class="">{{ __('admin.field_description') }}:</h5>
                         <div class="text-muted">
@@ -143,6 +130,15 @@
                                     <td class="">{{ $item->experience }}</td>
                                 </tr>
                                 <tr>
+                                    <th class="ps-0" scope="row">{{ __('admin.field_education') }}:</th>
+                                    <td class="text-muted">
+                                        @foreach (json_decode($item->education, true) as $education)
+                                            <p>{{ $education }}</p>
+                                        @endforeach
+                                    </td>
+                                </tr>
+                                <tr>
+                                <tr>
                                     <th class="ps-0" scope="row">{{ __('admin.field_created') }}:</th>
                                     <td class="">{{ $item->created_at }}</td>
                                 </tr>
@@ -189,17 +185,7 @@
 
                     </div>
                 </div><!-- end card body -->
-                @if ($item->specializations->count() > 0)
-                    <div class="card-body">
-                        <h5 class="card-title mb-4">{{ __('admin.field_specializations') }}:</h5>
-                        <div class="d-flex flex-wrap gap-2 fs-16">
-                            @foreach ($item->specializations as $specialization)
-                                <a href="{{ route('admin.specializations.show', $specialization->slug) }}"
-                                    class="badge bg-primary-subtle text-primary">{{ $specialization->title }}</a>
-                            @endforeach
-                        </div>
-                    </div>
-                @endif
+
                 @if ($item->services->count() > 0)
                     <div class="card-body">
                         <h5 class="card-title mb-4">{{ __('admin.field_services') }}:</h5>
@@ -211,6 +197,42 @@
                         </div>
                     </div>
                 @endif
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-header align-items-center d-flex">{{ __('admin.page_card_seo') }}</h5>
+                    <div class="table-responsive">
+                        <table class="table table-borderless mb-0">
+                            <tbody>
+                                <tr>
+                                    <th class="ps-0" scope="row">{{ __('admin.field_meta_title') }}:</th>
+                                    <td class="text-muted">{{ $item->meta_title }}</td>
+                                </tr>
+                                <tr>
+                                    <th class="ps-0" scope="row">{{ __('admin.field_meta_description') }}:</th>
+                                    <td class="text-muted">{{ $item->meta_description }}</td>
+                                </tr>
+                                <tr>
+                                    <th class="ps-0" scope="row">{{ __('admin.field_meta_keywords') }}:</th>
+                                    <td class="text-muted">{{ $item->meta_keywords }}</td>
+                                </tr>
+                                <tr>
+                                    <th class="ps-0" scope="row">{{ __('admin.field_og_url') }}:</th>
+                                    <td class="text-muted">{{ $item->og_url }}</td>
+                                </tr>
+                                <tr>
+                                    <th class="ps-0" scope="row">{{ __('admin.field_og_title') }}:</th>
+                                    <td class="text-muted">{{ $item->og_title }}</td>
+                                </tr>
+                                <tr>
+                                    <th class="ps-0" scope="row">{{ __('admin.field_og_description') }}:</th>
+                                    <td class="text-muted">{{ $item->og_description }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div><!-- end card body -->
             </div>
         </div>
     </div>
@@ -250,7 +272,6 @@
                                     <tr>
                                         <th scope="col" style="width: 80px;">ID</th>
                                         <th scope="col">{{ __('admin.field_title') }}</th>
-                                        <th scope="col">{{ __('admin.field_slug') }}</th>
                                         <th scope="col" style="width: 150px;">{{ __('admin.field_updated') }}</th>
                                         <th scope="col" style="width: 150px;">{{ __('admin.field_action') }}</th>
                                     </tr>

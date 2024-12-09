@@ -18,8 +18,8 @@
 
             <div class="divider horizontal gray"></div>
 
-            <div class="hero-services__texts max-[1200px]:text-center">
-                {!! $service_page->description_header !!}
+            <div class="hero-services__texts">
+                {!! $page->description_header !!}
             </div>
         </div>
     </section>

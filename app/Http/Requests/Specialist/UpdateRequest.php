@@ -29,13 +29,42 @@ class UpdateRequest extends FormRequest
             'image_mob' => 'nullable|image|max:200000|mimes:jpeg,png,jpg,gif,svg',
             'experience'=> ['nullable', 'max:70'],
             'operations'=> ['nullable', 'max:70'],
-            'additional_education'  => ['nullable'],
-            'education'  => ['nullable'],
+            'education' => ['nullable', 'array'],
+            'education.*' => ['nullable', 'string'],
             'description'  => ['nullable'],
-            'specializations' => 'nullable|array',
-            'specializations.*' => 'nullable|string|exists:specializations,title',
             'services' => 'nullable|array',
             'services.*' => 'nullable|string|exists:services,title',
+
+            'meta_title'  => ['nullable'],
+            'meta_description'  => ['nullable'],
+            'meta_keywords'  => ['nullable'],
+            'og_url'  => ['nullable'],
+            'og_title'  => ['nullable'],
+            'og_description'  => ['nullable'],
+        ];
+    }
+    public function messages(): array
+    {
+        return [
+            'title.required' => 'Поле заголовка обязательно к заполнению.',
+            'title.max' => 'Заголовок не может быть длиннее 70 символов.',
+            'title.unique' => 'Такой заголовок уже существует.',
+            'h1_title.required' => 'Поле H1 заголовка обязательно к заполнению.',
+            'h1_title.max' => 'H1 заголовок не может быть длиннее 70 символов.',
+            'image.image' => 'Изображение должно быть файлом-изображением.',
+            'image.max' => 'Изображение не может быть больше 200000 килобайт.',
+            'image.mimes' => 'Изображение должно быть файлом формата: jpeg, png, jpg, gif, svg.',
+            'image_mob.image' => 'Мобильное изображение должно быть файлом-изображением.',
+            'image_mob.max' => 'Мобильное изображение не может быть больше 200000 килобайт.',
+            'image_mob.mimes' => 'Мобильное изображение должно быть файлом формата: jpeg, png, jpg, gif, svg.',
+            'experience.max' => 'Опыт не может быть длиннее 70 символов.',
+            'operations.max' => 'Операции не могут быть длиннее 70 символов.',
+            'education.array' => 'Образование должно быть массивом.',
+            'education.*.string' => 'Каждый пункт образования должен быть строкой.',
+            'education.*.exists' => 'Выбранное образование не существует.',
+            'services.array' => 'Услуги должны быть массивом.',
+            'services.*.string' => 'Каждый пункт услуг должен быть строкой.',
+            'services.*.exists' => 'Выбранная услуга не существует.',
         ];
     }
 }

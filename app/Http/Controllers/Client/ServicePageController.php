@@ -12,14 +12,14 @@ class ServicePageController extends Controller
     public function index()
     {
 
-        $service_page = Page::whereSlug('uslugi')->firstOrFail();
+        $page = Page::whereSlug('uslugi')->firstOrFail();
         $services = Service::orderBy('id', 'DESC')->get();
-        $block_questions = Block::whereId(1)->where('is_active','TRUE')->firstOrFail();
-        $block_callback_form = Block::whereId(5)->where('is_active','TRUE')->firstOrFail();
+        $block_questions = Block::whereId(1)->firstOrFail();
+        $block_callback_form = Block::whereId(5)->firstOrFail();
 
         return view('services', compact(
             'services',
-            'service_page',
+            'page',
             'block_questions',
             'block_callback_form',
         ));
@@ -27,12 +27,14 @@ class ServicePageController extends Controller
     public function show($service_slug)
     {
         $service = Service::whereSlug($service_slug)->firstOrFail();
-        $services = Service::orderBy('id', 'DESC')->take(8)->get();
+        $page = $service;
+        $services = Service::where('id', '<>', $service->id)->where('parent_id', null)->orderBy('id', 'DESC')->take(8)->get();
         $block_questions = Block::whereId(1)->firstOrFail();
         $block_services = Block::whereId(4)->firstOrFail();
         $block_callback_form = Block::whereId(5)->firstOrFail();
 
         return view('service-single', compact(
+            'page',
             'service',
             'services',
             'block_questions',

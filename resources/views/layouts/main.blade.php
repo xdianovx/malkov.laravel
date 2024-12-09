@@ -4,31 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>@yield('title', 'Стоматологическая Клиника Доктора Малькова')</title>
-    <meta name="description" content="@yield(
-        'meta_description',
-        'Качественное лечение зубов с гарантией в стоматологии с современным оборудованием и
-            опытными врачами. Доверие, безопасность и гарантия на все услуги.'
-    )">
-    <meta name="keywords" content="@yield('meta_keywords', 'стоматологическая клиника, лечение зубов, современные технологии, квалифицированные врачи, безопасное лечение, гарантия на услуги, стоматология для всей семьи')">
-    <link rel="canonical" href="@yield('canonical', url()->current())">
-    <meta property="og:title" content="@yield('og_title', 'Стоматологическая Клиника Доктора Малькова')">
-    <meta property="og:description" content="@yield(
-        'og_description',
-        'Качественное лечение зубов с гарантией в стоматологии с современным оборудованием и
-            опытными врачами. Доверие, безопасность и гарантия на все услуги.'
-    )">
-    <meta property="og:url" content="@yield('og_url', url()->current())">
-    <meta property="og:image" content="@yield('og_image', asset('default_image.jpg'))">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="@yield('twitter_title', 'Стоматологическая Клиника Доктора Малькова')">
-    <meta name="twitter:description" content="@yield(
-        'twitter_description',
-        'Качественное лечение зубов с гарантией в стоматологии с современным оборудованием и
-            опытными врачами. Доверие, безопасность и гарантия на все услуги.'
-    )">
-    <meta name="twitter:image" content="@yield('twitter_image', asset('default_image.jpg'))">
+    @if (!isset($page))
+        <title>404 - Page not found</title>
+        <meta name="description" content="Page not found">
+    @else
+        <title>{{ $page->meta_title }}</title>
+        <meta name="description" content="{{ $page->meta_description }}">
+        <meta property="og:locale" content="ru_RU">
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="{{ $page->og_title }}">
+        <meta property="og:description" content="{{ $page->og_description }}">
+        <meta property="og:url" content="{{ $page->og_url }}">
+        <meta property="og:site_name" content="{{ $main_info->og_site_title }}">
+        <meta property="og:image" content="{{ asset('storage') . '/' . $main_info->og_site_image }}">
+    @endif
 
     @vite(['resources/css/app.scss', 'resources/js/app.js'])
 </head>
@@ -37,7 +26,11 @@
 
     <x-navigation />
     <x-header />
-
+    <section class="section breadcrumbs">
+        <div class="container">
+            <x-ui.breadcrumbs class="breadcrumbs" />
+        </div>
+    </section>
     <main>
         @yield('content')
     </main>

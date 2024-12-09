@@ -11,11 +11,11 @@ class ContactPageController extends Controller
   public function index()
   {
 
-    $contacts_page = Page::whereSlug('kontakty')->firstOrFail();
-    $block_questions = Block::whereId(1)->where('is_active','TRUE')->firstOrFail();
+    $page = Page::whereSlug('kontakty')->firstOrFail();
+    $block_questions = Block::whereId(1)->firstOrFail();
 
     return view('contacts', compact(
-      'contacts_page',
+      'page',
       'block_questions'
     ));
   }

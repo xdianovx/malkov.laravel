@@ -81,24 +81,6 @@
 
                                 <div class="col-xxl-6 col-md-6">
                                     <div class="mb-3">
-                                        <label for="valueInput" class="form-label">{{ __('admin.field_specializations') }}</label>
-
-                                        @if (!count($specializations) == 0)
-                                        <select id="valueInput" class="form-control" data-choices data-choices-removeItem name="specializations[]" multiple>
-                                            @foreach ($specializations as $specialization)
-                                            <option value="{{ $specialization->title }}" {{ collect(old('specializations'))->contains($specialization->title) ? 'selected' : '' }}>
-                                                {{ $specialization->title }}
-                                            </option>
-                                            @endforeach
-                                        </select>
-                                        @else
-                                        <div class="text-danger">{{ __('admin.notification_no_entries_specialization') }}</div>
-                                        @endif
-                                    </div>
-                                </div>
-
-                                <div class="col-xxl-6 col-md-6">
-                                    <div class="mb-3">
                                         <label for="valueInput" class="form-label">{{ __('admin.field_services') }}</label>
                                         @if (!count($services) == 0)
                                         <select id="valueInput" class="form-control" data-choices data-choices-removeItem name="services[]" multiple>
@@ -114,22 +96,79 @@
                                     </div>
                                 </div>
 
-                                <div class="mb-3">
-                                    <label class="form-label">{{ __('admin.field_education') }}</label>
-                                    <textarea class="form-control" name="education" placeholder="{{ __('admin.placeholder_text') }}"
-                                     style="height: 234px;">{{ old('education') }}</textarea>
+                                <div class="col-xxl-6 col-md-6">
+                                    <div>
+                                        <label for="educationInput" class="form-label">{{ __('admin.field_education') }} *</label>
+                                        <input type="text" value="{{ old('education.0') }}" class="form-control"
+                                            id="educationInput" name="education[]" placeholder="{{ __('admin.placeholder_text') }}">
+                                        <div id="educations">
+                                            @if (old('education'))
+                                                @foreach (old('education') as $key => $education)
+                                                    @if ($key > 0)
+                                                        <div class="mt-2">
+                                                            <input type="text" value="{{ $education }}"
+                                                                class="form-control" name="education[]"
+                                                                placeholder="{{ __('admin.placeholder_text') }}">
+                                                        </div>
+                                                    @endif
+                                                @endforeach
+                                            @endif
+                                        </div>
+                                        <button type="button" class="btn btn-outline-primary mt-2" id="add_education">
+                                            <i class="mdi mdi-plus"></i>
+                                        </button>
+                                        <script>
+                                            document.getElementById('add_education').addEventListener('click', function() {
+                                                const educations = document.getElementById('educations');
+                                                const newPhone = document.createElement('div');
+                                                newPhone.classList.add('mt-2');
+                                                newPhone.innerHTML = `<input type="text" class="form-control" name="education[]" placeholder="{{ __('admin.placeholder_text') }}">`;
+                                                educations.appendChild(newPhone);
+                                            });
+                                        </script>
+                                    </div>
                                 </div>
-                                <div class="mb-3">
-                                    <label class="form-label">{{ __('admin.field_additional_education') }}</label>
-                                    <textarea class="form-control" name="additional_education" placeholder="{{ __('admin.placeholder_text') }}"
-                                        style="height: 234px;">{{ old('additional_education') }}</textarea>
-                                </div>
+
+
                                 <div class="mb-3">
                                     <label class="form-label">{{ __('admin.field_description') }}</label>
                                     <textarea id="editor" class="form-control" name="description" placeholder="{{ __('admin.placeholder_text') }}"
                                         style="height: 234px;">{{ old('description') }}</textarea>
                                 </div>
-
+                                <div class="col-xxl-12 col-md-12">
+                                    <div>
+                                        <p class="card-title-desc text-muted">{{__('admin.field_seo')}}</p>
+                                        <div class="row gy-4">
+                                            <div class="col-xxl-6 col-md-6">
+                                                <label for="valueInput" class="form-label">{{__('admin.field_meta_title')}}</label>
+                                                <input type="text" value="{{ old('meta_title') }}" class="form-control"
+                                                    id="valueInput" name="meta_title" placeholder="{{__('admin.placeholder_text')}}">
+                                            </div>
+                                            <div class="col-xxl-6 col-md-6">
+                                                <label for="valueInput" class="form-label">{{__('admin.field_meta_description')}}</label>
+                                                <textarea class="form-control" name="meta_description" rows="3">{{ old('meta_description') }}</textarea>
+                                            </div>
+                                            <div class="col-xxl-6 col-md-6">
+                                                <label for="valueInput" class="form-label">{{__('admin.field_meta_keywords')}}</label>
+                                                <textarea class="form-control" name="meta_keywords" rows="3">{{ old('meta_keywords') }}</textarea>
+                                            </div>
+                                            <div class="col-xxl-6 col-md-6">
+                                                <label for="valueInput" class="form-label">{{__('admin.field_og_url')}}</label>
+                                                <input type="text" value="{{ old('og_url') }}" class="form-control"
+                                                    id="valueInput" name="og_url" placeholder="{{__('admin.placeholder_text')}}">
+                                            </div>
+                                            <div class="col-xxl-6 col-md-6">
+                                                <label for="valueInput" class="form-label">{{__('admin.field_og_title')}}</label>
+                                                <input type="text" value="{{ old('og_title') }}" class="form-control"
+                                                    id="valueInput" name="og_title" placeholder="{{__('admin.placeholder_text')}}">
+                                            </div>
+                                            <div class="col-xxl-6 col-md-6">
+                                                <label for="valueInput" class="form-label">{{__('admin.field_og_description')}}</label>
+                                                <textarea class="form-control" name="og_description" rows="3">{{ old('og_description') }}</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <button type="submit"
                                 class="btn btn-success waves-effect waves-light mt-5">{{ __('admin.btn_save') }}</button>

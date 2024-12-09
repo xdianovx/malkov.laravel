@@ -24,18 +24,6 @@ class BlockController extends BaseController
         return view('admin.blocks.show', compact('item', 'user'));
     }
 
-    public function create()
-    {
-        $user = Auth::user();
-        return view('admin.blocks.create', compact('user'));
-    }
-    public function store(StoreRequest $request)
-    {
-        $data = $request->validated();
-        Block::firstOrCreate($data);
-
-        return redirect()->route('admin.blocks.index')->with('status', 'item-created');
-    }
     public function edit($block_id)
     {
         $user = Auth::user();
@@ -46,6 +34,9 @@ class BlockController extends BaseController
     {
         $block = Block::whereId($block_id)->firstOrFail();
         $data = $request->validated();
+        if (!array_key_exists('is_active', $data)) {
+            $data['is_active'] = 'off';
+          }
         $block->update($data);
 
         return redirect()->route('admin.blocks.index')->with('status', 'item-updated');

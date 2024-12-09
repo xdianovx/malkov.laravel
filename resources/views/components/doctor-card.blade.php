@@ -1,15 +1,13 @@
 @props(['title', 'slug', 'image', 'profs', 'expirience', 'operations'])
 
 <a href="{{ route('specialist', $slug) }}" class="doctor-item">
-    <img src="{{ asset('storage') . '/' . $image }}" alt="Имя и фамилия доктора">
+    <img src="{{ asset('storage') . '/' . $image }}" alt="{!! $title !!}">
 
     <div class="doctor-item__info">
         <h3 class="doctor-item__name">{!! $title !!}</h3>
 
         <div class="doctor-item__prof">
-            @foreach ($profs as $item)
-                <p>{{ $item->title }}</p>
-            @endforeach
+            {!! $profs !!}
         </div>
 
         <div class="doctor-item__list">

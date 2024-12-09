@@ -32,9 +32,8 @@ class SpecialistController extends BaseController
     public function create()
     {
         $user = Auth::user();
-        $specializations = Specialization::all();
         $services = Service::where('parent_id', null)->get();
-        return view('admin.specialists.create', compact('user','specializations','services'));
+        return view('admin.specialists.create', compact('user','services'));
     }
     public function store(StoreRequest $request)
     {
@@ -42,7 +41,6 @@ class SpecialistController extends BaseController
         $data = $request->validated();
         $split_data = $this->format_data_service->cutArraysFromRequest(
             $data,[
-                'specializations',
                 'services'
             ]);
 
@@ -54,7 +52,7 @@ class SpecialistController extends BaseController
         if ($request->hasFile('image_mob')) :
             $data['image_mob'] = $this->upload_service->imageConvertAndStore($request, $data['image_mob'], $data['slug']);
         endif;
-
+        $data['education'] = json_encode($data['education']);
         $item = Specialist::firstOrCreate($data);
         $this->format_data_service->writeDataToTable($item, $split_data['arreyIds']);
         return redirect()->route('admin.specialists.index')->with('status', 'item-created');
@@ -63,9 +61,8 @@ class SpecialistController extends BaseController
     {
         $user = Auth::user();
         $item = Specialist::whereSlug($specialist_slug)->firstOrFail();
-        $specializations = Specialization::all();
         $services = Service::where('parent_id', null)->get();
-        return view('admin.specialists.edit', compact('user', 'item','specializations','services'));
+        return view('admin.specialists.edit', compact('user', 'item','services'));
     }
     public function update(UpdateRequest $request, $specialist_slug)
     {
@@ -73,7 +70,6 @@ class SpecialistController extends BaseController
         $data = $request->validated();
         $split_data = $this->format_data_service->cutArraysFromRequest(
             $data,[
-                'specializations',
                 'services'
             ]);
 
@@ -86,7 +82,7 @@ class SpecialistController extends BaseController
         if ($request->hasFile('image_mob')) :
             $data['image_mob'] = $this->upload_service->imageConvertAndStore($request, $data['image_mob'], $data['slug']);
         endif;
-
+        $data['education'] = json_encode($data['education']);
         $specialist->update($data);
         $this->format_data_service->writeDataToTable($specialist, $split_data['arreyIds']);
 

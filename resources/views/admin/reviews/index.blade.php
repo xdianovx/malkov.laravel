@@ -60,6 +60,8 @@
                                     <tr>
                                         <th scope="col" style="width: 80px;">ID</th>
                                         <th scope="col">{{ __('admin.field_title') }}</th>
+                                        <th class="ps-0" scope="row">{{ __('admin.field_status') }}:</th>
+
                                         <th scope="col" style="width: 150px;">{{ __('admin.field_updated') }}</th>
                                         <th scope="col" style="width: 150px;">{{ __('admin.field_action') }}</th>
                                     </tr>
@@ -71,6 +73,13 @@
 
                                             <td><a
                                                     href="{{ route('admin.reviews.show', $item->id) }}">{{ $item->title }}</a>
+                                            </td>
+                                            <td>
+                                            @if($item->is_active == 'on')
+                                                <span class="text-success">{{ __('admin.active') }}</span>
+                                            @else
+                                                <span class="text-danger">{{ __('admin.inactive') }}</span>
+                                            @endif
                                             </td>
                                             <td>{{ $item->updated_at->diffForHumans() }}</td>
                                             <td>

@@ -13,7 +13,8 @@ class Review extends Model
         'title',
         'description',
         'rating',
-        'date'
+        'date',
+        'is_active',
     ];
     public static $reviews_routes = [
         'admin.reviews.index',

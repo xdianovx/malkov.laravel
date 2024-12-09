@@ -30,7 +30,25 @@ class UpdateRequest extends FormRequest
             'description_header'  => ['nullable'],
             'description'  => ['nullable'],
             'content' => ['nullable'],
-            'category_id' => 'required|string',
+
+            'meta_title'  => ['nullable'],
+            'meta_description'  => ['nullable'],
+            'meta_keywords'  => ['nullable'],
+            'og_url'  => ['nullable'],
+            'og_title'  => ['nullable'],
+            'og_description'  => ['nullable'],
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'h1_title.required' => 'Поле "Заголовок" обязательно для заполнения',
+            'h1_title.max' => 'Заголовок не может быть длиннее 70 символов',
+            'image.max' => 'Размер изображения не может быть более 200кб',
+            'image.mimes' => 'Изображение должно быть в одном из следующих форматов: jpeg, png, jpg, gif, svg',
+            'image_mob.max' => 'Размер изображения не может быть более 200кб',
+            'image_mob.mimes' => 'Изображение должно быть в одном из следующих форматов: jpeg, png, jpg, gif, svg',
         ];
     }
 }

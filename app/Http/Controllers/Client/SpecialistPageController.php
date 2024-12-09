@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
 use App\Models\Block;
+use App\Models\Blog;
 use App\Models\News;
 use App\Models\Page;
 use App\Models\Specialist;
@@ -15,17 +16,17 @@ class SpecialistPageController extends Controller
   public function index()
   {
 
-    $specialists_page = Page::whereSlug('vrachi')->firstOrFail();
-    $specializations = Specialization::all();
-    $news = News::orderBy('id', 'DESC')->take(8)->get();
-    $block_callback_form = Block::whereId(5)->where('is_active','TRUE')->firstOrFail();
-    $block_articles_news = Block::whereId(2)->where('is_active','TRUE')->firstOrFail();
-    $block_questions = Block::whereId(1)->where('is_active','TRUE')->firstOrFail();
+    $page = Page::whereSlug('vrachi')->firstOrFail();
+    $specialists = Specialist::all();
+    $blogs = Blog::orderBy('id', 'DESC')->take(8)->get();
+    $block_callback_form = Block::whereId(5)->firstOrFail();
+    $block_articles_news = Block::whereId(2)->firstOrFail();
+    $block_questions = Block::whereId(1)->firstOrFail();
 
     return view('doctors', compact(
-      'specializations',
-      'specialists_page',
-      'news',
+      'specialists',
+      'page',
+      'blogs',
       'block_callback_form',
       'block_questions',
       'block_articles_news'
@@ -34,12 +35,14 @@ class SpecialistPageController extends Controller
   public function show($specialist_slug)
   {
     $specialist = Specialist::whereSlug($specialist_slug)->firstOrFail();
+    $page = $specialist;
     $specialists = Specialist::where('slug', '!=', $specialist_slug)->orderBy('id', 'DESC')->take(8)->get();
     $block_callback_form = Block::whereId(5)->firstOrFail();
     $block_questions = Block::whereId(1)->firstOrFail();
     $block_specialists = Block::whereId(3)->firstOrFail();
 
         return view('doctor', compact(
+      'page',
       'specialist',
       'specialists',
       'block_callback_form',

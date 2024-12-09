@@ -21,7 +21,13 @@ class Stock extends Model
         'slug',
         'description',
         'description_header',
-        'slider_active'
+        'slider_active',
+        'meta_title',
+        'meta_description',
+        'meta_keywords',
+        'og_url',
+        'og_title',
+        'og_description',
         ];
     public static $stocks_routes = [
         'admin.stocks.index',

@@ -23,6 +23,14 @@ return new class extends Migration
             $table->text('description_header')->nullable();
             $table->text('description')->nullable();
             $table->text('content')->nullable();
+
+            $table->string('meta_title')->nullable();
+            $table->text('meta_description')->nullable();
+            $table->text('meta_keywords')->nullable();
+
+            $table->string('og_url')->nullable();
+            $table->string('og_title')->nullable();
+            $table->text('og_description')->nullable();
             $table->timestamps();
         });
     }

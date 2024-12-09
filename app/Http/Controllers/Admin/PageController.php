@@ -33,7 +33,7 @@ class PageController extends BaseController
     {
         $page = Page::whereSlug($page_slug)->firstOrFail();
         $data = $request->validated();
-        $data['slug'] = Str::slug($data['title']);
+        // $data['slug'] = Str::slug($data['title']);
 
         if ($request->hasFile('image')) :
             $data['image'] = $this->upload_service->imageConvertAndStore($request, $data['image'], $data['slug']);

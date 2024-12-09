@@ -34,6 +34,9 @@ class ReviewController extends BaseController
     public function store(StoreRequest $request)
     {
         $data = $request->validated();
+        if (!array_key_exists('is_active', $data)) {
+            $data['is_active'] = 'off';
+          }
         Review::firstOrCreate($data);
 
         return redirect()->route('admin.reviews.index')->with('status', 'item-created');
@@ -49,7 +52,9 @@ class ReviewController extends BaseController
     {
         $review = Review::whereId($review_id)->firstOrFail();
         $data = $request->validated();
-
+        if (!array_key_exists('is_active', $data)) {
+            $data['is_active'] = 'off';
+          }
         $review->update($data);
         return redirect()->route('admin.reviews.index')->with('status', 'item-updated');
     }

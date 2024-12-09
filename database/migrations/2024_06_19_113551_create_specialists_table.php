@@ -19,10 +19,17 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('image_mob')->nullable();
             $table->text('education')->nullable();
-            $table->text('additional_education')->nullable();
             $table->string('operations')->nullable();
             $table->string('experience')->nullable();
             $table->text('description')->nullable();
+
+            $table->string('meta_title')->nullable();
+            $table->text('meta_description')->nullable();
+            $table->text('meta_keywords')->nullable();
+
+            $table->string('og_url')->nullable();
+            $table->string('og_title')->nullable();
+            $table->text('og_description')->nullable();
             $table->timestamps();
         });
     }

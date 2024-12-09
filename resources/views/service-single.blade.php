@@ -9,6 +9,8 @@
                 <div class="service-single-hero__content">{!! $service->description_header !!}</div>
                 <x-ui.button-arrow text="Получить консультацию" data-micromodal-trigger="modal-callback"
                     class="service-single-hero__btn --accent" />
+                <x-ui.button-arrow text="Получить консультацию" data-micromodal-trigger="modal-callback"
+                    class="service-single-hero__btn --accent" />
                 <div class="divider horizontal gray"></div>
             </div>
     </section>
@@ -20,8 +22,6 @@
                 <div class="content">
                     {!! $service->description !!}
                 </div>
-            </div>
-        </div>
     </section>
 
     <section class="section services-page-section">

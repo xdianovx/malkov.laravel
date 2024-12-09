@@ -30,13 +30,23 @@
                             @csrf
                             @method('patch')
                             <div class="row gy-4">
-
                                 <div class="col-xxl-6 col-md-6">
                                     <div>
-                                        <label for="valueInput" class="form-label">{{ __('admin.field_title') }} *</label>
-                                        <input type="text" value="{{ $item->title }}" class="form-control"
-                                            id="valueInput" name="title"
+                                        <label for="valueInput" class="form-label">{{ __('admin.field_h1_title') }}
+                                            *</label>
+                                        <input type="text" value="{{ $item->h1_title }}" class="form-control"
+                                            id="valueInput" name="h1_title"
                                             placeholder="{{ __('admin.placeholder_text') }}">
+                                    </div>
+                                </div>
+                                <div class="col-xxl-6 col-md-6">
+                                    <div>
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="is_active" name="is_active"
+                                                {{ $item->is_active == 'on' ? 'checked' : '' }} role="switch">
+                                            <label class="form-check-label"
+                                                for="is_active">{{ __('admin.field_is_active') }}</label>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="mb-3">
@@ -55,5 +65,5 @@
             </div>
         </div>
     </div>
-@include('admin.upload_script')
+    @include('admin.upload_script')
 @endsection

@@ -132,6 +132,14 @@ class ServiceController extends BaseController
     $service->delete();
     return redirect()->route('admin.services.index')->with('status', 'item-deleted');
   }
+  public function destroy($service_slug)
+  {
+    $service = Service::whereSlug($service_slug)->firstOrFail();
+    $service->childrenServices()->delete();
+
+    $service->delete();
+    return redirect()->route('admin.services.index')->with('status', 'item-deleted');
+  }
 
   public function destroy_child($service_parent_slug, $service_slug)
   {

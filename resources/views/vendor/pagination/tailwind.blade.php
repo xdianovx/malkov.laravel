@@ -1,33 +1,17 @@
 @if ($paginator->hasPages())
 
-    <div class="gridjs-footer">
-        <div class="gridjs-pagination">
-            <div role="status" aria-live="polite" class="gridjs-summary" title="Page 1 of 2">
-                {!! __('Showing') !!}
-                @if ($paginator->firstItem())
-                    <b>{{ $paginator->firstItem() }}</b>
-                    {!! __('to') !!}
-                    <b>{{ $paginator->lastItem() }}</b>
-                @else
-                    {{ $paginator->count() }}
-                @endif
-                {!! __('of') !!}
-                <b class="font-medium">{{ $paginator->total() }}</b>
-                {!! __('results') !!}
-            </div>
-        </div>
-    </div>
+
 
     <div class="listjs-table" id="customerList">
         <div class="d-flex justify-content-end">
             <div class="pagination-wrap hstack gap-2">
                 @if ($paginator->onFirstPage())
                     <span class="page-item pagination-prev disabled">
-                        {!! __('pagination.previous') !!}
+                       <
                     </span>
                 @else
                     <a href="{{ $paginator->previousPageUrl() }}" class="page-item pagination-prev">
-                        {!! __('pagination.previous') !!}
+                        <
                     </a>
                 @endif
                 {{-- Pagination Elements --}}
@@ -62,11 +46,11 @@
                 @endforeach
                 @if ($paginator->hasMorePages())
                     <a href="{{ $paginator->nextPageUrl() }}" class="page-item pagination-next">
-                        {!! __('pagination.next') !!}
+                        >
                     </a>
                 @else
                     <span class="page-item pagination-next disabled">
-                        {!! __('pagination.next') !!}
+                       >
                     </span>
                 @endif
             </div>
