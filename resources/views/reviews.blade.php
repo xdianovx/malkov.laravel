@@ -27,7 +27,7 @@
                                 @for ($i = 1; $i <= $item->rating; $i++)
                                     <span class="star">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class=""
-                                            {{ $i <= $item->rating ? 'fill="#FFCC00"' : 'fill="none"' }} viewBox="0 0 24 24"
+                                            {{ $i <= $item->rating ? (fill = '#FFCC00') : (fill = 'none') }} viewBox="0 0 24 24"
                                             stroke-width="1" stroke="#FFCC00" stroke-linecap="round"
                                             stroke-linejoin="round">
                                             <path
