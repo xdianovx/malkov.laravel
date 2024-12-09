@@ -1,18 +1,14 @@
 @if ($paginator->hasPages())
 
-
-
     <div class="listjs-table" id="customerList">
         <div class="d-flex justify-content-end">
             <div class="pagination-wrap hstack gap-2">
                 @if ($paginator->onFirstPage())
                     <span class="page-item pagination-prev disabled">
-                       <
-                    </span>
-                @else
-                    <a href="{{ $paginator->previousPageUrl() }}" class="page-item pagination-prev">
-                        <
-                    </a>
+                        < </span>
+                        @else
+                            <a href="{{ $paginator->previousPageUrl() }}" class="page-item pagination-prev">
+                                < </a>
                 @endif
                 {{-- Pagination Elements --}}
                 @foreach ($elements as $element)
@@ -50,7 +46,7 @@
                     </a>
                 @else
                     <span class="page-item pagination-next disabled">
-                       >
+                        >
                     </span>
                 @endif
             </div>
