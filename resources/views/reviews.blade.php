@@ -3,11 +3,13 @@
 @section('content')
     <section class="section hero section-reviews">
         <div class="container">
-            <h1 class="h1 uppercase">{{ $page->title_h1 }}</h1>
-            <div class="section-reviews__description">
-                {!! $page->description !!}
+            <div class="flex flex-col gap-8">
+                <h1 class="h1 uppercase">{{ $page->title_h1 }}</h1>
+                <div class="section-reviews__description">
+                    {!! $page->description !!}
+                </div>
+                <div class="divider horizontal gray"></div>
             </div>
-            <div class="divider horizontal gray"></div>
         </div>
     </section>
 
@@ -73,37 +75,37 @@
                 let formData = new FormData(this);
 
                 fetch(this.action, {
-                    method: 'POST',
-                    body: formData,
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.status === 'item-created') {
-                        // handle success
-                        MicroModal.show('modal-thanks-review');
-                        this.reset();
-                    } else {
-                        // handle errors
-                        const errorList = document.createElement('ul');
-                        errorList.classList.add('errors-list');
+                        method: 'POST',
+                        body: formData,
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.status === 'item-created') {
+                            // handle success
+                            MicroModal.show('modal-thanks-review');
+                            this.reset();
+                        } else {
+                            // handle errors
+                            const errorList = document.createElement('ul');
+                            errorList.classList.add('errors-list');
 
-                        if (data.message) {
-                            Object.keys(data.message).forEach((key) => {
-                                data.message[key].forEach((error) => {
-                                    const errorItem = document.createElement('li');
-                                    errorItem.innerText = error;
-                                    errorList.appendChild(errorItem);
+                            if (data.message) {
+                                Object.keys(data.message).forEach((key) => {
+                                    data.message[key].forEach((error) => {
+                                        const errorItem = document.createElement('li');
+                                        errorItem.innerText = error;
+                                        errorList.appendChild(errorItem);
+                                    });
                                 });
-                            });
-                        }
+                            }
 
-                        document.getElementById('callback_error_review').appendChild(errorList);
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    document.getElementById('callback_error_review').innerText = data.message;
-                });
+                            document.getElementById('callback_error_review').appendChild(errorList);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        document.getElementById('callback_error_review').innerText = data.message;
+                    });
             });
         </script>
 
@@ -118,4 +120,3 @@
     <section class="section"></section>
 
 @endsection()
-
