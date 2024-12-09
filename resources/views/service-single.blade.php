@@ -4,11 +4,8 @@
     <section class="section hero service-single-hero">
         <div class="container">
             <div class="service-single-hero__wrap">
-
                 <h1 class="h1 uppercase">{!! $service->title !!}</h1>
                 <div class="service-single-hero__content">{!! $service->description_header !!}</div>
-                <x-ui.button-arrow text="Получить консультацию" data-micromodal-trigger="modal-callback"
-                    class="service-single-hero__btn --accent" />
                 <x-ui.button-arrow text="Получить консультацию" data-micromodal-trigger="modal-callback"
                     class="service-single-hero__btn --accent" />
                 <div class="divider horizontal gray"></div>
@@ -17,11 +14,10 @@
 
     <section class="section services-page-section">
         <div class="container">
-            <div class="service-content__wrap">
-
-                <div class="content">
-                    {!! $service->description !!}
-                </div>
+            <div class="content">
+                {!! $service->description !!}
+            </div>
+        </div>
     </section>
 
     <section class="section services-page-section">
