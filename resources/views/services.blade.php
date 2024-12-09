@@ -3,9 +3,9 @@
 @section('content')
     <section class="section hero">
         <div class="container">
-            <div class="flex mb-2 max-[1200px]:justify-center">
+            {{-- <div class="flex mb-2 max-[1200px]:justify-center">
                 {{ Breadcrumbs::render('services', $service_page) }}
-            </div>
+            </div> --}}
 
             <div class="hero-services__top max-[1200px]:flex-col max-[1200px]:items-center max-[1200px]:gap-4">
                 <h1 class="h1 uppercase max-[1200px]:text-center">
