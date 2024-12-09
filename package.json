@@ -14,6 +14,7 @@
         "vite": "^5.0.0"
     },
     "dependencies": {
+        "@editorjs/editorjs": "^2.30.7",
         "@fancyapps/ui": "^5.0.36",
         "imask": "^7.6.1",
         "micromodal": "^0.4.10",
