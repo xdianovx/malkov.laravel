@@ -14,12 +14,10 @@
     <link href="{{ asset('assets/admin/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/admin/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/admin/css/app.min.css') }}" rel="stylesheet" type="text/css" />
-
-
     <link href="{{ asset('assets/admin/css/custom.min.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ URL::asset('assets/admin/libs/quill/quill.core.css') }}" rel="stylesheet" type="text/css" />
+    {{-- <link href="{{ URL::asset('assets/admin/libs/quill/quill.core.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ URL::asset('assets/admin/libs/quill/quill.bubble.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ URL::asset('assets/admin/libs/quill/quill.snow.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ URL::asset('assets/admin/libs/quill/quill.snow.css') }}" rel="stylesheet" type="text/css" /> --}}
 </head>
 
 <body>
@@ -57,6 +55,7 @@
     <!-- END layout-wrapper -->
 
     <!-- JAVASCRIPT -->
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
     <script src="{{ asset('assets/admin/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/admin/libs/simplebar/simplebar.min.js') }}"></script>
     <script src="{{ asset('assets/admin/libs/node-waves/waves.min.js') }}"></script>
@@ -73,6 +72,7 @@
     <script src="{{ URL::asset('assets/admin/libs/particles.js/particles.js') }}"></script>
     <script src="{{ URL::asset('assets/admin/js/plugins.js') }}"></script>
     <script src="{{ URL::asset('assets/admin/js/app.js') }}"></script>
+
 
 
 </body>
