@@ -32,7 +32,7 @@
             <nav class="mt-10 grid grid-cols-2 gap-x-10 gap-y-10 max-[1200px]:grid-cols-1">
                 @foreach ($parent_services as $parent_service)
                     <div class="">
-                        <a class=" font-serif text-blue text-2xl max-[1200px]:text-xl"
+                        <a class="font-serif text-blue text-2xl max-[1200px]:text-xl"
                             href="{{ route('service-single', $parent_service->slug) }}">
                             {{ $parent_service->title }}
                         </a>
@@ -41,7 +41,7 @@
 
                             @foreach ($parent_service->children as $children_service)
                                 <div class="flex justify-between max-[550px]:flex-col max-[550px]:gap-2">
-                                    <a class="shrink-0 hover:text-gold transition-colors duration-300"
+                                    <a class="grow hover:text-gold transition-colors duration-300"
                                         href="{{ route('service-single', $children_service->slug) }}">
                                         {{ $children_service->title }}
                                     </a>
