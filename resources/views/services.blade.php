@@ -41,7 +41,7 @@
 
                             @foreach ($parent_service->children as $children_service)
                                 <div class="flex justify-between max-[550px]:flex-col max-[550px]:gap-2">
-                                    <a class="grow hover:text-gold transition-colors duration-300"
+                                    <a class="shrink-0 hover:text-gold transition-colors duration-300"
                                         href="{{ route('service-single', $children_service->slug) }}">
                                         {{ $children_service->title }}
                                     </a>
@@ -51,7 +51,7 @@
                                     </div>
 
 
-                                    <div class="shrink-0 max-[550px]:ml-auto">от 111 999 руб.</div>
+                                    <div class="shrink-0 grow max-[550px]:ml-auto">от 111 999 руб.</div>
                                 </div>
                             @endforeach
                         </ul>
