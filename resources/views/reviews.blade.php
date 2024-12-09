@@ -35,7 +35,7 @@
                 @endforelse
             </div>
             <div class="pagination">
-                {{ $reviews->links('pagination::tailwind') }}
+                {{ $reviews->links('pagination::simple-tailwind') }}
             </div>
         </div>
     </section>
