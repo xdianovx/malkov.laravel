@@ -26,11 +26,7 @@
 
     <x-navigation />
     <x-header />
-    <section class="section breadcrumbs">
-        <div class="container">
-            <x-ui.breadcrumbs class="breadcrumbs" />
-        </div>
-    </section>
+    <x-ui.breadcrumbs class="breadcrumbs" />
     <main>
         @yield('content')
     </main>
