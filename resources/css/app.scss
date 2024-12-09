@@ -2,12 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "normalize.css";
+@use "normalize.css";
 
-@import "./fonts.scss";
-@import "./reset.scss";
-@import "./vars.scss";
-@import "./helpers.scss";
+@use "./fonts.scss";
+@use "./reset.scss";
+@use "./vars.scss";
+@use "./helpers.scss";
 
 * {
   box-sizing: border-box;
