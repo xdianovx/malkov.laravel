@@ -13,7 +13,7 @@
         </div>
     </section>
 
-    <section class="stock-items-sections section">
+    <section class="stock-items-sections mt-10asd">
         <div class="container">
             <div class="stock-items-sections__items" id="stockCatalog">
                 @forelse($reviews as $item)
