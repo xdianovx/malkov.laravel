@@ -20,7 +20,7 @@
         </div>
     </section>
 
-    <section class="section services-page-section">
+    <section class="services-page-section">
         <div class="container">
             <div class="service-content__wrap">
                 <div class="service-items">
