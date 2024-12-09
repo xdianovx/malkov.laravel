@@ -5,10 +5,10 @@
         <div class="container">
             <div class="flex flex-col gap-8">
                 <h1 class="h1 uppercase">{{ $page->title_h1 }}</h1>
-                <div class="section-reviews__description">
+                <div class="mt-4 section-reviews__description">
                     {!! $page->description !!}
                 </div>
-                <div class="divider horizontal gray"></div>
+                <div class="divider horizontal gray mt-4"></div>
             </div>
         </div>
     </section>
