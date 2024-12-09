@@ -34,7 +34,7 @@
                     <p>{{ __('admin.notification_no_entries') }}</p>
                 @endforelse
             </div>
-            <div class="text-center">
+            <div class="pagination">
                 {{ $reviews->links() }}
             </div>
         </div>
