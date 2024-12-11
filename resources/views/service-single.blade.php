@@ -19,13 +19,12 @@
             </div>
         </div>
     </section>
-
+    @if ($service->prices->isNotEmpty())
     <section class="section section-services">
       <div class="container">
-
           <nav class="mt-10 grid grid-cols-2 gap-x-10 gap-y-10 max-[1200px]:grid-cols-1">
                   <ul class="mt-4 flex flex-col gap-2">
-                    @forelse($service->prices as $price)
+                    @foreach($service->prices as $price)
                           <div class="flex justify-between max-[550px]:flex-col max-[550px]:gap-2">
                               <a class="shrink-0 hover:text-gold transition-colors duration-300"
                                   href="{{ $price->link_service }}">
@@ -39,13 +38,12 @@
 
                               <div class="shrink-0 grow max-[550px]:ml-auto">от {{ $price->price }} руб.</div>
                           </div>
-                    @empty
-                        <p>{{ __('admin.notification_no_entries') }}</p>
-                    @endforelse
+                    @endforeach
                   </ul>
                 </nav>
               </div>
           </section>
+        @endif
 
 
     {{--    <section class="section price-section"> --}}
