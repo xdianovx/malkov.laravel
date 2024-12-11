@@ -44,7 +44,7 @@ class UploadFiles
         if ($request->is('*/main/*')) {
             $directory = 'uploads/main/' . $id_or_slug . '/images/';
         }
-        $defaultImage = Image::make($data);
+        $defaultImage = Image::getFacadeRoot()->make($data);
         $defaultImage->orientate();
         $filename = Str::ulid() . '.webp';
         $path = $directory . $filename;
