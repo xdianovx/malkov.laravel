@@ -22,6 +22,7 @@
     @if ($service->prices->isNotEmpty())
     <section class="section section-services">
       <div class="container">
+        <h2 class="h2 text-gold">Перечень услуг:</h2>
           <nav class="mt-10 grid grid-cols-2 gap-x-10 gap-y-10 max-[1200px]:grid-cols-1">
                   <ul class="mt-4 flex flex-col gap-2">
                     @foreach($service->prices as $price)
