@@ -47,7 +47,7 @@ class UploadFiles
         $defaultImage = Image::read($data);
         $filename = Str::ulid() . '.webp';
         $path = $directory . $filename;
-        $defaultImage = $defaultImage->orientate()->toWebp(80);
+        $defaultImage = $defaultImage->toWebp(80);
         Storage::disk('public')->put($path, (string)$defaultImage);
         return $path;
     }
@@ -77,7 +77,6 @@ class UploadFiles
         $data = $data->storeAs('public', $fileNameToStore);
         return $fileNameToStore;
     }
-
     // Удаление файлов(Не используется)
     public static function delete_files($item)
     {
