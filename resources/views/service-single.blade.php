@@ -20,23 +20,32 @@
         </div>
     </section>
 
-    <section class="section services-page-section">
-        <div class="container">
-            <div class="service-content__wrap">
-                <div class="service-items">
-                    @forelse($service->children as $children_service)
-                        <a class="service-item" href="{{ route('service-single', $children_service->slug) }}">
-                            <h3 class="service-item__title">{{ $children_service->title }}</h3>
-                            <p class="service-item__text">{!! $children_service->description !!}</p>
-                        </a>
+    <section class="section section-services">
+      <div class="container">
+
+          <nav class="mt-10 grid grid-cols-2 gap-x-10 gap-y-10 max-[1200px]:grid-cols-1">
+                  <ul class="mt-4 flex flex-col gap-2">
+                    @forelse($service->prices as $price)
+                          <div class="flex justify-between max-[550px]:flex-col max-[550px]:gap-2">
+                              <a class="shrink-0 hover:text-gold transition-colors duration-300"
+                                  href="{{ $price->link_service }}">
+                                  {{ $price->title }}
+                              </a>
+
+                              <div
+                                  class="border-b border-gray-300 border-dashed w-full mb-[6px] mx-4 max-[550px]:hidden">
+                              </div>
+
+
+                              <div class="shrink-0 grow max-[550px]:ml-auto">от {{ $price->price }} руб.</div>
+                          </div>
                     @empty
                         <p>{{ __('admin.notification_no_entries') }}</p>
                     @endforelse
-                </div>
-            </div>
-        </div>
-    </section>
-
+                  </ul>
+                </nav>
+              </div>
+          </section>
 
 
     {{--    <section class="section price-section"> --}}
