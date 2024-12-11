@@ -44,11 +44,10 @@ class UploadFiles
         if ($request->is('*/main/*')) {
             $directory = 'uploads/main/' . $id_or_slug . '/images/';
         }
-        $defaultImage = Image::getFacadeRoot()->make($data);
-        $defaultImage->orientate();
+        $defaultImage = Image::read($data);
         $filename = Str::ulid() . '.webp';
         $path = $directory . $filename;
-        $defaultImage = $defaultImage->toWebp(80);
+        $defaultImage = $defaultImage->orientate()->toWebp(80);
         Storage::disk('public')->put($path, (string)$defaultImage);
         return $path;
     }
