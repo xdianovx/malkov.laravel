@@ -42,7 +42,7 @@
                             @foreach ($parent_service->prices as $price)
                                 <div class="flex justify-between max-[550px]:flex-col max-[550px]:gap-2">
                                     <a class="shrink-0 hover:text-gold transition-colors duration-300"
-                                        href="{{ $price->url }}">
+                                        href="{{ $price->link_service }}">
                                         {{ $price->title }}
                                     </a>
 
