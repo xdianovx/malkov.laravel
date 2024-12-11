@@ -44,7 +44,8 @@ class UploadFiles
         if ($request->is('*/main/*')) {
             $directory = 'uploads/main/' . $id_or_slug . '/images/';
         }
-        $defaultImage = Image::read($data);
+        $defaultImage = Image::make($data);
+        $defaultImage->orientate();
         $filename = Str::ulid() . '.webp';
         $path = $directory . $filename;
         $defaultImage = $defaultImage->toWebp(80);
@@ -77,6 +78,7 @@ class UploadFiles
         $data = $data->storeAs('public', $fileNameToStore);
         return $fileNameToStore;
     }
+
     // Удаление файлов(Не используется)
     public static function delete_files($item)
     {
