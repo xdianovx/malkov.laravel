@@ -33,6 +33,7 @@ use App\Http\Controllers\Client\StockPageController;
 use App\Http\Controllers\Client\WelcomePageController;
 use Illuminate\Support\Facades\Route;
 
+
 Route::get('/', [WelcomePageController::class, 'index'])->name('home');
 
 Route::get('/uslugi', [ServicePageController::class, 'index'])->name('services');
@@ -218,4 +219,19 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
         Route::patch('/{clinic_certificate_id}', [ClinicSertificateController::class, 'update'])->name('update');
         Route::delete('/{clinic_certificate_id}', [ClinicSertificateController::class, 'destroy'])->name('destroy');
     });
+});
+Route::get('/password/reset', function () {
+  return redirect('/login');
+});
+
+Route::get('/password/reset/{token}', function () {
+  return redirect('/login');
+});
+
+Route::get('/password/reset/{token}/{email}', function () {
+  return redirect('/login');
+});
+
+Route::get('/email/verify', function () {
+  return redirect('/login');
 });

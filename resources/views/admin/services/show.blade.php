@@ -13,7 +13,7 @@
                         </div>
                         <div class="flex-shrink-0">
                             {{-- Buttons --}}
-                            <a type="button" class="btn btn-secondary" href="{{ route('admin.services.index') }}">
+                            {{-- <a type="button" class="btn btn-secondary" href="{{ route('admin.services.index') }}">
                                 <i class="ri-arrow-left-line align-bottom me-2 "></i>
                                 {{ __('admin.btn_back') }}
                             </a>
@@ -36,9 +36,9 @@
                             <button type="submit" class="btn btn-danger" data-bs-toggle="modal"
                                 data-bs-target="#modalScrollable{{ $item->slug }}"><i class="bx bx-trash me-1 "
                                     role="button"></i>
-                                {{ __('admin.btn_delete') }}</button>
+                                {{ __('admin.btn_delete') }}</button> --}}
 
-                            {{-- <div class="dropdown">
+                            <div class="dropdown">
                                 <a href="#" role="button" id="dropdownMenuLink1" data-bs-toggle="dropdown"
                                     aria-expanded="false" class="">
                                     <i class="ri-more-2-fill fs-14"></i>
@@ -75,7 +75,7 @@
                                             {{ __('admin.btn_delete') }}</button>
                                     </li>
                                 </ul>
-                            </div> --}}
+                            </div>
                         </div>
                     </div>
                     @if ($item->content)
