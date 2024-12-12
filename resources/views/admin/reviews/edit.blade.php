@@ -5,12 +5,15 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
-                <div class="card-header align-items-center d-flex">
-                    <h4 class="card-title mb-0 flex-grow-1">{{ __('admin.edit_review_card_title') }}
+              <div class="card-body">
+                <div class="card-header align-items-center d-flex card-title">
+                    <h4 class="mb-0 flex-grow-1 text-white">{{ __('admin.edit_review_card_title') }}
                         {{ $item->title }}</h4>
+                        <a href="{{ route('admin.reviews.show', $item->id) }}" class="btn btn-secondary mb-3">
+                          <i class="ri-arrow-left-fill me-1 align-bottom"></i>
+                          {{ __('admin.btn_back') }}
+                      </a>
                 </div>
-
-
             </div>
 
             @if ($errors->any())
@@ -25,6 +28,7 @@
                     @endforeach
                 </div>
             @endif
+          </div>
             <div class="card">
                 <div class="card-body">
                     <div class="live-preview">
@@ -62,6 +66,19 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-xxl-6 col-md-6">
+                                  <div>
+                                      <label for="valueInput" class="form-label">{{__('admin.field_specialist')}}</label>
+                                      <select class="form-select" name="specialist_id">
+                                          <option value="" {{ $item->specialist_id == null ? 'selected' : '' }}>{{ __('admin.placeholder_select_specialist') }}</option>
+                                          @foreach ($specialists as $specialist)
+                                              <option value="{{ $specialist->id }}" {{ $item->specialist_id == $specialist->id ? 'selected' : '' }}>
+                                                  {{ $specialist->title }}
+                                              </option>
+                                          @endforeach
+                                      </select>
+                                  </div>
+                              </div>
                                 <div class="col-xxl-6 col-md-6">
                                     <label for="exampleInputdate" class="form-label">{{ __('admin.field_date') }}</label>
                                     <input type="date" class="form-control" name="date"

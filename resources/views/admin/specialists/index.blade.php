@@ -144,12 +144,12 @@
                                 </tbody>
                             </table>
                         </div>
-                        @if ($specialists->links()->paginator->hasPages())
-                            {{ $specialists->links() }}
-                        @endif
                     </div>
                 </div>
             </div>
         </div>
+        @if ($specialists->links()->paginator->hasPages())
+        {{ $specialists->links() }}
+    @endif
     </div>
 @endsection

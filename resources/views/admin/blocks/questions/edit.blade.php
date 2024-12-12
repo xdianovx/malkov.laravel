@@ -5,12 +5,15 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
-                <div class="card-header align-items-center d-flex">
-                    <h4 class="card-title mb-0 flex-grow-1">{{ __('admin.edit_question_card_title') }} {{ $item->title }}
+              <div class="card-body">
+                <div class="card-header align-items-center d-flex card-title">
+                    <h4 class="mb-0 flex-grow-1 text-white">{{ __('admin.edit_question_card_title') }}: {{ $item->title }}
                     </h4>
+                    <a href="{{ route('admin.blocks.show', $block->id) }}" class="btn btn-secondary mb-3">
+                      <i class="ri-arrow-left-fill me-1 align-bottom"></i>
+                      {{ __('admin.btn_back') }}
+                  </a>
                 </div>
-
-
             </div>
 
             @if ($errors->any())
@@ -25,6 +28,7 @@
                     @endforeach
                 </div>
             @endif
+          </div>
             <div class="card">
                 <div class="card-body">
                     <div class="live-preview">
@@ -42,13 +46,11 @@
                                             id="valueInput" name="title" placeholder="{{ __('admin.placeholder_text') }}">
                                     </div>
                                 </div>
-                                <div class="col-xxl-6 mt-3 col-md-6">
-                                    <div>
-                                        <label for="valueInput" class="form-label">{{ __('admin.field_answer') }} *</label>
-                                        <textarea type="text" value="{{ $item->description }}" class="form-control" id="valueInput" name="description"
-                                            placeholder="{{ __('admin.placeholder_text') }}"></textarea>
-                                    </div>
-                                </div>
+                                <div class="mb-3">
+                                  <label class="form-label">{{ __('admin.field_answer') }}</label>
+                                  <textarea id="editor" class="form-control" name="description" placeholder="{{ __('admin.placeholder_text') }}"
+                                      style="height: 234px;">{{ $item->description }}</textarea>
+                              </div>
 
                             </div>
                             <button type="submit"

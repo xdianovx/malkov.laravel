@@ -49,6 +49,7 @@ class UploadFiles
         $path = $directory . $filename;
         $defaultImage = $defaultImage->toWebp(80);
         Storage::disk('public')->put($path, (string)$defaultImage);
+
         return $path;
     }
 

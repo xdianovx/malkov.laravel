@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\Review\StoreRequest;
 use App\Http\Requests\Review\UpdateRequest;
 use App\Models\Review;
+use App\Models\Specialist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -28,8 +29,8 @@ class ReviewController extends BaseController
     public function create()
     {
         $user = Auth::user();
-
-        return view('admin.reviews.create', compact('user'));
+        $specialists = Specialist::all();
+        return view('admin.reviews.create', compact('user', 'specialists'));
     }
     public function store(StoreRequest $request)
     {
@@ -44,9 +45,10 @@ class ReviewController extends BaseController
     public function edit($review_id)
     {
         $user = Auth::user();
+        $specialists = Specialist::all();
         $item = Review::whereId($review_id)->firstOrFail();
 
-        return view('admin.reviews.edit', compact('user', 'item'));
+        return view('admin.reviews.edit', compact('user', 'item', 'specialists'));
     }
     public function update(UpdateRequest $request, $review_id)
     {
@@ -74,6 +76,6 @@ class ReviewController extends BaseController
         else :
             $reviews = Review::filter()->paginate(10);
         endif;
-        return view('admin.reviews.index', compact('review', 'user'));
+        return view('admin.reviews.index', compact('reviews', 'user'));
     }
 }

@@ -4,45 +4,16 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
-
-                <div class="card-body">
-                    <div class="d-flex align-items-center">
-                        <div class="flex-grow-1">
-                            <h3 class=" align-items-center d-flex">{{ __('admin.service_card_title') }}:
+              <div class="card-body">
+                <div class="card-header align-items-center d-flex card-title">
+                        <h4 class="mb-0 flex-grow-1 text-white">{{ __('admin.service_card_title') }}:
                                 {{ $item->title }}</h3>
-                        </div>
                         <div class="flex-shrink-0">
-                            {{-- Buttons --}}
-                            {{-- <a type="button" class="btn btn-secondary" href="{{ route('admin.services.index') }}">
-                                <i class="ri-arrow-left-line align-bottom me-2 "></i>
-                                {{ __('admin.btn_back') }}
-                            </a>
-
-                            <a type="button" class="btn btn-secondary"
-                                href="{{ route('admin.services.create_child', $item->slug) }}">
-                                <i class="ri-share-line align-bottom me-2 "></i>
-                                {{ __('admin.btn_create_subservice') }}
-                            </a>
-
-                            <a type="button" class="btn btn-secondary"
-                                href="{{ route('admin.services.prices.create', $item->slug) }}">
-                                <i class="ri-share-line align-bottom me-2 "></i>
-                                {{ __('admin.btn_create_price') }}</a>
-
-                            <a href="{{ route('admin.services.edit', $item->slug) }}" class="btn btn-secondary"><i
-                                    class="ri-pencil-fill align-bottom me-2 "></i>
-                                {{ __('admin.btn_edit') }}</a>
-
-                            <button type="submit" class="btn btn-danger" data-bs-toggle="modal"
-                                data-bs-target="#modalScrollable{{ $item->slug }}"><i class="bx bx-trash me-1 "
-                                    role="button"></i>
-                                {{ __('admin.btn_delete') }}</button> --}}
-
                             <div class="dropdown">
-                                <a href="#" role="button" id="dropdownMenuLink1" data-bs-toggle="dropdown"
-                                    aria-expanded="false" class="">
-                                    <i class="ri-more-2-fill fs-14"></i>
-                                </a>
+                              <a href="#" role="button" id="dropdownMenuLink1" data-bs-toggle="dropdown"
+                              aria-expanded="false" class="btn btn-secondary mb-3">
+                             Действия <i class="ri-more-2-fill fs-14"></i>
+                          </a>
 
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink1"
                                     style="">

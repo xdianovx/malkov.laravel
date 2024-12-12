@@ -151,12 +151,12 @@
                                 </tbody>
                             </table>
                         </div>
-                        @if ($reviews->links()->paginator->hasPages())
-                            {{ $reviews->links() }}
-                        @endif
                     </div>
                 </div>
             </div>
         </div>
+        @if ($reviews->links()->paginator->hasPages())
+        {{ $reviews->links() }}
+    @endif
     </div>
 @endsection

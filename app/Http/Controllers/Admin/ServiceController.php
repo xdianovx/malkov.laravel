@@ -65,6 +65,7 @@ class ServiceController extends BaseController
   public function store(StoreRequest $request)
   {
     $data = $request->validated();
+    dd($data);
     $data['slug'] = Str::slug($data['title']);
     if ($request->hasFile('image')) :
       $data['image'] = $this->upload_service->imageConvertAndStore($request, $data['image'], $data['slug']);
@@ -72,6 +73,7 @@ class ServiceController extends BaseController
     if ($request->hasFile('image_mob')) :
       $data['image_mob'] = $this->upload_service->imageConvertAndStore($request, $data['image_mob'], $data['slug']);
     endif;
+
 
     Service::firstOrCreate($data);
     return redirect()->route('admin.services.index')->with('status', 'item-created');

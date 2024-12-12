@@ -7,6 +7,7 @@ use App\Models\Block;
 use App\Models\Blog;
 use App\Models\News;
 use App\Models\Page;
+use App\Models\Review;
 use App\Models\Specialist;
 use App\Models\Specialization;
 use App\Models\Stock;
@@ -38,16 +39,18 @@ class SpecialistPageController extends Controller
     $page = $specialist;
     $specialists = Specialist::where('slug', '!=', $specialist_slug)->orderBy('id', 'DESC')->take(8)->get();
     $block_callback_form = Block::whereId(5)->firstOrFail();
-    $block_questions = Block::whereId(1)->firstOrFail();
+    $block_reviews = Block::whereId(6)->firstOrFail();
     $block_specialists = Block::whereId(3)->firstOrFail();
+    $reviews = Review::where('specialist_id', $specialist->id)->orderBy('id', 'DESC')->take(8)->get();
 
         return view('doctor', compact(
       'page',
       'specialist',
       'specialists',
       'block_callback_form',
-      'block_questions',
-      'block_specialists'
+      'block_reviews',
+      'block_specialists',
+      'reviews'
     ));
   }
 }

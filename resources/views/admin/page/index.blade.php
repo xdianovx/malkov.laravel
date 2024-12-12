@@ -61,12 +61,12 @@
                                 </tbody>
                             </table>
                         </div>
-                        @if ($pages->links()->paginator->hasPages())
-                            {{ $pages->links() }}
-                        @endif
                     </div>
                 </div>
             </div>
         </div>
+        @if ($pages->links()->paginator->hasPages())
+        {{ $pages->links() }}
+    @endif
     </div>
 @endsection

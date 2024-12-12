@@ -27,6 +27,7 @@ class StoreRequest extends FormRequest
             'rating'=> ['numeric', 'max:5'],
             'date'  => ['date'],
             'is_active'=> ['nullable'],
+            'specialist_id' => ['nullable']
         ];
     }
 
@@ -40,12 +41,9 @@ class StoreRequest extends FormRequest
         return [
             'title.required' => 'Поле Имя является обязательным',
             'title.max' => 'Поле Имя не может быть длиннее 70 символов',
-
             'description.required' => 'Текст отзыва является обязательным',
-
             'rating.numeric' => 'Оценка отзыва должна быть числом',
             'rating.max' => 'Оценка отзыва не может быть больше 5',
-
             'date.date' => 'Дата отзыва должна быть датой',
         ];
     }

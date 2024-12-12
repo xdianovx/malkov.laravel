@@ -139,12 +139,12 @@
                                 </tbody>
                             </table>
                         </div>
-                        @if ($clinic_documents->links()->paginator->hasPages())
-                            {{ $clinic_documents->links() }}
-                        @endif
                     </div>
                 </div>
             </div>
         </div>
+        @if ($clinic_documents->links()->paginator->hasPages())
+        {{ $clinic_documents->links() }}
+    @endif
     </div>
 @endsection
