@@ -72,16 +72,16 @@
             </div>
         </div>
     </section>
-
+    @if ($block_reviews->is_active != null)
+        <x-sections.reviews-doctor :block="$block_reviews" :data="$reviews" />
+    @endif
     @if ($block_specialists->is_active != null)
     <x-sections.doctors :block="$block_specialists" :data="$specialists"/>
     @endif
     @if ($block_callback_form->is_active != null)
     <x-sections.callback :block="$block_callback_form"/>
     @endif
-    @if ($block_reviews->is_active != null)
-        <x-sections.reviews-external :block="$block_reviews" :data="$reviews" />
-    @endif
+
 
     <section class="section"></section>
 @endsection()
