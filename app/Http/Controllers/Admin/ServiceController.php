@@ -65,7 +65,6 @@ class ServiceController extends BaseController
   public function store(StoreRequest $request)
   {
     $data = $request->validated();
-    dd($data);
     $data['slug'] = Str::slug($data['title']);
     if ($request->hasFile('image')) :
       $data['image'] = $this->upload_service->imageConvertAndStore($request, $data['image'], $data['slug']);
