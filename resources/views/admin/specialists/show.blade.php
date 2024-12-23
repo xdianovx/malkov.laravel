@@ -134,6 +134,14 @@
                                     </td>
                                 </tr>
                                 <tr>
+                                  <th class="ps-0" scope="row">{{ __('admin.field_specializations') }}:</th>
+                                  <td class="text-muted">
+                                      @foreach (json_decode($item->specializations, true) as $specializations)
+                                          <p>{{ $specializations }}</p>
+                                      @endforeach
+                                  </td>
+                                  </tr>
+                                <tr>
                                 <tr>
                                     <th class="ps-0" scope="row">{{ __('admin.field_created') }}:</th>
                                     <td class="">{{ $item->created_at }}</td>

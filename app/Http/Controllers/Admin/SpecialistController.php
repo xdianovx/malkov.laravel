@@ -53,6 +53,8 @@ class SpecialistController extends BaseController
             $data['image_mob'] = $this->upload_service->imageConvertAndStore($request, $data['image_mob'], $data['slug']);
         endif;
         $data['education'] = json_encode($data['education']);
+        $data['specializations'] = json_encode($data['specializations']);
+
         $item = Specialist::firstOrCreate($data);
         $this->format_data_service->writeDataToTable($item, $split_data['arreyIds']);
         return redirect()->route('admin.specialists.index')->with('status', 'item-created');
@@ -83,6 +85,8 @@ class SpecialistController extends BaseController
             $data['image_mob'] = $this->upload_service->imageConvertAndStore($request, $data['image_mob'], $data['slug']);
         endif;
         $data['education'] = json_encode($data['education']);
+        $data['specializations'] = json_encode($data['specializations']);
+
         $specialist->update($data);
         $this->format_data_service->writeDataToTable($specialist, $split_data['arreyIds']);
 

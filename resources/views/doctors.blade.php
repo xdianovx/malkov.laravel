@@ -31,8 +31,8 @@
                             :slug="$specialist->slug"
                             :title="$specialist->h1_title"
                             :image="$specialist->image"
-                            :profs="$specialist->title"
-                            :expirience="$specialist->experience"
+                            :profs="$specialist->specializations"
+                            :experience="$specialist->experience"
                             :operations="$specialist->operations"
                         />
                     @endforeach

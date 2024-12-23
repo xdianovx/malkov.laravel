@@ -65,7 +65,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">{{ __('admin.field_description') }}</label>
-                                    <textarea id="editor" class="form-control" name="description"
+                                    <textarea id="summernote" class="form-control" name="description"
                                         placeholder="{{ __('admin.placeholder_text') }}" style="height: 234px;">{{ old('description') }}</textarea>
                                 </div>
                                 <div class="mb-3">
