@@ -1,198 +1,197 @@
 .section-doctor {
-    .divider {
-        margin-top: 32px;
-    }
+  .divider {
+    margin-top: 32px;
+  }
 }
 
 .section-doctor__wrap {
-    display: flex;
-    align-items: flex-start;
-    align-items: center;
-    gap: 32px;
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
 }
 
 .section-doctor__image {
-    max-width: 592px;
-    display: block;
-    aspect-ratio: 4/5;
-    object-fit: cover;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    border-radius: 8px;
-    width: 100%;
+  max-width: 592px;
+  display: block;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  width: 100%;
 }
 
 .doctor-rating {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .section-doctor__info_content {
-    h4 {
-        font-weight: 700;
-        margin-top: 20px;
-    }
+  h4 {
+    font-weight: 700;
+    margin-top: 20px;
+  }
 
-    p {
-        margin-top: 16px;
-    }
+  p {
+    margin-top: 16px;
+  }
 }
 
 .section-doctor-btn {
-    margin-top: 64px;
+  margin-top: 64px;
 }
 
 .section-doctor__info_content-mob {
-    display: none;
+  display: none;
 }
 
 .diplomas-items {
-    margin-top: 40px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 40px 16px;
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px 16px;
 }
 
 .diplom-item__image {
-    // aspect-ratio: 3/4;
-    width: 100%;
-    background: rgba($bgBlack, 0.2);
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
+  // aspect-ratio: 3/4;
+  width: 100%;
+  background: rgba($bgBlack, 0.2);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
 
-    img {
-        display: block;
-        width: 100%;
-    }
+  img {
+    display: block;
+    width: 100%;
+  }
 }
 
 .diplom-item__title {
-    margin-top: 16px;
-    font-size: 18px;
+  margin-top: 16px;
+  font-size: 18px;
 }
 
 .diplom-item__text {
-    margin-top: 8px;
+  margin-top: 8px;
 }
 
 @media screen and (max-width: 1440px) {
-    .section-doctor__image {
-        max-width: 480px;
-    }
+  .section-doctor__image {
+    max-width: 480px;
+  }
 }
 
 @media screen and (max-width: 1200px) {
-    .section-doctor__wrap {
-        align-items: stretch;
-        gap: 20px;
+  .section-doctor__wrap {
+    align-items: stretch;
+    gap: 20px;
+  }
+
+  .section-doctor__image {
+    max-width: 320px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+  }
+
+  .section-doctor__info_content {
+    display: none;
+  }
+
+  .section-doctor__info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .h1 {
+      font-size: 40px;
+    }
+  }
+
+  .section-doctor-btn {
+    margin-top: auto;
+  }
+
+  .doctor-rating {
+    margin-top: 8px;
+  }
+
+  .section-doctor__info_content-mob {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+
+    h4 {
+      font-weight: 700;
+      margin-top: 20px;
     }
 
-    .section-doctor__image {
-        max-width: 320px;
-        -webkit-border-radius: 4px;
-        -moz-border-radius: 4px;
-        border-radius: 4px;
+    p {
+      margin-top: 16px;
     }
+  }
 
-    .section-doctor__info_content {
-        display: none;
-    }
+  .diplomas-items {
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px 16px;
+  }
 
-    .section-doctor__info {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+  .diplom-item__image {
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 2px;
+  }
 
-        .h1 {
-            font-size: 40px;
-        }
-    }
+  .diplom-item__title {
+    margin-top: 8px;
+    font-size: 16px;
+  }
 
-    .section-doctor-btn {
-        margin-top: auto;
-    }
-
-    .doctor-rating {
-        margin-top: 8px;
-    }
-
-    .section-doctor__info_content-mob {
-        margin-top: 20px;
-        display: flex;
-        flex-direction: column;
-
-        h4 {
-            font-weight: 700;
-            margin-top: 20px;
-        }
-
-        p {
-            margin-top: 16px;
-        }
-    }
-
-    .diplomas-items {
-        margin-top: 32px;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 40px 16px;
-    }
-
-    .diplom-item__image {
-        -webkit-border-radius: 4px;
-        -moz-border-radius: 4px;
-        border-radius: 2px;
-    }
-
-    .diplom-item__title {
-        margin-top: 8px;
-        font-size: 16px;
-    }
-
-    .diplom-item__text {
-        margin-top: 4px;
-    }
+  .diplom-item__text {
+    margin-top: 4px;
+  }
 }
 
 @media screen and (max-width: 768px) {
-    .section-doctor__image {
-        max-width: 280px;
-    }
+  .section-doctor__image {
+    max-width: 280px;
+  }
 
-    .section-doctor__info {
-        .h1 {
-            font-size: 28px;
-        }
+  .section-doctor__info {
+    .h1 {
+      font-size: 28px;
     }
-    .diplomas-items {
-        margin-top: 32px;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 40px 16px;
-    }
+  }
+  .diplomas-items {
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 16px;
+  }
 }
 
 @media screen and (max-width: 550px) {
-    .section-doctor__wrap {
-        flex-direction: column;
-    }
+  .section-doctor__wrap {
+    flex-direction: column;
+  }
 
-    .section-doctor__image {
-        max-width: none;
-    }
+  .section-doctor__image {
+    max-width: none;
+  }
 
-    .section-doctor-btn {
-        justify-content: center;
-        margin-left: auto;
-        margin-top: 24px;
-    }
+  .section-doctor-btn {
+    justify-content: center;
+    margin-left: auto;
+    margin-top: 24px;
+  }
 
-    .diplomas-items {
-        margin-top: 32px;
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        gap: 40px 16px;
-    }
+  .diplomas-items {
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 40px 16px;
+  }
 }
 
 @media screen and (max-width: 320px) {
