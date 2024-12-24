@@ -4,12 +4,16 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
-                <div class="card-header align-items-center d-flex">
-                    <h4 class="card-title mb-0 flex-grow-1">{{ __('admin.new_specialist_card_title') }}</h4>
+              <div class="card-body">
+                <div class="card-header align-items-center d-flex card-title">
+                    <h4 class="mb-0 flex-grow-1 text-white">{{ __('admin.new_specialist_card_title') }}</h4>
+                    <a href="{{ route('admin.specialists.index') }}" class="btn btn-secondary mb-3">
+                      <i class="ri-arrow-left-fill me-1 align-bottom"></i>
+                      {{ __('admin.btn_back') }}
+                  </a>
                 </div>
+            </div>
 
-
-            </div>specialist
 
             @if ($errors->any())
                 <div class="alert alert-danger alert-border-left alert-dismissible fade show " role="alert">
@@ -23,7 +27,7 @@
                     @endforeach
                 </div>
             @endif
-
+          </div>
 
             <div class="card">
                 <div class="card-body">
@@ -129,10 +133,42 @@
                                     </div>
                                 </div>
 
+                                <div class="col-xxl-6 col-md-6">
+                                  <div>
+                                      <label for="specializationsInput" class="form-label">{{ __('admin.field_specializations') }} *</label>
+                                      <input type="text" value="{{ old('specializations.0') }}" class="form-control"
+                                          id="specializationsInput" name="specializations[]" placeholder="{{ __('admin.placeholder_text') }}">
+                                      <div id="specializationss">
+                                          @if (old('specializations'))
+                                              @foreach (old('specializations') as $key => $specializations)
+                                                  @if ($key > 0)
+                                                      <div class="mt-2">
+                                                          <input type="text" value="{{ $specializations }}"
+                                                              class="form-control" name="specializations[]"
+                                                              placeholder="{{ __('admin.placeholder_text') }}">
+                                                      </div>
+                                                  @endif
+                                              @endforeach
+                                          @endif
+                                      </div>
+                                      <button type="button" class="btn btn-outline-primary mt-2" id="add_specializations">
+                                          <i class="mdi mdi-plus"></i>
+                                      </button>
+                                      <script>
+                                          document.getElementById('add_specializations').addEventListener('click', function() {
+                                              const specializationss = document.getElementById('specializationss');
+                                              const newPhone = document.createElement('div');
+                                              newPhone.classList.add('mt-2');
+                                              newPhone.innerHTML = `<input type="text" class="form-control" name="specializations[]" placeholder="{{ __('admin.placeholder_text') }}">`;
+                                              specializationss.appendChild(newPhone);
+                                          });
+                                      </script>
+                                  </div>
+                                  </div>
 
                                 <div class="mb-3">
                                     <label class="form-label">{{ __('admin.field_description') }}</label>
-                                    <textarea id="editor" class="form-control" name="description" placeholder="{{ __('admin.placeholder_text') }}"
+                                    <textarea id="summernote" class="form-control" name="description" placeholder="{{ __('admin.placeholder_text') }}"
                                         style="height: 234px;">{{ old('description') }}</textarea>
                                 </div>
                                 <div class="col-xxl-12 col-md-12">

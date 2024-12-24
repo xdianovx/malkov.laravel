@@ -5,12 +5,15 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
-                <div class="card-header align-items-center d-flex">
-                    <h4 class="card-title mb-0 flex-grow-1">{{ __('admin.edit_modern_office_card_title') }}
+              <div class="card-body">
+                <div class="card-header align-items-center d-flex card-title">
+                    <h4 class="mb-0 flex-grow-1 text-white">{{ __('admin.edit_modern_office_card_title') }}:
                         {{ $item->title }}</h4>
+                        <a href="{{ route('admin.blocks.show', $block->id) }}" class="btn btn-secondary mb-3">
+                          <i class="ri-arrow-left-fill me-1 align-bottom"></i>
+                          {{ __('admin.btn_back') }}
+                      </a>
                 </div>
-
-
             </div>
 
             @if ($errors->any())
@@ -25,8 +28,9 @@
                     @endforeach
                 </div>
             @endif
+          </div>
+
             @if (!empty($files['image_mob']))
-                <div class="col-xxl-6">
                     <div class="card">
                         <div class="card-body">
                             <p class="card-title-desc text-muted">{{ __('admin.field_current_image_mob') }}</p>
@@ -78,21 +82,9 @@
                     </div>
                 </div>
         </div>
-    @else
-        @endif
-        @if ($item->description)
-            <h5 class="text-muted">{{ __('admin.field_description') }}:</h5>
-            <div class="table-responsive">
-                <table class="table table-borderless mb-0">
-                    <tbody>
-                        <tr>
-                            <td class="text-muted">{!! $item->description !!}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
         @else
         @endif
+
         <div class="card">
             <div class="card-body">
                 <div class="live-preview">
@@ -101,7 +93,6 @@
                         @csrf
                         @method('patch')
                         <div class="row gy-4">
-
                             <div class="col-xxl-6 col-md-6">
                                 <div>
                                     <label for="valueInput" class="form-label">{{ __('admin.field_title') }} *</label>

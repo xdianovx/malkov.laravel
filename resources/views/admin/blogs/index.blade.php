@@ -141,12 +141,12 @@
                                 </tbody>
                             </table>
                         </div>
-                        @if ($blogs->links()->paginator->hasPages())
-                            {{ $blogs->links() }}
-                        @endif
                     </div>
                 </div>
             </div>
         </div>
+        @if ($blogs->links()->paginator->hasPages())
+        {{ $blogs->links() }}
+    @endif
     </div>
 @endsection

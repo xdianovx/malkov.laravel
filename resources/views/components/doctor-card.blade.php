@@ -1,4 +1,4 @@
-@props(['title', 'slug', 'image', 'profs', 'expirience', 'operations'])
+@props(['title', 'slug', 'image', 'profs', 'experience', 'operations'])
 
 <a href="{{ route('specialist', $slug) }}" class="doctor-item">
     <img src="{{ asset('storage') . '/' . $image }}" alt="{!! $title !!}">
@@ -7,15 +7,17 @@
         <h3 class="doctor-item__name">{!! $title !!}</h3>
 
         <div class="doctor-item__prof">
-            {!! $profs !!}
+          @foreach (json_decode($profs, true) as $key => $specializations)
+          {{ $specializations }}@if ($key < count(json_decode($profs, true)) - 1), @endif
+          @endforeach
         </div>
 
         <div class="doctor-item__list">
-            @isset($expirience)
+            @isset($experience)
                 <div class="doctor-item__list-item">
                     <p>Стаж</p>
                     <div class="spacer"></div>
-                    <p>{{ $expirience }}</p>
+                    <p>{{ $experience }}</p>
                 </div>
             @endisset
             <div class="doctor-item__list-item">

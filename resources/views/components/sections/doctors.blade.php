@@ -12,7 +12,7 @@
         <div class="doctors-section__items">
             {{--  --}}
             @foreach ($data as $specialist)
-                <x-doctor-card :slug="$specialist->slug" :title="$specialist->title" :image="$specialist->image" :profs="$specialist->specializations" :expirience="$specialist->expirience"
+                <x-doctor-card :slug="$specialist->slug" :title="$specialist->title" :image="$specialist->image" :profs="$specialist->specializations" :experience="$specialist->experience"
                     :operations="$specialist->operations" />
             @endforeach
 

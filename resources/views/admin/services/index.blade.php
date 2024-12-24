@@ -143,12 +143,12 @@
                                 </tbody>
                             </table>
                         </div>
-                        @if ($services->links()->paginator->hasPages())
-                            {{ $services->links() }}
-                        @endif
                     </div>
                 </div>
             </div>
         </div>
+        @if ($services->links()->paginator->hasPages())
+        {{ $services->links() }}
+    @endif
     </div>
 @endsection

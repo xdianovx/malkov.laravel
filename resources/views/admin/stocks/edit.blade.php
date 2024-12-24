@@ -4,8 +4,13 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
-                <div class="card-header align-items-center d-flex">
-                    <h4 class="card-title mb-0 flex-grow-1">{{ __('admin.edit_stock_card_title') }} {{ $item->title }}</h4>
+              <div class="card-body">
+                <div class="card-header align-items-center d-flex card-title">
+                    <h4 class="mb-0 flex-grow-1 text-white">{{ __('admin.edit_stock_card_title') }}: {{ $item->title }}</h4>
+                    <a href="{{ route('admin.stocks.show', $item->slug) }}" class="btn btn-secondary mb-3">
+                      <i class="ri-arrow-left-fill me-1 align-bottom"></i>
+                      {{ __('admin.btn_back') }}
+                  </a>
                 </div>
             </div>
 
@@ -21,9 +26,7 @@
                     @endforeach
                 </div>
             @endif
-
-            <div class="d-flex">
-
+          </div>
 
                 @if (!empty($item->image_mob))
                     <div class="col-xxl-6">
@@ -55,9 +58,6 @@
                     </div>
                 @else
                 @endif
-
-            </div>
-
 
             <div class="card">
                 <div class="card-body">

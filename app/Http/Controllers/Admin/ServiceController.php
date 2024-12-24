@@ -73,6 +73,7 @@ class ServiceController extends BaseController
       $data['image_mob'] = $this->upload_service->imageConvertAndStore($request, $data['image_mob'], $data['slug']);
     endif;
 
+
     Service::firstOrCreate($data);
     return redirect()->route('admin.services.index')->with('status', 'item-created');
   }

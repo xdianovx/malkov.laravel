@@ -4,18 +4,15 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
-
                 <div class="card-body">
-                    <div class="d-flex align-items-center mb-4">
-                        <div class="flex-grow-1">
-                            <h3 class="card-header align-items-center d-flex">{{ __('admin.document_card_title') }}:
+                    <div class="card-header align-items-center d-flex card-title">
+                            <h3 class=" mb-0 flex-grow-1 text-white">{{ __('admin.document_card_title') }}:
                                 {{ $item->title }}</h3>
-                        </div>
                         <div class="flex-shrink-0">
                             <div class="dropdown">
                                 <a href="#" role="button" id="dropdownMenuLink1" data-bs-toggle="dropdown"
-                                    aria-expanded="false" class="">
-                                    <i class="ri-more-2-fill fs-14"></i>
+                                    aria-expanded="false" class="btn btn-secondary mb-3">
+                                   Действия <i class="ri-more-2-fill fs-14"></i>
                                 </a>
 
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink1"

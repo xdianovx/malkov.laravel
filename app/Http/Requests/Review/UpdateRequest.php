@@ -28,6 +28,7 @@ class UpdateRequest extends FormRequest
             'rating'=> ['numeric', 'max:5'],
             'date'  => ['date'],
             'is_active'=> ['nullable'],
+            'specialist_id' => ['nullable']
         ];
     }
 

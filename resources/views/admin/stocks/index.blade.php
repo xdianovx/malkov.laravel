@@ -143,12 +143,13 @@
                                 </tbody>
                             </table>
                         </div>
-                        @if ($stocks->links()->paginator->hasPages())
-                            {{ $stocks->links() }}
-                        @endif
+
                     </div>
                 </div>
             </div>
         </div>
+        @if ($stocks->links()->paginator->hasPages())
+        {{ $stocks->links() }}
+    @endif
     </div>
 @endsection

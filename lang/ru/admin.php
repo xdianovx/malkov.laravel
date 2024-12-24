@@ -22,6 +22,8 @@ return [
     'clinic_certificates_card_title' => 'Сертификат клиники',
     'clinic_certificates_card_title_card_info' => 'Информация о сертификате клиники',
     'list_certificates' => 'Сертификаты',
+    'field_specialist' => 'Специалист',
+    'placeholder_select_specialist' => 'Без специалиста',
     //Titles services
     'new_service_card_title' => 'Новая услуга',
     'edit_service_card_title' => 'Изменить услугу',
@@ -177,7 +179,7 @@ return [
     'field_created' => 'Создано',
     'field_updated' => 'Обновлено',
     'field_action' => 'Действие',
-    'field_content' => 'Краткое описание',
+    'field_content' => 'Краткое описание(Для карточки)',
     'field_video' => 'Видео',
     'field_discounted_price' => 'Цена со скидкой',
     'field_price' => 'Цена',

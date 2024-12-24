@@ -5,19 +5,16 @@
         <div class="col-lg-12">
             <div class="card">
 
-                <div class="card-body">
-                    <div class="d-flex align-items-center mb-4">
-                        <div class="flex-grow-1">
-                            <h3 class="card-header align-items-center d-flex">{{ __('admin.blog_card_title') }}:
+              <div class="card-body">
+                <div class="card-header align-items-center d-flex card-title">
+                        <h4 class="mb-0 flex-grow-1 text-white">{{ __('admin.blog_card_title') }}:
                                 {{ $item->title }}</h3>
-                        </div>
                         <div class="flex-shrink-0">
                             <div class="dropdown">
-                                <a href="#" role="button" id="dropdownMenuLink1" data-bs-toggle="dropdown"
-                                    aria-expanded="false" class="">
-                                    <i class="ri-more-2-fill fs-14"></i>
-                                </a>
-
+                              <a href="#" role="button" id="dropdownMenuLink1" data-bs-toggle="dropdown"
+                              aria-expanded="false" class="btn btn-secondary mb-3">
+                             Действия <i class="ri-more-2-fill fs-14"></i>
+                          </a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink1"
                                     style="">
                                     <li>
@@ -41,9 +38,16 @@
                         </div>
                     </div>
                     @if ($item->description_header)
-                        <h5 class="">
-                            {!! $item->description_header !!}
-                        </h5>
+                    <h5 class="">{{ __('admin.field_description_header') }}:</h5>
+                    <div class="table-responsive">
+                        <table class="table table-borderless mb-0">
+                            <tbody>
+                                <tr>
+                                    <td class="">{!! $item->description_header !!}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                     @else
                     @endif
                     @if ($item->description)

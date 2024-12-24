@@ -2,7 +2,6 @@
     <div class="container">
         <div class="reviews-external-section__top">
             <h2 class="h2">{{ $block->h1_title }}</h2>
-            <p class="reviews-external-section__top-text">{!! $block->description !!}</p>
         </div>
         <div class="stock-items-sections__items" id="stockCatalog">
             @forelse($data as $item)
@@ -30,6 +29,5 @@
                 <p>{{ __('admin.notification_no_entries') }}</p>
             @endforelse
         </div>
-        <x-ui.button-arrow text="Все отзывы" href='/otzyvy' class="news-section__btn" />
     </div>
 </section>

@@ -15,6 +15,7 @@ class Review extends Model
         'rating',
         'date',
         'is_active',
+        'specialist_id'
     ];
     public static $reviews_routes = [
         'admin.reviews.index',
@@ -23,6 +24,12 @@ class Review extends Model
         'admin.reviews.show',
         'admin.reviews.edit',
     ];
+
+
+public function specialist()
+{
+    return $this->belongsTo(Specialist::class);
+}
 
     public function scopeFilter($items)
     {

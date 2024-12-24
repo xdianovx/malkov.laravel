@@ -16,6 +16,7 @@ class Specialist extends Model
         'title',
         'h1_title',
         'slug',
+        'specializations',
         'image',
         'image_mob',
         'education',

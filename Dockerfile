@@ -4,6 +4,7 @@ FROM php:8.2.11-fpm
 RUN apt update  && apt install -y \
     build-essential \
     git \
+    exif \
     curl \
     libcurl4 \
     libcurl4-openssl-dev \
