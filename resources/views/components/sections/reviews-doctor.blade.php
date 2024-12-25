@@ -10,7 +10,7 @@
               <p class="stock-item__text">{!! $item->description !!}</p>
 
               <div class="stock-item__bottom">
-                  <p> {{ $item->date }}</p>
+                  <p>{{ date('d.m.Y', strtotime($item->date)) }}</p>
                   <div class="rating flex items-center gap-1">
                       @for ($i = 1; $i <= $item->rating; $i++)
                           <span class="star">

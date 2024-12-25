@@ -10,6 +10,7 @@
     @else
         <title>{{ $page->meta_title }}</title>
         <meta name="description" content="{{ $page->meta_description }}">
+        <meta name="keywords" content="{{ $page->meta_keywords }}">
         <meta property="og:locale" content="ru_RU">
         <meta property="og:type" content="article">
         <meta property="og:title" content="{{ $page->og_title }}">

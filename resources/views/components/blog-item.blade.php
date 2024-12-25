@@ -4,7 +4,7 @@
     </div>
 
     <div class="news-item__top">
-        <p>{{ date('Y-m-d', strtotime($data->created_at)) }}</p>
+        <p>{{ date('d.m.Y', strtotime($data->created_at)) }}</p>
 
         <div class="news-item__time">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"

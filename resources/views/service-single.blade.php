@@ -5,6 +5,12 @@
         <div class="container">
             <div class="service-single-hero__wrap">
                 <h1 class="h1 uppercase">{!! $service->title !!}</h1>
+                @if (!empty($service->image))
+                    <div class="service-single-hero__image">
+                        <img src="{{ asset('storage') . '/' . $service->image }}" class="img-fluid" alt="Responsive image">
+                    </div>
+                @else
+                @endif
                 <div class="service-single-hero__content">{!! $service->description_header !!}</div>
                 <x-ui.button-arrow text="Получить консультацию" data-micromodal-trigger="modal-callback"
                     class="service-single-hero__btn --accent" />
