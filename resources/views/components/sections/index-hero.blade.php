@@ -13,7 +13,7 @@
 <section class="numbers">
     <div class="container">
         <div class="numbers__wrap">
-            @foreach ($item->home_page_nums->sortByDesc('id') as $item_num)
+            @foreach ($item->home_page_nums->sortBy('id') as $item_num)
                 <div class="numbers__item">
                     <div class="numbers__item-num">{{ $item_num->num }}<span>{{ $item_num->label }}</span></div>
                     <p class="numbers__item-descr">{{ $item_num->title }}</p>
