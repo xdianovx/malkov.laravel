@@ -71,8 +71,8 @@
                                 <div class="col-xxl-6 col-md-6">
                                     <div>
                                         <label for="valueInput" class="form-label">{{__('admin.field_title')}} *</label>
-                                        <input type="text" value="{{ $item->title }}" class="form-control"
-                                            id="valueInput" name="title" placeholder="{{__('admin.placeholder_text')}}">
+                                        <input type="text" value="{{ $item->title_h1 }}" class="form-control"
+                                            id="valueInput" name="title_h1" placeholder="{{__('admin.placeholder_text')}}">
                                     </div>
 
                                 </div>

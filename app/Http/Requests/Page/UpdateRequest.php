@@ -22,9 +22,8 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title_h1' => ['required', 'max:70'],
+            'title_h1' => ['nullable', 'max:70'],
             'description'  => ['nullable'],
-
             'meta_title'  => ['nullable'],
             'meta_description'  => ['nullable'],
             'meta_keywords'  => ['nullable'],
@@ -42,7 +41,6 @@ class UpdateRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'title_h1.required' => 'Поле "Заголовок" обязательно для заполнения',
             'title_h1.max' => 'Заголовок не может быть длиннее 70 символов'
         ];
     }

@@ -3,7 +3,7 @@
         <span class="index-hero__suptitle uppercase">с заботой о вашем здоровье</span>
 
         <div class="index-hero__wrap">
-            <h1 class="h1-index  uppercase">{!! $item->title !!}</h1>
+            <h1 class="h1-index  uppercase">{!! $item->title_h1 !!}</h1>
             <p class="index-hero__description">{!! $item->description !!}</p>
         </div>
     </div>
