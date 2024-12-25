@@ -6,7 +6,7 @@
                     <source src="{{ $data->file }}" type="video/mp4">
                 </video>
             @else
-                <img src="{{ $data->file }}" alt="logo">
+                <img src="{{ asset('storage') . '/' . $data->file }}" alt="logo">
             @endif
         </div>
     </section>
