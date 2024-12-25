@@ -19,7 +19,7 @@
                          @endforeach
                     </div>
 
-                    <x-ui.button-arrow class="accent section-doctor-btn" text="Записаться к врачу"/>
+                    <x-ui.button-arrow class="accent section-doctor-btn" data-micromodal-trigger="modal-callback" text="Записаться к врачу"/>
                 </div>
             </div>
 

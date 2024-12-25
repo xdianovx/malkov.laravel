@@ -13,6 +13,7 @@
 
                 <x-ui.button-arrow
                     class="ml-auto accent"
+                    data-micromodal-trigger="modal-callback"
                     text="Задать вопрос врачу"
                 />
             </div>
