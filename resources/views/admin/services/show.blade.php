@@ -461,9 +461,6 @@
                                 </tbody>
                             </table>
                         </div>
-                        @if ($child_items->links()->paginator->hasPages())
-                            {{ $child_items->links() }}
-                        @endif
                     </div>
                 </div>
             </div>
