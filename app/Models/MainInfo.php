@@ -17,7 +17,8 @@ class MainInfo extends Model
         'address',
         'working_days',
         'og_site_title',
-        'og_site_image'
+        'og_site_image',
+        'text_footer',
     ];
     public static $main_info_routes = [
         'admin.main_infos.edit',

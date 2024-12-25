@@ -46,7 +46,7 @@ class MainController extends BaseController
             $data['og_site_image'] = $this->upload_service->imageConvertAndStore($request, $data['og_site_image'], 'og_site_image');
         endif;
         $main_info = MainInfo::first();
-
+        dd($data);
         $main_info->update($data);
         return redirect()->route('admin.index')->with('status', 'item-updated');
     }
