@@ -25,7 +25,7 @@
         <h2 class="h2 text-gold">Перечень услуг:</h2>
           <nav class="mt-10 grid grid-cols-2 gap-x-10 gap-y-10 max-[1200px]:grid-cols-1">
                   <ul class="mt-4 flex flex-col gap-2">
-                    @foreach($service->prices as $price)
+                    @foreach($service->prices->sortBy('id') as $price)
                           <div class="flex justify-between max-[550px]:flex-col max-[550px]:gap-2">
                               <a class="shrink-0 hover:text-gold transition-colors duration-300"
                                   href="{{ $price->link_service }}">

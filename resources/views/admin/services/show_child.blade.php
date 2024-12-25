@@ -119,6 +119,14 @@
             @else
             @endif
             <div class="card">
+              <div class="demo-inline-spacing">
+                @if (session('status') === 'item-updated')
+                    <div class="alert alert-primary alert-dismissible" role="alert">
+                        {{ __('admin.alert_updated') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+            </div>
                 <div class="card-body">
                     <h5 class="card-header align-items-center d-flex">{{ __('admin.service_card_info') }}</h5>
                     <div class="table-responsive">

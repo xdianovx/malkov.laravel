@@ -23,7 +23,7 @@ class ServiceController extends BaseController
   {
     $user = Auth::user();
     $item = Service::whereSlug($service_slug)->firstOrFail();
-    $child_items = Service::with('childrenServices')->where('parent_id', $item->id)->orderBy('id', 'DESC')->paginate(10);
+    $child_items = Service::with('childrenServices')->where('parent_id', $item->id)->orderBy('id', 'DESC')->get();
     $prices = Price::where('service_id', $item->id);
     return view('admin.services.show', compact('item', 'user', 'child_items', 'prices'));
   }
@@ -108,7 +108,7 @@ class ServiceController extends BaseController
     endif;
 
     $service->update($data);
-    return redirect()->route('admin.services.show', $service_parent_slug)->with('status', 'service-child-updated');
+    return redirect()->route('admin.services.show_child', [$service_parent_slug, $service_slug])->with('status', 'service-child-updated');
   }
   public function update(UpdateRequest $request, $service_slug)
   {
@@ -124,7 +124,7 @@ class ServiceController extends BaseController
     endif;
 
     $service->update($data);
-    return redirect()->route('admin.services.edit', $service_slug)->with('status', 'item-updated');
+    return redirect()->route('admin.services.show', $service_slug)->with('status', 'item-updated');
   }
 
 
