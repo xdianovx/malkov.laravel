@@ -15,7 +15,7 @@
 
     <section class="stock-items-sections mt-10">
         <div class="container">
-            <div class="stock-items-sections__items" id="stockCatalog">
+            <div class="stock-items-sections__items grid gap-4" id="stockCatalog">
                 @forelse($reviews as $item)
                     <div class="stock-item">
                         <h3 class="stock-item__title">{!! $item->title !!}</h3>

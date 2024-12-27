@@ -26,31 +26,28 @@
         </div>
     </section>
     @if ($service->prices->isNotEmpty())
-    <section class="section section-services">
-      <div class="container">
-        <h2 class="h2 text-gold">Перечень услуг:</h2>
-          <nav class="mt-10 grid grid-cols-2 gap-x-10 gap-y-10 max-[1200px]:grid-cols-1">
-                  <ul class="mt-4 flex flex-col gap-2">
-                    @foreach($service->prices->sortBy('id') as $price)
-                          <div class="flex justify-between max-[550px]:flex-col max-[550px]:gap-2">
-                              <a class="shrink-0 hover:text-gold transition-colors duration-300"
-                                  href="{{ $price->link_service }}">
-                                  {{ $price->title }}
-                              </a>
+        <section class="section section-services">
+            <div class="container">
+                <h2 class="h2 text-gold">Перечень услуг:</h2>
+                <ul class="mt-10 flex flex-col gap-3">
+                    @foreach ($service->prices->sortBy('id') as $price)
+                        <div class="flex justify-between max-[550px]:flex-col max-[550px]:gap-2">
+                            <a class="shrink-0 hover:text-gold transition-colors duration-300"
+                                href="{{ $price->link_service }}">
+                                {{ $price->title }}
+                            </a>
 
-                              <div
-                                  class="border-b border-gray-300 border-dashed w-full mb-[6px] mx-4 max-[550px]:hidden">
-                              </div>
+                            <div class="border-b border-gray-300 border-dashed w-full mb-[6px] mx-4 max-[550px]:hidden">
+                            </div>
 
 
-                              <div class="shrink-0 grow max-[550px]:ml-auto">от {{ $price->price }} руб.</div>
-                          </div>
+                            <div class="shrink-0 grow max-[550px]:ml-auto">от {{ $price->price }} руб.</div>
+                        </div>
                     @endforeach
-                  </ul>
-                </nav>
-              </div>
-          </section>
-        @endif
+                </ul>
+            </div>
+        </section>
+    @endif
 
 
     {{--    <section class="section price-section"> --}}

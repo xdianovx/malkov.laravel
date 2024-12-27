@@ -1,7 +1,6 @@
 @extends('layouts.main')
 
 @section('content')
-
     <section class="section hero about-hero">
         <div class="container">
             <h1 class="h1 uppercase">{!! $page->title_h1 !!}</h1>
@@ -38,12 +37,13 @@
             </p>
             <div class="section-services__items">
                 @forelse($block_modern_offices->modern_offices as $item_modern_office)
-                        <div class="service-item__img">
-                            <a href="{{ asset('storage/' . $item_modern_office->file) }}" data-fancybox="gallery" data-caption="Caption #{{ $item_modern_office->id }}">
-                                <img src="{{ asset('storage/' . $item_modern_office->file) }}" alt="{{ $item_modern_office->description }}" class="modal-img">
-                            </a>
-                        </div>
-                 @empty
+                    <div class="service-item__img">
+                        <a href="{{ asset('storage/' . $item_modern_office->file) }}" data-fancybox="gallery">
+                            <img src="{{ asset('storage/' . $item_modern_office->file) }}"
+                                alt="{{ $item_modern_office->description }}" class="modal-img">
+                        </a>
+                    </div>
+                @empty
                     <p>{{ __('admin.notification_no_entries') }}</p>
                 @endforelse
 
@@ -56,7 +56,7 @@
             <div class="section-director__wrap">
 
                 <div class="section-director__image">
-                    <img src="{{asset('img/malkov.jpg')}}" alt="Мальков Сергей Николаевич фото"/>
+                    <img src="{{ asset('img/malkov.jpg') }}" alt="Мальков Сергей Николаевич фото" />
                 </div>
 
                 <div class="section-director__info">

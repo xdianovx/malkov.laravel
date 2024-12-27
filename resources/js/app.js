@@ -2,7 +2,8 @@
 import "swiper/css/bundle";
 import MicroModal from "micromodal";
 import Swiper from "swiper/bundle";
-
+import { Fancybox } from "@fancyapps/ui";
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import { accordition } from "./modules/accordition";
 import { mask } from "@/modules/mask";
 
@@ -13,6 +14,10 @@ MicroModal.init({ disableScroll: true });
 
 const burger = document.querySelector(".burger");
 const navigation = document.querySelector(".navigation");
+
+Fancybox.bind("[data-fancybox]", {
+  // Your custom options
+});
 
 burger.addEventListener("click", () => {
   if (navigation.classList.contains("active")) {
@@ -52,6 +57,24 @@ const newsSlider = new Swiper(".news-slider", {
     },
     1201: {
       slidesPerView: 4,
+    },
+  },
+});
+
+const swiperReviews = new Swiper(".reviews-slider", {
+  spaceBetween: 16,
+  autoplay: true,
+  speed: 300,
+  navigation: {
+    nextEl: ".btn-arrow-next",
+    prevEl: ".btn-arrow-prev",
+  },
+  breakpoints: {
+    320: {
+      slidesPerView: 1,
+    },
+    1200: {
+      slidesPerView: 2,
     },
   },
 });

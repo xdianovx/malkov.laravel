@@ -1,140 +1,141 @@
 .footer {
-    background: $bgBlack;
-    color: $textWhite;
-    padding: 40px 0 18px;
-    margin-top: auto;
+  background: $bgBlack;
+  color: $textWhite;
+  padding: 40px 0 18px;
+  margin-top: auto;
 }
 
 .footer__top {
-    display: flex;
+  display: flex;
 }
 
 .footer__description {
-    color: #b1b1b1;
-    max-width: 350px;
-    width: 100%;
-    margin-left: 64px;
-    font-size: 14px;
+  color: #b1b1b1;
+  line-height: 140%;
+  max-width: 500px;
+  width: 100%;
+  margin-left: 32px;
+  font-size: 14px;
 }
 
 .footer__logo {
+  display: block;
+  img {
     display: block;
-    img {
-        display: block;
-    }
+  }
 }
 
 .footer__contacts {
-    margin-left: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .footer__phone {
-    transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 
-    &:hover {
-        color: $textAccent;
-    }
+  &:hover {
+    color: $textAccent;
+  }
 }
 
 .footer__nav {
-    margin-top: 32px;
-    padding: 16px 0;
-    border-top: 1px solid $bgAccent;
-    border-bottom: 1px solid $bgAccent;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  margin-top: 32px;
+  padding: 16px 0;
+  border-top: 1px solid $bgAccent;
+  border-bottom: 1px solid $bgAccent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-    a {
-        transition: all 0.2s ease-in-out;
-        &:hover {
-            color: $textAccent;
-        }
+  a {
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      color: $textAccent;
     }
+  }
 }
 
 .footer__bot {
-    margin-top: 24px;
-    display: flex;
-    font-size: 12px;
-    gap: 16px;
-    color: $textGray;
+  margin-top: 24px;
+  display: flex;
+  font-size: 12px;
+  gap: 16px;
+  color: $textGray;
 }
 
 .footer__kometa {
-    margin-left: auto;
+  margin-left: auto;
 }
 
 .footer__socials {
-    margin-top: 16px;
+  margin-top: 16px;
 }
 
 @media (max-width: 768px) {
-    .footer__top {
-        flex-wrap: wrap;
-    }
+  .footer__top {
+    flex-wrap: wrap;
+  }
 
-    .footer__contacts {
-        margin-top: 12px;
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-    }
+  .footer__contacts {
+    margin-top: 12px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
 
-    .footer__description {
-        margin-left: auto;
-    }
+  .footer__description {
+    margin-left: auto;
+  }
 
-    .footer__socials {
-        margin-top: 0;
-    }
+  .footer__socials {
+    margin-top: 0;
+  }
 
-    .footer__nav {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-    }
+  .footer__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
 
-    .footer__bot {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
-    }
+  .footer__bot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
 
-    .footer__kometa {
-        margin-left: 0;
-    }
+  .footer__kometa {
+    margin-left: 0;
+  }
 }
 
 @media (max-width: 550px) {
-    .footer__top {
-        flex-wrap: nowrap;
-        flex-direction: column;
-    }
+  .footer__top {
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
 
-    .footer__description {
-        text-align: center;
-        max-width: none;
-        margin-top: 20px;
-    }
+  .footer__description {
+    text-align: center;
+    max-width: none;
+    margin-top: 20px;
+  }
 
-    .footer__logo {
-        margin: 0 auto;
-    }
+  .footer__logo {
+    margin: 0 auto;
+  }
 
-    .footer__contacts {
-        margin-top: 20px;
-        flex-direction: column;
-        gap: 16px;
-    }
+  .footer__contacts {
+    margin-top: 20px;
+    flex-direction: column;
+    gap: 16px;
+  }
 
-    .footer__bot {
-        text-align: center;
-    }
+  .footer__bot {
+    text-align: center;
+  }
 }
