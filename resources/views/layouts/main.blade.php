@@ -19,7 +19,7 @@
         <meta property="og:site_name" content="{{ $main_info->og_site_title }}">
         <meta property="og:image" content="{{ asset('storage') . '/' . $main_info->og_site_image }}">
     @endif
-
+    <link rel="shortcut icon" href="{{ asset('img/favicons/favicon.ico') }}">
     @vite(['resources/css/app.scss', 'resources/js/app.js'])
 </head>
 
