@@ -4,9 +4,7 @@
             <h2 class="h2">{{ $block->h1_title }}</h2>
             <p class="reviews-external-section__top-text">{!! $block->description !!}</p>
         </div>
-        <div class="stock-items-sections__items" id="stockCatalog">
-
-            <!-- Slider main container -->
+        <div class="" id="stockCatalog">
             <div class="swiper reviews-slider">
                 <div class="swiper-wrapper">
                     @forelse($data as $item)
@@ -38,9 +36,6 @@
                     @empty
                 </div>
             </div>
-
-
-
             <p>{{ __('admin.notification_no_entries') }}</p>
             @endforelse
         </div>

@@ -3,7 +3,7 @@
         <div class="reviews-external-section__top">
             <h2 class="h2">{{ $block->h1_title }}</h2>
         </div>
-        <div class="stock-items-sections__items" id="stockCatalog">
+        <div class="" id="stockCatalog">
             <div class="swiper reviews-slider">
                 <div class="swiper-wrapper">
                     @forelse($data as $item)
