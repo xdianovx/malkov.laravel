@@ -1,7 +1,8 @@
 .news-section__top {
   display: flex;
-  align-items: flex-end;
   justify-content: space-between;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .news-section__items {

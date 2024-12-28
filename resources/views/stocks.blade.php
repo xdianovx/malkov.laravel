@@ -6,9 +6,8 @@
             <div class="mb-4 flex justify-start">{{ Breadcrumbs::render('stocks') }}</div>
 
             <h1 class="h1 uppercase">{!! $page->title_h1 !!}</h1>
-            <p class="mt-2 text-neutral-600">{!! $page->description !!}</p>
-            <div class="divider horizontal gray">
-            </div>
+            <p class=" text-neutral-700">{!! $page->description !!}</p>
+            <div class="divider horizontal gray"></div>
         </div>
     </section>
 
