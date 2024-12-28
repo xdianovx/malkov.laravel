@@ -6,7 +6,6 @@
             <div class="mb-4">{{ Breadcrumbs::render('service-single', $service->slug) }}</div>
 
             <div class="service-single-hero__wrap">
-
                 <h1 class="h1 uppercase">{!! $service->title !!}</h1>
                 @if (!empty($service->image))
                     <div class="service-single-hero__image">
@@ -81,13 +80,8 @@
     {{--        </div> --}}
     {{--    </section> --}}
 
-
-
-
-
     <x-sections.callback :block="$block_callback_form" />
     <x-sections.services :block="$block_services" :data="$services" />
     <x-sections.faq :block="$block_questions" />
-
     <section class="section"></section>
 @endsection()
