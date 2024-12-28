@@ -4,6 +4,7 @@
     <section class="section hero section-single-news">
         <div class="container">
             <div class="single-news__wrap">
+                <div class="">{{ Breadcrumbs::render('stock-single', $stock->slug) }}</div>
 
                 <h1 class="h1 uppercase max-w-[1000px]">
                     {!! $stock->h1_title !!}
@@ -26,7 +27,7 @@
         </div>
     </section>
 
-    <section class="mt-[120px]">
+    <section class="mt-[20px]">
         <div class="container">
             <div class="content">
                 {!! $stock->description !!}

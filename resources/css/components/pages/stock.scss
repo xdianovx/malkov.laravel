@@ -14,17 +14,21 @@
   margin-top: 20px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 
 .stock-item {
   border: 1px solid #d9d9d9;
   padding: 24px 20px;
+  border-radius: 4px;
 }
 
+.stock-item-link {
+  margin-top: 0 !important;
+}
 .stock-item__title {
   font-family: "Forum", serif;
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 400;
   color: $textAccent;
   line-height: 100%;
@@ -32,6 +36,7 @@
 
 .stock-item__text {
   margin-top: 16px;
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .stock-item__bottom {
@@ -48,12 +53,39 @@
   .stock-items-sections__items {
     grid-template-columns: repeat(1, 1fr);
   }
+
+  .stock-item {
+    padding: 16px;
+  }
+
+  .stock-item__title {
+    font-size: 20px;
+  }
+
+  .stock-item__text {
+    margin-top: 8px;
+  }
+
+  .stock-item__bottom {
+    margin-top: 16px;
+  }
 }
 
 @media screen and (max-width: 768px) {
 }
 
 @media screen and (max-width: 550px) {
+  .stock-item__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .stock-item__text {
+    margin-top: 12px;
+    font-size: 14px;
+    line-height: 140%;
+  }
 }
 
 @media screen and (max-width: 320px) {
