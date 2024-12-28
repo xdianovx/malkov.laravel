@@ -3,7 +3,7 @@
 @section('content')
     <section class="section hero contacts-hero">
         <div class="container">
-            <div class="mb-4 flex justify-start max-[768px]:flex max-[768px]:justify-center max-[768px]:mb-8">
+            <div class="mb-4 flex justify-start max-[768px]:flex max-[768px]:justify-center max-[768px]:mb-4">
                 {{ Breadcrumbs::render('contacts') }}
             </div>
             <div class="contacts-hero__top">
