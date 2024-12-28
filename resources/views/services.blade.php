@@ -54,7 +54,7 @@
 
 
                                     <div class="shrink-0 grow max-[550px]:ml-auto  max-[768px]:text-gold">от
-                                        {{ $price->price }} руб.</div>
+                                      {{ number_format((float)$price->price, 0, '', ' ') }} руб.</div>
                                 </div>
                             @endforeach
                         </ul>

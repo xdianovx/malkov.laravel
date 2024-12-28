@@ -52,7 +52,7 @@
                         <h3 class="shrink-0 font-bold">{!! $service->title !!}</h3>
                         <div class="border-b border-gray-300 border-dashed w-full mb-[6px] mx-4 max-[1200px]:hidden">
                         </div>
-                        <p class="service-item__link">Подробнее</p>
+                        <p class="service-item__link">от {{ number_format((float)$service->price, 0, '', ' ') }} руб.</p>
 
                     </a>
                 @endforeach

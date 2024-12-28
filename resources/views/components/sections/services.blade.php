@@ -13,7 +13,7 @@
                     <div class="services-item__text">{!! $item->content !!}</div>
 
                     <div class="services-item__price">от
-                        {{ $item->prices->min('price') }} руб.
+                        {{ number_format((float)$item->prices->min('price'), 0, '', ' ') }} руб.
                     </div>
                 </a>
             @empty
