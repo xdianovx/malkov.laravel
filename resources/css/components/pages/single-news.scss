@@ -19,12 +19,24 @@
   text-align: center;
   max-width: 710px;
   margin: 0 auto 0;
-  font-weight: 300;
-  color: #565656;
 }
 
 @media screen and (max-width: 768px) {
+  .section-news {
+    margin-top: 32px !important;
+  }
+
+  .section-news__description {
+    margin-top: 4px;
+    font-size: 14px;
+    line-height: 140%;
+  }
   .section-single-news {
     margin-top: 32px !important;
+  }
+
+  .single-news__text {
+    font-size: 14px;
+    line-height: 140%;
   }
 }
