@@ -5,7 +5,7 @@
             <p class="reviews-external-section__top-text">{!! $block->description !!}</p>
         </div>
         <div class="" id="stockCatalog">
-            <div class="swiper reviews-slider">
+            <div class="swiper mt-5 max-[768px]:mt-4 reviews-slider">
                 <div class="swiper-wrapper">
                     @forelse($data as $item)
                         <div class="swiper-slide">
