@@ -1,6 +1,7 @@
 <div {{ $attributes->merge(['class' => 'socials']) }}>
-    <a href="{{ $main_info->telegram }}" target="_blank">
-        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <a href="{{ $main_info->telegram }}" target="_blank" class="block">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" class="block w-full h-full"
+            xmlns="http://www.w3.org/2000/svg">
             <path
                 d="M14 0C6.26795 0 0 6.26795 0 14C0 21.732 6.26795 28 14 28C21.732 28 28 21.732 28 14C28 6.26795 21.732 0 14 0Z"
                 fill="#40B3E0" />

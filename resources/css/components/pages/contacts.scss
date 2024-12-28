@@ -1,69 +1,78 @@
 .contacts-hero {
-    .divider {
-        margin-top: 32px;
-    }
-}
-.contacts-hero__top {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-}
-
-.contacts-hero__contacts {
+  .divider {
     margin-top: 32px;
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-}
-
-.contacts-hero__contacts_wrap {
-    display: flex;
-    gap: 32px;
-}
-
-.contacts-hero__contacts_item {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    line-height: 100%;
-
-    a {
-        transition: all .2s ease-in-out;
-
-        &:hover {
-            color: $textAccent;
-        }
-    }
+  }
 }
 
 .contacts-content-section {
-    .content {
-        margin-top: 32px;
-    }
+  margin-top: 0 !important;
+}
+.contacts-hero__top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
 }
 
+.contacts-hero__contacts {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.contacts-hero__contacts_wrap {
+  display: flex;
+  gap: 32px;
+}
+
+.contacts-hero__contacts_item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  line-height: 100%;
+
+  a {
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      color: $textAccent;
+    }
+  }
+}
+
+.contacts-content-section {
+  .content {
+    margin-top: 32px;
+  }
+}
 
 @media screen and (max-width: 1440px) {
 }
 
 @media screen and (max-width: 1200px) {
-    .contacts-hero__top {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 32px;
-    }
+  .contacts-hero__top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+  }
 }
 
 @media screen and (max-width: 768px) {
-    .contacts-hero__socials {
-        margin-left: auto;
-    }
+  .contacts-hero__socials {
+    margin-left: 0;
+  }
+
+  .contacts-hero__top {
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+  }
 }
 
 @media screen and (max-width: 550px) {
-    .contacts-hero__contacts_wrap {
-        flex-direction: column;
-    }
+  .contacts-hero__contacts_wrap {
+    flex-direction: column;
+  }
 }
 
 @media screen and (max-width: 320px) {
