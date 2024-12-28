@@ -78,7 +78,7 @@
                         <i class="mdi mdi-offer"></i> <span data-key="t-layouts">{{__('admin.aside_title_reviews')}}</span>
                     </a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link menu-link  @if (in_array(Route::current()->getName(), $clinic_document_routes)) active @endif"
                         href="{{ route('admin.clinic_documents.index') }}" aria-expanded="false"
                         aria-controls="sidebarLayouts">
@@ -91,7 +91,7 @@
                         aria-controls="sidebarLayouts">
                         <i class="mdi mdi-file-document"></i> <span data-key="t-layouts">{{__('admin.list_certificates')}}</span>
                     </a>
-                </li>
+                </li> --}}
             </ul>
         </div>
         <!-- Sidebar -->

@@ -61,7 +61,7 @@ Route::post('/otzyvy/store', [ReviewPageController::class, 'store'])->name('revi
 Route::get('/politika-konfidencialnosti', [PolitikaKonfidencialnostiPageController::class, 'index'])->name('politika-konfidencialnosti');
 Route::get('/pravila-predostavleniya-uslug', [PravilaPredostavleniyaUslugPageController::class, 'index'])->name('pravila-predostavleniya-uslug');
 
-Route::get('/pacientam', [PacientamPageController::class, 'index'])->name('pacientam');
+// Route::get('/pacientam', [PacientamPageController::class, 'index'])->name('pacientam');
 Route::post('/request_modal_section', [RequestsController::class, 'request_modal_section'])->name('request_modal_section');
 
 Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
