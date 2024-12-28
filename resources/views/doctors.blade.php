@@ -3,12 +3,12 @@
 @section('content')
     <section class="section hero doctors-hero">
         <div class="container">
-            <div class="mb-4 flex justify-start">{{ Breadcrumbs::render('stocks') }}</div>
+            <div class="mb-4 flex justify-start">{{ Breadcrumbs::render('specialists') }}</div>
 
             <div class="h1 uppercase dectors-hero__title">{{ $page->title_h1 }}</div>
 
             <div class="doctors-hero__top">
-                <p class="doctors-hero__text">
+                <p class="doctors-hero__text text-neutral-700">
                     {!! $page->description !!}
                 </p>
 

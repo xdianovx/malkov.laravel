@@ -32,9 +32,12 @@
   align-items: center;
   justify-content: space-between;
   line-height: 100%;
-  margin-top: 8px;
+  margin-top: 16px;
 }
 
+.news-item__time p {
+  margin-top: 0;
+}
 .news-item__image {
   aspect-ratio: 5/3;
   overflow: hidden;
@@ -61,7 +64,7 @@
 .news-item__title {
   transition: color 0.3s ease-in-out;
 
-  margin-top: 12px;
+  margin-top: 16px;
   font-family: "Forum", serif;
   font-size: 24px;
   font-style: normal;
@@ -71,12 +74,14 @@
 }
 
 .news-item__descr {
-  margin-top: 4px;
+  margin-top: 12px;
   color: rgba(#000000, 0.7);
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  font-size: 14px;
+  line-height: 130%;
   height: 70px;
 }
 

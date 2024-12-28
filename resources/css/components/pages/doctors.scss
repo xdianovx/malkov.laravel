@@ -16,7 +16,6 @@
 .doctors-hero__text {
   max-width: 710px;
   width: 100%;
-  color: $textGray;
 }
 
 .doctors-hero__btn {
@@ -55,6 +54,9 @@
 }
 
 @media screen and (max-width: 1200px) {
+  .news-section__items {
+    margin-top: 46px;
+  }
   .doctors-hero__top {
     flex-direction: column;
     align-items: flex-start;
@@ -80,6 +82,9 @@
 }
 
 @media screen and (max-width: 550px) {
+  .doctors-hero {
+    margin-top: 32px !important;
+  }
 }
 
 @media screen and (max-width: 320px) {
