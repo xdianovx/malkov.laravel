@@ -1,22 +1,24 @@
 @extends('layouts.main')
 
 @section('content')
-    <section class="section hero">
+    <section class="section hero hero-services-page">
         <div class="container">
             <div class="flex mb-2 max-[1200px]:justify-center">
                 {{ Breadcrumbs::render('services') }}
             </div>
 
-            <div class="flex flex-col gap-4 pb-8">
+            <div class="flex flex-col gap-4 pb-8 max-[1200px]:gap-2">
                 <h1 class="h1 uppercase max-[1200px]:text-center">
                     {!! $page->title !!}
                 </h1>
 
-                <p class="text-neutral-600"> {!! $page->description !!}</p>
+                <p class="text-neutral-600 max-[1200px]:text-center max-[768px]:text-[14px] max-[768px]:leading-[130%]">
+                    {!! $page->description !!}</p>
 
 
 
-                <button data-micromodal-trigger="modal-callback" class="btn --accent mr-auto max-[1200px]:ml-0">Бесплатная
+                <button data-micromodal-trigger="modal-callback"
+                    class="btn --accent mr-auto max-[1200px]:mx-auto max-[1200px]:mt-4 ">Бесплатная
                     консультация</button>
             </div>
 
