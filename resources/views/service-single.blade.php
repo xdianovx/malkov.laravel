@@ -3,7 +3,10 @@
 @section('content')
     <section class="section hero service-single-hero">
         <div class="container">
+            <div class="mb-4">{{ Breadcrumbs::render('service-single', $service->slug) }}</div>
+
             <div class="service-single-hero__wrap">
+
                 <h1 class="h1 uppercase">{!! $service->title !!}</h1>
                 @if (!empty($service->image))
                     <div class="service-single-hero__image">
@@ -11,7 +14,7 @@
                     </div>
                 @else
                 @endif
-                <div class="service-single-hero__content">{!! $service->description_header !!}</div>
+                <div class="service-single-hero__content text-neutral-600">{!! $service->description_header !!}</div>
                 <x-ui.button-arrow text="Получить консультацию" data-micromodal-trigger="modal-callback"
                     class="service-single-hero__btn --accent" />
                 <div class="divider horizontal gray"></div>
