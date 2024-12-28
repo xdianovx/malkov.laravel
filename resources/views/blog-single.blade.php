@@ -6,9 +6,8 @@
             <div class="mb-4 justify-start max-[768px]:flex max-[768px]:justify-center max-[768px]:mb-8">
                 {{ Breadcrumbs::render('blogs-single', $blog->slug) }}
             </div>
+
             <div class="single-news__wrap">
-
-
                 <h1 class="h1 uppercase">
                     {!! $blog->h1_title !!}
                 </h1>

@@ -45,7 +45,8 @@
                             </div>
 
 
-                            <div class="shrink-0 grow max-[1200px]:ml-auto max-[1200px]:text-gold">от {{ number_format((float)$price->price, 0, '', ' ') }}
+                            <div class="shrink-0 grow max-[1200px]:ml-auto max-[1200px]:text-gold">от
+                                {{ number_format((float) $price->price, 0, '', ' ') }}
                                 руб.</div>
                         </div>
                     @endforeach
@@ -84,8 +85,8 @@
 
 
 
-    <x-sections.services :block="$block_services" :data="$services" />
     <x-sections.callback :block="$block_callback_form" />
+    <x-sections.services :block="$block_services" :data="$services" />
     <x-sections.faq :block="$block_questions" />
 
     <section class="section"></section>
