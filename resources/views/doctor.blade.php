@@ -16,7 +16,18 @@
                         {!! $specialist->h1_title !!}
                     </h1>
 
-                    {{-- СЮДААА --}}
+                    <div class="doctor-item__prof">
+                      @php
+                          $specialist->specializations = json_decode($profs, true);
+                          $limitedSpecializations = array_slice($specializations, 0, 2);
+                      @endphp
+
+                      @foreach ($limitedSpecializations as $key => $specialization)
+                          {{ $specialization }}@if ($key < count($limitedSpecializations) - 1)
+                              ,
+                          @endif
+                      @endforeach
+                  </div>
                     <div class="section-doctor__info_content">
                         <p>{!! $specialist->meta_description !!}</p>
 
