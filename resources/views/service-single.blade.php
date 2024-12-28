@@ -18,6 +18,7 @@
                     class="service-single-hero__btn --accent" />
                 <div class="divider horizontal gray"></div>
             </div>
+        </div>
     </section>
 
     <section class="services-page-section">
