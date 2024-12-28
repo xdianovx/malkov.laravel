@@ -23,10 +23,6 @@
             </div>
 
             <div class="divider horizontal gray"></div>
-
-            <div class="hero-services__texts">
-                {!! $page->description_header !!}
-            </div>
         </div>
     </section>
 
@@ -34,19 +30,20 @@
     <section class="section section-services">
         <div class="container">
 
-            <nav class="mt-10 grid grid-cols-2 gap-x-10 gap-y-10 max-[1200px]:grid-cols-1">
+            <nav class="mt-10 grid grid-cols-2 gap-x-10 gap-y-10 max-[1200px]:grid-cols-1 max-[1200px]:gap-y-6">
                 @foreach ($parent_services as $parent_service)
                     <div class="">
-                        <a class="font-serif text-blue text-2xl max-[1200px]:text-xl"
+                        <a class="font-serif text-blue text-2xl max-[1200px]:text-xl "
                             href="{{ route('service-single', $parent_service->slug) }}">
                             {{ $parent_service->title }}
                         </a>
 
-                        <ul class="mt-4 flex flex-col gap-2">
+                        <ul class="mt-4 flex flex-col gap-2 max-[768px]:gap-1 max-[768px]:mt-3">
 
                             @foreach ($parent_service->prices as $price)
-                                <div class="flex justify-between max-[550px]:flex-col max-[550px]:gap-2">
-                                    <a class="shrink-0 hover:text-gold transition-colors duration-300"
+                                <div
+                                    class="flex justify-between max-[550px]:flex-col max-[550px]:gap-2 max-[768px]:border max-[768px]:p-3 max-[768px]:rounded-[4px] ">
+                                    <a class="shrink-0 hover:text-gold transition-colors duration-300 max-[768px]:leading-[120%]"
                                         href="{{ $price->link_service }}">
                                         {{ $price->title }}
                                     </a>
@@ -56,7 +53,8 @@
                                     </div>
 
 
-                                    <div class="shrink-0 grow max-[550px]:ml-auto">от {{ $price->price }} руб.</div>
+                                    <div class="shrink-0 grow max-[550px]:ml-auto  max-[768px]:text-gold">от
+                                        {{ $price->price }} руб.</div>
                                 </div>
                             @endforeach
                         </ul>

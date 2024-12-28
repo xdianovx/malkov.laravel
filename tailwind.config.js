@@ -8,6 +8,7 @@ export default {
     extend: {
       colors: {
         gold: "#ae7d26",
+        blue: "#153252",
       },
     },
   },
