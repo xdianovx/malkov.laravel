@@ -11,7 +11,6 @@
                 </p>
             </div>
             <div class="callback__right">
-                <div id="callback_error_section" style="color: red;"></div>
                 <form class="callback-form" id="callbackForm" action="{{ route('request_modal_section') }}">
                     @csrf
                     <input type="text" class="input" name="title" placeholder="Имя">
@@ -23,6 +22,8 @@
                             href="/politika-konfidencialnosti">политикой
                             конфиденциальности</a>
                     </p>
+
+                    <div id="callback_error_section" style="color: red;"></div>
                 </form>
             </div>
         </div>
@@ -34,6 +35,9 @@
 <script>
     document.getElementById('callbackForm').addEventListener('submit', function(event) {
         event.preventDefault();
+        const errorList = document.createElement('ul');
+        errorList.classList.add('errors-list');
+        document.getElementById('callback_error_section').appendChild(errorList);
 
         let formData = new FormData(this);
 
@@ -41,19 +45,29 @@
                 method: 'POST',
                 body: formData,
             })
-            .then(response => response.json())
+            .then(response => {
+                return response.json();
+            })
             .then(data => {
+                document.querySelector('#callback_error_section ul').innerText = '';
+                console.log(document.querySelector('#callback_error_section'));
+
                 if (data.status === 'item-sent') {
+                    document.querySelector('#callback_error_section ul').innerText = '';
+
                     // handle success
                     MicroModal.close('modal-callback');
                     MicroModal.show('modal-thanks');
                     this.reset();
-                } else {
-                    // handle errors
-                    const errorList = document.createElement('ul');
-                    errorList.classList.add('errors-list');
 
+                } else {
                     if (data.message) {
+                        document.querySelector('#callback_error_section').innerText = '';
+                        const errorList = document.createElement('ul');
+                        errorList.classList.add('errors-list');
+                        document.getElementById('callback_error_section').appendChild(errorList);
+
+
                         Object.keys(data.message).forEach((key) => {
                             data.message[key].forEach((error) => {
                                 const errorItem = document.createElement('li');
@@ -61,13 +75,14 @@
                                 errorList.appendChild(errorItem);
                             });
                         });
+                    } else {
+
                     }
 
-                    document.getElementById('callback_error_section').appendChild(errorList);
                 }
             })
             .catch(error => {
-                console.error('Error:', error);
+
                 document.getElementById('callback_error_section').innerText =
                     'Произошла ошибка повторите попытку позже!';
             });

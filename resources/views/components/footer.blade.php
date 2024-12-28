@@ -28,7 +28,8 @@
             <div class="footer__bot">
                 <a href="{{ route('politika-konfidencialnosti') }}">Политика конфиденциальности</a>
                 <a href="{{ route('pravila-predostavleniya-uslug') }}">Правила предоставления услуг мед.организации</a>
-                <a href="http://kometa.team" class="footer__kometa" target="_blank">
+                <a href="https://kometa.team/?utm_source=maked-sites&utm_medium=banner&utm_campaign=maklov-clinic&utm_content={ad_id}&utm_term={keyword}"
+                    class="footer__kometa" target="_blank">
                     <img src="{{ asset('img/icon/kometa.svg') }}" alt="" />
                 </a>
             </div>

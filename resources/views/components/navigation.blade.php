@@ -23,7 +23,7 @@
                 <p>{{ $main_info->address }}</p>
                 <div class="flex flex-col">{!! $main_info->working_days !!}</div>
 
-                <button class="btn uppercase">Заказать звонок</button>
+                <button class="btn uppercase" data-micromodal-trigger="modal-callback">Заказать звонок</button>
 
                 <div class="nav-left-policy">
                     <a href="{{ route('politika-konfidencialnosti') }}">Политика конфиденциальности</a>
