@@ -3,19 +3,21 @@
 @section('content')
     <section class="section hero section-doctor">
         <div class="container">
+            <div class="mb-4  justify-start hidden max-[768px]:flex">
+                {{ Breadcrumbs::render('specialist', $specialist->slug) }}</div>
             <div class="section-doctor__wrap">
 
                 <img class="section-doctor__image" src="{{ asset('storage') . '/' . $specialist->image }}" alt="">
                 <div class="section-doctor__info">
+                    <div class="mb-4 flex text-left items-start justify-start max-[768px]:hidden">
+                        {{ Breadcrumbs::render('specialist', $specialist->slug) }}</div>
+
                     <h1 class="h1 uppercase">
                         {!! $specialist->h1_title !!}
                     </h1>
-                    {{-- <h3><strong>Образование и курсы</strong></h3> --}}
-                    <div class="section-doctor__info_content">
-                        {{-- @foreach (json_decode($specialist->education, true) as $education)
-                            <p>{{ $education }}</p>
-                        @endforeach --}}
 
+                    {{-- СЮДААА --}}
+                    <div class="section-doctor__info_content">
                         <p>{!! $specialist->meta_description !!}</p>
 
                     </div>
@@ -43,6 +45,19 @@
             </div>
         </div>
     </section>
+
+    <section class="section doctor-exp-section">
+        <div class="container">
+            <h2 class="h2 mb-5">Образование и курсы</h2>
+            <div class="content ">
+                <ul>
+                    @foreach (json_decode($specialist->education, true) as $education)
+                        <li>{{ $education }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        </div>
+    </section>
     <section class="section doc-services-section">
         <div class="container">
             <h2 class="h2">Оказываемые услуги</h2>
@@ -52,7 +67,9 @@
                         <h3 class="shrink-0 font-bold">{!! $service->title !!}</h3>
                         <div class="border-b border-gray-300 border-dashed w-full mb-[6px] mx-4 max-[1200px]:hidden">
                         </div>
-                        <p class="service-item__link">от {{ number_format((float)$service->price, 0, '', ' ') }} руб.</p>
+                        <p class="service-item__link shrink-0 text-gold">от
+                            {{ number_format((float) $service->price, 0, '', ' ') }}
+                            руб.</p>
 
                     </a>
                 @endforeach
