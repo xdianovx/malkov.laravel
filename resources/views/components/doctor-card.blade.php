@@ -7,9 +7,16 @@
         <h3 class="doctor-item__name">{!! $title !!}</h3>
 
         <div class="doctor-item__prof">
-          @foreach (json_decode($profs, true) as $key => $specializations)
-          {{ $specializations }}@if ($key < count(json_decode($profs, true)) - 1), @endif
-          @endforeach
+            @php
+                $specializations = json_decode($profs, true);
+                $limitedSpecializations = array_slice($specializations, 0, 2);
+            @endphp
+
+            @foreach ($limitedSpecializations as $key => $specialization)
+                {{ $specialization }}@if ($key < count($limitedSpecializations) - 1)
+                    ,
+                @endif
+            @endforeach
         </div>
 
         <div class="doctor-item__list">
@@ -17,14 +24,18 @@
                 <div class="doctor-item__list-item">
                     <p>Стаж</p>
                     <div class="spacer"></div>
-                    <p>{{ $experience }}</p>
+                    <p>{{ $experience }} лет</p>
                 </div>
             @endisset
-            <div class="doctor-item__list-item">
-                <p>Операций</p>
-                <div class="spacer"></div>
-                <p>{{ $operations }}</p>
-            </div>
+
+            @isset($operations)
+                <div class="doctor-item__list-item">
+                    <p>Операций</p>
+                    <div class="spacer"></div>
+                    <p>{{ $operations }}</p>
+                </div>
+            @endisset
+
         </div>
 
         <button class="doctor-item__modal-btn">

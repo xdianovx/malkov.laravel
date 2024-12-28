@@ -52,8 +52,12 @@
             <div class="callback-wrap">
                 <div class="callback__left">
                     <h2 class="h2">
-                        Оставьте свой отзыв о нас
+                        Оставьте свой <br> отзыв о нас
                     </h2>
+
+                    <p class="text-neutral-700 mt-2">
+                        Вы можете оставить свой отзыв о нашей работе, чтобы мы могли улучшить качество наших услуг, а так
+                        же ответить на ваши вопросы. </p>
                     <div id="callback_error_review" style="color: red;"></div>
                 </div>
 

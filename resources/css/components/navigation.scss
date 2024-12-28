@@ -1,140 +1,150 @@
 .navigation {
-    background: $bgBlack;
-    height: 100vh;
-    position: absolute;
-    top: -100%;
-    left: 0;
-    right: 0;
-    z-index: 10;
-    color: #fff;
-    transition: top 0.2s ease-in-out;
-    padding-top: 156px;
-    overflow-y: auto;
-    position: absolute;
-    &.active {
-        top: 0;
-    }
+  background: $bgBlack;
+  height: 100vh;
+  position: fixed;
+  top: -100%;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  color: #fff;
+  transition: top 0.2s ease-in-out;
+  padding-top: 156px;
+  overflow-y: auto;
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+  overflow-y: scroll;
+  &.active {
+    top: 0;
+  }
 }
 
 .navigation-wrap {
-    display: grid;
-    grid-template-columns: 340px 1fr;
-    justify-content: space-between;
-    gap: 40px;
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
 }
 
 .nav-left {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .navigation-left {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  gap: 24px;
 
-    a {
-        transition: color 0.2s ease-in-out;
+  a {
+    transition: color 0.2s ease-in-out;
 
-        &:hover {
-            color: $textAccent;
-        }
+    &:hover {
+      color: $textAccent;
     }
+  }
 }
 
 .nav-left-policy {
-    display: flex;
-    flex-direction: column;
-    color: #565656;
-    font-size: 14px;
-    line-height: 100%;
-    gap: 8px;
+  display: flex;
+  flex-direction: column;
+  color: #565656;
+  font-size: 14px;
+  line-height: 100%;
+  gap: 8px;
 }
 
 .navigation-right {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 60px 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 60px 20px;
+  padding-bottom: 40px;
 }
 
 .nav-group {
-    .divider {
-        margin: 8px 0;
-    }
+  .divider {
+    margin: 8px 0;
+  }
 }
 .nav-group__top {
-    height: 38px;
-    a {
-        transition: color 0.2s ease-in-out;
+  height: 38px;
+  a {
+    transition: color 0.2s ease-in-out;
 
-        &:hover {
-            color: $textAccent;
-        }
+    &:hover {
+      color: $textAccent;
     }
+  }
 }
 
 .nav-group__links {
-    margin-top: 16px;
-    color: #b1b1b1;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    font-size: 14px;
-    line-height: 120%;
-    a {
-        transition: color 0.2s ease-in-out;
+  margin-top: 16px;
+  color: #b1b1b1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+  line-height: 120%;
+  a {
+    transition: color 0.2s ease-in-out;
 
-        &:hover {
-            color: $textAccent;
-        }
+    &:hover {
+      color: $textAccent;
     }
+  }
 }
 
 @media screen and (max-width: 1440px) {
-    .navigation-right {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 60px 32px;
-    }
+  .navigation-right {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px 32px;
+  }
 }
 
 @media screen and (max-width: 1200px) {
-    .navigation-right {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 60px 32px;
-    }
+  .navigation-right {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px 32px;
+  }
 
-    .navigation-wrap {
-        display: grid;
-        grid-template-columns: 200px 1fr;
-        justify-content: space-between;
-        gap: 40px;
-    }
+  .navigation-wrap {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    justify-content: space-between;
+    gap: 40px;
+  }
 }
 
 @media screen and (max-width: 768px) {
-    .navigation {
-        padding-top: 96px;
-    }
-    .navigation-wrap {
-        display: grid;
-        grid-template-columns: 1fr;
-        justify-content: space-between;
-        gap: 40px;
-    }
-    .navigation-right {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 60px 32px;
-        padding-bottom: 96px;
-    }
+  .navigation {
+    padding-top: 96px;
+  }
+
+  .navigation-left {
+    position: static;
+  }
+  .navigation-wrap {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: space-between;
+    gap: 40px;
+  }
+  .navigation-right {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px 32px;
+    padding-bottom: 96px;
+  }
 }
 
 @media screen and (max-width: 550px) {
-    .navigation-right {
-        grid-template-columns: repeat(1, 1fr);
-        gap: 60px 32px;
-        padding-bottom: 96px;
-    }
+  .navigation-right {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 60px 32px;
+    padding-bottom: 96px;
+  }
 }
 
 @media screen and (max-width: 320px) {

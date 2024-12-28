@@ -3,7 +3,7 @@
         <div class="services-section__top">
             <h2 class="h2">{{ $block->h1_title }}</h2>
 
-            <x-ui.button-arrow text="Все услуги" class="" href="{{ route('services') }}" />
+            <x-ui.button-arrow text="Все услуги" class="max-[768px]:hidden" href="{{ route('services') }}" />
         </div>
 
         <div class="services-items">
@@ -20,5 +20,11 @@
                 <p>{{ __('admin.notification_no_entries') }}</p>
             @endforelse
         </div>
+
+        <div class="hidden max-[768px]:flex mx-auto justify-center  mt-4">
+
+            <x-ui.button-arrow text="Все услуги" class="" href="{{ route('services') }}" />
+        </div>
+
     </div>
 </section>

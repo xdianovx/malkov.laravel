@@ -1,100 +1,100 @@
 .callback-section {
-    background: #ece0ce;
-    padding: 64px 0;
-    position: relative;
-    overflow: hidden;
+  background: #ece0ce;
+  padding: 64px 0;
+  position: relative;
+  overflow: hidden;
 }
 
 .callback-wrap {
-    display: flex;
-    max-width: 954px;
-    width: 100%;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
+  display: flex;
+  max-width: 954px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 .callback__left {
-    max-width: 468px;
-    width: 100%;
+  max-width: 468px;
+  width: 100%;
 }
 
 .callback-text {
-    max-width: 348px;
-    width: 100%;
-    margin-top: 16px;
-    font-weight: 300;
+  max-width: 348px;
+  width: 100%;
+  margin-top: 16px;
+  font-weight: 300;
 }
 
 .callback__right {
-    width: 100%;
-    max-width: 348px;
-    margin-left: auto;
+  width: 100%;
+  max-width: 348px;
+  margin-left: auto;
 }
 
 .callback-form {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .partical {
-    position: absolute;
-    background: $bgAccent;
-    opacity: 0.8;
-    border-radius: 100%;
+  position: absolute;
+  background: $bgAccent;
+  opacity: 0.8;
+  border-radius: 100%;
 }
 
 .partical-r {
-    width: 1554px;
-    top: -45px;
-    right: -1100px;
-    height: 1554px;
+  width: 1554px;
+  top: -45px;
+  right: -1100px;
+  height: 1554px;
 }
 .partical-l {
-    width: 1554px;
-    top: -900px;
-    left: -1160px;
-    height: 1554px;
+  width: 1554px;
+  top: -900px;
+  left: -1160px;
+  height: 1554px;
 }
 
 @media screen and (max-width: 1440px) {
-    .callback-section {
-        padding: 48px 0;
-    }
+  .callback-section {
+    padding: 48px 0;
+  }
 }
 
 @media screen and (max-width: 1200px) {
-    .callback-section {
-        padding: 32px 0;
-    }
+  .callback-section {
+    padding: 32px 0;
+  }
 
-    .partical-r {
-        right: -1200px;
-    }
-    .partical-l {
-        left: -1400px;
-    }
+  .partical-r {
+    right: -1200px;
+  }
+  .partical-l {
+    left: -1400px;
+  }
 }
 
 @media screen and (max-width: 768px) {
-    .callback-section {
-    }
-    .callback-wrap {
-        flex-direction: column;
-        justify-content: start;
-        max-width: 320px;
-    }
+  .callback-section {
+  }
+  .callback-wrap {
+    flex-direction: column;
+    justify-content: start;
+    // max-width: 320px;
+  }
 
-    .callback__right {
-        margin-left: 0;
-        max-width: none;
-    }
+  .callback__right {
+    margin-left: 0;
+    max-width: none;
+  }
 
-    .partical {
-        display: none;
-    }
+  .partical {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 550px) {

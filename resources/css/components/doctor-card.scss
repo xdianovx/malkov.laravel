@@ -1,86 +1,86 @@
 .doctor-item {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-    img {
-        aspect-ratio: 6/7;
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-        display: block;
-    }
+  img {
+    aspect-ratio: 6/7;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+  }
 }
 .doctor-item__info {
-    padding-top: 12px;
+  padding-top: 12px;
 }
 
 .doctor-item__name {
-    font-family: "Nunito", sans-serif;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 120%; /* 24px */
-    text-transform: uppercase;
-    min-height: 48px;
+  font-family: "Nunito", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%; /* 24px */
+  text-transform: uppercase;
+  min-height: 48px;
 }
 
 .doctor-item__prof {
-    margin-top: 16px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px;
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
 }
 
 .doctor-item__list {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .doctor-item__list-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    line-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  line-height: 100%;
 
-    .spacer {
-        flex-grow: 1;
-        height: 1px;
-        margin: 0 16px;
-        border-bottom: 1px dashed #d9d9d9;
-    }
+  .spacer {
+    flex-grow: 1;
+    height: 1px;
+    margin: 0 16px;
+    border-bottom: 1px dashed #d9d9d9;
+  }
 }
 
 .doctor-item__modal-btn {
-    margin-left: auto;
-    cursor: pointer;
-    margin-top: 20px;
-    background: transparent;
-    color: $textAccent;
-    display: flex;
-    align-items: center;
-    border: none;
-    padding: 0;
+  margin-left: auto;
+  cursor: pointer;
+  margin-top: 20px;
+  background: transparent;
+  color: $textAccent;
+  display: flex;
+  align-items: center;
+  border: none;
+  padding: 0;
 
-    svg {
-        margin-left: 8px;
-    }
+  svg {
+    margin-left: 8px;
+  }
 }
 
 @media screen and (max-width: 1440px) {
-    .doctor-item__name {
-        font-size: 18px;
-    }
+  .doctor-item__name {
+    font-size: 18px;
+  }
 }
 
 @media screen and (max-width: 1200px) {
 }
 
 @media screen and (max-width: 768px) {
-    .doctor-item__name {
-        font-size: 16px;
-    }
+  .doctor-item__name {
+    font-size: 16px;
+  }
 }
 
 @media screen and (max-width: 550px) {

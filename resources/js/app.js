@@ -78,3 +78,20 @@ const swiperReviews = new Swiper(".reviews-slider", {
     },
   },
 });
+const doctorDocsSlider = new Swiper(".doctor-docs-slider", {
+  spaceBetween: 16,
+  autoplay: true,
+  speed: 300,
+  navigation: {
+    nextEl: ".btn-arrow-next",
+    prevEl: ".btn-arrow-prev",
+  },
+  breakpoints: {
+    320: {
+      slidesPerView: 1,
+    },
+    1200: {
+      slidesPerView: 4,
+    },
+  },
+});

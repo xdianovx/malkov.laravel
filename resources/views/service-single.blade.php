@@ -31,17 +31,19 @@
                 <h2 class="h2 text-gold">Перечень услуг:</h2>
                 <ul class="mt-10 flex flex-col gap-3">
                     @foreach ($service->prices->sortBy('id') as $price)
-                        <div class="flex justify-between max-[550px]:flex-col max-[550px]:gap-2">
-                            <a class="shrink-0 hover:text-gold transition-colors duration-300"
+                        <div
+                            class="flex justify-between max-[1200px]:flex-col max-[1200px]:gap-2 max-[1200px]:border-b max-[1200px]:pb-4 max-[550px]:gap-1 max-[550px]:pb-2">
+                            <a class="shrink-0 hover:text-gold transition-colors duration-300 max-[1200px]:text-[18px] max-[1200px]:font-semibold"
                                 href="{{ $price->link_service }}">
                                 {{ $price->title }}
                             </a>
 
-                            <div class="border-b border-gray-300 border-dashed w-full mb-[6px] mx-4 max-[550px]:hidden">
+                            <div class="border-b border-gray-300 border-dashed w-full mb-[6px] mx-4 max-[1200px]:hidden">
                             </div>
 
 
-                            <div class="shrink-0 grow max-[550px]:ml-auto">от {{ $price->price }} руб.</div>
+                            <div class="shrink-0 grow max-[1200px]:ml-auto max-[1200px]:text-gold">от {{ $price->price }}
+                                руб.</div>
                         </div>
                     @endforeach
                 </ul>

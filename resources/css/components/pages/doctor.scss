@@ -37,18 +37,37 @@
 }
 
 .section-doctor-btn {
-  margin-top: 64px;
+  margin-top: 40px;
 }
 
 .section-doctor__info_content-mob {
   display: none;
 }
 
+.doctor-exp-section {
+  margin-top: 80px;
+}
+
+.doc-services-section {
+  margin-top: 120px;
+}
+
+.doc-diplomas-section {
+  margin-top: 120px;
+}
 .diplomas-items {
-  margin-top: 40px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 40px 16px;
+  margin-top: 20px;
+}
+
+.diplom-item {
+  display: flex;
+
+  img {
+    aspect-ratio: 8.5/11;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid rgba(#000000, 0.7);
+  }
 }
 
 .diplom-item__image {
@@ -66,8 +85,9 @@
 }
 
 .diplom-item__title {
-  margin-top: 16px;
-  font-size: 18px;
+  margin-top: 8px;
+  font-weight: 500;
+  line-height: 130%;
 }
 
 .diplom-item__text {

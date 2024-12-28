@@ -1,113 +1,115 @@
 .index-hero {
-    margin-top: 120px;
+  margin-top: 60px;
 }
 
 .index-hero__suptitle {
-    color: $textAccent;
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 100%;
+  color: $textAccent;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 100%;
 }
 
 .index-hero__description {
-    color: #565656;
-    max-width: 348px;
-    width: 100%;
-    margin-left: auto;
+  color: #565656;
+  max-width: 348px;
+  width: 100%;
+  margin-left: auto;
 }
 
 .index-hero__wrap {
-    display: flex;
-    align-items: flex-end;
+  display: flex;
+  align-items: flex-end;
 }
 
 .numbers {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .numbers__wrap {
-    display: grid;
-    padding: 20px 0;
-    grid-template-columns: repeat(4, 1fr);
-    justify-content: space-between;
-    border-top: 1px solid $bgAccent;
-    border-bottom: 1px solid $bgAccent;
+  display: grid;
+  padding: 20px 0;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: space-between;
+  border-top: 1px solid $bgAccent;
+  border-bottom: 1px solid $bgAccent;
 }
 
 .numbers__item {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-start;
 }
 
 .numbers__item-num {
-    font-family: "Forum", serif;
-    color: $textBlue;
-    font-size: 80px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 80%;
+  font-family: "Forum", serif;
+  color: $textBlue;
+  font-size: 80px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 80%;
 }
 
 @media screen and (max-width: 1440px) {
-    .index-hero {
-        margin-top: 60px;
-    }
+  .index-hero {
+    margin-top: 60px;
+  }
 
-    .numbers__item-num {
-        font-size: 72px;
-    }
+  .numbers__item-num {
+    font-size: 72px;
+  }
 }
 
 @media screen and (max-width: 1200px) {
-    .index-hero {
-        margin-top: 40px;
-    }
-    .index-hero__wrap {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 6px;
-    }
+  .index-hero {
+    margin-top: 16px;
+  }
+  .index-hero__wrap {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
 
-    .index-hero__description {
-        font-size: 14px;
-        line-height: 130%;
-        margin-top: 24px;
-    }
-    .numbers__item-num {
-        font-size: 40px;
-    }
+  .index-hero__description {
+    font-size: 14px;
+    line-height: 130%;
+    margin-top: 24px;
+  }
+  .numbers__item-num {
+    font-size: 40px;
+  }
 
-    .numbers__item-descr {
-        font-size: 14px;
-    }
+  .numbers__item-descr {
+    font-size: 14px;
+  }
 }
 
 @media screen and (max-width: 768px) {
-    .index-hero__suptitle {
-        font-size: 10px;
-    }
+  .index-hero__suptitle {
+    font-size: 10px;
+  }
 
-    .index-hero__description {
-        max-width: 50%;
-        font-size: 14px;
-    }
+  .index-hero__description {
+    max-width: 50%;
+    font-size: 14px;
+    margin-top: 4px;
+  }
 
-    .numbers__wrap {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 24px;
-    }
+  .numbers__wrap {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
 }
 
 @media screen and (max-width: 550px) {
-    .index-hero__description {
-        max-width: none;
-    }
+  .index-hero__description {
+    max-width: none;
+  }
 
-    .numbers__wrap {
-        grid-template-columns: repeat(1, 1fr);
-    }
+  .numbers__wrap {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 16px;
+  }
 }
 
 @media screen and (max-width: 320px) {

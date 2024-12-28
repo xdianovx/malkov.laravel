@@ -5,7 +5,7 @@
         <div class="container">
             <h1 class="h1 uppercase">{!! $page->title_h1 !!}</h1>
 
-            <div class="about-hero__wrap">
+            <div class="about-hero__wrap text-neutral-600">
                 {!! $page->description !!}
             </div>
         </div>
@@ -31,11 +31,18 @@
 
     <section class="section section-interrior">
         <div class="container">
+            <div class="content">
+                <h3>Тут необходимо расписать информацию о клинике более подробно</h3>
+            </div>
+        </div>
+    </section>
+    <section class="section section-interrior">
+        <div class="container">
             <h2 class="h2">{!! $block_modern_offices->title !!}</h2>
             <p class="faq-section__text">
                 {!! $block_modern_offices->description !!}
             </p>
-            <div class="section-services__items">
+            <div class="grid grid-cols-4 gap-2 mt-4">
                 @forelse($block_modern_offices->modern_offices as $item_modern_office)
                     <div class="service-item__img">
                         <a href="{{ asset('storage/' . $item_modern_office->file) }}" data-fancybox="gallery">

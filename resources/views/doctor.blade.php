@@ -1,8 +1,6 @@
-
 @extends('layouts.main')
 
 @section('content')
-
     <section class="section hero section-doctor">
         <div class="container">
             <div class="section-doctor__wrap">
@@ -12,14 +10,20 @@
                     <h1 class="h1 uppercase">
                         {!! $specialist->h1_title !!}
                     </h1>
-                    <h3><strong>Образование и курсы</strong></h3>
+                    {{-- <h3><strong>Образование и курсы</strong></h3> --}}
                     <div class="section-doctor__info_content">
-                        @foreach (json_decode($specialist->education, true) as $education)
-                        <p>{{ $education }}</p>
-                         @endforeach
+                        {{-- @foreach (json_decode($specialist->education, true) as $education)
+                            <p>{{ $education }}</p>
+                        @endforeach --}}
+
+                        <p>{!! $specialist->meta_description !!}</p>
+
                     </div>
 
-                    <x-ui.button-arrow class="accent section-doctor-btn" data-micromodal-trigger="modal-callback" text="Записаться к врачу"/>
+                    {{-- <hr class="mt-8"> --}}
+
+                    <x-ui.button-arrow class="accent section-doctor-btn" data-micromodal-trigger="modal-callback"
+                        text="Записаться к врачу" />
                 </div>
             </div>
 
@@ -33,42 +37,50 @@
 
     <section class="section doctor-exp-section">
         <div class="container">
-            {!! $specialist->description !!}
+            <h2 class="h2 mb-5">О специалисте</h2>
+            <div class="content ">
+                {!! $specialist->description !!}
+            </div>
         </div>
     </section>
-    <section class="section services-section">
+    <section class="section doc-services-section">
         <div class="container">
             <h2 class="h2">Оказываемые услуги</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="mt-5 flex flex-col gap-2">
                 @foreach ($specialist->services as $service)
-                    <div class="service-item service-item--image">
-                        <div class="service-item__image">
-                            <img src="{{ asset('storage') . '/' . $service->image }}" alt="">
+                    <a href="{{ route('service-single', $service->slug) }}" class="flex justify-between">
+                        <h3 class="shrink-0 font-bold">{!! $service->title !!}</h3>
+                        <div class="border-b border-gray-300 border-dashed w-full mb-[6px] mx-4 max-[1200px]:hidden">
                         </div>
-                        <div class="service-item__body">
-                            <h3 class="service-item__title">{!! $service->title !!}</h3>
-                            <div class="service-item__price">{!! $service->price !!}</div>
-                            <p class="service-item__text">{!! $service->description !!}</p>
-                            <a href="{{ route('service-single', $service->slug) }}" class="service-item__link">Подробнее</a>
-                        </div>
-                    </div>
+                        <p class="service-item__link">Подробнее</p>
+
+                    </a>
                 @endforeach
             </div>
         </div>
     </section>
-    <section class="section">
+    <section class="section doc-diplomas-section">
         <div class="container">
-            <h2 class="h2">Дипломы и сертификаты</h2>
-            <div class="diplomas-items">
-                @foreach ($specialist->documents as $document)
-                    <div class="diplom-item">
-                        <div class="diplom-item__image">
-                            <img src="{{ asset('storage') . '/' . $document->image }}" alt="">
+            <h2 class="h2">Дипломы и сертификаты ({{ $specialist->documents->count() }})</h2>
+
+
+            <div class="swiper doctor-docs-slider diplomas-items">
+                <div class="swiper-wrapper">
+                    @foreach ($specialist->documents as $document)
+                        <div class="swiper-slide">
+                            <div class="diplom-item flex flex-col">
+                                <a href="{{ asset('storage') . '/' . $document->image }}" data-fancybox="gallery"
+                                    data-caption="{!! $document->description !!}">
+                                    <img src="{{ asset('storage') . '/' . $document->image }}" />
+                                </a>
+
+                                <h3 class="diplom-item__title">{!! $document->title !!}</h3>
+                                <p class="diplom-item__text">{!! $document->description !!}</p>
+                            </div>
                         </div>
-                        <h3 class="diplom-item__title">{!! $document->title !!}</h3>
-                        <p class="diplom-item__text">{!! $document->description !!}</p>
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
+
             </div>
         </div>
     </section>
@@ -77,11 +89,11 @@
     @endif
 
     @if ($block_callback_form->is_active != null)
-    <x-sections.callback :block="$block_callback_form"/>
+        <x-sections.callback :block="$block_callback_form" />
     @endif
 
     @if ($block_specialists->is_active != null)
-    <x-sections.doctors :block="$block_specialists" :data="$specialists"/>
+        <x-sections.doctors :block="$block_specialists" :data="$specialists" />
     @endif
     <section class="section"></section>
 @endsection()
