@@ -3,17 +3,20 @@
 @section('content')
     <section class="section hero section-reviews">
         <div class="container">
-            <div class="flex flex-col gap-10">
+            <div class="flex flex-col gap-4 mb-">
+                <div class="mb-0 flex justify-start">{{ Breadcrumbs::render('reviews') }}</div>
+
                 <h1 class="h1 uppercase">{{ $page->title_h1 }}</h1>
-                <div class=" section-reviews__description">
+                <div
+                    class=" section-reviews__description text-neutral-700 max-[768px]:text-[14px] max-[768px]:leading-[140%]">
                     {!! $page->description !!}
                 </div>
-                <div class="divider horizontal gray "></div>
+                <div class="divider horizontal gray mt-6  max-[768px]:mt-2"></div>
             </div>
         </div>
     </section>
 
-    <section class="stock-items-sections mt-10">
+    <section class="stock-items-sections mt-8">
         <div class="container">
             <div class="stock-items-sections__items grid gap-4" id="stockCatalog">
                 @forelse($reviews as $item)
