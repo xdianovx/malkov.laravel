@@ -10,6 +10,7 @@
                 <h1 class="h1 uppercase max-[768px]:text-center">
                     {!! $page->title_h1 !!}
                 </h1>
+
                 <x-ui.socials class="contacts-hero__socials" />
             </div>
             <div class="divider horizontal gray"></div>
