@@ -110,11 +110,14 @@
 }
 
 @media screen and (max-width: 768px) {
+  .about-hero {
+    margin-top: 32px !important;
+  }
   .about-hero__wrap {
     gap: 16px;
-    margin-top: 16px;
+    line-height: 140%;
+    margin-top: 8px;
     font-size: 14px;
-    line-height: 130%;
     flex-direction: column;
   }
 }

@@ -3,16 +3,20 @@
 @section('content')
     <section class="section hero">
         <div class="container">
-            {{-- <div class="flex mb-2 max-[1200px]:justify-center">
-                {{ Breadcrumbs::render('services', $service_page) }}
-            </div> --}}
+            <div class="flex mb-2 max-[1200px]:justify-center">
+                {{ Breadcrumbs::render('services') }}
+            </div>
 
-            <div class="hero-services__top max-[1200px]:flex-col max-[1200px]:items-center max-[1200px]:gap-4">
+            <div class="flex flex-col gap-4 pb-8">
                 <h1 class="h1 uppercase max-[1200px]:text-center">
                     {!! $page->title !!}
                 </h1>
 
-                <button data-micromodal-trigger="modal-callback" class="btn --accent ml-auto max-[1200px]:ml-0">Бесплатная
+                <p class="text-neutral-600"> {!! $page->description !!}</p>
+
+
+
+                <button data-micromodal-trigger="modal-callback" class="btn --accent mr-auto max-[1200px]:ml-0">Бесплатная
                     консультация</button>
             </div>
 

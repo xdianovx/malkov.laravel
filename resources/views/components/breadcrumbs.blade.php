@@ -1,5 +1,5 @@
 @unless ($breadcrumbs->isEmpty())
-    <ol class="breadcrumb flex flex-wrap gap-x-2 justify-center text-center">
+    <ol class="breadcrumb flex flex-wrap gap-x-2 justify-center text-center max-[768px]:text-[14px]">
         @foreach ($breadcrumbs as $breadcrumb)
             @if (!is_null($breadcrumb->url) && !$loop->last)
                 <li class="flex items-center gap-2 group">

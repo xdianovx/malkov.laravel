@@ -85,7 +85,7 @@
   }
 
   .stock-slide__title {
-    font-size: 18px;
+    font-size: 20px;
   }
 
   .stock-slide img {
@@ -101,7 +101,11 @@
 
 @media screen and (max-width: 768px) {
   .stock-slide__info {
-    padding: 16px;
+    padding: 12px;
+  }
+
+  .stock-slide .divider {
+    margin: 12px 0;
   }
 }
 

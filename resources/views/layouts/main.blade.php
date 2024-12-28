@@ -27,11 +27,11 @@
 
     <x-navigation />
     <x-header />
-    <section class="mt-4">
+    {{-- <section class="mt-4">
         <div class="container">
             <x-ui.breadcrumbs class="breadcrumbs" />
         </div>
-    </section>
+    </section> --}}
     <main>
         @yield('content')
     </main>

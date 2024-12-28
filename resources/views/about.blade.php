@@ -2,6 +2,11 @@
 
 @section('content')
     <section class="section hero about-hero">
+        <div class="flex items-start mb-4 max-[768px]:mb-2">
+            <div class="container flex">
+                {{ Breadcrumbs::render('about') }}
+            </div>
+        </div>
         <div class="container">
             <h1 class="h1 uppercase">{!! $page->title_h1 !!}</h1>
 
@@ -42,7 +47,7 @@
             <p class="faq-section__text">
                 {!! $block_modern_offices->description !!}
             </p>
-            <div class="grid grid-cols-4 gap-2 mt-4">
+            <div class="grid grid-cols-4 gap-2 mt-4 max-[768px]:grid-cols-2">
                 @forelse($block_modern_offices->modern_offices as $item_modern_office)
                     <div class="service-item__img">
                         <a href="{{ asset('storage/' . $item_modern_office->file) }}" data-fancybox="gallery">
@@ -62,12 +67,15 @@
         <div class="container">
             <div class="section-director__wrap">
 
-                <div class="section-director__image">
+                <div class="section-director__image max-[1024px]:hidden">
                     <img src="{{ asset('img/malkov.jpg') }}" alt="Мальков Сергей Николаевич фото" />
                 </div>
 
                 <div class="section-director__info">
                     <h3 class="section-director__name">Мальков <br> Сергей Николаевич</h3>
+                    <div class="section-director__image max-[1024px]:block mt-2 hidden">
+                        <img src="{{ asset('img/malkov.jpg') }}" alt="Мальков Сергей Николаевич фото" />
+                    </div>
                     <p class="section-director__subtitle">Основатель клиники</p>
 
                     <p class="section-director__quote">“Я всегда хотел работать в своё удовольствие, никуда не спешить.
