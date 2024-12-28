@@ -41,6 +41,10 @@
     margin-top: 48px;
     color: $textBlue;
 
+    strong {
+      font-weight: 400 !important;
+    }
+
     &:nth-child(1) {
       margin-top: 0;
     }
