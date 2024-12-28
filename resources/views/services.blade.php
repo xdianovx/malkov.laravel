@@ -30,7 +30,7 @@
     <section class="section section-services">
         <div class="container">
 
-            <nav class="mt-10 grid grid-cols-2 gap-x-10 gap-y-10 max-[1200px]:grid-cols-1 max-[1200px]:gap-y-6">
+            <nav class="mt-10 grid grid-cols-1 gap-x-10 gap-y-10 max-[1200px]:grid-cols-1 max-[1200px]:gap-y-6">
                 @foreach ($parent_services as $parent_service)
                     <div class="">
                         <a class="font-serif text-blue text-2xl max-[1200px]:text-xl "
