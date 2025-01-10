@@ -79,7 +79,7 @@ class RequestsController extends Controller
       dispatch(new RequestModalMailSendJob($details));
       return response()->json(['status' => 'item-sent']);
     } catch (\Exception $e) {
-      return response()->json(['status' => 'error']);
+      return response()->json(['status' => 'error', 'message' => $e->getMessage()]);
     }
   }
 }

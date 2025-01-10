@@ -1,0 +1,48 @@
+networks:
+    net:
+          driver: bridge
+
+services:
+    nginx:
+        image: nginx:alpine
+        container_name: nginx
+        restart: unless-stopped
+        tty: true
+        ports:
+            - "80:80"
+            - "443:443"
+        volumes:
+            - .:/var/www/malkov
+            - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+        depends_on:
+            - malkov
+            - postgres_malkov
+        networks:
+            - net
+
+    postgres_malkov:
+        image: postgres:latest
+        container_name: postgres_malkov
+        restart: unless-stopped
+        tty: true
+        ports:
+            - "5861:5432"
+        environment:
+            POSTGRES_DB: malkov
+            POSTGRES_USER: dianov
+            POSTGRES_PASSWORD: aspire5745G
+        networks:
+            - net
+
+    malkov:
+        build:
+            context: .
+            dockerfile: ./Dockerfile
+        container_name: malkov
+        tty: true
+        volumes:
+            - .:/var/www/malkov
+            - ./conf/php.ini:/usr/local/etc/php/conf.d/php.ini
+        networks:
+            - net
+

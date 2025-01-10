@@ -21,15 +21,17 @@ RUN apt update && apt install -y \
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # NVM и Node.js
-RUN mkdir /usr/local/nvm && \
-    curl https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash && \
-    . /usr/local/nvm/nvm.sh && \
-    nvm install 22.3.0 && \
-    nvm alias default 22.3.0 && \
-    nvm use default
+RUN mkdir /usr/local/nvm
+ENV NVM_DIR /usr/local/nvm
+ENV NODE_VERSION 22.3.0
+RUN curl https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash \
+    && . $NVM_DIR/nvm.sh \
+    && nvm install $NODE_VERSION \
+    && nvm alias default $NODE_VERSION \
+    && nvm use default
 
-ENV NODE_PATH /usr/local/nvm/versions/node/v22.3.0/lib/node_modules
-ENV PATH /usr/local/nvm/versions/node/v22.3.0/bin:$PATH
+ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
+ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
 
 WORKDIR /var/www/malkov
 
