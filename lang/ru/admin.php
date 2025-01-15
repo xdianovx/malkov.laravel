@@ -151,6 +151,7 @@ return [
     'list_numbers' => 'Список цифр на главной',
 
     //Fields
+    'field_is_the_price_from' => 'Цена от(К цене добавится "от")',
     'field_og_site_image' => 'OG Изображение',
     'field_og_site_title' => 'OG Название сайта',
     'field_meta_title' => 'Meta Заголовок',

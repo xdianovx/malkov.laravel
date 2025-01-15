@@ -44,10 +44,12 @@
                             <div class="border-b border-gray-300 border-dashed w-full mb-[6px] mx-4 max-[1200px]:hidden">
                             </div>
 
-
                             <div class="shrink-0 grow max-[1200px]:ml-auto max-[1200px]:text-gold">
-                                {{ number_format((float) $price->price, 0, '', ' ') }}
-                                руб.</div>
+                              @if ($price->is_the_price_from == 'on')
+                              от {{ number_format((float)$price->price, 0, '', ' ') }} руб.
+                              @else
+                                  {{ number_format((float)$price->price, 0, '', ' ') }} руб.
+                              @endif
                         </div>
                     @endforeach
                 </ul>

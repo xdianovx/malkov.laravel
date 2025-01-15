@@ -53,13 +53,24 @@
                                     </div>
                                 </div>
 
-                                <div class="col-xxl-6 col-md-6">
+                                {{-- <div class="col-xxl-6 col-md-6">
                                     <div>
                                         <label for="valueInput" class="form-label">{{__('admin.field_discounted_price')}}</label>
                                         <input type="text" value="{{ old('discounted_price') }}" class="form-control"
                                             id="valueInput" name="discounted_price" placeholder="{{__('admin.placeholder_text')}}">
                                     </div>
-                                </div>
+                                </div> --}}
+
+                                <div class="col-xxl-6 col-md-6">
+                                  <div>
+                                      <div class="form-check form-switch">
+                                          <input class="form-check-input" type="checkbox" id="is_the_price_from" name="is_the_price_from"
+                                              {{ old('is_the_price_from') == 'on' ? 'checked' : '' }} role="switch">
+                                          <label class="form-check-label"
+                                              for="is_the_price_from">{{ __('admin.field_is_the_price_from') }}</label>
+                                      </div>
+                                  </div>
+                              </div>
 
                                 <div class="col-xxl-6 col-md-6">
                                     <div>

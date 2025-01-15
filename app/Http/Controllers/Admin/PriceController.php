@@ -27,6 +27,9 @@ class PriceController extends Controller
     public function store(StoreRequest $request, $service_slug)
     {
         $data = $request->validated();
+        if (!array_key_exists('is_the_price_from', $data)) {
+          $data['is_the_price_from'] = 'off';
+        }
         $service = Service::whereSlug($service_slug)->firstOrFail();
 
         $service->prices()->create($data);
@@ -44,7 +47,9 @@ class PriceController extends Controller
     {
         $price = Price::whereId($price_id)->firstOrFail();
         $data = $request->validated();
-
+        if (!array_key_exists('is_the_price_from', $data)) {
+          $data['is_the_price_from'] = 'off';
+        }
         $price->update($data);
         return redirect()->route('admin.services.show', $service_slug)->with('status', 'price-updated');
     }

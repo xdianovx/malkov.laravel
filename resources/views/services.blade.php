@@ -53,7 +53,7 @@
                                     </div>
 
 
-                                   
+
                                   <div class="shrink-0 grow max-[550px]:ml-auto  max-[768px]:text-gold">
                                   @extends('layouts.main')
 
@@ -111,7 +111,12 @@
 
 
                                     <div class="shrink-0 grow max-[550px]:ml-auto  max-[768px]:text-gold">от
-                                      {{ number_format((float)$price->price, 0, '', ' ') }} руб.</div>
+                                      @if ($price->is_the_price_from == 'on')
+                                                  от {{ number_format((float)$price->price, 0, '', ' ') }} руб.
+                                      @else
+                                          {{ number_format((float)$price->price, 0, '', ' ') }} руб.
+                                      @endif
+                                    </div>
                                 </div>
                                 </div>
                             @endforeach

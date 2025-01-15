@@ -71,7 +71,13 @@
                                 </tr>
                                 <tr>
                                     <th class="ps-0" scope="row">{{ __('admin.field_price') }}:</th>
-                                    <td class="text-muted">{{ $item->price }}</td>
+                                    <td class="text-muted">
+                                        @if ($item->is_the_price_from == 'on')
+                                            от {{ $item->price }}
+                                        @else
+                                            {{ $item->price }}
+                                        @endif
+                                    </td>
                                 </tr>
                                 @if ($item->discounted_price)
                                 <tr>

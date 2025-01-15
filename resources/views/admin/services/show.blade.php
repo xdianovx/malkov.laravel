@@ -259,7 +259,6 @@
                                         <th scope="col" style="width: 80px;">ID</th>
                                         <th scope="col">{{ __('admin.field_title') }}</th>
                                         <th scope="col">{{ __('admin.field_price') }}</th>
-                                        <th scope="col">{{ __('admin.field_discounted_price') }}</th>
                                         <th scope="col" style="width: 150px;">{{ __('admin.field_updated') }}</th>
                                         <th scope="col" style="width: 150px;">{{ __('admin.field_action') }}</th>
                                     </tr>
@@ -271,8 +270,13 @@
                                             <td><a
                                                     href="{{ route('admin.services.prices.show', [$item->slug, $price->id]) }}">{{ $price->title }}</a>
                                             </td>
-                                            <td>{{ $price->price }}</td>
-                                            <td>{{ $price->discounted_price }}</td>
+                                            <td class="text-muted">
+                                              @if ($price->is_the_price_from == 'on')
+                                                  от {{ $item->price }}
+                                              @else
+                                                  {{ $item->price }}
+                                              @endif
+                                            </td>
                                             <td>{{ $price->updated_at->diffForHumans() }}</td>
                                             <td>
 

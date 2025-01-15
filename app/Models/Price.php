@@ -12,6 +12,7 @@ class Price extends Model
     protected $fillable = [
         'title',
         'price',
+        'is_the_price_from',
         'discounted_price',
         'link_service',
         'description',

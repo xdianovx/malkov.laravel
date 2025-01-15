@@ -132,7 +132,7 @@ class ServiceController extends BaseController
   {
     $service = Service::whereSlug($service_slug)->firstOrFail();
     $service->childrenServices()->delete();
-
+    $service->prices()->delete();
     $service->delete();
     return redirect()->route('admin.services.index')->with('status', 'item-deleted');
   }
@@ -140,6 +140,7 @@ class ServiceController extends BaseController
   public function destroy_child($service_parent_slug, $service_slug)
   {
     $service = Service::whereSlug($service_slug)->firstOrFail();
+    $service->prices()->delete();
     $service->delete();
     return redirect()->route('admin.services.show', $service_parent_slug)->with('status', 'service-child-deleted');
   }
