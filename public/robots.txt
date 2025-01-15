@@ -8,3 +8,4 @@ Disallow: /admin
 Disallow: /private
 Disallow: /*print=
 Allow: /public
+Sitemap: https://dr-malkov.ru/sitemap.xml

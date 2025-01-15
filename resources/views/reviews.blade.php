@@ -128,9 +128,9 @@
 
 
     </section>
-
+    @if ($block_questions->is_active != 'off')
     <x-sections.faq :block="$block_questions" />
-
+    @endif
     <section class="section"></section>
 
 @endsection()

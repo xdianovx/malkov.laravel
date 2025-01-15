@@ -113,15 +113,15 @@
             </div>
         </div>
     </section>
-    @if ($block_reviews->is_active != null)
+    @if ($block_reviews->is_active != 'off')
         <x-sections.reviews-doctor :block="$block_reviews" :data="$reviews" />
     @endif
 
-    @if ($block_callback_form->is_active != null)
+    @if ($block_callback_form->is_active != 'off')
         <x-sections.callback :block="$block_callback_form" />
     @endif
 
-    @if ($block_specialists->is_active != null)
+    @if ($block_specialists->is_active != 'off')
         <x-sections.doctors :block="$block_specialists" :data="$specialists" />
     @endif
     <section class="section"></section>

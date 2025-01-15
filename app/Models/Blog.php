@@ -52,4 +52,8 @@ class Blog extends Model
     {
         UploadFiles::delete_files($item);
     }
+    public function getUrl($item)
+    {
+        return route('blog', $item->slug);
+    }
 }

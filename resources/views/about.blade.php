@@ -107,12 +107,13 @@
             </div>
         </div>
     </section>
-
+    @if ($block_services->is_active != 'off')
     <x-sections.services :block="$block_services" :data="$services" />
-
+    @endif
     <x-sections.map />
+    @if ($block_questions->is_active != 'off')
     <x-sections.faq :block="$block_questions" />
-
+    @endif
 
     <section class="section"></section>
 @endsection()

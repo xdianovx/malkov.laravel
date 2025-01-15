@@ -23,10 +23,26 @@ class StoreRequest extends FormRequest
     {
         return [
             'title' => ['required', 'max:70'],
-            'price'=> ['required', 'max:70'],
-            'discounted_price'=> ['nullable', 'max:70'],
+            'price'=> ['required', 'regex:/^\d+$/', 'max:70'],
+            'discounted_price'=> ['nullable', 'regex:/^\d+$/', 'max:70'],
             'link_service'  => ['nullable'],
             'description'  => ['nullable']
+        ];
+    }
+
+    /**
+     * @return array<string, string>
+     */
+    public function messages(): array
+    {
+        return [
+            'title.required' => 'Введите заголовок',
+            'title.max' => 'Заголовок не может быть длиннее 70 символов',
+            'price.required' => 'Введите цену',
+            'price.regex' => 'Цена должна быть числом без пробелов и символов',
+            'price.max' => 'Цена не может быть длиннее 70 символов',
+            'discounted_price.regex' => 'Цена должна быть числом без пробелов и символов',
+            'discounted_price.max' => 'Цена со скидкой не может быть длиннее 70 символов'
         ];
     }
 }

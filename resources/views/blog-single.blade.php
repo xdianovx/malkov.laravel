@@ -34,9 +34,11 @@
             </div>
         </div>
     </section>
-
+    @if ($block_callback_form->is_active != 'off')
     <x-sections.callback :block="$block_callback_form" />
+    @endif
+    @if ($block_articles_news->is_active != 'off')
     <x-sections.blogs :block="$block_articles_news" :data="$blogs" />
-
+    @endif
     <section class="section"></section>
 @endsection()

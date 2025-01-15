@@ -72,10 +72,14 @@
             });
         </script>
     @endif
-
+    @if ($block_callback_form->is_active != 'off')
     <x-sections.callback :block="$block_callback_form" />
+    @endif
+    @if ($block_services->is_active != 'off')
     <x-sections.services :block="$block_services" :data="$services" />
+    @endif
+    @if ($block_questions->is_active != 'off')
     <x-sections.faq :block="$block_questions" />
-
+    @endif
     <section class="section"></section>
 @endsection()
